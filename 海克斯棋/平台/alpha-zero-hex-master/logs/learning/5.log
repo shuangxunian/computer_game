@@ -1,0 +1,337 @@
+Load trainExamples from file
+File with trainExamples found. Read it.
+------ITER 90------
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.081s | Total: 0:01:28 | ETA: 0:00:01 | Loss_pi: 1.3334 | Loss_v: 0.134
+EPOCH ::: 2
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3198 | Loss_v: 0.129
+EPOCH ::: 3
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3050 | Loss_v: 0.127
+EPOCH ::: 4
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3086 | Loss_v: 0.127
+EPOCH ::: 5
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3073 | Loss_v: 0.126
+EPOCH ::: 6
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3074 | Loss_v: 0.127
+EPOCH ::: 7
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3024 | Loss_v: 0.121
+EPOCH ::: 8
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3116 | Loss_v: 0.122
+EPOCH ::: 9
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3038 | Loss_v: 0.122
+EPOCH ::: 10
+Training Net |################################| (1090/1090) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3051 | Loss_v: 0.124
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.742s | Total: 0:01:09 | ETA: 0:00:03
+NEW/PREV WINS : 9 / 31 ; DRAWS : 0
+REJECTING NEW MODEL
+------ITER 91------
+Self Play |################################| (100/100) Eps Time: 1.409s | Total: 0:02:20 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3450 | Loss_v: 0.134
+EPOCH ::: 2
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3307 | Loss_v: 0.129
+EPOCH ::: 3
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3166 | Loss_v: 0.127
+EPOCH ::: 4
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3222 | Loss_v: 0.127
+EPOCH ::: 5
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3137 | Loss_v: 0.125
+EPOCH ::: 6
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3040 | Loss_v: 0.126
+EPOCH ::: 7
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3106 | Loss_v: 0.126
+EPOCH ::: 8
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3040 | Loss_v: 0.126
+EPOCH ::: 9
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3129 | Loss_v: 0.126
+EPOCH ::: 10
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.2988 | Loss_v: 0.122
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.660s | Total: 0:01:06 | ETA: 0:00:02
+NEW/PREV WINS : 24 / 16 ; DRAWS : 0
+ACCEPTING NEW MODEL
+Checkpoint Directory exists!
+Checkpoint Directory exists!
+------ITER 92------
+Self Play |################################| (100/100) Eps Time: 1.411s | Total: 0:02:21 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3214 | Loss_v: 0.121
+EPOCH ::: 2
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3132 | Loss_v: 0.119
+EPOCH ::: 3
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3124 | Loss_v: 0.118
+EPOCH ::: 4
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3002 | Loss_v: 0.111
+EPOCH ::: 5
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3009 | Loss_v: 0.114
+EPOCH ::: 6
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3088 | Loss_v: 0.115
+EPOCH ::: 7
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.2983 | Loss_v: 0.118
+EPOCH ::: 8
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.2910 | Loss_v: 0.113
+EPOCH ::: 9
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.2872 | Loss_v: 0.111
+EPOCH ::: 10
+Training Net |################################| (1088/1088) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.2966 | Loss_v: 0.116
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.816s | Total: 0:01:12 | ETA: 0:00:03
+NEW/PREV WINS : 13 / 27 ; DRAWS : 0
+REJECTING NEW MODEL
+------ITER 93------
+Self Play |################################| (100/100) Eps Time: 1.347s | Total: 0:02:14 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3380 | Loss_v: 0.124
+EPOCH ::: 2
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3264 | Loss_v: 0.122
+EPOCH ::: 3
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3177 | Loss_v: 0.117
+EPOCH ::: 4
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3120 | Loss_v: 0.114
+EPOCH ::: 5
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.2980 | Loss_v: 0.118
+EPOCH ::: 6
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3045 | Loss_v: 0.115
+EPOCH ::: 7
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3168 | Loss_v: 0.117
+EPOCH ::: 8
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3000 | Loss_v: 0.111
+EPOCH ::: 9
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3139 | Loss_v: 0.113
+EPOCH ::: 10
+Training Net |################################| (1085/1085) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3124 | Loss_v: 0.111
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.543s | Total: 0:01:01 | ETA: 0:00:02
+NEW/PREV WINS : 20 / 20 ; DRAWS : 0
+REJECTING NEW MODEL
+------ITER 94------
+Self Play |################################| (100/100) Eps Time: 1.383s | Total: 0:02:18 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3499 | Loss_v: 0.130
+EPOCH ::: 2
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3345 | Loss_v: 0.121
+EPOCH ::: 3
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3121 | Loss_v: 0.122
+EPOCH ::: 4
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3050 | Loss_v: 0.121
+EPOCH ::: 5
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3167 | Loss_v: 0.118
+EPOCH ::: 6
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3128 | Loss_v: 0.118
+EPOCH ::: 7
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3068 | Loss_v: 0.114
+EPOCH ::: 8
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3149 | Loss_v: 0.114
+EPOCH ::: 9
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3057 | Loss_v: 0.116
+EPOCH ::: 10
+Training Net |################################| (1083/1083) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3007 | Loss_v: 0.113
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.789s | Total: 0:01:11 | ETA: 0:00:03
+NEW/PREV WINS : 8 / 32 ; DRAWS : 0
+REJECTING NEW MODEL
+------ITER 95------
+Self Play |################################| (100/100) Eps Time: 1.342s | Total: 0:02:14 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3660 | Loss_v: 0.125
+EPOCH ::: 2
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3380 | Loss_v: 0.114
+EPOCH ::: 3
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3052 | Loss_v: 0.111
+EPOCH ::: 4
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3248 | Loss_v: 0.107
+EPOCH ::: 5
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3211 | Loss_v: 0.109
+EPOCH ::: 6
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3128 | Loss_v: 0.108
+EPOCH ::: 7
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3066 | Loss_v: 0.107
+EPOCH ::: 8
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.2967 | Loss_v: 0.107
+EPOCH ::: 9
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3098 | Loss_v: 0.103
+EPOCH ::: 10
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.080s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3134 | Loss_v: 0.104
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.586s | Total: 0:01:03 | ETA: 0:00:02
+NEW/PREV WINS : 25 / 15 ; DRAWS : 0
+ACCEPTING NEW MODEL
+Checkpoint Directory exists!
+Checkpoint Directory exists!
+------ITER 96------
+Self Play |################################| (100/100) Eps Time: 1.370s | Total: 0:02:16 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3249 | Loss_v: 0.103
+EPOCH ::: 2
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3076 | Loss_v: 0.102
+EPOCH ::: 3
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3076 | Loss_v: 0.104
+EPOCH ::: 4
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3082 | Loss_v: 0.095
+EPOCH ::: 5
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3027 | Loss_v: 0.103
+EPOCH ::: 6
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3001 | Loss_v: 0.101
+EPOCH ::: 7
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.2944 | Loss_v: 0.099
+EPOCH ::: 8
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.2928 | Loss_v: 0.096
+EPOCH ::: 9
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3015 | Loss_v: 0.098
+EPOCH ::: 10
+Training Net |################################| (1082/1082) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3009 | Loss_v: 0.096
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.390s | Total: 0:00:55 | ETA: 0:00:02
+NEW/PREV WINS : 20 / 20 ; DRAWS : 0
+REJECTING NEW MODEL
+------ITER 97------
+Self Play |################################| (100/100) Eps Time: 1.349s | Total: 0:02:14 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3350 | Loss_v: 0.107
+EPOCH ::: 2
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3236 | Loss_v: 0.102
+EPOCH ::: 3
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3185 | Loss_v: 0.102
+EPOCH ::: 4
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3102 | Loss_v: 0.100
+EPOCH ::: 5
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3033 | Loss_v: 0.098
+EPOCH ::: 6
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3138 | Loss_v: 0.098
+EPOCH ::: 7
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3002 | Loss_v: 0.092
+EPOCH ::: 8
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3100 | Loss_v: 0.094
+EPOCH ::: 9
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3090 | Loss_v: 0.096
+EPOCH ::: 10
+Training Net |################################| (1079/1079) Data: 0.056s | Batch: 0.081s | Total: 0:01:27 | ETA: 0:00:01 | Loss_pi: 1.3013 | Loss_v: 0.097
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.800s | Total: 0:01:12 | ETA: 0:00:02
+NEW/PREV WINS : 17 / 23 ; DRAWS : 0
+REJECTING NEW MODEL
+------ITER 98------
+Self Play |################################| (100/100) Eps Time: 1.361s | Total: 0:02:16 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3536 | Loss_v: 0.106
+EPOCH ::: 2
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3181 | Loss_v: 0.103
+EPOCH ::: 3
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3209 | Loss_v: 0.100
+EPOCH ::: 4
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3092 | Loss_v: 0.098
+EPOCH ::: 5
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3071 | Loss_v: 0.098
+EPOCH ::: 6
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3010 | Loss_v: 0.094
+EPOCH ::: 7
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3081 | Loss_v: 0.091
+EPOCH ::: 8
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3107 | Loss_v: 0.094
+EPOCH ::: 9
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3062 | Loss_v: 0.095
+EPOCH ::: 10
+Training Net |################################| (1076/1076) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3045 | Loss_v: 0.092
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.496s | Total: 0:00:59 | ETA: 0:00:01
+NEW/PREV WINS : 20 / 20 ; DRAWS : 0
+REJECTING NEW MODEL
+------ITER 99------
+Self Play |################################| (100/100) Eps Time: 1.387s | Total: 0:02:18 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3697 | Loss_v: 0.110
+EPOCH ::: 2
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3314 | Loss_v: 0.104
+EPOCH ::: 3
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3277 | Loss_v: 0.099
+EPOCH ::: 4
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3114 | Loss_v: 0.094
+EPOCH ::: 5
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3040 | Loss_v: 0.095
+EPOCH ::: 6
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3150 | Loss_v: 0.096
+EPOCH ::: 7
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3098 | Loss_v: 0.097
+EPOCH ::: 8
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3030 | Loss_v: 0.095
+EPOCH ::: 9
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3074 | Loss_v: 0.091
+EPOCH ::: 10
+Training Net |################################| (1075/1075) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3036 | Loss_v: 0.094
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.664s | Total: 0:01:06 | ETA: 0:00:02
+NEW/PREV WINS : 25 / 15 ; DRAWS : 0
+ACCEPTING NEW MODEL
+Checkpoint Directory exists!
+Checkpoint Directory exists!
+------ITER 100------
+Self Play |################################| (100/100) Eps Time: 1.340s | Total: 0:02:14 | ETA: 0:00:02
+len(trainExamplesHistory) = 21  => remove the oldest trainExamples
+Checkpoint Directory exists!
+EPOCH ::: 1
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3175 | Loss_v: 0.095
+EPOCH ::: 2
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3104 | Loss_v: 0.088
+EPOCH ::: 3
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3096 | Loss_v: 0.093
+EPOCH ::: 4
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.2873 | Loss_v: 0.088
+EPOCH ::: 5
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3094 | Loss_v: 0.091
+EPOCH ::: 6
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3075 | Loss_v: 0.083
+EPOCH ::: 7
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.2954 | Loss_v: 0.087
+EPOCH ::: 8
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3005 | Loss_v: 0.088
+EPOCH ::: 9
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3036 | Loss_v: 0.087
+EPOCH ::: 10
+Training Net |################################| (1070/1070) Data: 0.056s | Batch: 0.081s | Total: 0:01:26 | ETA: 0:00:01 | Loss_pi: 1.3028 | Loss_v: 0.087
+PITTING AGAINST PREVIOUS VERSION
+Arena.playGames |################################| (41/20) Eps Time: 1.594s | Total: 0:01:03 | ETA: 0:00:02
+NEW/PREV WINS : 10 / 30 ; DRAWS : 0
+REJECTING NEW MODEL
+------ITER 101------
+Self Play |##                              | (7/100) Eps Time: 1.411s | Total: 0:00:09 | ETA: 0:02:08^CTraceback (most recent call last):
+  File "main.py", line 34, in <module>
+    c.learn()
+  File "/content/clouderizer/alphazero/code/Coach.py", line 108, in learn
+    iterationTrainExamples += self.executeEpisode()
+  File "/content/clouderizer/alphazero/code/Coach.py", line 58, in executeEpisode
+    pi = self.mcts.getActionProb(board, self.curPlayer, temp=temp)
+  File "/content/clouderizer/alphazero/code/MCTS.py", line 39, in getActionProb
+    self.search(board, player)
+  File "/content/clouderizer/alphazero/code/MCTS.py", line 146, in search
+    v = self.search(next_s, next_player)
+  File "/content/clouderizer/alphazero/code/MCTS.py", line 146, in search
+    v = self.search(next_s, next_player)
+  File "/content/clouderizer/alphazero/code/MCTS.py", line 146, in search
+    v = self.search(next_s, next_player)
+  [Previous line repeated 1 more time]
+  File "/content/clouderizer/alphazero/code/MCTS.py", line 96, in search
+    self.Ps[s], v = self.nnet.predict(canonicalBoard)
+  File "/content/clouderizer/alphazero/code/hex/pytorch/NNet.py", line 124, in predict
+    return torch.exp(pi).data.cpu().numpy()[0], v.data.cpu().numpy()[0]
+KeyboardInterrupt
+root@265e97f2a586:~/clouderizer/alphazero/code#

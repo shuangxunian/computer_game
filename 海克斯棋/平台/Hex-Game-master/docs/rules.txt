@@ -1,0 +1,5 @@
+The rules are quite simple:
+Each player has to join the sides
+of their colour with an unbroken chain.
+Only unoccupied tiles can be marked.
+Good luck!
