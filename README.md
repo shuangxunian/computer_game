@@ -5,3 +5,6 @@
 负责人联系方式：QQ 836473734
 
 注：各棋种代码仅供外校同学学习使用，严禁用来商业用途，如有需要请与本人联系。
+
+如果下载较慢请从此下载
+https://gitee.com/SAUMrWang_admin/computer_game
