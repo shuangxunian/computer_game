@@ -1,14 +1,13 @@
-//´úÂë°æ±¾		2017Äê¹úÈü 
-//±¾´úÂëÓÉÉòÑôº½¿Õº½Ìì´óÑ§¼ÆËã»ú²©ÞÄÐ­»á×Ü¸ºÔðÈËÍõÔ¾ÁØÍ³Ò»µ÷¿Ø
-//¶þ´òÒ»×é¸ºÔðÈË³Â¼ÑÓê£¬´÷ÅôËù´ø²©ÞÄ×é¿ª·¢Î¬»¤
-//´úÂëÀ´×Ô¹þ¹¤´ó¿ªÔ´´úÂë,ÓÉÒÔÉÏ³ÉÔ±Î¬»¤ 
-//±¾´úÂëÊÊÓÃÓÚÖÐ¹ú´óÑ§Éú¼ÆËã»ú²©ÞÄ´óÈü²©ÞÄÏîÄ¿2017°æ½»»¥Ð­Òé
-//±¾´úÂë½öÌá¹©½»»¥Ð­ÒéµÄÓÃ·¨Ê¾·¶ºÍ¼òµ¥AI²©ÞÄË¼Â·£¬¿ª·¢ÕßÐè×ÔÐÐ¸Ä½øÍêÉÆ´úÂë²ÎÈü
-//ÈçÓÐÒâ¼ûºÍ½¨ÒéÇëÓëÎÒÃÇ¾¡ÔçÁªÏµ
-//ÍõÔ¾ÁØ	QQ£º836473734
-//³Â¼ÑÓê	QQ£º1274162928
-//´÷Åô		QQ£º1219095374 
-#define kPlayerName "²ÎÈüÑ¡ÊÖÃû³Æ"
+//ä»£ç ç‰ˆæœ¬		2017å¹´å›½èµ› 
+//æœ¬ä»£ç ç”±æ²ˆé˜³èˆªç©ºèˆªå¤©å¤§å­¦è®¡ç®—æœºåšå¼ˆåä¼šæ€»è´Ÿè´£äººçŽ‹è·ƒéœ–ç»Ÿä¸€è°ƒæŽ§
+//äºŒæ‰“ä¸€ç»„è´Ÿè´£äººé™ˆä½³é›¨ï¼Œæˆ´é¹æ‰€å¸¦åšå¼ˆç»„å¼€å‘ç»´æŠ¤
+//æœ¬ä»£ç é€‚ç”¨äºŽä¸­å›½å¤§å­¦ç”Ÿè®¡ç®—æœºåšå¼ˆå¤§èµ›åšå¼ˆé¡¹ç›®2017ç‰ˆäº¤äº’åè®®
+//æœ¬ä»£ç ä»…æä¾›äº¤äº’åè®®çš„ç”¨æ³•ç¤ºèŒƒå’Œç®€å•AIåšå¼ˆæ€è·¯ï¼Œå¼€å‘è€…éœ€è‡ªè¡Œæ”¹è¿›å®Œå–„ä»£ç å‚èµ›
+//å¦‚æœ‰æ„è§å’Œå»ºè®®è¯·ä¸Žæˆ‘ä»¬å°½æ—©è”ç³»
+//çŽ‹è·ƒéœ–	QQï¼š836473734
+//é™ˆä½³é›¨	QQï¼š1274162928
+//æˆ´é¹		QQï¼š1219095374 
+#define kPlayerName "ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½"
 #define kPlaMax 500
 #include "DdzV200.h"
 
@@ -36,25 +35,25 @@ enum score
 };
 
 
-/*D01-START¼ÆËãµ±Ç°ÊÖÖÐÓàÅÆ¹ÀÖµ,Ô¤Éè²»²ð¶ÔÅÆºÍÁ¬ÅÆ£¬½¨Òé½øÒ»²½×ÔÐÐÍêÉÆ
-×îºóÐÞ¶©Õß:Ð»ÎÄ&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-11*/
+/*D01-STARTï¿½ï¿½ï¿½ãµ±Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¹ï¿½Öµ,Ô¤ï¿½è²»ï¿½ï¿½ï¿½ï¿½Æºï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ï¿½ï¿½ï¿½Þ¶ï¿½ï¿½ï¿½:Ð»ï¿½ï¿½&Ã·ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Þ¶ï¿½Ê±ï¿½ï¿½:15-02-11*/
 double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)	
 {
-	int i,mainpoint=AnalyzeMainPoint(outcards),type = AnalyzeTypeCount(outcards);	  //mainpoint ¼ÆËãÖ÷ÅÆ×îÐ¡³öÅÆµãÊý		typeÅÆÐÍ
-	int count=minHandCount(array,output_card(pDdz->iPlaOnHand));//ÒÔÊ£ÓàÅÆ³öÍêÊÖÊý×îµÍÎªÇ°Ìá£¬ÆäËûÒòËØÀÛ¼Æ²»µÃ³¬¹ý£¿·Ö   count ×îÉÙÄÜ³öÍêµÄÊÖÊý
-	double dSum =SUM - count*COF_HAND-2.5*num;//¹ÀÖµ	100;// 										//*****************iPlaOnHand¿ÉÄÜ´æÔÚÎÊÌâ***************************/
+	int i,mainpoint=AnalyzeMainPoint(outcards),type = AnalyzeTypeCount(outcards);	  //mainpoint ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½		typeï¿½ï¿½ï¿½ï¿½
+	int count=minHandCount(array,output_card(pDdz->iPlaOnHand));//ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Æ³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÎªÇ°ï¿½á£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Û¼Æ²ï¿½ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½   count ï¿½ï¿½ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	double dSum =SUM - count*COF_HAND-2.5*num;//ï¿½ï¿½Öµ	100;// 										//*****************iPlaOnHandï¿½ï¿½ï¿½Ü´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½***************************/
 	
-	/*check_card_1("¹ÀÖµ ³õÖµ",dSum);/*********************************************************    typeµÄÖµÖ»ÓÐ-1  ¶ÔËùÓÐÅÆ½øÐÐÅÆÐÍÅÐ¶Ï²»ºÏÊÊ  ********************/
-	/*check_card_1("×îÉÙ³öÅÆÊÖÊý",count);
-	check("¹ÀÖµ³ÌÐò");*/
+	/*check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½Öµ",dSum);/*********************************************************    typeï¿½ï¿½ÖµÖ»ï¿½ï¿½-1  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶Ï²ï¿½ï¿½ï¿½ï¿½ï¿½  ********************/
+	/*check_card_1("ï¿½ï¿½ï¿½Ù³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",count);
+	check("ï¿½ï¿½Öµï¿½ï¿½ï¿½ï¿½");*/
 	int  x;
 
-	int  Zd = 0, Dz1 = 0, Dz2 = 0;     //Zd:Õ¨µ¯µÄÊýÁ¿£¬Dz1£ºÍ³¼ÆºóµÄµ¥ÅÆµÄÊýÁ¿£¬Dz2£ºÎªÍ³¼ÆºóµÄË«ÅÆµÄºóÊ£Óàµ¥ÅÆµÄÊýÁ¿
-	int   Car_count = 0;               //ÊÖÖÐÊ£ÓàÅÆµÄÊýÁ¿
-	int  card_stye_deal[3][17] = { 0 };                    //´¦ÀíºóµÄÅÆ
-	for (i = 0; outcards[i] >= 0; i++)     //Í³¼ÆÊÖÖÐµÄÅÆ£¨´æÈëÊý×é£©
+	int  Zd = 0, Dz1 = 0, Dz2 = 0;     //Zd:Õ¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Dz1ï¿½ï¿½Í³ï¿½Æºï¿½Äµï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Dz2ï¿½ï¿½ÎªÍ³ï¿½Æºï¿½ï¿½Ë«ï¿½ÆµÄºï¿½Ê£ï¿½àµ¥ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
+	int   Car_count = 0;               //ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
+	int  card_stye_deal[3][17] = { 0 };                    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	for (i = 0; outcards[i] >= 0; i++)     //Í³ï¿½ï¿½ï¿½ï¿½ï¿½Ðµï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½é£©
 	{
-		//dSum = dSum - 50;                   //Ã¿¶àÒ»ÕÅÅÆ·ÖÊý¼õ50
+		//dSum = dSum - 50;                   //Ã¿ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½ï¿½ï¿½50
 		if(outcards[i]==52)
 			card_stye_deal[1][16]++;
 		else if(outcards[i]==53)
@@ -67,24 +66,24 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 		Car_count++;
 		
 	}
-	if(pDdz->iLastTypeCount==0)	//Ö÷¶¯³öÅÆ
+	if(pDdz->iLastTypeCount==0)	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 
-		if (card_stye_deal[1][16]>0||card_stye_deal[1][17]>0)                  //Íõ:Ã¿´Î¼Ó20·Ö
+		if (card_stye_deal[1][16]>0||card_stye_deal[1][17]>0)                  //ï¿½ï¿½:Ã¿ï¿½Î¼ï¿½20ï¿½ï¿½
 		{
-			if (card_stye_deal[1][16] == 1&&card_stye_deal[1][17] == 1)    //Á©Íõ
+			if (card_stye_deal[1][16] == 1&&card_stye_deal[1][17] == 1)    //ï¿½ï¿½ï¿½ï¿½
 			{
 				dSum = dSum +40;             
 			}
 		
-			else                                          //Ò»¸öÍõ
+			else                                          //Ò»ï¿½ï¿½ï¿½ï¿½
 			{
 				dSum = dSum +20;       
 			}
 		}
 		for (i = 3; i<16; i++)      
 		{
-		if (card_stye_deal[2][i]>0 && card_stye_deal[2][i+1]>0 && card_stye_deal[2][i + 2]>0 && card_stye_deal[2][i + 3]>0 && card_stye_deal[2][i + 4]>0) //µ¥Ë³¹ÀÖµ
+		if (card_stye_deal[2][i]>0 && card_stye_deal[2][i+1]>0 && card_stye_deal[2][i + 2]>0 && card_stye_deal[2][i + 3]>0 && card_stye_deal[2][i + 4]>0) //ï¿½ï¿½Ë³ï¿½ï¿½Öµ
 			{
 				dSum = dSum +18;		
 				card_stye_deal[2][i]=card_stye_deal[2][i]-1;
@@ -120,18 +119,18 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 					}
 				}
 			}
-		if (card_stye_deal[2][i] == 4)        //Õ¨µ¯µÄÊýÁ¿(Âú×ãËÄÕÅÅÆ)
+		if (card_stye_deal[2][i] == 4)        //Õ¨ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)
 			{
 				
 				dSum+=28;
 				card_stye_deal[2][i]=0;
 			}
-			if (card_stye_deal[2][i] == 3)        //ÈýÕÅÅÆ
+			if (card_stye_deal[2][i] == 3)        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			{
 				dSum+=12;
 				card_stye_deal[2][i]=0;
 			}
-			if (card_stye_deal[2][i] == 3)        //Á½ÕÅÅÆ
+			if (card_stye_deal[2][i] == 3)        //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			{
 				dSum+=8;
 				card_stye_deal[2][i]=0;
@@ -140,21 +139,21 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 			if (card_stye_deal[2][i] == 1)
 			{
 				
-				dSum+=3;     //µ¥¶ÀµÄÅÆ                    /******************************************************************************************/
+				dSum+=3;     //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½                    /******************************************************************************************/
 				card_stye_deal[2][i]=0;
 			}
 		}
 	}
-	else           //±»¶¯³öÅÆ
+	else           //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
-		if (card_stye_deal[1][16]>0||card_stye_deal[1][17]>0)                  //Íõ:Ã¿´Î¼Ó20·Ö
+		if (card_stye_deal[1][16]>0||card_stye_deal[1][17]>0)                  //ï¿½ï¿½:Ã¿ï¿½Î¼ï¿½20ï¿½ï¿½
 		{
-			if (card_stye_deal[1][16] == 1&&card_stye_deal[1][17] == 1)    //Á©Íõ
+			if (card_stye_deal[1][16] == 1&&card_stye_deal[1][17] == 1)    //ï¿½ï¿½ï¿½ï¿½
 			{
 				dSum = dSum +40;             
 			}
 		
-			else                                          //Ò»¸öÍõ
+			else                                          //Ò»ï¿½ï¿½ï¿½ï¿½
 			{
 				dSum = dSum +20;       
 			}
@@ -168,62 +167,62 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 	
 	//
 	//{
-	//	check("Ö÷¶¯³öÅÆ");
+	//	check("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	////	dSum += COF_MAINPOINT*mainpoint;//[1.5,8.5]
-	//	//°´ÕÕmainpoint´ÓÐ¡µ½´ó³ö
-	//	//Ë³>´ø>µ¥>Ë«	
-	//	check_card_1("ÅÆÐÍ",type);        /***************************************typeÖµÓÐÎÊÌâ*************************************************/
+	//	//ï¿½ï¿½ï¿½ï¿½mainpointï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	//	//Ë³>ï¿½ï¿½>ï¿½ï¿½>Ë«	
+	//	check_card_1("ï¿½ï¿½ï¿½ï¿½",type);        /***************************************typeÖµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½*************************************************/
 	//	switch(type/100)
 	//	{
 	//		case 11:
-	//			dSum +=0;// COF_TYPE*S_FourSingleDouble;             //ËÄ´ø¶þµ¥  ËÄ´ø¶þ¶Ô
-	//			check_card_1("¹ÀÖµ ËÄ´øºó",dSum);
+	//			dSum +=0;// COF_TYPE*S_FourSingleDouble;             //ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½  ï¿½Ä´ï¿½ï¿½ï¿½ï¿½ï¿½
+	//			check_card_1("ï¿½ï¿½Öµ ï¿½Ä´ï¿½ï¿½ï¿½",dSum);
 	//			break;
 	//		case 10:
-	//			dSum +=10;// COF_TYPE*S_LinkThreeSingleDouble;       //ÈýË³´øµ¥   ÈýË³´ø¶Ô
-	//			check_card_1("¹ÀÖµ ÈýË³´øºó",dSum);
+	//			dSum +=10;// COF_TYPE*S_LinkThreeSingleDouble;       //ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½   ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½
+	//			check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½Ë³ï¿½ï¿½ï¿½ï¿½",dSum);
 	//			break;
 	//		case 9:
-	//			dSum +=1;// COF_TYPE*S_LinkThree;                 //ÈýË³
-	//			check_card_1("¹ÀÖµ ÈýË³ºó",dSum);
+	//			dSum +=1;// COF_TYPE*S_LinkThree;                 //ï¿½ï¿½Ë³
+	//			check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½Ë³ï¿½ï¿½",dSum);
 	//			break;
 	//		case 8:
 	//			dSum +=19;// COF_TYPE*S_LinkDouble;               //Ë«Ë³
-	//			check_card_1("¹ÀÖµ Ë«Ë³ºó",dSum);
+	//			check_card_1("ï¿½ï¿½Öµ Ë«Ë³ï¿½ï¿½",dSum);
 	//			break;
 	//		case 7:
-	//			dSum +=18;// COF_TYPE*S_LinkSingle;              //µ¥Ë³
-	//			check_card_1("¹ÀÖµ µ¥Ë³ºó",dSum);
+	//			dSum +=18;// COF_TYPE*S_LinkSingle;              //ï¿½ï¿½Ë³
+	//			check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½Ë³ï¿½ï¿½",dSum);
 	//			break;
 	//		case 6:
-	//			dSum +=6;// COF_TYPE*S_ThreeOneDouble;         //Èý´øÒ» Èý´ø¶þ
-	//			check_card_1("¹ÀÖµ Èý´øºó",dSum);
+	//			dSum +=6;// COF_TYPE*S_ThreeOneDouble;         //ï¿½ï¿½ï¿½ï¿½Ò» ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	//			check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",dSum);
 	//			break;
 	//		case 5:
-	//			dSum +=12;// COF_TYPE*S_Three;                  //ÈýÕÅ
-	//			check_card_1("¹ÀÖµ ÈýÕÅÅÆºó",dSum);
+	//			dSum +=12;// COF_TYPE*S_Three;                  //ï¿½ï¿½ï¿½ï¿½
+	//			check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½ï¿½ï¿½ï¿½Æºï¿½",dSum);
 	//			break;
 	//		case 4:
-	//			dSum +=8;// COF_TYPE*S_Double;                 //¶Ô×Ó
-	//			check_card_1("¹ÀÖµ ¶Ô×Óºó",dSum);
+	//			dSum +=8;// COF_TYPE*S_Double;                 //ï¿½ï¿½ï¿½ï¿½
+	//			check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½ï¿½Óºï¿½",dSum);
 	//			break;
 	//		case 3:
-	//			dSum += 3;//COF_TYPE*S_Single;               //µ¥ÅÆ
-	//			check_card_1("¹ÀÖµ µ¥ÅÆºó",dSum);
+	//			dSum += 3;//COF_TYPE*S_Single;               //ï¿½ï¿½ï¿½ï¿½
+	//			check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½ï¿½Æºï¿½",dSum);
 	//			break;
 	//		case 2:
 	//		case 1:
-	//			dSum += 0;//ÓÅÏÈ¼¶×îµÍ
-	//			check_card_1("¹ÀÖµ ÆäËûºó",dSum);
+	//			dSum += 0;//ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½
+	//			check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",dSum);
 	//			break;
 	//		default:
-	//			dSum += 0;//ÓÅÏÈ¼¶×îµÍ
+	//			dSum += 0;//ï¿½ï¿½ï¿½È¼ï¿½ï¿½ï¿½ï¿½
 	//			break;
 	/*		
 	//	}*/	
-	//check_card_1("¹ÀÖµ Ö÷¶¯³öÅÆºó",dSum);
+	//check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æºï¿½",dSum);
 		/*
-		if(301 == pDdz->iLastTypeCount)//µ¥ÕÅ
+		if(301 == pDdz->iLastTypeCount)//ï¿½ï¿½ï¿½ï¿½
 			Help3Single(pDdz);
 		else if(402 == pDdz->iLastTypeCount)
 			Help4Double( pDdz);
@@ -254,39 +253,39 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 		Help1Rocket(pDdz);	
 		*/
 	//}
-	//else//±»¶¯³öÅÆ
+	//else//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	//{
-		//check("±»¶¯³öÅÆ");
-		////¿¼ÂÇËäÈ»ÄÜÓÐ´ó¹ýµÄÅÆ£¬µ«ÊÇ²»ÄÜ²ðµÃ¹ýÓÚÁãÉ¢£¬·ñÔòpass
-		////ÊÖÊýÏàÍ¬Ê±¿¼ÂÇÊ£ÓàÅÆµÄÓÅÊÆ
+		//check("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
+		////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È»ï¿½ï¿½ï¿½Ð´ï¿½ï¿½ï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½ï¿½Ç²ï¿½ï¿½Ü²ï¿½Ã¹ï¿½ï¿½ï¿½ï¿½ï¿½É¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pass
+		////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬Ê±ï¿½ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
 		//if(count==0)
 		//{
-		//	dSum = SUM;//±ØÐë³öÊÖ
+		//	dSum = SUM;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//	printf("we win!\n");
 		//}
-		//else if(count==1)                                    // count ×îÉÙÄÜ³öÍêµÄÊÖÊý
+		//else if(count==1)                                    // count ï¿½ï¿½ï¿½ï¿½ï¿½Ü³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//{
-		//	check("Ê£Ò»ÊÖ");
-		//	if(type==204)                              //202 Õ¨µ¯ 204ÊÇÕ¨µ¯
+		//	check("Ê£Ò»ï¿½ï¿½");
+		//	if(type==204)                              //202 Õ¨ï¿½ï¿½ 204ï¿½ï¿½Õ¨ï¿½ï¿½
 		//	{
 		//		int j;
 		//		for(j=0; j<3 && j!=pDdz->cDir-'A';j++)
 		//		{
-		//			if(pDdz->iLastCount[j]==4) break;           //µ±Ç°¸÷Íæ¼ÒÊÖÖÐÅÆÊý
+		//			if(pDdz->iLastCount[j]==4) break;           //ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//		}
 		//		if(j==3)
-		//			dSum = 0;//Ò²ÐíÄÜÒý³öÒ»¸öÕ¨ÄØ
+		//			dSum = 0;//Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Õ¨ï¿½ï¿½
 		//		else
-		//			dSum = SUM;//±ØÐë³öÊÖ
+		//			dSum = SUM;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//	}
-		//	else if(type==102)                             //104 ÍõÕ¨    102
+		//	else if(type==102)                             //104 ï¿½ï¿½Õ¨    102
 		//	{
 		//		int j;
 		//		for(j=0; j<3 && j!=pDdz->cDir-'A';j++)
 		//		{
 		//			if(pDdz->iLastCount[j]==2) break;
 		//		}
-		//		if(j<3 && pDdz->iLastPointArray[j]==0)//µ±Ç°ÓÐÍæ¼ÒÊÖÖÐ¿ÉÄÜÖ»Ê£»ð¼ý
+		//		if(j<3 && pDdz->iLastPointArray[j]==0)//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¿ï¿½ï¿½ï¿½Ö»Ê£ï¿½ï¿½ï¿½
 		//		{
 		//			dSum = -1;//pass
 		//		}
@@ -301,27 +300,27 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 		//			{
 		//				if(pDdz->iLastPointArray[k]==0) break;
 		//			}
-		//			if(j<3 && k<13)//µ±Ç°ÓÐÍæ¼ÒÊÖÖÐÖ»Ê£±È×Ô¼º´óµÄÕ¨
+		//			if(j<3 && k<13)//ï¿½ï¿½Ç°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö»Ê£ï¿½ï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Õ¨
 		//			{
 		//				dSum = -1;//pass
 		//			}
 		//			else
-		//			{//´ÓÐ¡µ½´ó
+		//			{//ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
 		//				dSum += COF_MAINPOINT*mainpoint;//[1.5,8.5]
 		//			}
 		//		}
 		//	}
-		//	else if(type==301)//µ¥
+		//	else if(type==301)//ï¿½ï¿½
 		//	{
 		//		int k;
-		//		for(k=mainpoint-3+1; k<13; k++)                         //mainpoint ¼ÆËãÖ÷ÅÆ×îÐ¡³öÅÆµãÊý
+		//		for(k=mainpoint-3+1; k<13; k++)                         //mainpoint ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½
 		//		{
-		//			if(pDdz->iLastPointArray[k]<4) break;                //Í³¼ÆÒÑÖªÅÆ£¬°´µãÊý¼ÆÊý--------------------------
+		//			if(pDdz->iLastPointArray[k]<4) break;                //Í³ï¿½ï¿½ï¿½ï¿½Öªï¿½Æ£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½--------------------------
 		//		}
-		//		if(k==13 && pDdz->iLastPointArray[13]==2)//ÎÞµÐÁË
-		//			dSum = SUM;//±ØÐë³öÊÖ
+		//		if(k==13 && pDdz->iLastPointArray[13]==2)//ï¿½Þµï¿½ï¿½ï¿½
+		//			dSum = SUM;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//		else
-		//		{//´ÓÐ¡µ½´ó
+		//		{//ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
 		//			dSum += COF_MAINPOINT*mainpoint;//[1.5,8.5]
 		//		}
 		//	}
@@ -332,10 +331,10 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 		//		{
 		//			if(pDdz->iLastPointArray[k]<3) break;
 		//		}
-		//		if(k==13 && pDdz->iLastPointArray[13]!=0)//ÎÞµÐÁË
-		//			dSum = SUM;//±ØÐë³öÊÖ
+		//		if(k==13 && pDdz->iLastPointArray[13]!=0)//ï¿½Þµï¿½ï¿½ï¿½
+		//			dSum = SUM;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		//		else
-		//		{//´ÓÐ¡µ½´ó
+		//		{//ï¿½ï¿½Ð¡ï¿½ï¿½ï¿½ï¿½
 		//			dSum += COF_MAINPOINT*mainpoint;//[1.5,8.5]
 		//		}
 		//	}
@@ -344,13 +343,13 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 		//		dSum += COF_MAINPOINT*mainpoint;//[1.5,8.5]
 		//	}
 		//}
-		//else//Ê£ÓàÊÖÊý>=2
+		//else//Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½>=2
 		//{
-		//	check("ÊÖÊý´óÓÚ¶þ");
-		//	if(type==102||type==204)//Õ¨»ò»ð¼ý
+		//	check("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú¶ï¿½");
+		//	if(type==102||type==204)//Õ¨ï¿½ï¿½ï¿½ï¿½
 		//	{
 		//		
-		//		if(pDdz->iLastTypeCount==104 && !IsPartner(pDdz) && LastPlayerLeft(pDdz)<=4 && pDdz->iLastPointArray[13]==0)//±¾Éí³öµÄ¾ÍÊÇÕ¨
+		//		if(pDdz->iLastTypeCount==104 && !IsPartner(pDdz) && LastPlayerLeft(pDdz)<=4 && pDdz->iLastPointArray[13]==0)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¾ï¿½ï¿½ï¿½Õ¨
 		//		{
 		//			dSum += COF_MAINPOINT*mainpoint;//[1.5,8.5]
 		//		}				
@@ -359,23 +358,23 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 		//			dSum = -1;//pass
 		//		}
 		//	}
-		//	else if(count-pDdz->minOutCount>=3)//²ðµÃºÜÁãÉ¢
+		//	else if(count-pDdz->minOutCount>=3)//ï¿½ï¿½Ãºï¿½ï¿½ï¿½É¢
 		//	{
 		//		if(!IsPartner(pDdz) && LastPlayerLeft(pDdz)<=4)
 		//			dSum += COF_MAINPOINT*mainpoint;//[1.5,8.5]
 		//		else
 		//			dSum = -1;//pass
 		//	}
-		//	else if(count-pDdz->minOutCount==1)//ÕýºÃÄÜ´ó¹ý µæÅÆ
+		//	else if(count-pDdz->minOutCount==1)//ï¿½ï¿½ï¿½ï¿½ï¿½Ü´ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 		//	{
 		//		dSum += COF_MAINPOINT*mainpoint;//[1.5,8.5]
 		//	}
-		//	else//ÓàÅÆµÄÓÅÊÆ
+		//	else//ï¿½ï¿½ï¿½Æµï¿½ï¿½ï¿½ï¿½ï¿½
 		//	{
 		//	}
 	//	//}
 	//}
-	//check_card_1("¹ÀÖµ ×îÖÕ¹ÀÖµ",dSum);
+	//check_card_1("ï¿½ï¿½Öµ ï¿½ï¿½ï¿½Õ¹ï¿½Öµ",dSum);
 	return dSum; 
 }
 //D01-END
@@ -383,28 +382,28 @@ double CalCardsValue(struct Ddz * pDdz, int outcards[], int num)
 //double CalCardsValue(int iPlaOnHand[])	
 //{
 //	int i;
-//	double dSum = 100;			//¹ÀÖµ
+//	double dSum = 100;			//ï¿½ï¿½Öµ
 //	for(i=0;iPlaOnHand[i]>=0;i++)
 //	{
-//		dSum=dSum-5;			//ÊÖÅÆÔ½ÉÙÔ½ºÃÃ»¶àÒ»ÕÅÅÆÓÅÊÆ¼õ5·Ö
+//		dSum=dSum-5;			//ï¿½ï¿½ï¿½ï¿½Ô½ï¿½ï¿½Ô½ï¿½ï¿½Ã»ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½5ï¿½ï¿½
 //		if (i >= 1 && iPlaOnHand[i - 1] / 4 == iPlaOnHand[i] / 4)
-//			dSum = dSum + 2;	//ÏàÁÚÁ½ÅÆÍ¬µã¼Ó2·Ö
+//			dSum = dSum + 2;	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½ï¿½2ï¿½ï¿½
 //		if (i >= 4 && iPlaOnHand[i - 4] / 4 <=7
 //			&&iPlaOnHand[i - 4] / 4 + 1 ==iPlaOnHand[i - 3] / 4 
 //			&&iPlaOnHand[i - 3] / 4 + 1 ==iPlaOnHand[i - 2] / 4
 //			&&iPlaOnHand[i - 2] / 4 + 1 ==iPlaOnHand[i - 1] / 4 
 //			&&iPlaOnHand[i - 1] / 4 + 1 ==iPlaOnHand[i] / 4)
-//			dSum = dSum + 6;	//2ÒÔÏÂÏàÁÚÎåÅÆµ¥Ë³¼Ó6·Ö
+//			dSum = dSum + 6;	//2ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æµï¿½Ë³ï¿½ï¿½6ï¿½ï¿½
 //	}
 //	return dSum; 
 //}
 
-//I02-START¼ÆËã¼º·½½ÐÅÆ²ßÂÔ:Ô¤Éè3·Ö»ò0·Ö£¬½¨Òé½øÒ»²½×ÔÐÐÍêÉÆ
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-12
+//I02-STARTï¿½ï¿½ï¿½ã¼ºï¿½ï¿½ï¿½ï¿½ï¿½Æ²ï¿½ï¿½ï¿½:Ô¤ï¿½ï¿½3ï¿½Ö»ï¿½0ï¿½Ö£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½Þ¶ï¿½ï¿½ï¿½:Ã·ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Þ¶ï¿½Ê±ï¿½ï¿½:15-02-12
 int CalBid(struct Ddz * pDdz)	
 {
 	int i;
-	int iMyBid=3;			//½ÐÅÆ
+	int iMyBid=3;			//ï¿½ï¿½ï¿½ï¿½
 	for(i=0;i<3;i++)
 		if(pDdz->iBid[i]>=3)
 			iMyBid=0;
@@ -417,24 +416,24 @@ int CalBid(struct Ddz * pDdz)
 //I02-END
 
 
-//P030601-START¼ÆËã¼º·½³öÅÆ²ßÂÔ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-12
+//P030601-STARTï¿½ï¿½ï¿½ã¼ºï¿½ï¿½ï¿½ï¿½ï¿½Æ²ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½Þ¶ï¿½ï¿½ï¿½:ï¿½Äºï¿½ï¿½Ð½ï¿½&Ã·ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Þ¶ï¿½Ê±ï¿½ï¿½:15-02-12
 void CalPla(struct Ddz * pDdz)	
 {
 	int i;
 	double dValueNow;
 	double dValueMax=-9999;
 	int iMax = 0;
-	HelpPla(pDdz);				//Ö÷Òª¼ÆËãÍÆ¼ö³öÅÆpDdz->iPlaArr[],pDdz->iPlaCount
+	HelpPla(pDdz);				//ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½ï¿½Æ¼ï¿½ï¿½ï¿½ï¿½ï¿½pDdz->iPlaArr[],pDdz->iPlaCount
 	for(i=0;i<pDdz->iPlaCount;i++)
 	{
-		HelpTakeOff(pDdz,i);	//¼ÙÉèÈ¡×ßÁËµÚi×éÅÆ£¬½«Ê£ÓàµÄÅÆ·ÅÈëpDdz->iPlaOnHand[]
+		HelpTakeOff(pDdz,i);	//ï¿½ï¿½ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ëµï¿½iï¿½ï¿½ï¿½Æ£ï¿½ï¿½ï¿½Ê£ï¿½ï¿½ï¿½ï¿½Æ·ï¿½ï¿½ï¿½pDdz->iPlaOnHand[]
 		
 		output_card(pDdz->iPlaOnHand);
-		/*check_card("Ê£ÓàµÄÅÆ",pDdz->iPlaOnHand);
-		check_card("Ä£Äâ³öµÄÅÆ",pDdz->iPlaArr[i]);*/
-		dValueNow = CalCardsValue(pDdz,pDdz->iPlaOnHand,CountCards(pDdz->iPlaOnHand));			//¼ÆËãÓàÅÆ¹ÀÖµ
-	//	check_card_1("ÓàÅÆ¹ÀÖµ",dValueNow);
+		/*check_card("Ê£ï¿½ï¿½ï¿½ï¿½ï¿½",pDdz->iPlaOnHand);
+		check_card("Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½",pDdz->iPlaArr[i]);*/
+		dValueNow = CalCardsValue(pDdz,pDdz->iPlaOnHand,CountCards(pDdz->iPlaOnHand));			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¹ï¿½Öµ
+	//	check_card_1("ï¿½ï¿½ï¿½Æ¹ï¿½Öµ",dValueNow);
 		if (dValueNow > dValueMax)
 		{
 			dValueMax = dValueNow;
@@ -447,22 +446,22 @@ void CalPla(struct Ddz * pDdz)
 }
 //P030601-END
 
-//P00-STARTÖ÷¿ØÄ£¿é
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08
+//P00-STARTï¿½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½Þ¶ï¿½ï¿½ï¿½:Ã·ï¿½ï¿½,ï¿½ï¿½ï¿½ï¿½Þ¶ï¿½Ê±ï¿½ï¿½:15-02-08
 int	main( )	
 {
 	struct Ddz tDdz, *pDdz=&tDdz;
-	InitTurn(pDdz);			//³õÊ¼»¯Êý¾Ý
+	InitTurn(pDdz);			//ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	while(pDdz->iStatus!=0)
 	{
-		InputMsg(pDdz);			//ÊäÈëÐÅÏ¢
-		//check("01ÊäÈëÐÅÏ¢cpp");
-		AnalyzeMsg(pDdz);		//·ÖÎö´¦ÀíÐÅÏ¢
-		//check("02·ÖÎö´¦ÀíÐÅÏ¢cpp");
-		OutputMsg(pDdz);		//Êä³öÐÅÏ¢
-		//check("03Êä³öÐÅÏ¢cpp");
-		CalOthers(pDdz);		//¼ÆËãÆäËüÊý¾Ý
-		//check("04¼ÆËãÆäËüÊý¾Ýcpp");
+		InputMsg(pDdz);			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+		//check("01ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢cpp");
+		AnalyzeMsg(pDdz);		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+		//check("02ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢cpp");
+		OutputMsg(pDdz);		//ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+		//check("03ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢cpp");
+		CalOthers(pDdz);		//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		//check("04ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½cpp");
 	}
 	return 0;
 }

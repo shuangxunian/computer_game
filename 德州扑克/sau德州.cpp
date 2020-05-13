@@ -1,24 +1,23 @@
-//´úÂë°æ±¾		2017Äê¹úÈü 
-//±¾´úÂëÓÉÉòÑôº½¿Õº½Ìì´óÑ§¼ÆËã»ú²©ŞÄĞ­»á×Ü¸ºÔğÈËÍõÔ¾ÁØÍ³Ò»µ÷¿Ø
-//µÂÖİÆË¿Ë×é¸ºÔğÈËÌÆ¼Ò½ÜËù´ø²©ŞÄ×é¿ª·¢Î¬»¤
-//´úÂëÀ´×Ô¹ş¹¤´ó¿ªÔ´´úÂë,ÓÉÒÔÉÏ³ÉÔ±Î¬»¤ 
-//±¾´úÂëÊÊÓÃÓÚÖĞ¹ú´óÑ§Éú¼ÆËã»ú²©ŞÄ´óÈü²©ŞÄÏîÄ¿2017°æ½»»¥Ğ­Òé
-//±¾´úÂë½öÌá¹©½»»¥Ğ­ÒéµÄÓÃ·¨Ê¾·¶ºÍ¼òµ¥AI²©ŞÄË¼Â·£¬¿ª·¢ÕßĞè×ÔĞĞ¸Ä½øÍêÉÆ´úÂë²ÎÈü
-//ÈçÓĞÒâ¼ûºÍ½¨ÒéÇëÓëÎÒÃÇ¾¡ÔçÁªÏµ
-//ÍõÔ¾ÁØ	QQ£º836473734
-//ÌÆ¼Ò½Ü	QQ£º1714527126 
+//ä»£ç ç‰ˆæœ¬		2017å¹´å›½èµ› 
+//æœ¬ä»£ç ç”±æ²ˆé˜³èˆªç©ºèˆªå¤©å¤§å­¦è®¡ç®—æœºåšå¼ˆåä¼šæ€»è´Ÿè´£äººç‹è·ƒéœ–ç»Ÿä¸€è°ƒæ§
+//å¾·å·æ‰‘å…‹ç»„è´Ÿè´£äººå”å®¶æ°æ‰€å¸¦åšå¼ˆç»„å¼€å‘ç»´æŠ¤
+//æœ¬ä»£ç é€‚ç”¨äºä¸­å›½å¤§å­¦ç”Ÿè®¡ç®—æœºåšå¼ˆå¤§èµ›åšå¼ˆé¡¹ç›®2017ç‰ˆäº¤äº’åè®®
+//æœ¬ä»£ç ä»…æä¾›äº¤äº’åè®®çš„ç”¨æ³•ç¤ºèŒƒå’Œç®€å•AIåšå¼ˆæ€è·¯ï¼Œå¼€å‘è€…éœ€è‡ªè¡Œæ”¹è¿›å®Œå–„ä»£ç å‚èµ›
+//å¦‚æœ‰æ„è§å’Œå»ºè®®è¯·ä¸æˆ‘ä»¬å°½æ—©è”ç³»
+//ç‹è·ƒéœ–	QQï¼š836473734
+//å”å®¶æ°	QQï¼š1714527126 
 #include<stdio.h>
 #include<winsock2.h>
 #include<string.h>
 #include<stdlib.h>
 #include<time.h>
-#define NumberOfMatches 70//¶Ô¾Ö»ØºÏ
-int AllCards[9][2]; //ËùÓĞÅÆ ¿ÉÄÜ²»ÕæÊµ
-int HandCards[2][2];//ÊÖÅÆ
-int FieldCards[5][2];	//³¡ÅÆ
-int KeepCards[7][2];//Ğé¼ÙµÄÕâÒ²ÊÇ
-int BlindNote=0;   //Ğ¡Ã¤0´óÃ¤1
-int Stage;   //µÚ¼¸½×¶Î  Èçpreflop,turn,river
+#define NumberOfMatches 70//ï¿½Ô¾Ö»Øºï¿½
+int AllCards[9][2]; //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½Ü²ï¿½ï¿½ï¿½Êµ
+int HandCards[2][2];//ï¿½ï¿½ï¿½ï¿½
+int FieldCards[5][2];	//ï¿½ï¿½ï¿½ï¿½
+int KeepCards[7][2];//ï¿½ï¿½Ùµï¿½ï¿½ï¿½Ò²ï¿½ï¿½
+int BlindNote=0;   //Ğ¡Ã¤0ï¿½ï¿½Ã¤1
+int Stage;   //ï¿½Ú¼ï¿½ï¿½×¶ï¿½  ï¿½ï¿½preflop,turn,river
 int Increase;
 int SUMbj;
 int SUMbh;
@@ -64,20 +63,20 @@ void delay()
 void main()
 {
 	WSADATA wsaData;
-    SOCKET sockClient;//¿Í»§¶ËSocket
-    SOCKADDR_IN addrServer;//·şÎñ¶ËµØÖ·
+    SOCKET sockClient;//ï¿½Í»ï¿½ï¿½ï¿½Socket
+    SOCKADDR_IN addrServer;//ï¿½ï¿½ï¿½ï¿½Ëµï¿½Ö·
     WSAStartup(MAKEWORD(2,2),&wsaData);
-    //ĞÂ½¨¿Í»§¶Ësocket
+    //ï¿½Â½ï¿½ï¿½Í»ï¿½ï¿½ï¿½socket
     sockClient=socket(AF_INET,SOCK_STREAM,0);
-    //¶¨ÒåÒªÁ¬½ÓµÄ·şÎñ¶ËµØÖ·
-    addrServer.sin_addr.S_un.S_addr=inet_addr("192.168.43.240");//Ä¿±êIP(127.0.0.1ÊÇ»ØËÍµØÖ·)
+    //ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ÓµÄ·ï¿½ï¿½ï¿½Ëµï¿½Ö·
+    addrServer.sin_addr.S_un.S_addr=inet_addr("192.168.43.240");//Ä¿ï¿½ï¿½IP(127.0.0.1ï¿½Ç»ï¿½ï¿½Íµï¿½Ö·)
     addrServer.sin_family=AF_INET;
-    addrServer.sin_port=htons(10001);//Á¬½Ó¶Ë¿ÚºÅ
-    //Á¬½Óµ½·şÎñ¶Ë
+    addrServer.sin_port=htons(10001);//ï¿½ï¿½ï¿½Ó¶Ë¿Úºï¿½
+    //ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
     connect(sockClient,(SOCKADDR*)&addrServer,sizeof(SOCKADDR));
 	int i,j,k,n,m;
-	int tiaozhuan=0;//0¹Ø 1¿ª
-	int duiju=0;	//µ±Ç°¶Ô¾ÖÊı
+	int tiaozhuan=0;//0ï¿½ï¿½ 1ï¿½ï¿½
+	int duiju=0;	//ï¿½ï¿½Ç°ï¿½Ô¾ï¿½ï¿½ï¿½
 	int sl;
 	SUMbh=0;
 	srand(time(NULL));	
@@ -91,10 +90,10 @@ void main()
 		memset(recvBuf,0,100);		
 		recv(sockClient,recvBuf,100,0);
 		}
-		printf("ÊÕµ½µÄÏûÏ¢Îª:%s\n",recvBuf);
+		printf("ï¿½Õµï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Îª:%s\n",recvBuf);
 
 
-	for(i=0;i<15;i++)		//ÅĞ¶Ï»ØºÏÒÔ¼°¶ÔÊÖĞĞÎª
+	for(i=0;i<15;i++)		//ï¿½Ğ¶Ï»Øºï¿½ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª
 	{
 		if(recvBuf[i]=='|')
 		{
@@ -120,7 +119,7 @@ void main()
 		}
 	}
 	int	number=0;
-	for(i=0;i<30;i++)	//·ÖÎöËù·¢ÅÆ
+	for(i=0;i<30;i++)	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{	
 		if(recvBuf[i]=='<')
 		{
@@ -131,36 +130,36 @@ void main()
 			observes(recvBuf[i+1],recvBuf[i+3],recvBuf[i+4],Stage,number);
 		}
 	}
-		if((recvBuf[0]=='n')&&(recvBuf[1]=='a'))//·µ»¹Ãû×Ö
+		if((recvBuf[0]=='n')&&(recvBuf[1]=='a'))//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{			
 			strcpy(sendBuf,"watermalen");								
 		}
-		else if((recvBuf[0]=='p')&&(recvBuf[1]=='r'))//preflop½×¶Î
+		else if((recvBuf[0]=='p')&&(recvBuf[1]=='r'))//preflopï¿½×¶ï¿½
 		{
 			SUMbh=0;
 			SUMbj=20000;
-			printf("Ê£Óà³ïÂëÁ¿%d\n",SUMbj);
+			printf("Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d\n",SUMbj);
 			duiju++;
 			pref();			
 		}
-		else if((recvBuf[0]=='f')&&(recvBuf[1]=='l'))//flop½×¶Î
+		else if((recvBuf[0]=='f')&&(recvBuf[1]=='l'))//flopï¿½×¶ï¿½
 		{
 			SUMbj=SUMbj-SUMbh;
-			printf("Ê£Óà³ïÂëÁ¿%d\n",SUMbj);
+			printf("Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d\n",SUMbj);
 			SUMbh=0;
 			flop();						
 		}
-		else if((recvBuf[0]=='t')&&(recvBuf[1]=='u'))//turn½×¶Î
+		else if((recvBuf[0]=='t')&&(recvBuf[1]=='u'))//turnï¿½×¶ï¿½
 		{
 			SUMbj=SUMbj-SUMbh;
-			printf("Ê£Óà³ïÂëÁ¿%d\n",SUMbj);
+			printf("Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d\n",SUMbj);
 			SUMbh=0;
 			turn();					
 		}
-		else if((recvBuf[0]=='r')&&(recvBuf[1]=='i'))//river½×¶Î
+		else if((recvBuf[0]=='r')&&(recvBuf[1]=='i'))//riverï¿½×¶ï¿½
 		{
 			SUMbj=SUMbj-SUMbh;
-			printf("Ê£Óà³ïÂëÁ¿%d\n",SUMbj);
+			printf("Ê£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%d\n",SUMbj);
 			SUMbh=0;
 			rive();						
 		}
@@ -212,7 +211,7 @@ void main()
 		}
 				
 	}
-	//¹Ø±Õsocket
+	//ï¿½Ø±ï¿½socket
    closesocket(sockClient);
    WSACleanup();
 

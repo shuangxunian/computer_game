@@ -1,14 +1,13 @@
-//´úÂë°æ±¾		2017Äê¹úÈü 
-//±¾´úÂëÓÉÉòÑôº½¿Õº½Ìì´óÑ§¼ÆËã»ú²©ÞÄÐ­»á×Ü¸ºÔðÈËÍõÔ¾ÁØÍ³Ò»µ÷¿Ø
-//ÑÇÂíÑ·Æå×é¸ºÔðÈËÍõ¸»Ë§Ëù´ø²©ÞÄ×é¿ª·¢Î¬»¤
-//´úÂëÀ´×Ô¹þ¹¤´ó¿ªÔ´´úÂë,ÓÉÒÔÉÏ³ÉÔ±Î¬»¤ 
-//±¾´úÂëÊÊÓÃÓÚÖÐ¹ú´óÑ§Éú¼ÆËã»ú²©ÞÄ´óÈü½»»¥Ð­Òé
-//±¾´úÂë½öÌá¹©½»»¥Ð­ÒéµÄÓÃ·¨Ê¾·¶ºÍ¼òµ¥AI²©ÞÄË¼Â·£¬¿ª·¢ÕßÐè×ÔÐÐ¸Ä½øÍêÉÆ´úÂë²ÎÈü
-//ÈçÓÐÒâ¼ûºÍ½¨ÒéÇëÓëÎÒÃÇ¾¡ÔçÁªÏµ
-//ÍõÔ¾ÁØ	QQ£º836473734
-//Íõ¸»Ë§	QQ£º963356506
-/*   ºÚÆå×ÜÊÇÏÈÊÖ£¬ÇÒºÚÆå×ÜÔÚÆåÅÌµÄÏÂ·½¡£
-       ÆÀ¹ÀµÄÊ±ºòÊÇÕë¶ÔºÚ·½½øÐÐÆÀ¹À£¬¼´Õ¾ÔÚºÚ·½½Ç¶ÈÆÀ¹À*/
+//ä»£ç ç‰ˆæœ¬		2017å¹´å›½èµ› 
+//æœ¬ä»£ç ç”±æ²ˆé˜³èˆªç©ºèˆªå¤©å¤§å­¦è®¡ç®—æœºåšå¼ˆåä¼šæ€»è´Ÿè´£äººçŽ‹è·ƒéœ–ç»Ÿä¸€è°ƒæŽ§
+//äºšé©¬é€Šæ£‹ç»„è´Ÿè´£äººçŽ‹å¯Œå¸…æ‰€å¸¦åšå¼ˆç»„å¼€å‘ç»´æŠ¤
+//æœ¬ä»£ç é€‚ç”¨äºŽä¸­å›½å¤§å­¦ç”Ÿè®¡ç®—æœºåšå¼ˆå¤§èµ›äº¤äº’åè®®
+//æœ¬ä»£ç ä»…æä¾›äº¤äº’åè®®çš„ç”¨æ³•ç¤ºèŒƒå’Œç®€å•AIåšå¼ˆæ€è·¯ï¼Œå¼€å‘è€…éœ€è‡ªè¡Œæ”¹è¿›å®Œå–„ä»£ç å‚èµ›
+//å¦‚æœ‰æ„è§å’Œå»ºè®®è¯·ä¸Žæˆ‘ä»¬å°½æ—©è”ç³»
+//çŽ‹è·ƒéœ–	QQï¼š836473734
+//çŽ‹å¯Œå¸…	QQï¼š963356506
+/*   ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ö£ï¿½ï¿½Òºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ìµï¿½ï¿½Â·ï¿½ï¿½ï¿½
+       ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÔºÚ·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Õ¾ï¿½ÚºÚ·ï¿½ï¿½Ç¶ï¿½ï¿½ï¿½ï¿½ï¿½*/
 
 #define _CRT_SECURE_NO_WARNINGS
 #include<stdio.h>
@@ -22,33 +21,33 @@
 
 int Board[12][12] = { 0 };
 int bufa[3][2] = { 0 };
-int mode = 0;     //Ä£Ê½µÄ³õÊ¼»¯
+int mode = 0;     //Ä£Ê½ï¿½Ä³ï¿½Ê¼ï¿½ï¿½
 
-/////////Ö÷º¯Êý/////////
+/////////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/////////
 void main()
 {
 	//int mode;
-	int firsthand = 0;//¹æ¶¨ÏÈÊÖÎªºÚ£¬¼´ºÚÆåÏÈÐÐ£¬ÓÃ0±íÊ¾
+	int firsthand = 0;//ï¿½æ¶¨ï¿½ï¿½ï¿½ï¿½Îªï¿½Ú£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð£ï¿½ï¿½ï¿½0ï¿½ï¿½Ê¾
 	initgraph(1000,700);
 	InitBoard(Board);
 	Show(Board);
-	mode = Mode();   //Ñ¡ÔñÓÎÏ·Ä£Ê½
-	if (mode<0)//ÈËÈËÄ£Ê½
+	mode = Mode();   //Ñ¡ï¿½ï¿½ï¿½ï¿½Ï·Ä£Ê½
+	if (mode<0)//ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 	{
-		MessageBox(NULL,"ºÚÆåÏÈÐÐ","ÌáÊ¾",MB_OK);
+		MessageBox(NULL,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½","ï¿½ï¿½Ê¾",MB_OK);
 		while (!JudgeWin(Board))
 		{
 			Show(Board);
 			Move(firsthand,Board,bufa);
-			firsthand=abs(firsthand - 1);//ÏÈºóÊÖ×ª»»
+			firsthand=abs(firsthand - 1);//ï¿½Èºï¿½ï¿½ï¿½×ªï¿½ï¿½
 		}
 	}
-	if (mode >= 0)//ÈË»úÄ£Ê½
+	if (mode >= 0)//ï¿½Ë»ï¿½Ä£Ê½
 	{
-		if (mode == 0)//ÈËÀàÏÈÊÖ
+		if (mode == 0)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			firsthand = 1;
-			MessageBox(NULL, "ÈËÀàÏÈÐÐ", "ÌáÊ¾", MB_OK);
+			MessageBox(NULL, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½Ê¾", MB_OK);
 			while (!JudgeWin(Board))
 			{
 				Move(firsthand, Board, bufa);
@@ -60,10 +59,10 @@ void main()
 				//Show(Board);
 			}
 		}
-		if (mode == 1)//µçÄÔÏÈÊÖ
+		if (mode == 1)//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
-			firsthand = 1;    //½«ÈËÀàÏÂµÄÆå×Ó×ª»»Îª°×Æå£¬¼´ÈËÀà²Ù×÷·½
-			MessageBox(NULL, "µçÄÔÏÈÐÐ", "ÌáÊ¾", MB_OK);
+			firsthand = 1;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Âµï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Îªï¿½ï¿½ï¿½å£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+			MessageBox(NULL, "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", "ï¿½ï¿½Ê¾", MB_OK);
 			while (!JudgeWin(Board))
 			{
 				SearchAGoodMove(Board);
@@ -73,15 +72,15 @@ void main()
 		}
 	}
 	if (JudgeWin(Board) == BLACKCHESS)
-		MessageBox(NULL,"°×ÆåÓ®£¡","ÌáÊ¾",MB_OK);
+		MessageBox(NULL,"ï¿½ï¿½ï¿½ï¿½Ó®ï¿½ï¿½","ï¿½ï¿½Ê¾",MB_OK);
 	if (JudgeWin(Board) == WHITECHESS)
-		MessageBox(NULL, "ºÚÆåÓ®£¡", "ÌáÊ¾", MB_OK);
+		MessageBox(NULL, "ï¿½ï¿½ï¿½ï¿½Ó®ï¿½ï¿½", "ï¿½ï¿½Ê¾", MB_OK);
 	getchar();
 	closegraph();
 }  
 
 
-////////////ÆåÅÌÊý¾Ý½á¹¹µÄ³õÊ¼»¯///////////
+////////////ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ý½á¹¹ï¿½Ä³ï¿½Ê¼ï¿½ï¿½///////////
 void InitBoard(int Board[12][12])
 {
 	for (int i = 0; i < 12; i++)
@@ -105,7 +104,7 @@ void InitBoard(int Board[12][12])
 
 
 }
-///////////UI½çÃæ///////////////
+///////////UIï¿½ï¿½ï¿½ï¿½///////////////
 void Show(int Board[12][12])
 {
 	IMAGE img[4];
@@ -136,31 +135,31 @@ void Show(int Board[12][12])
 	rectangle(700, 65, 910, 130);
 	setbkmode(TRANSPARENT);
 	settextcolor(RGB(211, 107, 145));
-	settextstyle(40, 20, "Á¥Êé");
-	outtextxy(700, 80, "ÈËÈËÄ£Ê½");
+	settextstyle(40, 20, "ï¿½ï¿½ï¿½ï¿½");
+	outtextxy(700, 80, "ï¿½ï¿½ï¿½ï¿½Ä£Ê½");
 
 	rectangle(700, 200, 950, 265);
-	settextstyle(50, 14, "Á¥Êé");
-	outtextxy(700, 205, "ÈË»úÄ£Ê½ ÈËÀàÏÈÊÖ");
+	settextstyle(50, 14, "ï¿½ï¿½ï¿½ï¿½");
+	outtextxy(700, 205, "ï¿½Ë»ï¿½Ä£Ê½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 	rectangle(700, 265, 950, 330);
-	outtextxy(700, 270, "ÈË»úÄ£Ê½ µçÄÔÏÈÊÖ");
+	outtextxy(700, 270, "ï¿½Ë»ï¿½Ä£Ê½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½");
 
 	rectangle(700,350,800,450);
-	settextstyle(50,25,"Á¥Êé");
-	outtextxy(700, 370, "»ÚÆå");
+	settextstyle(50,25,"ï¿½ï¿½ï¿½ï¿½");
+	outtextxy(700, 370, "ï¿½ï¿½ï¿½ï¿½");
 }
-//////////Ê¹ÐÐÆåºÏ·¨»¯//////////
-int LegalMove(int x1, int y1, int x2, int y2, int Board[12][12])//ÐÐÆåºÏ·¨»¯
+//////////Ê¹ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½//////////
+int LegalMove(int x1, int y1, int x2, int y2, int Board[12][12])//ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½
 {
-	//(x1,y1)ÊÇÆðÊ¼µã£¬£¨x2,y2£©ÊÇÖÕµã
+	//(x1,y1)ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ã£¬ï¿½ï¿½x2,y2ï¿½ï¿½ï¿½ï¿½ï¿½Õµï¿½
 	int a, b, m, n;
 	a = x1;
 	b = y1;
 	m = x2;
 	n = y2;
-	if (abs(y2 - y1) == abs(x2 - x1) || x2 - x1 == 0 || y2 - y1 == 0)//È·±£ÆðÊ¼µãºÍÂä×Óµã·ûºÏÃ××ÖÐÍÂ·Ïß
+	if (abs(y2 - y1) == abs(x2 - x1) || x2 - x1 == 0 || y2 - y1 == 0)//È·ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½
 	{
-		//ÒÔÏÂ´úÂëÊÇÆå×Ó°Ë¸ö·½ÏòµÄÂ·¾¶ÉÏÅÐ¶ÏÊÇ·ñÓÐ²»Îª¿ÕµÄµØ·½
+		//ï¿½ï¿½ï¿½Â´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó°Ë¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½ï¿½Ð¶ï¿½ï¿½Ç·ï¿½ï¿½Ð²ï¿½Îªï¿½ÕµÄµØ·ï¿½
 		if (y2 - y1 > 0 && x2 - x1 == 0)
 		{
 			for (b = b + 1; b < n; b++)
@@ -223,25 +222,25 @@ int LegalMove(int x1, int y1, int x2, int y2, int Board[12][12])//ÐÐÆåºÏ·¨»¯
 	else
 		return 0;
 }
-/////////ÒÆ¶¯Æå×Óand»ÚÆå//////////
-//¸Ãº¯Êý´«Èë²ÎÊýfirsthand
+/////////ï¿½Æ¶ï¿½ï¿½ï¿½ï¿½ï¿½andï¿½ï¿½ï¿½ï¿½//////////
+//ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½firsthand
 int Move(int first,int Board[12][12],int bufa[3][2])
 {
-	int n = 1;        //Ê¹ÓÃ±äÁ¿nÊÇÎªÁËÄÜÍË³öÑ­»·
-	int times = 1;    //Êó±êµã»÷´ÎÊý
-	int qx, qy, lx, ly, bx, by;    //ÆðÊ¼£¬Âäµã£¬ÕÏ°­µÄ×ø±ê
+	int n = 1;        //Ê¹ï¿½Ã±ï¿½ï¿½ï¿½nï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½Ë³ï¿½Ñ­ï¿½ï¿½
+	int times = 1;    //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	int qx, qy, lx, ly, bx, by;    //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ã£¬ï¿½Ï°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	MOUSEMSG msg;
 	while (n)
 	{
-	loop:msg = GetMouseMsg();   ///»ñÈ¡Êó±êÏûÏ¢
+	loop:msg = GetMouseMsg();   ///ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 		switch (msg.uMsg)
 		{
 		case WM_LBUTTONDOWN:
 			if (msg.x >= 0 && msg.x <= 650 && msg.y >= 0 && msg.y <= 650)
 			{
-				if (times % 3 == 1)    //µÚÒ»´Îµã»÷£¬¼´Ñ¡ÔñÆðµãµÄÆå
+				if (times % 3 == 1)    //ï¿½ï¿½Ò»ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 				{
-					//±£´æÆðÊ¼µãÆå×Ó×ø±ê
+					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 					qx = msg.y / 65 + 1;
 					qy = msg.x / 65 + 1;
 					if (first == 0 && Board[qx][qy] == BLACKCHESS)
@@ -260,18 +259,18 @@ int Move(int first,int Board[12][12],int bufa[3][2])
 					}
 					else
 					{
-						MessageBox(NULL, "²»·ûºÏ¹æÔò£¬ÇëÖØÐÂÑ¡ÔñÆå×Ó,", "ÌáÊ¾", MB_OK);
+						MessageBox(NULL, "ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½,", "ï¿½ï¿½Ê¾", MB_OK);
 						goto loop;
 					}
 				}
-				if (times % 3 == 2)//µÚ¶þ´Îµã»÷£¬Ñ¡ÔñÂä×Óµã
+				if (times % 3 == 2)//ï¿½Ú¶ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½
 				{
-					//±£´æÂä×Óµã
+					//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½
 					lx = msg.y / 65 + 1;
 					ly = msg.x / 65 + 1;
 					if (first == 0 && Board[lx][ly] == EMPTY&&LegalMove(qx, qy, lx, ly, Board))
 					{
-						//²¢ÇÒÐÞ¸ÄÆåÅÌÊý¾Ý
+						//ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						Board[qx][qy] = EMPTY;
 						Board[lx][ly] = BLACKCHESS;
 						Show(Board);
@@ -282,7 +281,7 @@ int Move(int first,int Board[12][12],int bufa[3][2])
 					}
 					else if (first == 1 && Board[lx][ly] == EMPTY&&LegalMove(qx, qy, lx, ly, Board))
 					{
-						//²¢ÇÒÐÞ¸ÄÆåÅÌÊý¾Ý
+						//ï¿½ï¿½ï¿½ï¿½ï¿½Þ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						Board[qx][qy] = EMPTY;
 						Board[lx][ly] = WHITECHESS;
 						Show(Board);
@@ -293,11 +292,11 @@ int Move(int first,int Board[12][12],int bufa[3][2])
 					}
 					else
 					{
-						MessageBox(NULL, "²»·ûºÏ¹æÔò£¬ÇëÖØÐÂÑ¡Âä×Óµã,", "ÌáÊ¾", MB_OK);
+						MessageBox(NULL, "ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Óµï¿½,", "ï¿½ï¿½Ê¾", MB_OK);
 						goto loop;
 					}
 				}
-				if (times % 3 == 0)//µÚÈý´Îµã»÷£¬·ÀÖÃÕÏ°­
+				if (times % 3 == 0)//ï¿½ï¿½ï¿½ï¿½ï¿½Îµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï°ï¿½
 				{
 					bx = msg.y / 65 + 1;
 					by = msg.x / 65 + 1;
@@ -313,15 +312,15 @@ int Move(int first,int Board[12][12],int bufa[3][2])
 					}
 					else
 					{
-						MessageBox(NULL, "²»·ûºÏ¹æÔò£¬ÇëÖØÐÂ·ÀÖÃÕÏ°­,", "ÌáÊ¾", MB_OK);
+						MessageBox(NULL, "ï¿½ï¿½ï¿½ï¿½ï¿½Ï¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â·ï¿½ï¿½ï¿½ï¿½Ï°ï¿½,", "ï¿½ï¿½Ê¾", MB_OK);
 						goto loop;
 					}
 				}
 			}
-			////////////////////////»ÚÆå²¿·Ö////////////////////////////
+			////////////////////////ï¿½ï¿½ï¿½å²¿ï¿½ï¿½////////////////////////////
 			if (msg.x >= 700 && msg.x <= 800 && msg.y >= 350 && msg.y <= 450)
 			{
-				if (first == 0)//ÂÖµ½ºÚÆå×ß£¬ÉÏÒ»²½»Ú°×Æå
+				if (first == 0)//ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Ú°ï¿½ï¿½ï¿½
 				{
 					Board[bufa[2][0]][bufa[2][1]] = EMPTY;
 					Board[bufa[1][0]][bufa[1][1]] = EMPTY;
@@ -329,7 +328,7 @@ int Move(int first,int Board[12][12],int bufa[3][2])
 					n = 0;
 					return first;
 				}
-				if (first == 1)//ÂÖµ½°×Æå×ß£¬ÉÏÒ»²½»ÚºÚÆå
+				if (first == 1)//ï¿½Öµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß£ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½Úºï¿½ï¿½ï¿½
 				{
 					Board[bufa[2][0]][bufa[2][1]] = EMPTY;
 					Board[bufa[1][0]][bufa[1][1]] = EMPTY;
@@ -344,8 +343,8 @@ int Move(int first,int Board[12][12],int bufa[3][2])
 		}
 	}
 }
-//////////Ê¤¸ºÅÐ¶Ï////////////
-int JudgeWin(int Board[12][12])//Ê¤¸ºÅÐ¶Ï
+//////////Ê¤ï¿½ï¿½ï¿½Ð¶ï¿½////////////
+int JudgeWin(int Board[12][12])//Ê¤ï¿½ï¿½ï¿½Ð¶ï¿½
 {
 	int C_Black = 0, C_White = 0;
 	for (int i = 1; i <= 10; i++)
@@ -359,14 +358,14 @@ int JudgeWin(int Board[12][12])//Ê¤¸ºÅÐ¶Ï
 		}
 	}
 	if (C_Black == 4)
-		return BLACKCHESS;   //ºÚÆåÈ«ËÀ
+		return BLACKCHESS;   //ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½
 	else if (C_White == 4)
-		return WHITECHESS;  //°×ÆåÈ«ËÀ
+		return WHITECHESS;  //ï¿½ï¿½ï¿½ï¿½È«ï¿½ï¿½
 	else
-		return 0;//ÉÐÎ´·Ö³öÊ¤¸º
+		return 0;//ï¿½ï¿½Î´ï¿½Ö³ï¿½Ê¤ï¿½ï¿½
 }
-//////////Ä£Ê½Ñ¡Ôñ////////////
-int Mode()//Ä£Ê½Ñ¡Ôñ¡ª¡ªÈËÈË£¬ÈË»úÄ£Ê½
+//////////Ä£Ê½Ñ¡ï¿½ï¿½////////////
+int Mode()//Ä£Ê½Ñ¡ï¿½ñ¡ª¡ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½Ë»ï¿½Ä£Ê½
 {
 	MOUSEMSG msg;
 	int n = 1;
@@ -379,21 +378,21 @@ int Mode()//Ä£Ê½Ñ¡Ôñ¡ª¡ªÈËÈË£¬ÈË»úÄ£Ê½
 			if (msg.x >= 700 && msg.x <= 910 && msg.y >= 65 && msg.y <= 130)
 			{
 				n = 0;
-				return -1;//ÈËÈËÄ£Ê½
+				return -1;//ï¿½ï¿½ï¿½ï¿½Ä£Ê½
 			}
 			else if (msg.x >= 700 && msg.x <= 950 && msg.y >= 200 && msg.y <= 265)
 			{
 				n = 0;
-				return 0;//ÈË»úÄ£Ê½ ÈËÀàÏÈÊÖ
+				return 0;//ï¿½Ë»ï¿½Ä£Ê½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 			else if (msg.x >= 700 && msg.x <= 950 && msg.y >= 265 && msg.y <= 330)
 			{
 				n = 0;
-				return 1;//ÈË»úÄ£Ê½ µçÄÔÏÈÊÖ
+				return 1;//ï¿½Ë»ï¿½Ä£Ê½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			}
 			else
 			{
-				MessageBox(NULL,"ÇëÑ¡ÔñÓÎÏ·Ä£Ê½","ÌáÊ¾",MB_OK);
+				MessageBox(NULL,"ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½ï¿½Ï·Ä£Ê½","ï¿½ï¿½Ê¾",MB_OK);
 				goto loop1;
 			}
 			break;

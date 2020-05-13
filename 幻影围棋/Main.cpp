@@ -1,13 +1,12 @@
-//´úÂë°æ±¾		2017Äê¹úÈü 
-//±¾´úÂëÓÉÉòÑôº½¿Õº½Ìì´óÑ§¼ÆËã»ú²©ÞÄÐ­»á×Ü¸ºÔðÈËÍõÔ¾ÁØÍ³Ò»µ÷¿Ø
-//»ÃÓ°Î§Æå×é¸ºÔðÈËÕÔºÆÓî£¬Ìï¾°Ëù´ø²©ÞÄ×é¿ª·¢Î¬»¤
-//´úÂëÀ´×Ô¹þ¹¤´ó¿ªÔ´´úÂë,ÓÉÒÔÉÏ³ÉÔ±Î¬»¤ 
-//±¾´úÂëÊÊÓÃÓÚÖÐ¹ú´óÑ§Éú¼ÆËã»ú²©ÞÄ´óÈü½»»¥Ð­Òé
-//±¾´úÂë½öÌá¹©½»»¥Ð­ÒéµÄÓÃ·¨Ê¾·¶ºÍ¼òµ¥AI²©ÞÄË¼Â·£¬¿ª·¢ÕßÐè×ÔÐÐ¸Ä½øÍêÉÆ´úÂë²ÎÈü
-//ÈçÓÐÒâ¼ûºÍ½¨ÒéÇëÓëÎÒÃÇ¾¡ÔçÁªÏµ
-//ÍõÔ¾ÁØ	QQ£º836473734
-//ÕÔºÆÓî	QQ£º1366160976
-//Ìï¾°		QQ£º282940270
+//ä»£ç ç‰ˆæœ¬		2017å¹´å›½èµ› 
+//æœ¬ä»£ç ç”±æ²ˆé˜³èˆªç©ºèˆªå¤©å¤§å­¦è®¡ç®—æœºåšå¼ˆåä¼šæ€»è´Ÿè´£äººçŽ‹è·ƒéœ–ç»Ÿä¸€è°ƒæŽ§
+//å¹»å½±å›´æ£‹ç»„è´Ÿè´£äººèµµæµ©å®‡ï¼Œç”°æ™¯æ‰€å¸¦åšå¼ˆç»„å¼€å‘ç»´æŠ¤
+//æœ¬ä»£ç é€‚ç”¨äºŽä¸­å›½å¤§å­¦ç”Ÿè®¡ç®—æœºåšå¼ˆå¤§èµ›äº¤äº’åè®®
+//æœ¬ä»£ç ä»…æä¾›äº¤äº’åè®®çš„ç”¨æ³•ç¤ºèŒƒå’Œç®€å•AIåšå¼ˆæ€è·¯ï¼Œå¼€å‘è€…éœ€è‡ªè¡Œæ”¹è¿›å®Œå–„ä»£ç å‚èµ›
+//å¦‚æœ‰æ„è§å’Œå»ºè®®è¯·ä¸Žæˆ‘ä»¬å°½æ—©è”ç³»
+//çŽ‹è·ƒéœ–	QQï¼š836473734
+//èµµæµ©å®‡	QQï¼š1366160976
+//ç”°æ™¯		QQï¼š282940270
 #ifndef	_MAIN_CPP_
 #define	_MAIN_CPP_
 
@@ -30,49 +29,49 @@ int main()
 		fflush(stdin);
 		Sleep(50);
 		fflush(stdout);
-		printf("¿ª¾Ö£º'new' or 'quit'\n");
+		printf("ï¿½ï¿½ï¿½Ö£ï¿½'new' or 'quit'\n");
 		scanf("%s",msg);  
-		if (strcmp(msg,"quit") == 0)                                 //½áÊøÓÎÏ·
+		if (strcmp(msg,"quit") == 0)                                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï·
 		{	
 			break;
 		}
-		else if (strcmp(msg,"new") == 0)                	         //¿ªÊ¼ÐÂÆå¾Ö
+		else if (strcmp(msg,"new") == 0)                	         //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½
 		{
 			InitGame();
 			PrintBoard();
-			printf("Æå×Ó£º'black' or other\n");
+			printf("ï¿½ï¿½ï¿½Ó£ï¿½'black' or other\n");
 			scanf("%s",msg);
-			if (strcmp(msg,"black") == 0)                            //Èç¹ûmsgÊÇblack£¬×Ô¼ºÊÇºÚ×Ó
+			if (strcmp(msg,"black") == 0)                            //ï¿½ï¿½ï¿½msgï¿½ï¿½blackï¿½ï¿½ï¿½Ô¼ï¿½ï¿½Çºï¿½ï¿½ï¿½
 			{
 				chessColor = BLACK;
 				SearchMove(&bestMove);
-			    printf("-->%d %c",bestMove.x,bestMove.y+'@');        //Êä³öÒ»¸ö×îºÃÕÐ·¨
-				printf("   ¿É×ß£º'm' or 'i'\n");
+			    printf("-->%d %c",bestMove.x,bestMove.y+'@');        //ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½
+				printf("   ï¿½ï¿½ï¿½ß£ï¿½'m' or 'i'\n");
 				while(1)
 				{ 	
-			           scanf("%s",msg);                              //¶ÁÈ¡ºÚ×ÓÐÅÏ¢
-				       if (strcmp(msg,"m") == 0)                     //×Ô¼ºÉÏ´Î×ßµÄÎªºÏ·¨ÕÐ·¨
+			           scanf("%s",msg);                              //ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
+				       if (strcmp(msg,"m") == 0)                     //ï¿½Ô¼ï¿½ï¿½Ï´ï¿½ï¿½ßµï¿½Îªï¿½Ï·ï¿½ï¿½Ð·ï¿½
 					   {	     
 					     board[bestMove.x][bestMove.y] = BLACK;
 					     PrintBoard();
 					     record();
 				       	 player[BLACK].total++;
 					     player[WHITE].total++;                      //  ////
-                         printf("¼ÌÐø£º'go' / 'take' / 'taked' / 'undo' / 'passed'\n");
+                         printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'go' / 'take' / 'taked' / 'undo' / 'passed'\n");
 					   }
 					   else if (strcmp(msg,"go")==0)
 					   {
 						   if (SearchMove(&bestMove))
 						   {
-						      printf("-->%d %c",bestMove.x,bestMove.y+'@');     //²úÉúÕÐ·¨³É¹¦£¬·µ»ØÆ½Ì¨ 
-							  printf("   ¿É×ß£º'm' or 'i'\n");
+						      printf("-->%d %c",bestMove.x,bestMove.y+'@');     //ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Ì¨ 
+							  printf("   ï¿½ï¿½ï¿½ß£ï¿½'m' or 'i'\n");
 						   }
 						   else
 						   {	   
-						       printf("passed\n");                   //²»³É¹¦£¬×Ô¼ºpass
+						       printf("passed\n");                   //ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½pass
 						   }
 					   }	   
-				       else if (strcmp(msg,"i") == 0)                //×Ô¼ºÉÏ´Î×ßµÄÎª·Ç·¨ÕÐ·¨
+				       else if (strcmp(msg,"i") == 0)                //ï¿½Ô¼ï¿½ï¿½Ï´ï¿½ï¿½ßµï¿½Îªï¿½Ç·ï¿½ï¿½Ð·ï¿½
 					   {  
 					      board[bestMove.x][bestMove.y] = WHITE;
 					      PrintBoard();
@@ -80,23 +79,23 @@ int main()
 					      board_know[bestMove.x][bestMove.y] ++;     //  ???
 					      if (SearchMove(&bestMove))
 						  {
-						     printf("-->%d %c",bestMove.x,bestMove.y+'@');      //²úÉúÕÐ·¨³É¹¦£¬·µ»ØÆ½Ì¨
-							 printf("   ¿É×ß£º'm' or 'i'\n");
+						     printf("-->%d %c",bestMove.x,bestMove.y+'@');      //ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Ì¨
+							 printf("   ï¿½ï¿½ï¿½ß£ï¿½'m' or 'i'\n");
 						  }
 					      else
 						  {
-						      printf("passed\n");			         //²»³É¹¦£¬×Ô¼ºpass
+						      printf("passed\n");			         //ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½pass
 						  }
 					   }
-				       else if (strcmp(msg,"take") == 0)            //×Ô¼ºÌá×Ó,¶ÁÈ¡Ìá×ÓÊýÄ¿
+				       else if (strcmp(msg,"take") == 0)            //ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
 					   {
 					      SMove moveList[81] ;
-						  printf("Ìá×ÓÊýÄ¿£º");
+						  printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½");
 					      scanf("%d",&numTi);
 					      player[WHITE].total -= numTi;
 					      for(int k = 0 ; k < numTi ; k++)
 						  {
-                             printf("Ìá×Ó×ø±ê£º");
+                             printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£º");
 						     Sleep(50);
 						     fflush(stdin);
 						     scanf("%d%d",&x,&y);
@@ -108,23 +107,23 @@ int main()
 							  board[moveList[i].x][moveList[i].y] = NOSTONE;
 						  }
 					      PrintBoard();
-                          printf("¼ÌÐø£º'go' / 'passed' / 'taked'\n");
+                          printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'go' / 'passed' / 'taked'\n");
 					   }
-			           else if (strcmp(msg,"taked") == 0)            //¶Ô·½Ìá×Ó,¶ÁÈ¡Ìá×ÓÊýÄ¿
+			           else if (strcmp(msg,"taked") == 0)            //ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
 					   {					      
 					      SMove moveList[81] ;
-						  printf("±»Ìá×ÓÊýÄ¿£º");
+						  printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½");
 					      scanf("%d",&numTi);
 					      player[BLACK].total -= numTi;					      
 					      for(int k = 0 ; k < numTi ; k++)
 						  {
-                             printf("±»Ìá×Ó×ø±ê£º");
+                             printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£º");
 						     Sleep(50);
 						     fflush(stdin);
 						     scanf("%d %d",&x,&y);
 						     moveList[k].x = x;
 						     moveList[k].y = y;     
-						     if (board[x-1][y] == NOSTONE)           //¶ÔËùÌáµÄ×ÓµÄ±ß½ç½øÐÐÌ½²â£¬Èç¹ûÊÇ¿Õ£¬¿Ï¶¨ÊÇ¶Ô·½µÄ×Ó
+						     if (board[x-1][y] == NOSTONE)           //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ±ß½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½Ç¿Õ£ï¿½ï¿½Ï¶ï¿½ï¿½Ç¶Ô·ï¿½ï¿½ï¿½ï¿½ï¿½
 							 {
 							     board[x-1][y] = WHITE;
 							     player[WHITE].know++;
@@ -150,16 +149,16 @@ int main()
 						     board[moveList[i].x][moveList[i].y] = NOSTONE;
 						  }
 						  PrintBoard();
-                          printf("¼ÌÐø£º'go' / 'passed'\n");
+                          printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'go' / 'passed'\n");
 					   }
-			           else if (strcmp(msg,"passed") == 0)           //¶Ô·½pass
+			           else if (strcmp(msg,"passed") == 0)           //ï¿½Ô·ï¿½pass
 					   {    
 					     player[WHITE].know  = player[WHITE].total;
 					   }
 		               else if (strcmp(msg,"undo") == 0)
 					   {
 			               Undo();
-                           printf("¼ÌÐø£º'i' or 'm'\n");
+                           printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'i' or 'm'\n");
 					   }
 		               else
 					   {
@@ -174,29 +173,29 @@ int main()
 				while(1)
 				{
 					scanf("%s",msg);
-			        chessColor = WHITE;			                     //×Ô¼ºÊÇ°××Ó		    
-				    if (strcmp(msg,"m") == 0)					     //×Ô¼ºÉÏ´Î×ßµÄÎªºÏ·¨ÕÐ·¨
+			        chessColor = WHITE;			                     //ï¿½Ô¼ï¿½ï¿½Ç°ï¿½ï¿½ï¿½		    
+				    if (strcmp(msg,"m") == 0)					     //ï¿½Ô¼ï¿½ï¿½Ï´ï¿½ï¿½ßµï¿½Îªï¿½Ï·ï¿½ï¿½Ð·ï¿½
 					{
 					   board[bestMove.x][bestMove.y] = WHITE;
 					   PrintBoard();
 					   record();
 					   player[WHITE].total++;
 					   player[BLACK].total++;
-					   printf("¼ÌÐø£º'go' / 'take' / 'taked' / 'undo' / 'passed'\n");
+					   printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'go' / 'take' / 'taked' / 'undo' / 'passed'\n");
 					}
 				    else if (strcmp(msg,"go")==0)
 					{
 					   if (SearchMove(&bestMove))
 					   {
-					      printf("%d %c",bestMove.x,bestMove.y+'@');          //²úÉúÕÐ·¨³É¹¦£¬·µ»ØÆ½Ì¨
-						  printf("   ¿É×ß£º'm' or 'i'\n");
+					      printf("%d %c",bestMove.x,bestMove.y+'@');          //ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Ì¨
+						  printf("   ï¿½ï¿½ï¿½ß£ï¿½'m' or 'i'\n");
 					   }
-					   else                                          //²»³É¹¦£¬×Ô¼ºpass
+					   else                                          //ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½pass
 					   {
 						   printf("passed\n");
 					   }
 					}
-				    else if (strcmp(msg,"i") == 0)                   //×Ô¼ºÉÏ´Î×ßµÄÎª·Ç·¨ÕÐ·¨
+				    else if (strcmp(msg,"i") == 0)                   //ï¿½Ô¼ï¿½ï¿½Ï´ï¿½ï¿½ßµï¿½Îªï¿½Ç·ï¿½ï¿½Ð·ï¿½
 					{	    
 					    board[bestMove.x][bestMove.y] = BLACK;
                         PrintBoard();
@@ -204,23 +203,23 @@ int main()
 					    board_know[bestMove.x][bestMove.y] ++;
 					    if (SearchMove(&bestMove))
 						{
-						    printf("%d %c",bestMove.x,bestMove.y+'@');          //²úÉúÕÐ·¨³É¹¦£¬·µ»ØÆ½Ì¨
-							printf("   ¿É×ß£º'm' or 'i'\n");
+						    printf("%d %c",bestMove.x,bestMove.y+'@');          //ï¿½ï¿½ï¿½ï¿½ï¿½Ð·ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½Ì¨
+							printf("   ï¿½ï¿½ï¿½ß£ï¿½'m' or 'i'\n");
 						}
-					    else                                         //²»³É¹¦£¬×Ô¼ºpass
+					    else                                         //ï¿½ï¿½ï¿½É¹ï¿½ï¿½ï¿½ï¿½Ô¼ï¿½pass
 						{  
 						    printf("passed\n");
 						}
 					}
 				    else if (strcmp(msg,"take") == 0)
 					{
-					    SMove moveList[81] ;                         //×Ô¼ºÌá×Ó,¶ÁÈ¡Ìá×ÓÊýÄ¿
-						printf("Ìá×ÓÊýÄ¿£º");
+					    SMove moveList[81] ;                         //ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
+						printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½");
 					    scanf("%d",&numTi);
 					    player[BLACK].total -= numTi;
 					    for(int k = 0 ; k < numTi ; k++)
 						{
-							printf("Ìá×Ó×ø±ê£º");
+							printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£º");
 						    Sleep(50);
 						    fflush(stdin);							
 						    scanf("%d%d",&x,&y);
@@ -231,25 +230,25 @@ int main()
 						{
 						    board[moveList[i].x][moveList[i].y] = NOSTONE;
 						}
-					                                                 //×Ô¼ºÖªµÀµÄ×ÓÒ²Ó¦¸ÃÐÞÕý
+					                                                 //ï¿½Ô¼ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²Ó¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 						PrintBoard();
-                        printf("¼ÌÐø£º'go' or 'passed' or 'taked'\n");
+                        printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'go' or 'passed' or 'taked'\n");
 					}
-				    else if (strcmp(msg,"taked") == 0)               //¶Ô·½Ìá×Ó,¶ÁÈ¡Ìá×ÓÊýÄ¿
+				    else if (strcmp(msg,"taked") == 0)               //ï¿½Ô·ï¿½ï¿½ï¿½ï¿½ï¿½,ï¿½ï¿½È¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿
 					{					    
 					    SMove moveList[81] ;
-						printf("±»Ìá×ÓÊýÄ¿£º");
+						printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½");
 					    scanf("%d",&numTi);
-					    player[WHITE].total -= numTi;                //¶ÁÈ¡×Ô¼ºËùÓÐ±»ÌáµÄ×Ó	    
+					    player[WHITE].total -= numTi;                //ï¿½ï¿½È¡ï¿½Ô¼ï¿½ï¿½ï¿½ï¿½Ð±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	    
 					    for(int k = 0 ; k < numTi ; k++)
 						{
-							printf("±»Ìá×Ó×ø±ê£º");
+							printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ê£º");
 						    Sleep(50);
 						    fflush(stdin);
 						    scanf("%d%d",&x,&y);
 						    moveList[k].x = x;
 						    moveList[k].y = y;			    
-						    if (board[x-1][y] == NOSTONE)            //¶ÔËùÌáµÄ×ÓµÄ±ß½ç½øÐÐÌ½²â£¬Èç¹ûÊÇ¿Õ£¬¿Ï¶¨ÊÇ¶Ô·½µÄ×Ó
+						    if (board[x-1][y] == NOSTONE)            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ±ß½ï¿½ï¿½ï¿½ï¿½Ì½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½Ç¿Õ£ï¿½ï¿½Ï¶ï¿½ï¿½Ç¶Ô·ï¿½ï¿½ï¿½ï¿½ï¿½
 							{
 						     	board[x-1][y] = BLACK;
 						    	player[BLACK].know++;
@@ -275,16 +274,16 @@ int main()
 						    board[moveList[i].x][moveList[i].y] = NOSTONE;
 						}
 						PrintBoard();
-                        printf("¼ÌÐø£º'go' or 'passed'\n");
+                        printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'go' or 'passed'\n");
 					}
-				    else if (strcmp(msg,"passed") == 0)              //¶Ô·½pass
+				    else if (strcmp(msg,"passed") == 0)              //ï¿½Ô·ï¿½pass
 					{	    
 					    player[WHITE].know  = player[BLACK].total;
 					}
 		            else if (strcmp(msg,"undo") == 0)
 					{
 			             Undo();
-						 printf("¼ÌÐø£º'i' or 'm'\n");
+						 printf("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½'i' or 'm'\n");
 					}
 		            else
 					{
@@ -355,24 +354,24 @@ void PrintBoard()
 		printf("  %c%d",ch,j);
 		ch++;
 	}
-    printf("%s","\n  ©°©¤©Ð©¤©Ð©¤©Ð©¤©Ð©¤©Ð©¤©Ð©¤©Ð©¤©Ð©¤©´\n");
+    printf("%s","\n  ï¿½ï¿½ï¿½ï¿½ï¿½Ð©ï¿½ï¿½Ð©ï¿½ï¿½Ð©ï¿½ï¿½Ð©ï¿½ï¿½Ð©ï¿½ï¿½Ð©ï¿½ï¿½Ð©ï¿½ï¿½Ð©ï¿½ï¿½ï¿½\n");
 	for (long i=0;i<9;i++)
 	{
-		printf("%d %s",i+1,"©¦");
+		printf("%d %s",i+1,"ï¿½ï¿½");
 		for(long j=0;j<9;j++)
 		{
 			if(board[i+1][j+1]==1)
-				printf("%s","¨w©¦");
+				printf("%s","ï¿½wï¿½ï¿½");
 			else if(board[i+1][j+1]==2)
-				printf("%s","¡ð©¦");
+				printf("%s","ï¿½ï¿½");
 			else
-				printf("%s","  ©¦");
+				printf("%s","  ï¿½ï¿½");
 		}
 		printf("%s","\n");
 		if(i==8)
-			printf("%s","  ©¸©¤©Ø©¤©Ø©¤©Ø©¤©Ø©¤©Ø©¤©Ø©¤©Ø©¤©Ø©¤©¼\n");
+			printf("%s","  ï¿½ï¿½ï¿½ï¿½ï¿½Ø©ï¿½ï¿½Ø©ï¿½ï¿½Ø©ï¿½ï¿½Ø©ï¿½ï¿½Ø©ï¿½ï¿½Ø©ï¿½ï¿½Ø©ï¿½ï¿½Ø©ï¿½ï¿½ï¿½\n");
 		else
-			printf("%s","  ©À©¤©à©¤©à©¤©à©¤©à©¤©à©¤©à©¤©à©¤©à©¤©È\n");
+			printf("%s","  ï¿½ï¿½ï¿½ï¿½ï¿½à©¤ï¿½à©¤ï¿½à©¤ï¿½à©¤ï¿½à©¤ï¿½à©¤ï¿½à©¤ï¿½à©¤ï¿½ï¿½\n");
 	}
 }
 

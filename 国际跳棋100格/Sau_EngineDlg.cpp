@@ -1,12 +1,11 @@
-//´úÂë°æ±¾		2017Äê¹úÈü 
-//±¾´úÂëÓÉÉòÑôº½¿Õº½Ìì´óÑ§¼ÆËã»ú²©ŞÄĞ­»á×Ü¸ºÔğÈËÍõÔ¾ÁØÍ³Ò»µ÷¿Ø
-//¹ú¼ÊÌøÆå×é¸ºÔğÈËÓÚÍûËù´ø²©ŞÄ×é¿ª·¢Î¬»¤
-//´úÂëÀ´×Ô¹ş¹¤´ó¿ªÔ´´úÂë,ÓÉÒÔÉÏ³ÉÔ±Î¬»¤ 
-//±¾´úÂëÊÊÓÃÓÚÖĞ¹ú´óÑ§Éú¼ÆËã»ú²©ŞÄ´óÈü²©ŞÄÏîÄ¿2017°æ½»»¥Ğ­Òé
-//±¾´úÂë½öÌá¹©½»»¥Ğ­ÒéµÄÓÃ·¨Ê¾·¶ºÍ¼òµ¥AI²©ŞÄË¼Â·£¬¿ª·¢ÕßĞè×ÔĞĞ¸Ä½øÍêÉÆ´úÂë²ÎÈü
-//ÈçÓĞÒâ¼ûºÍ½¨ÒéÇëÓëÎÒÃÇ¾¡ÔçÁªÏµ
-//ÍõÔ¾ÁØ	QQ£º836473734
-//ÓÚÍû		QQ£º2969235803
+//ä»£ç ç‰ˆæœ¬		2017å¹´å›½èµ› 
+//æœ¬ä»£ç ç”±æ²ˆé˜³èˆªç©ºèˆªå¤©å¤§å­¦è®¡ç®—æœºåšå¼ˆåä¼šæ€»è´Ÿè´£äººç‹è·ƒéœ–ç»Ÿä¸€è°ƒæ§
+//å›½é™…è·³æ£‹ç»„è´Ÿè´£äººäºæœ›æ‰€å¸¦åšå¼ˆç»„å¼€å‘ç»´æŠ¤
+//æœ¬ä»£ç é€‚ç”¨äºä¸­å›½å¤§å­¦ç”Ÿè®¡ç®—æœºåšå¼ˆå¤§èµ›åšå¼ˆé¡¹ç›®2017ç‰ˆäº¤äº’åè®®
+//æœ¬ä»£ç ä»…æä¾›äº¤äº’åè®®çš„ç”¨æ³•ç¤ºèŒƒå’Œç®€å•AIåšå¼ˆæ€è·¯ï¼Œå¼€å‘è€…éœ€è‡ªè¡Œæ”¹è¿›å®Œå–„ä»£ç å‚èµ›
+//å¦‚æœ‰æ„è§å’Œå»ºè®®è¯·ä¸æˆ‘ä»¬å°½æ—©è”ç³»
+//ç‹è·ƒéœ–	QQï¼š836473734
+//äºæœ›		QQï¼š2969235803
 #include "stdafx.h"
 #include "Sau_Engine.h"
 #include "Sau_EngineDlg.h"
@@ -22,24 +21,24 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-int turn = 3;////////////Ô­±¾±£´æÎÄ¼şÀïµÄturn¶¨ÒåÔÚÕâÀï
+int turn = 3;////////////Ô­ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½ï¿½ï¿½turnï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 int StepCount = 0;
 
-// ÓÃÓÚÓ¦ÓÃ³ÌĞò¡°¹ØÓÚ¡±²Ëµ¥ÏîµÄ CAboutDlg ¶Ô»°¿ò
+// ï¿½ï¿½ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ò¡°¹ï¿½ï¿½Ú¡ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ CAboutDlg ï¿½Ô»ï¿½ï¿½ï¿½
 
 class CAboutDlg : public CDialogEx
 {
 public:
 	CAboutDlg();
 
-// ¶Ô»°¿òÊı¾İ
+// ï¿½Ô»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	enum { IDD = IDD_ABOUTBOX };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§ï¿½ï¿½
 
-// ÊµÏÖ
+// Êµï¿½ï¿½
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
@@ -59,7 +58,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CSau_EngineDlg ¶Ô»°¿ò
+// CSau_EngineDlg ï¿½Ô»ï¿½ï¿½ï¿½
 
 
 CSau_EngineDlg::CSau_EngineDlg(CWnd* pParent /*=NULL*/)
@@ -148,16 +147,16 @@ HCURSOR CSau_EngineDlg::OnQueryDragIcon()
 
 int CSau_EngineDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	CWelcome Welcome;                 //´´½¨Æô¶¯´°¿ÚÀàµÄÊµÀı  
+	CWelcome Welcome;                 //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½  
 	Welcome.Create(IDB_BITMAP_Welcome);  
 	Welcome.CenterWindow();  
 	Welcome.UpdateWindow();          //send WM_PAINT  
 	Sleep(1500);  
-	Welcome.DestroyWindow();//Ïú»Ù³õÊ¼»­Ãæ´°¿Ú  
+	Welcome.DestroyWindow();//ï¿½ï¿½ï¿½Ù³ï¿½Ê¼ï¿½ï¿½ï¿½æ´°ï¿½ï¿½  
 	if (CDialogEx::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO:  ÔÚ´ËÌí¼ÓÄú×¨ÓÃµÄ´´½¨´úÂë
+	// TODO:  ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×¨ï¿½ÃµÄ´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 	return 0;
 }
@@ -167,9 +166,9 @@ BOOL CSau_EngineDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ½«¡°¹ØÓÚ...¡±²Ëµ¥ÏîÌí¼Óµ½ÏµÍ³²Ëµ¥ÖĞ¡£
+	// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½...ï¿½ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Óµï¿½ÏµÍ³ï¿½Ëµï¿½ï¿½Ğ¡ï¿½
 
-	// IDM_ABOUTBOX ±ØĞëÔÚÏµÍ³ÃüÁî·¶Î§ÄÚ¡£
+	// IDM_ABOUTBOX ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÏµÍ³ï¿½ï¿½ï¿½î·¶Î§ï¿½Ú¡ï¿½
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -187,38 +186,38 @@ BOOL CSau_EngineDlg::OnInitDialog()
 		}
 	}
 	 
-	// ÉèÖÃ´Ë¶Ô»°¿òµÄÍ¼±ê¡£µ±Ó¦ÓÃ³ÌĞòÖ÷´°¿Ú²»ÊÇ¶Ô»°¿òÊ±£¬¿ò¼Ü½«×Ô¶¯
-	//  Ö´ĞĞ´Ë²Ù×÷
-	SetIcon(m_hIcon, TRUE);			// ÉèÖÃ´óÍ¼±ê
-	SetIcon(m_hIcon, FALSE);		// ÉèÖÃĞ¡Í¼±ê
+	// ï¿½ï¿½ï¿½Ã´Ë¶Ô»ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ê¡£ï¿½ï¿½Ó¦ï¿½Ã³ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½Ç¶Ô»ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½Ü½ï¿½ï¿½Ô¶ï¿½
+	//  Ö´ï¿½Ğ´Ë²ï¿½ï¿½ï¿½
+	SetIcon(m_hIcon, TRUE);			// ï¿½ï¿½ï¿½Ã´ï¿½Í¼ï¿½ï¿½
+	SetIcon(m_hIcon, FALSE);		// ï¿½ï¿½ï¿½ï¿½Ğ¡Í¼ï¿½ï¿½
 	ShowWindow(SW_HIDE);
 	m_Menu.LoadMenu(IDR_MENU1); 
 	SetMenu(&m_Menu);
 
-	// TODO: ÔÚ´ËÌí¼Ó¶îÍâµÄ³õÊ¼»¯´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½Ó¶ï¿½ï¿½ï¿½Ä³ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	//»ñÈ¡´°¿Ú´óĞ¡ÒÔµ÷ÕûÆåÅÌ
+	//ï¿½ï¿½È¡ï¿½ï¿½ï¿½Ú´ï¿½Ğ¡ï¿½Ôµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	RECT rt;
 	GetClientRect(&rt);
 	SetBoard(rt);
 	
-	//Ò»Ğ©Ä¬ÈÏÑ¡Ïî£¨Ä£Ê½£ºÈËÈË ÒıÇæ£ºNegascout+AlphaBeta£©
+	//Ò»Ğ©Ä¬ï¿½ï¿½Ñ¡ï¿½î£¨Ä£Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½æ£ºNegascout+AlphaBetaï¿½ï¿½
 	Mode= HvsH;
 	Engine= Negascout|AlphaBeta	;
 	Is_Board_Inverse= Normal;
-	//Êä³öĞÅÏ¢µÄ´°¿Ú¿ª£¨¹ÀÖµ£¬×Å·¢£¬ÀúÊ·£©
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½Ä´ï¿½ï¿½Ú¿ï¿½ï¿½ï¿½ï¿½ï¿½Öµï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½Ê·ï¿½ï¿½
 	OnAllMove();
 	OnMoveHistory();
 	OnEvel();
 	congli=0;
-	//ÉùÃ÷Ïß³Ìº¯Êı ²¢´´½¨
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ß³Ìºï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	UINT AI_Thread(LPVOID pParam) ;
  	theApp.Handle_AI_Thread=AfxBeginThread(AI_Thread, NULL,NULL,NULL,CREATE_SUSPENDED); 
 	ShowWindow(SW_MAXIMIZE);
-	//×´Ì¬À¸
+	//×´Ì¬ï¿½ï¿½
 	if(!m_Bar.Create(this))
 	{
-	  MessageBox("×´Ì¬À¸´´½¨´íÎó£¡", _T("´íÎó" ), MB_OK);
+	  MessageBox("×´Ì¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", _T("ï¿½ï¿½ï¿½ï¿½" ), MB_OK);
 	} 
 	m_Bar.SetIndicators(indicators,sizeof(indicators)/sizeof(UINT));
 	RECT rect;  
@@ -233,10 +232,10 @@ BOOL CSau_EngineDlg::OnInitDialog()
 	
 	if (!m_Pro.Create(WS_CHILD | WS_VISIBLE | PBS_SMOOTH,CRect(1,3,126,19),&m_Bar,1))
 	{
-		MessageBox("½ø¶ÈÌõ´´½¨´íÎó£¡", _T("´íÎó" ), MB_OK);
+		MessageBox("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½", _T("ï¿½ï¿½ï¿½ï¿½" ), MB_OK);
 	}
 	m_Pro.SetStep(4);
-	return TRUE;  // ³ı·Ç½«½¹µãÉèÖÃµ½¿Ø¼ş£¬·ñÔò·µ»Ø TRUE
+	return TRUE;  // ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½Ø¼ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½ TRUE
 }
 
 void CSau_EngineDlg::OnPaint()
@@ -244,18 +243,18 @@ void CSau_EngineDlg::OnPaint()
 	
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ÓÃÓÚ»æÖÆµÄÉè±¸ÉÏÏÂÎÄ
+		CPaintDC dc(this); // ï¿½ï¿½ï¿½Ú»ï¿½ï¿½Æµï¿½ï¿½è±¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// Ê¹Í¼±êÔÚ¹¤×÷Çø¾ØĞÎÖĞ¾ÓÖĞ
+		// Ê¹Í¼ï¿½ï¿½ï¿½Ú¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¾ï¿½ï¿½ï¿½
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
 		GetClientRect(&rect);
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
-		// »æÖÆÍ¼±ê
+		// ï¿½ï¿½ï¿½ï¿½Í¼ï¿½ï¿½
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -285,20 +284,20 @@ void CSau_EngineDlg::PlayMySound(int i)
 
 	switch (i)
 	{
-	case 0://Ñ¡×ÓÒôĞ§
-		strcpy_s(filename, "C:\\Users\\¿­¿­\\Desktop\\Sau_Engine\\SOUND\\Ñ¡×Ó.wav");
+	case 0://Ñ¡ï¿½ï¿½ï¿½ï¿½Ğ§
+		strcpy_s(filename, "C:\\Users\\ï¿½ï¿½ï¿½ï¿½\\Desktop\\Sau_Engine\\SOUND\\Ñ¡ï¿½ï¿½.wav");
 		break;
-	case 1://Âä×ÓÒôĞ§
-		strcpy_s(filename, "C:\\Users\\¿­¿­\\Desktop\\Sau_Engine\\SOUND\\Âä×Ó.wav");
+	case 1://ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ§
+		strcpy_s(filename, "C:\\Users\\ï¿½ï¿½ï¿½ï¿½\\Desktop\\Sau_Engine\\SOUND\\ï¿½ï¿½ï¿½ï¿½.wav");
 		break;
-	case 2://³Ô×ÓÒôĞ§
-		strcpy_s(filename, "C:\\Users\\¿­¿­\\Desktop\\Sau_Engine\\SOUND\\³Ô×Ó.wav");
+	case 2://ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ§
+		strcpy_s(filename, "C:\\Users\\ï¿½ï¿½ï¿½ï¿½\\Desktop\\Sau_Engine\\SOUND\\ï¿½ï¿½ï¿½ï¿½.wav");
 		break;
 	default:
 		break;
 	}
 
-	//²¥·ÅÒôĞ§
+	//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ğ§
 	PlaySound(filename, NULL, SND_NOWAIT | SND_FILENAME);
 
 }
@@ -384,11 +383,11 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 	CBitmap bitmap;
 	bitmap.LoadBitmap(IDB_BITMAP_Prompt);
 	PiecesDC.CreateCompatibleDC(dc);
-	CBitmap *OldBitmap = PiecesDC.SelectObject(&bitmap);//int i=Prompt_Move[0].move_star_x*d+d//int i=£¨10-Prompt_Move[0].move_star_x£©*d+d//ÆåÅÌ·´×ª
+	CBitmap *OldBitmap = PiecesDC.SelectObject(&bitmap);//int i=Prompt_Move[0].move_star_x*d+d//int i=ï¿½ï¿½10-Prompt_Move[0].move_star_xï¿½ï¿½*d+d//ï¿½ï¿½ï¿½Ì·ï¿½×ª
 
 	POINT Prompt_Pt_Star,Prompt_Pt_Stop,Prompt_Pt_Eat[20];
 
-	if(SpareInput==-2)//ÊäÈë·½Ê½Ò» 
+	if(SpareInput==-2)//ï¿½ï¿½ï¿½ë·½Ê½Ò» 
 	{
 		if(Progress==Chose)
 		{
@@ -420,7 +419,7 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 					Prompt_Pt_Eat[i].y=(9-Prompt_Move[Mouse_Move].eatPoint[i][1])*d+d+d/12;
 				}
 			}
-			//±ê¼ÇÆğµã
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			switch(Board[Prompt_Move[0].move_star_x][Prompt_Move[0].move_star_y])
 			{
 				case 1:
@@ -432,10 +431,10 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 			case 4:
 				dc->StretchBlt(Prompt_Pt_Star.x,Prompt_Pt_Star.y,Size_Prompt,Size_Prompt,&PiecesDC,100,50,50,50,SRCCOPY);break;
 			}
-			//±ê¼Ç¿ÉĞĞÂäµã
+			//ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,50,50,50,50,SRCAND);
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,0,50,50,50,SRCPAINT);
-			//±ê¼Ç³Ô×Ó
+			//ï¿½ï¿½Ç³ï¿½ï¿½ï¿½
 			for(int i=0;i<Prompt_Move[0].eatHowMany;i++)
 			{
 				dc->StretchBlt(Prompt_Pt_Eat[i].x,Prompt_Pt_Eat[i].y,Size_Prompt,Size_Prompt,&PiecesDC,50,0,50,50,SRCAND);
@@ -484,10 +483,10 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 			case 4:
 				dc->StretchBlt(Prompt_Pt_Star.x,Prompt_Pt_Star.y,Size_Prompt,Size_Prompt,&PiecesDC,100,50,50,50,SRCCOPY);break;
 			}
-			//±ê¼Çµã
+			//ï¿½ï¿½Çµï¿½
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,50,50,50,50,SRCAND);
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,0,50,50,50,SRCPAINT);
-			//±ê¼Ç³Ô×Ó
+			//ï¿½ï¿½Ç³ï¿½ï¿½ï¿½
 			for(int i=0;i<Prompt_Move[0].eatHowMany;i++)
 			{
 				dc->StretchBlt(Prompt_Pt_Eat[i].x,Prompt_Pt_Eat[i].y,Size_Prompt,Size_Prompt,&PiecesDC,50,0,50,50,SRCAND);
@@ -495,7 +494,7 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 			}
 		}
 	}
-	else //ÊäÈë·½Ê½¶ş
+	else //ï¿½ï¿½ï¿½ë·½Ê½ï¿½ï¿½
 	{
 		if(Is_Board_Inverse==Normal)
 		{ 
@@ -589,10 +588,10 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 			case 4:
 				dc->StretchBlt(Prompt_Pt_Star.x,Prompt_Pt_Star.y,Size_Prompt,Size_Prompt,&PiecesDC,100,50,50,50,SRCCOPY);break;
 			}
-			//±ê¼Ç¿ÉĞĞÂäµã
+			//ï¿½ï¿½Ç¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,50,50,50,50,SRCAND);
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,0,50,50,50,SRCPAINT);
-			//±ê¼Ç³Ô×Ó
+			//ï¿½ï¿½Ç³ï¿½ï¿½ï¿½
 			for(int i=0;i<Prompt_Move[0].eatHowMany;i++)
 			{
 				dc->StretchBlt(Prompt_Pt_Eat[i].x,Prompt_Pt_Eat[i].y,Size_Prompt,Size_Prompt,&PiecesDC,50,0,50,50,SRCAND);
@@ -617,19 +616,19 @@ void CSau_EngineDlg::OnSize(UINT nType, int cx, int cy)
 	Board_Rect.top=d;
 	Board_Rect.right=d+d*10;
 	Board_Rect.bottom=d+d*10;
-	Invalidate(1);//ÖØ»æÆåÅÌ
+	Invalidate(1);//ï¿½Ø»ï¿½ï¿½ï¿½ï¿½ï¿½
 	UpdateWindow();
 	
 
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´Ë´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 
 void CSau_EngineDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Öµ
 
-	//Ìø³öÑ­»·Ìå bug//////////////////////
+	//ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½ï¿½ï¿½ bug//////////////////////
 	CPoint pt;
 	CRect Mouse_Rect;
 	if(Progress!=Blocked)
@@ -665,7 +664,7 @@ void CSau_EngineDlg::OnLButtonDown(UINT nFlags, CPoint point)
 								if(SToS(pt)==2)
 								{
 									::PostMessage(m_hWnd, WM_MY_MESSAGE, 0,0);
-									//Ìø³öÑ­»·
+									//ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
 									i=10;j=10;
 								}
 							}
@@ -674,7 +673,7 @@ void CSau_EngineDlg::OnLButtonDown(UINT nFlags, CPoint point)
 								if(Spare_SToS(pt)==2)
 								{
 									::PostMessage(m_hWnd, WM_MY_MESSAGE, 0, 0);
-									//Ìø³öÑ­»·
+									//ï¿½ï¿½ï¿½ï¿½Ñ­ï¿½ï¿½
 									i=10;j=10;
 								}
 							}
@@ -695,12 +694,12 @@ void CSau_EngineDlg::OnEngine_N()
 {
  if (Engine&Negascout)
  {
-  GetMenu()->CheckMenuItem(ID_ENGINE_N,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+  GetMenu()->CheckMenuItem(ID_ENGINE_N,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
   Engine= Engine&~Negascout;
  }
  else
  {
-   GetMenu()->CheckMenuItem(ID_ENGINE_N,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+   GetMenu()->CheckMenuItem(ID_ENGINE_N,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
    Engine= Engine|Negascout;
  }
 
@@ -709,15 +708,15 @@ void CSau_EngineDlg::OnEngine_N()
 
 void CSau_EngineDlg::OnEngine_AB()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (Engine&AlphaBeta)
 	 {
-	  GetMenu()->CheckMenuItem(ID_ENGINE_AB,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+	  GetMenu()->CheckMenuItem(ID_ENGINE_AB,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 	  Engine= Engine&~AlphaBeta;
 	 }
 	 else
 	 {
-	   GetMenu()->CheckMenuItem(ID_ENGINE_AB,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	   GetMenu()->CheckMenuItem(ID_ENGINE_AB,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	   Engine= Engine|AlphaBeta;
 	 }
 }
@@ -725,15 +724,15 @@ void CSau_EngineDlg::OnEngine_AB()
 
 void CSau_EngineDlg::OnEngine_M()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if (Engine&Minimax)
 	 {
-	  GetMenu()->CheckMenuItem(ID_ENGINE_M,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+	  GetMenu()->CheckMenuItem(ID_ENGINE_M,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 	  Engine= Engine&~Minimax;
 	 }
 	 else
 	 {
-	   GetMenu()->CheckMenuItem(ID_ENGINE_M,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	   GetMenu()->CheckMenuItem(ID_ENGINE_M,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	   Engine= Engine|Minimax;
 	 }
 }
@@ -741,31 +740,31 @@ void CSau_EngineDlg::OnEngine_M()
 
 void CSau_EngineDlg::OnMode_HvsAI()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
-	   GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
-	   GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	   GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+	   GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
+	   GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	   GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 	   Mode=HvsAI;
 }
 
 
 void CSau_EngineDlg::OnMode_AIvsH()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
-	GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 	Mode=AIvsH;
 }
 
 
 void CSau_EngineDlg::OnMode_HvsH()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
-	   GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
-	   GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	   GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+	   GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
+	   GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	   GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 	   Mode=HvsH;
 }
 
@@ -781,17 +780,17 @@ void CSau_EngineDlg::OnNew_Game()
 	DrawChess(D_Pieces|D_Board);
 	if(Mode==HvsH)
 	{
-		Progress=Open;//½â³ıÊó±êÆÁ±Î
+		Progress=Open;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 	else if(Mode==HvsAI)
 	{
 		Human_Color=BLACK;
 		Computer_Color=WHITE;
-		Progress=Open;//½â³ıÊó±êÆÁ±Î
+		Progress=Open;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	}
 	else if(Mode==AIvsH)
 	{
-		Progress=Blocked;//ÆÁ±ÎÊó±ê
+		Progress=Blocked;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		Computer_Color=BLACK;
 		Human_Color=WHITE;
 	}
@@ -804,9 +803,9 @@ afx_msg LRESULT CSau_EngineDlg::The_Move_Finish(WPARAM wParam, LPARAM lParam)
 	if(wParam!=0)
 	{
 		if(wParam==BLACK)
-			MessageBox("°×£¨À¶£©·½Ê¤","ÖÕ¾Ö", MB_OK);
+			MessageBox("ï¿½×£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¤","ï¿½Õ¾ï¿½", MB_OK);
 		else
-			MessageBox("ºÚ£¨ºì£©·½Ê¤","ÖÕ¾Ö", MB_OK);
+			MessageBox("ï¿½Ú£ï¿½ï¿½ì£©ï¿½ï¿½Ê¤","ï¿½Õ¾ï¿½", MB_OK);
 		Save_File(Color);
 	}
 	else
@@ -827,14 +826,14 @@ afx_msg LRESULT CSau_EngineDlg::The_Move_Finish(WPARAM wParam, LPARAM lParam)
 					Show_All_Move();
 					Show_Evel();
 					ProgressStar();
-					AI_Star(Board, Color);//AI¿ªÊ¼ Ë¼¿¼
+					AI_Star(Board, Color);//AIï¿½ï¿½Ê¼ Ë¼ï¿½ï¿½
 					return 0;
 				}
 				else if(Color==Human_Color)
 				{
 					Show_All_Move();
 					Show_Evel();
-					//»Ö¸´²Ëµ¥
+					//ï¿½Ö¸ï¿½ï¿½Ëµï¿½
 					CMenu *pMenu = GetMenu();
 					if(pMenu)
 					{
@@ -890,7 +889,7 @@ afx_msg LRESULT CSau_EngineDlg::The_Move_Finish(WPARAM wParam, LPARAM lParam)
 					Show_The_Move(Prompt_Move);
 				}
 			}
-			if(SpareInput!=-2)SpareInput=-2;//»Ö¸´ÊäÈë·½Ê½Ò»
+			if(SpareInput!=-2)SpareInput=-2;//ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ë·½Ê½Ò»
 			Get_All_Move();
 		}
 	}
@@ -898,21 +897,21 @@ afx_msg LRESULT CSau_EngineDlg::The_Move_Finish(WPARAM wParam, LPARAM lParam)
 }
 
 
-void CSau_EngineDlg::OnClose()//¼Ó ±£´æ
+void CSau_EngineDlg::OnClose()//ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 {
 	/*int i;
-	//MessageBox("ÕıÔÚµÈ´ıAIÏß³Ì½áÊø£¡","AI Thread Message", MB_OK);
+	//MessageBox("ï¿½ï¿½ï¿½ÚµÈ´ï¿½AIï¿½ß³Ì½ï¿½ï¿½ï¿½ï¿½ï¿½","AI Thread Message", MB_OK);
 	while(theApp.Thread_Sign==1);
 	theApp.Board_Mess.Add_Mess=Dele;
 	i=theApp.Handle_AI_Thread->ResumeThread();
 	//i=theApp.Handle_AI_Thread->ResumeThread();
 	Sleep(0);
 	while(theApp.Thread_Sign);
-	MessageBox("AIÏß³ÌÒÑ½áÊø£¡","AI Thread Message", MB_OK);
+	MessageBox("AIï¿½ß³ï¿½ï¿½Ñ½ï¿½ï¿½ï¿½ï¿½ï¿½","AI Thread Message", MB_OK);
 
 
 	Sleep(1000);*/
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Öµ
 	CDialogEx::OnClose();
 }
 
@@ -922,19 +921,19 @@ void CSau_EngineDlg::Get_Computer_Move()
 	Prompt_Move[0]=theApp.Move_Mess.The_Good_Move;
 	Mouse_Move=0;
 	if(theApp.Move_Mess.Add_Mess&Err_Engine_AB)
-		m_Bar.SetPaneText(2,"AlphaBetaÒıÇæÒıÆğ³ö´í£¡Ëæ»úÑ¡Ôñ×Å·¨£¡",1); 
+		m_Bar.SetPaneText(2,"AlphaBetaï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½",1); 
 	else if(theApp.Move_Mess.Add_Mess&Err_Engine_Check)
-		m_Bar.SetPaneText(2,"±¸ÓÃÒıÇæÒıÆğ³ö´í£¡Ëæ»úÑ¡Ôñ×Å·¨£¡",1); 
+		m_Bar.SetPaneText(2,"ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¡ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½",1); 
 	else
 		m_Bar.SetPaneText(2,"AI_Thread_Suspend",1);
-	if(SpareInput!=-2)SpareInput=-2;//»Ö¸´ÊäÈë·½Ê½Ò»
+	if(SpareInput!=-2)SpareInput=-2;//ï¿½Ö¸ï¿½ï¿½ï¿½ï¿½ë·½Ê½Ò»
 
 }
 
 
 void CSau_EngineDlg::AI_Star(int Board[][10], int Color)
 {
-	//ÆÁ±ÎÒ»Ğ©²Ëµ¥
+	//ï¿½ï¿½ï¿½ï¿½Ò»Ğ©ï¿½Ëµï¿½
 	CMenu *pMenu = GetMenu();
 	if(pMenu)
 	{
@@ -956,7 +955,7 @@ void CSau_EngineDlg::AI_Star(int Board[][10], int Color)
 		pMenu->EnableMenuItem(ID_ENGINE_AB, MF_DISABLED|MF_GRAYED);
 	}
 
-	//¸³ÖµBoard_Mess
+	//ï¿½ï¿½ÖµBoard_Mess
 	for(int i=0;i<10;i++)
 		for(int j=0;j<10;j++)
 		{
@@ -964,7 +963,7 @@ void CSau_EngineDlg::AI_Star(int Board[][10], int Color)
 		}
 	theApp.Board_Mess.Add_Mess=Engine;
 	theApp.Board_Mess.Color=Color;
-	//»Ö¸´Ïß³Ì
+	//ï¿½Ö¸ï¿½ï¿½ß³ï¿½
 	theApp.Handle_AI_Thread->ResumeThread();
 }
 
@@ -993,12 +992,12 @@ void CSau_EngineDlg::Init_Board(int Board[10][10])
 int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 {
 	
-	if (Progress==Open)//Ñ¡ÖĞÆå×Ó
+	if (Progress==Open)//Ñ¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	{
 		Prompt_Move_Num=0;
 		for(int i=0;i< Move_Num;i++)
 		{			
-			if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//Êó±êµãÊÇ·ñÆ¥Åäµ½Æå×ÓÆğµã ²¢±ê¼Ç
+			if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Æ¥ï¿½äµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 			{
 				Prompt_Move[Prompt_Move_Num]=All_Moves[i];
 				Prompt_Move_Num++;
@@ -1009,19 +1008,19 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 		{
 			Mouse_Move=-1;
 			DrawChess(D_Board|D_Pieces|D_Prompt);
-			return 0;//×Å·¨½øĞĞ
+			return 0;//ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		
 	}
-	else if (Progress==Chose)//×ß×Ó
+	else if (Progress==Chose)//ï¿½ï¿½ï¿½ï¿½
 	{
 	
-		if (Board[Mouse_Pt.x][Mouse_Pt.y]%2!=Color-1&&Board[Mouse_Pt.x][Mouse_Pt.y]!=0)//Ñ¡ÖĞ±¾·½Æå×Ó
+		if (Board[Mouse_Pt.x][Mouse_Pt.y]%2!=Color-1&&Board[Mouse_Pt.x][Mouse_Pt.y]!=0)//Ñ¡ï¿½Ğ±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		{	
 			int temp=0;
 			for(int i=0;i< Move_Num;i++)
 			{		
-				if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//Êó±êµãÊÇ·ñÆ¥Åäµ½Æå×ÓÆğµã ²¢±ê¼Ç
+				if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Æ¥ï¿½äµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 				{
 					if(temp==0){Prompt_Move_Num=0;temp=1;}
 					Prompt_Move[Prompt_Move_Num]=All_Moves[i];
@@ -1031,7 +1030,7 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 			}	
 			Mouse_Move=-1;
 			DrawChess(D_Board|D_Pieces|D_Prompt);
-			return 0;//×Å·¨½øĞĞ
+			return 0;//ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		else
 		{
@@ -1044,7 +1043,7 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 						Prompt_Move[0]=Prompt_Move[i];
 						Progress=Blocked;
 						DrawChess(D_Board|D_Pieces|D_Prompt);
-						return 2;//×Å·¨»ØºÏ½áÊø
+						return 2;//ï¿½Å·ï¿½ï¿½ØºÏ½ï¿½ï¿½ï¿½
 					}
 					else if(Prompt_Move[i].eatHowMany)
 					{
@@ -1054,7 +1053,7 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 								Prompt_Move[0]=Prompt_Move[i];
 								Progress=Blocked;
 								DrawChess(D_Board|D_Pieces|D_Prompt);
-								return 2;//×Å·¨»ØºÏ½áÊø
+								return 2;//ï¿½Å·ï¿½ï¿½ØºÏ½ï¿½ï¿½ï¿½
 							}
 					}
 				}	
@@ -1067,7 +1066,7 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 
 void CSau_EngineDlg::OnMouseMove(UINT nFlags, CPoint point)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Öµ
 	
 	for(int i=0;i<10;i++)
 	{
@@ -1156,13 +1155,13 @@ void CSau_EngineDlg::OnMouseMove(UINT nFlags, CPoint point)
 		{
 			Mouse_Move=Temp_Mouse_Move;
 			//PlayMySound(1);
-			DrawChess(D_Board|D_Pieces|D_Prompt);//ÖØ»æÆåÅÌ
+			DrawChess(D_Board|D_Pieces|D_Prompt);//ï¿½Ø»ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 
 		else if(ii==0&&Mouse_Move!=-1)
 		{
 			Mouse_Move=-1;
-			DrawChess(D_Board|D_Pieces|D_Prompt);//ÖØ»æÆåÅÌ
+			DrawChess(D_Board|D_Pieces|D_Prompt);//ï¿½Ø»ï¿½ï¿½ï¿½ï¿½ï¿½
 		}
 		if(ii==0)
 			Mouse_Move=-1;
@@ -1178,13 +1177,13 @@ int CSau_EngineDlg::Spare_SToS(CPoint Mouse_Pt)
 		
 		for(int i=0;i< Move_Num;i++)
 		{			
-			if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//Êó±êµãÊÇ·ñÆ¥Åäµ½Æå×ÓÆğµã ²¢±ê¼Ç
+			if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//ï¿½ï¿½ï¿½ï¿½ï¿½Ç·ï¿½Æ¥ï¿½äµ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½
 			{
 				Prompt_Move[0].move_star_x=Mouse_Pt.x;
 				Prompt_Move[0].move_star_y=Mouse_Pt.y;
 				DrawChess(D_Board|D_Pieces|D_Prompt);
 				SpareInput++;
-				if(SpareInput-1==All_Moves[i].eatHowMany)//Êµ¼ÊÒ»¶¨²»»áÎªÕæ
+				if(SpareInput-1==All_Moves[i].eatHowMany)//Êµï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îªï¿½ï¿½
 				{
 					SpareInput=-1;
 				}
@@ -1249,8 +1248,8 @@ int CSau_EngineDlg::Spare_SToS(CPoint Mouse_Pt)
 
 void CSau_EngineDlg::OnSpareInput()
 {
-	Progress=Open;//ÖØÖÃÊó±ê×´Ì¬
-	//Çå¿ÕÁÙÊ±×Å·¨
+	Progress=Open;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×´Ì¬
+	//ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½Å·ï¿½
 	Prompt_Move[0].move_star_x=0;
 	Prompt_Move[0].move_star_y=0;
 	Prompt_Move[0].move_stop_x=0;
@@ -1261,9 +1260,9 @@ void CSau_EngineDlg::OnSpareInput()
 		Prompt_Move[0].eatPoint[i][1]=0;
 	}
 	Prompt_Move[0].eatHowMany=0;
-	Invalidate(FALSE);//ÖØ»æÆåÅÌ
+	Invalidate(FALSE);//ï¿½Ø»ï¿½ï¿½ï¿½ï¿½ï¿½
 	SpareInput=0;
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 
@@ -1271,23 +1270,23 @@ void CSau_EngineDlg::OnBoardInverse()
 {
 	if(Is_Board_Inverse==0)
 	{ 
-		GetMenu()->CheckMenuItem(ID_Board_Inverse,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
-		Invalidate(FALSE);//ÖØ»æÆåÅÌ
+		GetMenu()->CheckMenuItem(ID_Board_Inverse,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
+		Invalidate(FALSE);//ï¿½Ø»ï¿½ï¿½ï¿½ï¿½ï¿½
 		Is_Board_Inverse=1;
 	}
 	else if(Is_Board_Inverse==1)
 	{
-		 GetMenu()->CheckMenuItem(ID_Board_Inverse,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-		 Invalidate(FALSE);//ÖØ»æÆåÅÌ
+		 GetMenu()->CheckMenuItem(ID_Board_Inverse,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+		 Invalidate(FALSE);//ï¿½Ø»ï¿½ï¿½ï¿½ï¿½ï¿½
 		 Is_Board_Inverse=0;
 	}  
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 
 void CSau_EngineDlg::OnTime1s()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int ID;
 	if(Time==1)ID=ID_Time_1s;
 	else if(Time==2)ID=ID_Time_2s;
@@ -1295,8 +1294,8 @@ void CSau_EngineDlg::OnTime1s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Time_1s,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Time_1s,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Time=1;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1304,7 +1303,7 @@ void CSau_EngineDlg::OnTime1s()
 
 void CSau_EngineDlg::OnTime2s()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int ID;
 	if(Time==1)ID=ID_Time_1s;
 	else if(Time==2)ID=ID_Time_2s;
@@ -1312,8 +1311,8 @@ void CSau_EngineDlg::OnTime2s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Time_2s,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Time_2s,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Time=2;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1329,8 +1328,8 @@ void CSau_EngineDlg::OnTime5s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Time_5s,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Time_5s,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Time=5;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1346,8 +1345,8 @@ void CSau_EngineDlg::OnTime10s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Time_10s,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Time_10s,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Time=10;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1355,7 +1354,7 @@ void CSau_EngineDlg::OnTime10s()
 
 void CSau_EngineDlg::OnTime15s()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int ID;
 	if(Time==1)ID=ID_Time_1s;
 	else if(Time==2)ID=ID_Time_2s;
@@ -1363,8 +1362,8 @@ void CSau_EngineDlg::OnTime15s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Time_15s,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Time_15s,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Time=15;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1372,7 +1371,7 @@ void CSau_EngineDlg::OnTime15s()
 
 void CSau_EngineDlg::OnTime20s()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	int ID;
 	if(Time==1)ID=ID_Time_1s;
@@ -1381,8 +1380,8 @@ void CSau_EngineDlg::OnTime20s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Time_20s,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Time_20s,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Time=20;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1393,7 +1392,7 @@ void CSau_EngineDlg::OnAllMove()
 	if(Is_All_Move_Show==0)
 	{
 		Is_All_Move_Show=1;
-		GetMenu()->CheckMenuItem(ID_All_Move,MF_BYCOMMAND|MF_CHECKED);//È¡Ïû±ê¼Ç
+		GetMenu()->CheckMenuItem(ID_All_Move,MF_BYCOMMAND|MF_CHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 		CAll_Move_Dialog *dg=new CAll_Move_Dialog;
 		dg->Create(IDD_DIALOG_ALL_MOVE);
 		dg->ShowWindow(SW_SHOW);
@@ -1402,16 +1401,16 @@ void CSau_EngineDlg::OnAllMove()
 	else if(Is_All_Move_Show==1)
 	{
 		Is_All_Move_Show=0;
-		GetMenu()->CheckMenuItem(ID_All_Move,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+		GetMenu()->CheckMenuItem(ID_All_Move,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 		::PostMessage(All_Move_dghWnd,WM_CLOSE, 0, 0);
 	}
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂëCDialogDemo *dlg=new CDialogDemo(this); 
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½CDialogDemo *dlg=new CDialogDemo(this); 
 }
 
 void CSau_EngineDlg::OnAbout()
 {
 	OnSysCommand(IDM_ABOUTBOX,0);
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 void CSau_EngineDlg::OnLoadSave()
@@ -1440,7 +1439,7 @@ void CSau_EngineDlg::OnLoadSave()
 	CFile::GetStatus( pathName, status );
 
 	}*/
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 void CSau_EngineDlg::OnEvel()
@@ -1449,7 +1448,7 @@ void CSau_EngineDlg::OnEvel()
 	{
 		
 		Is_Evel_Show=1;
-		GetMenu()->CheckMenuItem(ID_Evel,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+		GetMenu()->CheckMenuItem(ID_Evel,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 		CEvel_Dialog *dg=new CEvel_Dialog;
 		dg->Create(IDD_DIALOG_EVEL);
 		dg->ShowWindow(SW_SHOW);
@@ -1458,17 +1457,17 @@ void CSau_EngineDlg::OnEvel()
 	else if(Is_Evel_Show==1)
 	{
 		Is_Evel_Show=0;
-		GetMenu()->CheckMenuItem(ID_Evel,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+		GetMenu()->CheckMenuItem(ID_Evel,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 		::PostMessage(Evel_dghWnd,WM_CLOSE, 0, 0);
 	}
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 void CSau_EngineDlg::OnMoveHistory()
 {
 	if(Is_Move_History_Show==0)
 	{
-		GetMenu()->CheckMenuItem(ID_Move_History,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+		GetMenu()->CheckMenuItem(ID_Move_History,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 		Is_Move_History_Show=1;
 		if( Move_His_dghWnd != NULL && ::IsWindow(Move_His_dghWnd) )
 		{
@@ -1491,11 +1490,11 @@ void CSau_EngineDlg::OnMoveHistory()
 	else if(Is_Move_History_Show==1)
 	{
 		Is_Move_History_Show=0;
-		GetMenu()->CheckMenuItem(ID_Move_History,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+		GetMenu()->CheckMenuItem(ID_Move_History,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 		//::PostMessage(Move_His_dghWnd,WM_CLOSE, 0, 0);
 		::ShowWindow(Move_His_dghWnd,SW_HIDE);
 	}
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 }
 
 void CSau_EngineDlg::Show_The_Move(MOVE* TheMove)
@@ -1571,13 +1570,13 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 		if (Step == 1)
 		{
 			CTime Now_time = CTime::GetCurrentTime();
-			sWrite = Now_time.Format(_T("\r\nÊ±¼ä%Y.%m.%d"));
+			sWrite = Now_time.Format(_T("\r\nÊ±ï¿½ï¿½%Y.%m.%d"));
 			sWrite += Temp_str;
-			if (Mode == AIvsH) { sWrite += "\r\nÏÈÊÖ: "; }
-			else { sWrite += "\r\nÏÈÊÖ£º"; }
-			sWrite += "\r\nÏÈÊÖ·½£º";
-			sWrite += "\r\nºóÊÖ·½£º";
-			sWrite += "\r\n½á¹û£º";
+			if (Mode == AIvsH) { sWrite += "\r\nï¿½ï¿½ï¿½ï¿½: "; }
+			else { sWrite += "\r\nï¿½ï¿½ï¿½Ö£ï¿½"; }
+			sWrite += "\r\nï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½";
+			sWrite += "\r\nï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½";
+			sWrite += "\r\nï¿½ï¿½ï¿½ï¿½ï¿½";
 			sWrite += "\r\n";
 		}
 		if (turn % 2 != 0)
@@ -1880,13 +1879,13 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 	if (Step == 1)
 	{
 		CTime Now_time = CTime::GetCurrentTime();
-		sWrite = Now_time.Format(_T("\r\n\r\nÊ±¼ä£º%Y.%m.%d"));
+		sWrite = Now_time.Format(_T("\r\n\r\nÊ±ï¿½ä£º%Y.%m.%d"));
 		sWrite += Temp_str;
-		if (Mode == AIvsH) { sWrite += "\r\nÏÈÊÖ£º1"; }
-		else { sWrite += "\r\nÏÈÊÖ£º2"; }
-		sWrite += "\r\nÏÈÊÖ·½£º";
-		sWrite += "\r\nºóÊÖ·½£º";
-		sWrite += "\r\n½á¹û£º";
+		if (Mode == AIvsH) { sWrite += "\r\nï¿½ï¿½ï¿½Ö£ï¿½1"; }
+		else { sWrite += "\r\nï¿½ï¿½ï¿½Ö£ï¿½2"; }
+		sWrite += "\r\nï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½";
+		sWrite += "\r\nï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½";
+		sWrite += "\r\nï¿½ï¿½ï¿½ï¿½ï¿½";
 		sWrite += "\r\n";
 	}
 	if (turn % 2 != 0)
@@ -2110,7 +2109,7 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 	mFile.Close();*/
 }
 ///////////////////////////////////////////////
-/////////////////////////////¹ÀÖµ´æÈë£¿
+/////////////////////////////ï¿½ï¿½Öµï¿½ï¿½ï¿½ë£¿
 //void CSau_EngineDlg::Save_File(MOVE Move,int Step, int Round)
 //{
 //	CString sWrite;
@@ -2118,28 +2117,28 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 //	if(Step==1)
 //	{
 //		CTime Now_time=CTime::GetCurrentTime();
-//		sWrite=Now_time.Format(_T("\r\n\r\n\r\n%YÄê%mÔÂ%dÈÕ %HÊ±%M·Ö%SÃë"));
-//		if (Mode == AIvsH) { sWrite += "\r\nÏÈÊÖ: 1"; }
-//		else { sWrite += "\r\nÏÈÊÖ: 2"; }
-//		//Temp_str.Format(_T("\r\nµÚ%d³¡\r\n"),Round);
+//		sWrite=Now_time.Format(_T("\r\n\r\n\r\n%Yï¿½ï¿½%mï¿½ï¿½%dï¿½ï¿½ %HÊ±%Mï¿½ï¿½%Sï¿½ï¿½"));
+//		if (Mode == AIvsH) { sWrite += "\r\nï¿½ï¿½ï¿½ï¿½: 1"; }
+//		else { sWrite += "\r\nï¿½ï¿½ï¿½ï¿½: 2"; }
+//		//Temp_str.Format(_T("\r\nï¿½ï¿½%dï¿½ï¿½\r\n"),Round);
 //		//sWrite+=Temp_str;
-//		//if(Mode==HvsH){sWrite+="Ä£Ê½:ÈËÈË";}
-//		//else if(Mode==HvsAI){sWrite+="Ä£Ê½:ÈË»ú";}
-//		//else if(Mode==AIvsH){sWrite+="Ä£Ê½:»úÈË";}
-//		//if(Engine&Negascout){sWrite+="  ÒıÇæ:Negascout";}
+//		//if(Mode==HvsH){sWrite+="Ä£Ê½:ï¿½ï¿½ï¿½ï¿½";}
+//		//else if(Mode==HvsAI){sWrite+="Ä£Ê½:ï¿½Ë»ï¿½";}
+//		//else if(Mode==AIvsH){sWrite+="Ä£Ê½:ï¿½ï¿½ï¿½ï¿½";}
+//		//if(Engine&Negascout){sWrite+="  ï¿½ï¿½ï¿½ï¿½:Negascout";}
 //		//if(Engine&AlphaBeta){sWrite+="|AlphaBeta";}
-//		//Temp_str.Format(_T("\r\nAlphaBeta²ãÊı%d£¬NegascoutÊ±¼ä%d\r\n"),Floor,Time);
+//		//Temp_str.Format(_T("\r\nAlphaBetaï¿½ï¿½ï¿½ï¿½%dï¿½ï¿½NegascoutÊ±ï¿½ï¿½%d\r\n"),Floor,Time);
 //		//sWrite+=Temp_str;
-//		//sWrite+=("\r\n²½Êı	Æğµã	Âäµã	³Ô×ÓÊı	³Ô×Ó\r\n");
-//		sWrite += ("\r\nÏÈÊÖ·½£º\r\nºóÊÖ·½£º\r\n½á¹û:\r\n");
-//		//if(Mode==HvsH){sWrite+="Ä£Ê½:ÈËÈË";}
+//		//sWrite+=("\r\nï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½ï¿½	ï¿½ï¿½ï¿½	ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½	ï¿½ï¿½ï¿½ï¿½\r\n");
+//		sWrite += ("\r\nï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½\r\nï¿½ï¿½ï¿½Ö·ï¿½ï¿½ï¿½\r\nï¿½ï¿½ï¿½:\r\n");
+//		//if(Mode==HvsH){sWrite+="Ä£Ê½:ï¿½ï¿½ï¿½ï¿½";}
 //	}
 //	//int sss = 2 * Step;
-//	Temp_str.Format(_T("\r\n%2d"),Step);//²½Êı
-//	//Temp_str.Format(_T("\r\n%2d"), sss);//»ØºÏ
+//	Temp_str.Format(_T("\r\n%2d"),Step);//ï¿½ï¿½ï¿½ï¿½
+//	//Temp_str.Format(_T("\r\n%2d"), sss);//ï¿½Øºï¿½
 //	sWrite+=Temp_str;
 //	//if((Move.move_star_x + Move.move_star_y * 10) / 2 + 1)<=9|| Move.move_star_y<=9|| Temp_str.Format(_T("%2d"),(Move.move_stop_x+Move.move_stop_y*10)/2+1)<=9)
-//	//Temp_str.Format(_T(". 0%2d-"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//Æğµã
+//	//Temp_str.Format(_T(". 0%2d-"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//ï¿½ï¿½ï¿½
 //	if ((Move.move_star_x + 1 == Move.move_stop_x) || (Move.move_star_x - 1 == Move.move_stop_x))
 //	{
 //		/*if ((Move.move_star_x + Move.move_star_y * 10) / 2 + 1)<=9)
@@ -2148,16 +2147,16 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 //		}
 //		else
 //		{*/
-//			Temp_str.Format(_T(". %2d-"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//Æğµã
+//			Temp_str.Format(_T(". %2d-"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//ï¿½ï¿½ï¿½
 //		//}
 //		sWrite += Temp_str;
 //	}
 //	else
 //	{
-//		Temp_str.Format(_T(". %2dx"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//Æğµã
+//		Temp_str.Format(_T(". %2dx"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//ï¿½ï¿½ï¿½
 //		sWrite += Temp_str;
 //	}
-//	Temp_str.Format(_T("%2d"),(Move.move_stop_x+Move.move_stop_y*10)/2+1);//ÖÕµã
+//	Temp_str.Format(_T("%2d"),(Move.move_stop_x+Move.move_stop_y*10)/2+1);//ï¿½Õµï¿½
 //	sWrite+=Temp_str;
 //	//Temp_str.Format(_T("	%2d "),Move.eatHowMany);
 //	//sWrite+=Temp_str;
@@ -2180,7 +2179,7 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 void CSau_EngineDlg::Save_File(int Depth,double Time)
 {
 	CString Temp_str;
-	Temp_str.Format(_T("\r\nËÑË÷Éî¶ÈÒÑ¸ü¸Ä£¡\r\nAlphaBeta²ãÊı%d£¬NegascoutÊ±¼ä%.2f"),Depth,Time);
+	Temp_str.Format(_T("\r\nï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ¸ï¿½ï¿½Ä£ï¿½\r\nAlphaBetaï¿½ï¿½ï¿½ï¿½%dï¿½ï¿½NegascoutÊ±ï¿½ï¿½%.2f"),Depth,Time);
 	CFile mFile(_T(File_Path), CFile::modeWrite|CFile::modeNoTruncate|CFile::modeCreate);
 	mFile.SeekToEnd();
 	mFile.Write(Temp_str,Temp_str.GetLength());
@@ -2192,9 +2191,9 @@ void CSau_EngineDlg::Save_File(int Color)
 {
 	CString Temp_str;
 	if( Color==BLACK)
-		Temp_str=_T("\r\nÖÕ¾Ö£¡°×·½Ê¤£¡");
+		Temp_str=_T("\r\nï¿½Õ¾Ö£ï¿½ï¿½×·ï¿½Ê¤ï¿½ï¿½");
 	else if(Color==WHITE)
-		Temp_str=_T("\r\nÖÕ¾Ö£¡ºÚ·½Ê¤£¡");
+		Temp_str=_T("\r\nï¿½Õ¾Ö£ï¿½ï¿½Ú·ï¿½Ê¤ï¿½ï¿½");
 	CFile mFile(_T(File_Path), CFile::modeWrite|CFile::modeNoTruncate|CFile::modeCreate);
 	mFile.SeekToEnd();
 	mFile.Write(Temp_str,Temp_str.GetLength());
@@ -2204,7 +2203,7 @@ void CSau_EngineDlg::Save_File(int Color)
 
 void CSau_EngineDlg::OnFloor1()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2212,15 +2211,15 @@ void CSau_EngineDlg::OnFloor1()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Floor_1,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Floor_1,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Floor=1;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor3()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2228,15 +2227,15 @@ void CSau_EngineDlg::OnFloor3()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Floor_3,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Floor_3,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Floor=3;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor5()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2244,15 +2243,15 @@ void CSau_EngineDlg::OnFloor5()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Floor_5,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Floor_5,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Floor=5;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor7()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2260,15 +2259,15 @@ void CSau_EngineDlg::OnFloor7()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Floor_7,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Floor_7,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Floor=7;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor9()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2276,15 +2275,15 @@ void CSau_EngineDlg::OnFloor9()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Floor_9,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Floor_9,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Floor=9;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor11()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2292,8 +2291,8 @@ void CSau_EngineDlg::OnFloor11()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
-	GetMenu()->CheckMenuItem(ID_Floor_11,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
+	GetMenu()->CheckMenuItem(ID_Floor_11,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 	Floor=11;
 	Input_Depth_Time(Floor,Time);
 }
@@ -2303,7 +2302,7 @@ void CSau_EngineDlg::Input_Depth_Time(int Depth,double Time)
 	theApp.Board_Mess.Add_Mess=Input;
 	theApp.Floor=Depth;
 	theApp.Time=Time;
-	//»Ö¸´Ïß³Ì
+	//ï¿½Ö¸ï¿½ï¿½ß³ï¿½
 	Save_File(Depth,Time);
 	theApp.Handle_AI_Thread->ResumeThread();
 }
@@ -2328,14 +2327,14 @@ UINT AI_Thread(LPVOID pParam)
 	while(1)
 	{
 		theApp.Thread_Sign=1;
-		M_Game.Error=0;//´íÎó´úÂëÇåÁã
+		M_Game.Error=0;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		
-		if(theApp.Board_Mess.Add_Mess==Dele)//-1Ê±¶Ô¾Ö½áÊøÊÍ·ÅÏß³Ì
+		if(theApp.Board_Mess.Add_Mess==Dele)//-1Ê±ï¿½Ô¾Ö½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ï¿½ß³ï¿½
 		{ 
 			theApp.Thread_Sign=0;
 			AfxEndThread(TRUE);
 		}
-		else if(theApp.Board_Mess.Add_Mess==Input)//-//¸øËÑË÷Ê±¼ä²ãÊı¸³Öµ
+		else if(theApp.Board_Mess.Add_Mess==Input)//-//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê±ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öµ
 		{
 			M_Game.Input_Depth_Time(theApp.Floor,theApp.Time);
 			::PostMessage(pMainWnd->m_hWnd, Input_Depth_Time_Finish,0,0);
@@ -2364,20 +2363,20 @@ UINT AI_Thread(LPVOID pParam)
 				::PostMessage(pMainWnd->m_hWnd,WM_MY_MESSAGE,0,All_Move_Finish);
 			theApp.Handle_AI_Thread->SuspendThread();
 		}
-		else if( (theApp.Board_Mess.Add_Mess&Negascout||theApp.Board_Mess.Add_Mess&AlphaBeta ||theApp.Board_Mess.Add_Mess&Minimax)&&(theApp.Board_Mess.Color==BLACK||theApp.Board_Mess.Color==WHITE) )//ÏÂÆå·½&&ÒıÇæĞÅÏ¢Ğ£Ñé
+		else if( (theApp.Board_Mess.Add_Mess&Negascout||theApp.Board_Mess.Add_Mess&AlphaBeta ||theApp.Board_Mess.Add_Mess&Minimax)&&(theApp.Board_Mess.Color==BLACK||theApp.Board_Mess.Color==WHITE) )//ï¿½ï¿½ï¿½å·½&&ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢Ğ£ï¿½ï¿½
 		{
-			//AI¸ø³ö×Å·¨
+			//AIï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½
 			theApp.Move_Mess.The_Good_Move=M_Game.Search_Good_Move(theApp.Board_Mess.Board, theApp.Board_Mess.Color,theApp.Board_Mess.Add_Mess, StepCount);
 			theApp.Move_Mess.Add_Mess=M_Game.Error;
-			//Íê³Éºó·¢ËÍ×Å·¨Íê³ÉÏûÏ¢
+			//ï¿½ï¿½Éºï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢
 			::PostMessage(pMainWnd->m_hWnd, WM_MY_MESSAGE, 0,0);//::PostThreadMessage(theApp.m_nThreadID,WM_MY_MESSAGE, 0, 0);
-			//¹ÒÆğÏß³ÌµÈ´ıÏÂ´Îµ÷ÓÃ
+			//ï¿½ï¿½ï¿½ï¿½ï¿½ß³ÌµÈ´ï¿½ï¿½Â´Îµï¿½ï¿½ï¿½
 			theApp.Thread_Sign=2;
 			theApp.Handle_AI_Thread->SuspendThread();
 		}
 		else
 		{
-			::MessageBox(pMainWnd->m_hWnd, "AI»ñÈ¡ĞÅÏ¢´íÎó£¡", _T("AI Thread Message" ), MB_OK);
+			::MessageBox(pMainWnd->m_hWnd, "AIï¿½ï¿½È¡ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½", _T("AI Thread Message" ), MB_OK);
 			theApp.Thread_Sign=2;
 			theApp.Handle_AI_Thread->SuspendThread();
 		}
@@ -2388,7 +2387,7 @@ UINT AI_Thread(LPVOID pParam)
 
 void CSau_EngineDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	// TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ï¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½/ï¿½ï¿½ï¿½ï¿½ï¿½Ä¬ï¿½ï¿½Öµ
 	m_Pro.StepIt();
 	if(m_Pro.GetPos()==100)
 		KillTimer(TIMER);
@@ -2407,20 +2406,20 @@ afx_msg LRESULT CSau_EngineDlg::OnUpdateTree(WPARAM wParam, LPARAM lParam)
 	
 	if( wParam==-1&&Engine&Negascout)
 	{
-		m_Bar.SetPaneText(2,"NegascoutÒıÇæ³ö´í£¡ÕıÔÚÊ¹ÓÃAlphaBetaÒıÇæ¡£¡£¡£",1);
-		Temp_Str.Format("½ÚµãÊı£º%dK",lParam/1000);
+		m_Bar.SetPaneText(2,"Negascoutï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½AlphaBetaï¿½ï¿½ï¿½æ¡£ï¿½ï¿½ï¿½ï¿½",1);
+		Temp_Str.Format("ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½%dK",lParam/1000);
 		m_Bar.SetPaneText(3,Temp_Str,1);
 	}
 	else if( wParam==-1)
 	{
-		m_Bar.SetPaneText(2,"ÕıÔÚÊ¹ÓÃAlphaBetaÒıÇæ¡£¡£¡£",1); 
-		Temp_Str.Format("½ÚµãÊı£º%dK",lParam/1000);
+		m_Bar.SetPaneText(2,"ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½AlphaBetaï¿½ï¿½ï¿½æ¡£ï¿½ï¿½ï¿½ï¿½",1); 
+		Temp_Str.Format("ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½%dK",lParam/1000);
 		m_Bar.SetPaneText(3,Temp_Str,1); 
 	}
 	else
 	{
-		m_Bar.SetPaneText(2,"ÕıÔÚÊ¹ÓÃNegascoutÒıÇæ¡£¡£¡£",1); 
-		Temp_Str.Format("²ãÊı£º%d£¬½ÚµãÊı£º%dK",wParam,lParam/1000);
+		m_Bar.SetPaneText(2,"ï¿½ï¿½ï¿½ï¿½Ê¹ï¿½ï¿½Negascoutï¿½ï¿½ï¿½æ¡£ï¿½ï¿½ï¿½ï¿½",1); 
+		Temp_Str.Format("ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½%dï¿½ï¿½ï¿½Úµï¿½ï¿½ï¿½ï¿½ï¿½%dK",wParam,lParam/1000);
 		m_Bar.SetPaneText(3,Temp_Str,1); 
 	}
 	return 0;
@@ -2468,15 +2467,15 @@ void CSau_EngineDlg::Go_The_Move(MOVE The_Move)
 
 void CSau_EngineDlg::OnBoardUserDefined()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	if(Is_Set_Board==0)
 	{
-		GetMenu()->CheckMenuItem(ID_Board_User_Defined,MF_BYCOMMAND|MF_CHECKED);//±ê¼Ç
+		GetMenu()->CheckMenuItem(ID_Board_User_Defined,MF_BYCOMMAND|MF_CHECKED);//ï¿½ï¿½ï¿½
 		Is_Set_Board=1;
 	}
 	else
 	{
-		GetMenu()->CheckMenuItem(ID_Board_User_Defined,MF_BYCOMMAND|MF_UNCHECKED);//È¡Ïû±ê¼Ç
+		GetMenu()->CheckMenuItem(ID_Board_User_Defined,MF_BYCOMMAND|MF_UNCHECKED);//È¡ï¿½ï¿½ï¿½ï¿½ï¿½
 		Is_Set_Board=0;
 		Get_All_Move();
 	}
@@ -2495,7 +2494,7 @@ void CSau_EngineDlg::Set_Board(CPoint pt)
 
 void CSau_EngineDlg::On32847()
 {
-	// TODO: ÔÚ´ËÌí¼ÓÃüÁî´¦Àí³ÌĞò´úÂë
+	// TODO: ï¿½Ú´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½î´¦ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
 	if(congli==0)
 		congli=999;

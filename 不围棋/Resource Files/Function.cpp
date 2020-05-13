@@ -1,12 +1,11 @@
-//´úÂë°æ±¾		2017Äê¹úÈü 
-//±¾´úÂëÓÉÉòÑôº½¿Õº½Ìì´óÑ§¼ÆËã»ú²©ŞÄĞ­»á×Ü¸ºÔğÈËÍõÔ¾ÁØÍ³Ò»µ÷¿Ø
-//²»Î§Æå×é¸ºÔğÈËÍõ¼Ñ¿¡Ëù´ø²©ŞÄ×é¿ª·¢Î¬»¤
-//´úÂëÀ´×Ô¹ş¹¤´ó¿ªÔ´´úÂë,ÓÉÒÔÉÏ³ÉÔ±Î¬»¤ 
-//±¾´úÂëÊÊÓÃÓÚÖĞ¹ú´óÑ§Éú¼ÆËã»ú²©ŞÄ´óÈü²©ŞÄÏîÄ¿2017°æ½»»¥Ğ­Òé
-//±¾´úÂë½öÌá¹©½»»¥Ğ­ÒéµÄÓÃ·¨Ê¾·¶ºÍ¼òµ¥AI²©ŞÄË¼Â·£¬¿ª·¢ÕßĞè×ÔĞĞ¸Ä½øÍêÉÆ´úÂë²ÎÈü
-//ÈçÓĞÒâ¼ûºÍ½¨ÒéÇëÓëÎÒÃÇ¾¡ÔçÁªÏµ
-//ÍõÔ¾ÁØ	QQ£º836473734
-//Íõ¼Ñ¿¡	QQ£º1601897441
+//ä»£ç ç‰ˆæœ¬		2017å¹´å›½èµ› 
+//æœ¬ä»£ç ç”±æ²ˆé˜³èˆªç©ºèˆªå¤©å¤§å­¦è®¡ç®—æœºåšå¼ˆåä¼šæ€»è´Ÿè´£äººç‹è·ƒéœ–ç»Ÿä¸€è°ƒæ§
+//ä¸å›´æ£‹ç»„è´Ÿè´£äººç‹ä½³ä¿Šæ‰€å¸¦åšå¼ˆç»„å¼€å‘ç»´æŠ¤ 
+//æœ¬ä»£ç é€‚ç”¨äºä¸­å›½å¤§å­¦ç”Ÿè®¡ç®—æœºåšå¼ˆå¤§èµ›åšå¼ˆé¡¹ç›®2017ç‰ˆäº¤äº’åè®®
+//æœ¬ä»£ç ä»…æä¾›äº¤äº’åè®®çš„ç”¨æ³•ç¤ºèŒƒå’Œç®€å•AIåšå¼ˆæ€è·¯ï¼Œå¼€å‘è€…éœ€è‡ªè¡Œæ”¹è¿›å®Œå–„ä»£ç å‚èµ›
+//å¦‚æœ‰æ„è§å’Œå»ºè®®è¯·ä¸æˆ‘ä»¬å°½æ—©è”ç³»
+//ç‹è·ƒéœ–	QQï¼š836473734
+//ç‹ä½³ä¿Š	QQï¼š1601897441
 #include "StdAfx.h"
 
 #include "Function.h"
@@ -27,38 +26,38 @@ int outputmode = WALLY_OUTPUT;
 board Evaluate_Value;
 /*Return TRUE if (x,y) corresponds to a point on the board.*/
 #define on1board(x) (0<=(x)&&(x)<edge)
-#define onboard(x,y) (on1board(x)&&on1board(y))  //Æå×ÓÂäÔÚÆåÅÌÀï
+#define onboard(x,y) (on1board(x)&&on1board(y))  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
-/*Return TRUE if (x,y) is on the edge of the board.*/ //Èç¹û(x,y)ÔÚÆåÅÌ±ßÔµÉÏ¾Í·µ»ØTURE
+/*Return TRUE if (x,y) is on the edge of the board.*/ //ï¿½ï¿½ï¿½(x,y)ï¿½ï¿½ï¿½ï¿½ï¿½Ì±ï¿½Ôµï¿½Ï¾Í·ï¿½ï¿½ï¿½TURE
 #define onedge1(x) (0==(x)||edge-1==(x))
 #define onedge(x,y) (onedge1(x)||onedge1(y))
 
 int flookup[]=	/*sets of flags corresponding to codes*/  
     { F_BLACK, F_WHITE, F_EMPTY };
 
-/*Return the code for the other player, who is the next to play.*/ //ÏÂÒ»¸öÏÂÆåµÄÈË
+/*Return the code for the other player, who is the next to play.*/ //ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 #define nextp(p) (BLACK==(p)?WHITE:(WHITE==(p)?BLACK:WHITE))
 //	panic("illegal input to nextp()"))
 
 
-/*Convert any uppercase letter to lowercase.*/ //´óĞ¡Ğ´×ª»»
+/*Convert any uppercase letter to lowercase.*/ //ï¿½ï¿½Ğ¡Ğ´×ªï¿½ï¿½
 #define lowercase(c) ('A'<=(c)&&(c)<='Z'?(c)-'A'+'a':(c))
 
 
 /*other information about the game*/
 struct thegame
 {
-	int pla;		/*code for next player to play*/ //ÏÂ¸öÆåÊÖÒª×ßµÄ´úºÅ
-	int tur;		/*the number of this move*/ //ÒÑ×ßµÄ²½Êı
+	int pla;		/*code for next player to play*/ //ï¿½Â¸ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ßµÄ´ï¿½ï¿½ï¿½
+	int tur;		/*the number of this move*/ //ï¿½ï¿½ï¿½ßµÄ²ï¿½ï¿½ï¿½
 
 } thegame;
 
 #define PATTERN 12345	/*This integer should appear at the start of each */
-#define PATTEND 7171	/*This integer should appear at the end of the table.*/ //½áÊøµÄÕûÊı
-//ÕÒ³öºÏÊÊÆ¥ÅäµÄÄ£°æÀ´¹©µçÄÔµ÷ÓÃ
-//#ºÚ×Ó O°××Ó ~²»È·¶¨ !±ß½ç $µ±Ç°Î»ÖÃ*±íÊ¾empty
-int patterns_B[]= //BLACK·½Ä£Ê½
-	{	PATTERN, 4, 60,	/*PATTERN ´ú±íÄ£Ê½µÄ¿ªÊ¼£¬ÓĞ4¸ÃĞèÒªÆ¥ÅäµÄµã£¬¸ÃÄ£Ê½µÄ·ÖÖµÊÇ60 */
+#define PATTEND 7171	/*This integer should appear at the end of the table.*/ //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½Ò³ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ôµï¿½ï¿½ï¿½
+//#ï¿½ï¿½ï¿½ï¿½ Oï¿½ï¿½ï¿½ï¿½ ~ï¿½ï¿½È·ï¿½ï¿½ !ï¿½ß½ï¿½ $ï¿½ï¿½Ç°Î»ï¿½ï¿½*ï¿½ï¿½Ê¾empty
+int patterns_B[]= //BLACKï¿½ï¿½Ä£Ê½
+	{	PATTERN, 4, 60,	/*PATTERN ï¿½ï¿½ï¿½ï¿½Ä£Ê½ï¿½Ä¿ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½4ï¿½ï¿½ï¿½ï¿½ÒªÆ¥ï¿½ï¿½Äµã£¬ï¿½ï¿½Ä£Ê½ï¿½Ä·ï¿½Öµï¿½ï¿½60 */
        	-1, 0,F_WHITE|F_OFF,//*	o *
 		 1, 0,F_WHITE|F_OFF,//o	$ *
 		 0,-1,F_WHITE|F_OFF,//*	o *
@@ -87,7 +86,7 @@ int patterns_B[]= //BLACK·½Ä£Ê½
 		 0, 1,F_EMPTY,		        //	o
 		 0, -1,F_EMPTY,
 
-	 PATTEND //Ä£Ê½½áÊø
+	 PATTEND //Ä£Ê½ï¿½ï¿½ï¿½ï¿½
 	};
 int patterns_W[]=
 	{	PATTERN, 4, 60,	/*a code for the beginning of a pattern*/
@@ -132,11 +131,11 @@ a table of moves the heuristics are ambivalent about, for
 random selection
 */
 int goodmoves[2*EDGE*EDGE];
-int *pgoodmoves;	/*&next free space in goodmoves[]*/ //goodmovesÖĞµÄÔªËØ¸öÊı
+int *pgoodmoves;	/*&next free space in goodmoves[]*/ //goodmovesï¿½Ğµï¿½Ôªï¿½Ø¸ï¿½ï¿½ï¿½
 
 
-int rng(int n)// ¸Ãº¯ÊıºÜÄÑÀí½â
-//·µ»ØÒ»¸ö0µ½n-1¼äµÄÊı£¬ÉáÈ¥²»Ì«ºÃµÄÄ£°æ
+int rng(int n)// ï¿½Ãºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½0ï¿½ï¿½n-1ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È¥ï¿½ï¿½Ì«ï¿½Ãµï¿½Ä£ï¿½ï¿½
 /*Return a (slightly) random number from 0 to n-1.*/
 /*(This is a really crummy rng, it just keeps the
 /*program's moves from all lying in a trivial pattern.)*/
@@ -152,21 +151,21 @@ int rng(int n)// ¸Ãº¯ÊıºÜÄÑÀí½â
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-Function::Function()  //¹¹Ôìº¯Êı
+Function::Function()  //ï¿½ï¿½ï¿½ìº¯ï¿½ï¿½
 {
 
 }
 
-Function::~Function() //Îö¹¹º¯Êı
+Function::~Function() //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 {
 
 }
 
-void Function::initgame() //³õÊ¼»¯ÓÎÏ·
+void Function::initgame() //ï¿½ï¿½Ê¼ï¿½ï¿½ï¿½ï¿½Ï·
 {
 	register int x, y;
 
-	edge=EDGE;        //±ß³¤9 
+	edge=EDGE;        //ï¿½ß³ï¿½9 
 
 
 	player=&thegame.pla;
@@ -177,7 +176,7 @@ void Function::initgame() //³õÊ¼»¯ÓÎÏ·
 
 	/*Initialize miscellaneous other stuff.*/
 
-	thegame.tur= 1;     //ÒÑ×ßµÄ²½Êı1
+	thegame.tur= 1;     //ï¿½ï¿½ï¿½ßµÄ²ï¿½ï¿½ï¿½1
 	
 	mx=my=-1;
 
@@ -185,7 +184,7 @@ void Function::initgame() //³õÊ¼»¯ÓÎÏ·
 }
 
 int Function::nextmove()
-//ÏÂÒ»²½¸ÃË­×ß
+//ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½Ë­ï¿½ï¿½
 {
 	
 	
@@ -206,7 +205,7 @@ int Function::nextmove(int x, int y)
 
 
 
-void Function::movedone() //Âä×ÓºóµÄ½»»»¶ÔÊÖ
+void Function::movedone() //ï¿½ï¿½ï¿½Óºï¿½Ä½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 /*
 Do everything which must be done to complete a move after the stone is
 placed.
@@ -219,10 +218,10 @@ placed.
 
 void Function::count(register int x, register int y,  register group *thisgroup,  board scratch,  int mark)
 /*
-Recursively group together connected stones.  Three things must be done: µİ¹éÏà¹ØµÄÆå×Ó
-(1) ½«thisgroup->nlibertiesÖĞ¸³ÉÏÕâ¸öÆåÁ´µÄÆøÊı
-(2) ¼ÆËãÆåÅÌÉÏÒÑÓĞÆå×Óthisgroup->nstones, scratch[][]= markÊÇ(x,y)ºÍthis groupÖĞµÄÆå×ÓÊıÄ¿£¬
-ÒòÎªÕâ¸ö×éÊÇÓĞ(x,y)ÎªÖĞĞÄĞÎ³ÉµÄ×é
+Recursively group together connected stones.  Three things must be done: ï¿½İ¹ï¿½ï¿½ï¿½Øµï¿½ï¿½ï¿½ï¿½ï¿½
+(1) ï¿½ï¿½thisgroup->nlibertiesï¿½Ğ¸ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+(2) ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½thisgroup->nstones, scratch[][]= markï¿½ï¿½(x,y)ï¿½ï¿½this groupï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½
+ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(x,y)Îªï¿½ï¿½ï¿½ï¿½ï¿½Î³Éµï¿½ï¿½ï¿½
 so that we only count each only once.  The calling routine must
 see to it that scratch[][]!=mark for all points and liberties that
 it wants counted.
@@ -230,24 +229,24 @@ it wants counted.
 {
 	register int *bxy, *sxy; 	//  *bxy=theboard[x][y] ; *sxy=scratch[x][y] //??why int type
 
-endrecurse:						//ÉèÖÃÌø×ª±êÖ¾Î»
-	bxy= &(theboard[x][y]);                   //theboard[x][y]µÄµØÖ·
-	sxy= &(scratch[x][y]);                    //scratch[x][y]µÄµØÖ·
+endrecurse:						//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½×ªï¿½ï¿½Ö¾Î»
+	bxy= &(theboard[x][y]);                   //theboard[x][y]ï¿½Äµï¿½Ö·
+	sxy= &(scratch[x][y]);                    //scratch[x][y]ï¿½Äµï¿½Ö·
 
-	//¼ÆËãXYµãÊ¹Ö®³ÉÎª×éÖĞÒ»Ô±
-	++(thisgroup->nstones);                  //ÊôÓÚÕâ¸ögroupÖĞµÄÊı×Ö¼Ó¡®1¡¯
-	*sxy= mark;                              //Ê¹µÃscratch[x][y]=mark
+	//ï¿½ï¿½ï¿½ï¿½XYï¿½ï¿½Ê¹Ö®ï¿½ï¿½Îªï¿½ï¿½ï¿½ï¿½Ò»Ô±
+	++(thisgroup->nstones);                  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½groupï¿½Ğµï¿½ï¿½ï¿½ï¿½Ö¼Ó¡ï¿½1ï¿½ï¿½
+	*sxy= mark;                              //Ê¹ï¿½ï¿½scratch[x][y]=mark
 
-	y = y-1;                                  //´¦Àíscratch[x][y-1]ºÍtheboard[x][y]
+	y = y-1;                                  //ï¿½ï¿½ï¿½ï¿½scratch[x][y-1]ï¿½ï¿½theboard[x][y]
 	bxy -= 1;
 	sxy -= 1;
 	if (y>=0)
-		if (thisgroup->color==*bxy)            //theboard[][]ÏÖÔÚÒÑÓĞÆå×Ó£¬
+		if (thisgroup->color==*bxy)            //theboard[][]ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó£ï¿½
 		{
 			if (*sxy!=mark)
-				count(x, y, thisgroup, scratch, mark);//µİ¹é²éÑ¯
+				count(x, y, thisgroup, scratch, mark);//ï¿½İ¹ï¿½ï¿½Ñ¯
 		}
-		else if (EMPTY==*bxy)                  //Ã»ÓĞÆå×ÓµÄ»°
+		else if (EMPTY==*bxy)                  //Ã»ï¿½ï¿½ï¿½ï¿½ï¿½ÓµÄ»ï¿½
 		{
 			if (*sxy!=mark)
 			{
@@ -257,7 +256,7 @@ endrecurse:						//ÉèÖÃÌø×ª±êÖ¾Î»
 		}
 
 
-	y= y+2;                             //´¦Àíµã (x, y+1)
+	y= y+2;                             //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ (x, y+1)
 	bxy += 2;
 	sxy += 2;
 	if (y<edge)
@@ -276,7 +275,7 @@ endrecurse:						//ÉèÖÃÌø×ª±êÖ¾Î»
 		}
 
 
-	y = y-1;                            //´¦Àíµã(x-1, y)
+	y = y-1;                            //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(x-1, y)
 	x = x-1;
 	bxy -= EDGE+1;
 	sxy -= EDGE+1;
@@ -296,7 +295,7 @@ endrecurse:						//ÉèÖÃÌø×ª±êÖ¾Î»
 		}
 
 
-	x = x+2;                           //´¦Àíµã(x+1, y)
+	x = x+2;                           //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½(x+1, y)
 	bxy += 2*EDGE;
 	sxy += 2*EDGE;
 
@@ -304,7 +303,7 @@ endrecurse:						//ÉèÖÃÌø×ª±êÖ¾Î»
 		if (thisgroup->color==*bxy)
 		{
 			if (*sxy!=mark)
-				goto endrecurse;//ÖØĞÂµİ¹é
+				goto endrecurse;//ï¿½ï¿½ï¿½Âµİ¹ï¿½
 		}
 		else if (EMPTY==*bxy)
 		{
@@ -318,7 +317,7 @@ endrecurse:						//ÉèÖÃÌø×ª±êÖ¾Î»
 }
 
 
-int Function::myloss(int x,int y,int p)//ÅĞ¶ÏÂä×ÓµãµÄÆøÊı£¬Èç¹ûÎª0Ôò·µ»Ø1£¬·ñÔò·µ»Ø0.
+int Function::myloss(int x,int y,int p)//ï¿½Ğ¶ï¿½ï¿½ï¿½ï¿½Óµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Îª0ï¿½ò·µ»ï¿½1ï¿½ï¿½ï¿½ï¿½ï¿½ò·µ»ï¿½0.
 {
 	board scratch;	/*scratch for count() to use to say if a point is */
 
@@ -402,7 +401,7 @@ int Function::myloss(int x,int y,int p)//ÅĞ¶ÏÂä×ÓµãµÄÆøÊı£¬Èç¹ûÎª0Ôò·µ»Ø1£¬·ñÔò·
 		return 0;	
 }
 
-int Function::placestone(int x, int y, int p)//Âä×Ó£¬²¢ÅĞ¶ÏÊÇ·ñÊäÁË
+int Function::placestone(int x, int y, int p)//ï¿½ï¿½ï¿½Ó£ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½ï¿½Ç·ï¿½ï¿½ï¿½ï¿½ï¿½
 
 {
 	int ncap;
@@ -411,7 +410,7 @@ int Function::placestone(int x, int y, int p)//Âä×Ó£¬²¢ÅĞ¶ÏÊÇ·ñÊäÁË
 	ncap=myloss(x,y,p);
  
 	if (1==ncap)
-		return 0;//ÊäÁË
+		return 0;//ï¿½ï¿½ï¿½ï¿½
 			
 	return 1;
 }
@@ -419,7 +418,7 @@ int Function::placestone(int x, int y, int p)//Âä×Ó£¬²¢ÅĞ¶ÏÊÇ·ñÊäÁË
 
 
 
-int Function::judgement(int *ua,int x,int y,int p)//¶Ôxy´¦µÄÆå×Ó½øĞĞ»·¾³ÅĞ¶Ï£¬¸Ãº¯Êı·Ç³£ÖØÒª
+int Function::judgement(int *ua,int x,int y,int p)//ï¿½ï¿½xyï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó½ï¿½ï¿½Ğ»ï¿½ï¿½ï¿½ï¿½Ğ¶Ï£ï¿½ï¿½Ãºï¿½ï¿½ï¿½ï¿½Ç³ï¿½ï¿½ï¿½Òª
 {
 	board scratch;	/*scratch for count() to use to say if a point is */
 //	register int *bxy= &theboard[x][y], *sxy= &scratch[x][y];
@@ -531,22 +530,22 @@ int Function::judgement(int *ua,int x,int y,int p)//¶Ôxy´¦µÄÆå×Ó½øĞĞ»·¾³ÅĞ¶Ï£¬¸Ã
 
 }
 
-//void Function::pattern1(int *u,  board masks, board movehere,int *patAdd)  //ÓÃÀ´Ñ°ÕÒÆ¥ÅäµÄÄ£°æ
-//Õâ¸öº¯ÊıºÜÄÑÀí½â£¬Èç¹û²»Àí½â¿ÉÏÈ²»Ï¸¿´£¬Ö»ÊÇÖªµÀËüÊÇ½øĞĞÄ£°æÆ¥Åä
-void Function::pattern1(int *u,  board masks, board movehere,int *patAdd,int Lab)  //ÓÃÀ´Ñ°ÕÒÆ¥ÅäµÄÄ£°æ
-/*¼ÓÁËÒ»¸öint Lab²ÎÊı£¬Ä¿µÄÊÇÏëÖªµÀµ±Ç°µ÷ÓÃµÄpattern1ÊÇÔÚpatternÖĞµÚ¼¸´Îµ÷ÓÃ£¬·½±ãÁËµ÷ÊÔ¡£
-  ÓÃÀ´´Ópattern()ÖĞÑ°ÕÒÆ¥ÅäµÄ×ß·¨£¬Ö»ÕÒ×î¼ÑµÄ£¬¶ÔÓÚ²»ºÃµÄ²»ÓèÀí»á¡£
- Ö»ÓĞEMPTY±»¼ìÑéÁË£¬ËùÒÔpattern()¿É±»ÓÃÀ´Ñ°ÕÒÏà¹ØµÄ×ß²½»òÆäËû
-ÓĞºÃµÄÄ£°æµÄÏŞÖÆĞÔÉèÖÃ¡£×îºóµÄĞŞÕıÔÊĞíÓÃmovehere[][]À´ËµÃ÷×î¼Ñ×ß²½µÄºÃ´¦
+//void Function::pattern1(int *u,  board masks, board movehere,int *patAdd)  //ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½Ä£ï¿½ï¿½Æ¥ï¿½ï¿½
+void Function::pattern1(int *u,  board masks, board movehere,int *patAdd,int Lab)  //ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ä£ï¿½ï¿½
+/*ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½int Labï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¿ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½ï¿½Ãµï¿½pattern1ï¿½ï¿½ï¿½ï¿½patternï¿½ĞµÚ¼ï¿½ï¿½Îµï¿½ï¿½Ã£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ëµï¿½ï¿½Ô¡ï¿½
+  ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½pattern()ï¿½ï¿½Ñ°ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ß·ï¿½ï¿½ï¿½Ö»ï¿½ï¿½ï¿½ï¿½ÑµÄ£ï¿½ï¿½ï¿½ï¿½Ú²ï¿½ï¿½ÃµÄ²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½á¡£
+ Ö»ï¿½ï¿½EMPTYï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½ï¿½pattern()ï¿½É±ï¿½ï¿½ï¿½ï¿½ï¿½Ñ°ï¿½ï¿½ï¿½ï¿½Øµï¿½ï¿½ß²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+ï¿½ĞºÃµï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ã¡ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½movehere[][]ï¿½ï¿½Ëµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß²ï¿½ï¿½ÄºÃ´ï¿½
 */
 {
 	register int *is, *iis;/*pointers into patterns[]; or scratch*/ 
-	register int j;	/*& into a particular£¨ÌØÊâ£© pattern, # points remaining£¨Ê£Óà£©*/ //Ö¸ÏòÌØ±ğµÄÄ£°æ
-	register int x, y;	/*current position we're trying to match pattern to*/  //ÎÒÃÇÊÔ×ÅÓÃÀ´Æ¥ÅäÄ£°æµÄÍ¨ÓÃÇé¿ö
-	register int xs, ys;	/*position of a point from a pattern*/  //Ä£°æÖĞµÄÒ»µã
-	int ua;		/*urgency and adjustment for this move*/ //ÕâÒ»²½µÄÅĞ¶Ï
+	register int j;	/*& into a particularï¿½ï¿½ï¿½ï¿½ï¿½â£© pattern, # points remainingï¿½ï¿½Ê£ï¿½à£©*/ //Ö¸ï¿½ï¿½ï¿½Ø±ï¿½ï¿½Ä£ï¿½ï¿½
+	register int x, y;	/*current position we're trying to match pattern to*/  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½Ä£ï¿½ï¿½ï¿½Í¨ï¿½ï¿½ï¿½ï¿½ï¿½
+	register int xs, ys;	/*position of a point from a pattern*/  //Ä£ï¿½ï¿½ï¿½Ğµï¿½Ò»ï¿½ï¿½
+	int ua;		/*urgency and adjustment for this move*/ //ï¿½ï¿½Ò»ï¿½ï¿½ï¿½ï¿½ï¿½Ğ¶ï¿½
 	int thispat;		/*which pattern in the table are we currently */
-	/* trying to match?*/  //ÎÒÃÇÓÃµÄÊÇÄÄÒ»¸öÄ£°æÀ´Æ¥Åä
+	/* trying to match?*/  //ï¿½ï¿½ï¿½ï¿½ï¿½Ãµï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½
 	int *patterns = patAdd;
 
 
@@ -559,36 +558,36 @@ void Function::pattern1(int *u,  board masks, board movehere,int *patAdd,int Lab
 				if (F_EMPTY==masks[x][y] )
 				      
 				{
-					for (iis=is+1,j= *iis++,ua= *iis++; j; --j)//Ê×´ÎÑ­»· 
+					for (iis=is+1,j= *iis++,ua= *iis++; j; --j)//ï¿½×´ï¿½Ñ­ï¿½ï¿½ 
 					{
 						xs= *iis++;
 						ys= *iis++;
 						if (onboard(x+xs,y+ys))
 						{
-							if (0 == (masks[x+xs][y+ys] & *iis++)) goto mismatch;//²»ÏàÍ¬µÄ
+							if (0 == (masks[x+xs][y+ys] & *iis++)) goto mismatch;//ï¿½ï¿½ï¿½ï¿½Í¬ï¿½ï¿½
 						}
 						else
 						{
-							if (0 == (F_OFF & *iis++)) goto mismatch;//²»ÊÇ±ß½ç
+							if (0 == (F_OFF & *iis++)) goto mismatch;//ï¿½ï¿½ï¿½Ç±ß½ï¿½
 						}
 					}
-					//Èç¹ûÖ´ĞĞµ½Õâ¸öµØ·½À´ÁË£¬ÎÒÃÇ¾ÍÆ¥Åäµ½Ò»¸öÄ£°æ
+					//ï¿½ï¿½ï¿½Ö´ï¿½Ğµï¿½ï¿½ï¿½ï¿½ï¿½Ø·ï¿½ï¿½ï¿½ï¿½Ë£ï¿½ï¿½ï¿½ï¿½Ç¾ï¿½Æ¥ï¿½äµ½Ò»ï¿½ï¿½Ä£ï¿½ï¿½
 					/*Compute adjusted urgency.*/
 					if (judgement(&ua,x,y,*player))
 					{
 								if ( ua>*u) 
 								{
 									*u= ua;	 				/*Replace old */
-									movehere[x][y]= ua;     /* urgency values.*/  //Èç¹û¾ÖÊÆ½ô¼±£¬¶øÇÒ×ß²½»¹¿ÉÒÔ£¬
+									movehere[x][y]= ua;     /* urgency values.*/  //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ß²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô£ï¿½
 									patnum= thispat;	    /*Record pattern # for debugging.*/
-									pgoodmoves= goodmoves;  /*Reinit£¨»Ö¸´£© goodmoves[].*/ //°ÑËü¼ÇÂ¼Èëgoodmoves£¬goodmovesÖĞÏÂ±ê´ÓĞ¡µ½´óÒ»´Î·Å×îºÃµÄ×ß·¨´ÎÖ®ÔÙ´ÎÔÚ
+									pgoodmoves= goodmoves;  /*Reinitï¿½ï¿½ï¿½Ö¸ï¿½ï¿½ï¿½ goodmoves[].*/ //ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Â¼ï¿½ï¿½goodmovesï¿½ï¿½goodmovesï¿½ï¿½ï¿½Â±ï¿½ï¿½Ğ¡ï¿½ï¿½ï¿½ï¿½Ò»ï¿½Î·ï¿½ï¿½ï¿½Ãµï¿½ï¿½ß·ï¿½ï¿½ï¿½Ö®ï¿½Ù´ï¿½ï¿½ï¿½
 									goto intogoodmoves;
-								}						//ÏÈÕÒÒ»¸ö±È½ÏºÃµÄ×ß·¨
+								}						//ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½ï¿½È½ÏºÃµï¿½ï¿½ß·ï¿½
 								else if ( ua==*u &&	      ua>movehere[x][y]	)/* and it's the best move here */
 										  
 								{
 									movehere[x][y]= ua;	/*Mark as best move here.*/
-						intogoodmoves: ;									/*Put it into goodmoves[].*/  //´æÈëgoodmoves[]×îºÃµÄ×ß·¨·ÅÔÚ×îÇ°Ãæ
+						intogoodmoves: ;									/*Put it into goodmoves[].*/  //ï¿½ï¿½ï¿½ï¿½goodmoves[]ï¿½ï¿½Ãµï¿½ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç°ï¿½ï¿½
 									*pgoodmoves++= x;
 									*pgoodmoves++= y;
 								}
@@ -600,16 +599,16 @@ mismatch:
 	}
 }
 
-//ÓÃÀ´¶ÔÆ¥ÅäµÄÄ£°æ½øĞĞ8¸ö·½ÏòµÄÓ³Éä
-//Õâ¸öº¯ÊıºÜÄÑÀí½â£¬Èç¹û²»Àí½â¿ÉÏÈ²»Ï¸¿´£¬Ö»ÊÇÖªµÀËüÊÇ½øĞĞ8¸ö·½ÏòÓ³Éä
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½8ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½â£¬ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½È²ï¿½Ï¸ï¿½ï¿½ï¿½ï¿½Ö»ï¿½ï¿½Öªï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½8ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ó³ï¿½ï¿½
 void Function::pattern(int *chosenx, int *choseny, int *urgency,  board movehere,int *patAdd)
 /*
 Try to find a good black move by matching to a table of patterns.
 Returns the urgency of the move; returns SMALL if no match found.
-Ñ°ÕÒÆ¥ÅäµÄÄ£Ê½¡£Èç¹ûÕÒ²»µ½ºÏÊÊµÄÔò·µ»ØSMALL
+Ñ°ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½Ä£Ê½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Êµï¿½ï¿½ò·µ»ï¿½SMALL
 
 In order to match the patterns in all orientations, we
-reflect(·´Ë¼) the entire£¨È«²¿£© table eight times, checking for a match each time.
+reflect(ï¿½ï¿½Ë¼) the entireï¿½ï¿½È«ï¿½ï¿½ï¿½ï¿½ table eight times, checking for a match each time.
 The reflections are
 (1)   y <-> edge-1-y	(across a mirror plane parallel to x-axis)
 (2)	x <-> edge-1-x	( " y-axis)
@@ -629,7 +628,7 @@ Draw pictures if necessary to see how this works.
 	/*Translate the board to flags for easy comparison with pattern table.*/
 	for (x=0; x<edge; ++x)
 		for (y=0; y<edge; ++y)
-			scratch[x][y]= flookup[theboard[x][y]];  //Ñ°ÕÒÃ¿µãµÄÖµflookup[0]=1,flookup[1]=2,flookup[2]=4
+			scratch[x][y]= flookup[theboard[x][y]];  //Ñ°ï¿½ï¿½Ã¿ï¿½ï¿½ï¿½Öµflookup[0]=1,flookup[1]=2,flookup[2]=4
 									//theboard[x][y]=0 BLACK theboard[x][y]=1 WITHE theboard[x][y]=2 EMPTY SYA2012-3-29
 
 	*urgency= SMALL;		/*No small move so far.*/
@@ -772,27 +771,27 @@ Draw pictures if necessary to see how this works.
 }
 
 
-int Function::mymove() //¼ÆËãºÍÖ´ĞĞµçÄÔµÄ×ß²½
+int Function::mymove() //ï¿½ï¿½ï¿½ï¿½ï¿½Ö´ï¿½Ğµï¿½ï¿½Ôµï¿½ï¿½ß²ï¿½
 /*Calculate and execute and print out the computer's move.*/
 {
 	int x, y,u;			/*coords of the move selected*/
 	int upattern, patternx, patterny;
 	int *patt;
 
-	/*Find the most urgent move to improve our shape.*/		 //Ñ°ÕÒ×îĞèÒªµÄ×ß·¨ÓÃÀ´¸ÄÉÆÎÒÃÇµÄ¾ÖÊÆ
-	/*First say that all moves are to be considered.*/	   	//ËùÓĞµÄ×ß·¨¶¼Òª¿¼ÂÇ
-	SetBoard(Evaluate_Value,SMALL);	//¸øscratch¸³³õÖµ10000
-	/*Then call pattern search.*/  //ÓÃÒÑÓĞµÄÄ£°æËÑË÷
+	/*Find the most urgent move to improve our shape.*/		 //Ñ°ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ß·ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÇµÄ¾ï¿½ï¿½ï¿½
+	/*First say that all moves are to be considered.*/	   	//ï¿½ï¿½ï¿½Ğµï¿½ï¿½ß·ï¿½ï¿½ï¿½Òªï¿½ï¿½ï¿½ï¿½
+	SetBoard(Evaluate_Value,SMALL);	//ï¿½ï¿½scratchï¿½ï¿½ï¿½ï¿½Öµ10000
+	/*Then call pattern search.*/  //ï¿½ï¿½ï¿½ï¿½ï¿½Ğµï¿½Ä£ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	patt=(*player==WHITE?patterns_W:patterns_B);
 	pattern(&patternx, &patterny, &upattern, Evaluate_Value,patt);
 	
-//Ä£°æÆ¥Åä³É¹¦	
+//Ä£ï¿½ï¿½Æ¥ï¿½ï¿½É¹ï¿½	
 if (upattern>1)
 	{		x= patternx;
 			y= patterny;
 			goto movexy;
 	}
-//Ã»ÓĞÆ¥ÅäµÄÃş°æ£¬ÔòÓÃjudgementº¯ÊıËæ»úÕÒÒ»µã
+//Ã»ï¿½ï¿½Æ¥ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½æ£¬ï¿½ï¿½ï¿½ï¿½judgementï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½
 	for (x=0; x<edge; ++x)
 		for (y=0; y<edge; ++y)
 				
@@ -801,7 +800,7 @@ if (upattern>1)
 				{
 					goto movexy;
 				}
-//ÓÃÒÔÉÏ·½·¨¶¼Ã»ÓĞÕÒµ½×î¼Ñµã£¬Ö»ºÃËæ»úÕÒÒ»¸öEMPTYµã
+//ï¿½ï¿½ï¿½ï¿½ï¿½Ï·ï¿½ï¿½ï¿½ï¿½ï¿½Ã»ï¿½ï¿½ï¿½Òµï¿½ï¿½ï¿½Ñµã£¬Ö»ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ò»ï¿½ï¿½EMPTYï¿½ï¿½
 		for (x=0; x<edge; ++x)
 			for (y=0; y<edge; ++y)
 				
@@ -811,23 +810,23 @@ if (upattern>1)
 				}
 	
 
-	return COMPUTER_PASS;//¼ÆËã»ú²»×ßÆå
+	return COMPUTER_PASS;//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 
 movexy:
 	//SaveScratch(Evaluate_Value,"scratch_patterns.txt");
 	mx=x;
 	my=y;
-	if(0==placestone(mx, my, ComputerColor))//Âä×Ó²¢ÅĞ¶ÏÊäÓ®
+	if(0==placestone(mx, my, ComputerColor))//ï¿½ï¿½ï¿½Ó²ï¿½ï¿½Ğ¶ï¿½ï¿½ï¿½Ó®
 		return COMPUTER_LOS;
 	else
 	{
-		movedone();//½»»»¶ÔÊÖ
+		movedone();//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 		return 0;
 	}
 }
 
 
-int Function::enemymove() //¶ÔÊÖµÄ×ß²½£¬£¨ÏÂÆåÈË£©
+int Function::enemymove() //ï¿½ï¿½ï¿½Öµï¿½ï¿½ß²ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ë£ï¿½
 /*Read and execute opponent's move.*/
 {
 
@@ -846,13 +845,13 @@ int Function::enemymove() //¶ÔÊÖµÄ×ß²½£¬£¨ÏÂÆåÈË£©
 
 
 
-//ÏÂÃæÈı¸öº¯ÊıÊÇ½«Êı¾İ´æ´¢µ½´ÅÅÌÎÄ¼şÖĞ¡£
+//ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ç½ï¿½ï¿½ï¿½ï¿½İ´æ´¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ä¼ï¿½ï¿½Ğ¡ï¿½
 void Function::SetBoard(board scratch,int value)
 {
 	register int *ip;
 	register int j;
 	ip = (int*)scratch;
-	for (j=EDGE*EDGE;j>0;j--)//¸øscratch¸³³õÖµ10000
+	for (j=EDGE*EDGE;j>0;j--)//ï¿½ï¿½scratchï¿½ï¿½ï¿½ï¿½Öµ10000
 	{
 		*ip = value;
 		ip++;
@@ -883,7 +882,7 @@ void Function::SaveBoard()
 	fclose(fp);
 }
 
-void Function::SaveScratch(int (*scratch)[EDGE],char *name)//Îªµ÷ÊÔĞ´µÄ
+void Function::SaveScratch(int (*scratch)[EDGE],char *name)//Îªï¿½ï¿½ï¿½ï¿½Ğ´ï¿½ï¿½
 {
 	FILE *fp;
 	int i,j;
