@@ -8,3 +8,8 @@
 
 如果下载较慢请从此下载
 https://gitee.com/SAUMrWang_admin/computer_game
+
+
+
+非乱码的注释：
+https://github.com/YuelinWang/computer_game/commit/8cad4f25a16bc1f003805e1521a18cf6b7fcc254#diff-6f1fbe36dfd51571a0c68f9be4b888574b9cd84d046893c10a303f6ec1a98cc8
