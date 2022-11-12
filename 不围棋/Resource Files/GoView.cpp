@@ -62,7 +62,7 @@ BOOL CGoView::PreCreateWindow(CREATESTRUCT& cs)
 /////////////////////////////////////////////////////////////////////////////
 // CGoView drawing
 
-void CGoView::OnDraw(CDC* pDC) //ÆåÅÌ»æÖÆ
+void CGoView::OnDraw(CDC* pDC) //æ£‹ç›˜ç»˜åˆ¶
 {
 	CGoDoc* pDoc = GetDocument();
 	ASSERT_VALID(pDoc);
@@ -91,7 +91,7 @@ void CGoView::OnDraw(CDC* pDC) //ÆåÅÌ»æÖÆ
 
 	d=boardwidth/(game.edge+1);	// stone width
 
-	memDC.SetBkMode(TRANSPARENT);//Ê¹Êä³öµÄ×Ö·û±³¾°Í¸Ã÷¡£
+	memDC.SetBkMode(TRANSPARENT);//ä½¿è¾“å‡ºçš„å­—ç¬¦èƒŒæ™¯é€æ˜ã€‚
 	CFont font;
 	CSize size;
 	CString str;
@@ -102,17 +102,17 @@ void CGoView::OnDraw(CDC* pDC) //ÆåÅÌ»æÖÆ
 	int i,x,y;
 	if(d>0)
 		{
-		// draw frame»­ºáÊúÏß
+		// draw frameç”»æ¨ªç«–çº¿
 		for(x=0;x<game.edge;x++) {
 			i=rcBoard.left+(x+1)*boardwidth/(game.edge+1);
 			memDC.MoveTo(i,rcBoard.top+d);
 			memDC.LineTo(i,rcBoard.bottom-d);
 
-			str = ((char)('A'+x));//»­¶¥¶ËÎÄ×Ö¡£
+			str = ((char)('A'+x));//ç”»é¡¶ç«¯æ–‡å­—ã€‚
 			size=memDC.GetTextExtent(str);
 			memDC.TextOut(i-size.cx/2+5,rcBoard.top+d-size.cy-10,str);
 
-			//str=CString(_itoa(x+1,np,10));//»­µ×¶ËÎÄ×Ö¡£
+			//str=CString(_itoa(x+1,np,10));//ç”»åº•ç«¯æ–‡å­—ã€‚
 			//size=memDC.GetTextExtent(str);
 			memDC.TextOut(i-size.cx/2+5,rcBoard.bottom-d+10,str);
 		}
@@ -121,15 +121,15 @@ void CGoView::OnDraw(CDC* pDC) //ÆåÅÌ»æÖÆ
 			memDC.MoveTo(rcBoard.left+d,i);
 			memDC.LineTo(rcBoard.right-d,i);
 
-		//	str=('A'+y);//»­×ó¶ËÎÄ×Ö¡£
+		//	str=('A'+y);//ç”»å·¦ç«¯æ–‡å­—ã€‚
 		//	size=memDC.GetTextExtent(str);
 		//	memDC.TextOut(rcBoard.left+d-size.cx-5,i-size.cy/2,str);
 
-		//	str=CString(_itoa(y+1,np,10));//»­ÓÒ¶ËÊı×Ö¡£
+		//	str=CString(_itoa(y+1,np,10));//ç”»å³ç«¯æ•°å­—ã€‚
 			str=CString(_itoa(game.edge-y,np,10));
 			size=memDC.GetTextExtent(str);
-			memDC.TextOut(rcBoard.left+d-size.cx-20,i-size.cy/2,str);//»­×ó¶ËÎÄ×Ö¡£
-			memDC.TextOut(rcBoard.right-d+size.cx/3+18,i-size.cy/2,str);//»­ÓÒ¶ËÊı×Ö¡£
+			memDC.TextOut(rcBoard.left+d-size.cx-20,i-size.cy/2,str);//ç”»å·¦ç«¯æ–‡å­—ã€‚
+			memDC.TextOut(rcBoard.right-d+size.cx/3+18,i-size.cy/2,str);//ç”»å³ç«¯æ•°å­—ã€‚
 		}
 
 		CDC WhiteStoneDC,BlackStoneDC;
@@ -158,18 +158,18 @@ void CGoView::OnDraw(CDC* pDC) //ÆåÅÌ»æÖÆ
 				y1=rcBoard.top+(y+1)*boardwidth/(game.edge+1);
 				stone=game.theboard[x][y];
 				
-				if(stone==BLACK)// ºÚÉ«Æå×Ó
+				if(stone==BLACK)// é»‘è‰²æ£‹å­
 					memDC.BitBlt(x1-d/2,y1-d/2,d,d,&BlackStoneDC,0,0,SRCCOPY);
-				else if(stone==WHITE)// °×É«Æå×Ó
+				else if(stone==WHITE)// ç™½è‰²æ£‹å­
 					memDC.BitBlt(x1-d/2,y1-d/2,d,d,&WhiteStoneDC,0,0,SRCCOPY);
 			}
-			//µ±Ç°×ß²½ÏÔÊ¾ºìÊ®×Ö¡£
+			//å½“å‰èµ°æ­¥æ˜¾ç¤ºçº¢åå­—ã€‚
 		CPen pen(PS_SOLID,1,RGB(255,0,0));
 		CPen *pOldPen=memDC.SelectObject(&pen);	
 		x=game.mx;
 		y=game.my;
 		
-		if(x>-1 && y>-1)//Èç¹ûÊÇÓĞĞ§µÄµã¡£
+		if(x>-1 && y>-1)//å¦‚æœæ˜¯æœ‰æ•ˆçš„ç‚¹ã€‚
 		{
 			x1=rcBoard.left+(x+0)*boardwidth/(game.edge+1);
 			y1=rcBoard.top+(y+0)*boardwidth/(game.edge+1);
@@ -179,7 +179,7 @@ void CGoView::OnDraw(CDC* pDC) //ÆåÅÌ»æÖÆ
 
 		memDC.SelectObject(pOldPen);
 		
-		//ShowPointValue(&memDC,&rcBoard,boardwidth,d,side);//ÏÔÊ¾µãµÄ¹ÀÖµ¡£
+		//ShowPointValue(&memDC,&rcBoard,boardwidth,d,side);//æ˜¾ç¤ºç‚¹çš„ä¼°å€¼ã€‚
 
 		WhiteStoneDC.SelectObject(pOldWhiteBmp);
 		BlackStoneDC.SelectObject(pOldBlackBmp);
@@ -192,7 +192,7 @@ void CGoView::OnDraw(CDC* pDC) //ÆåÅÌ»æÖÆ
 
 ////////////////////////////////////////////////////////////////////////////
 //
-//   DrawStone() is based on the source code of Jago Æå×Ó
+//   DrawStone() is based on the source code of Jago æ£‹å­
 //
 ////////////////////////////////////////////////////////////////////////////
 
@@ -307,20 +307,20 @@ CGoDoc* CGoView::GetDocument() // non-debug version is inline
 /////////////////////////////////////////////////////////////////////////////
 // CGoView message handlers
 
-void CGoView::OnInitialUpdate() //ÆğÊ¼ÉèÖÃ
+void CGoView::OnInitialUpdate() //èµ·å§‹è®¾ç½®
 {
 	CView::OnInitialUpdate();
-	boardcolor=RGB(193,187,97);	// brown ÆåÅÌÑÕÉ«
+	boardcolor=RGB(193,187,97);	// brown æ£‹ç›˜é¢œè‰²
 	GameSetup=true;
-    game.initgame();//³õÊ¼»¯ÓÎÏ·
+    game.initgame();//åˆå§‹åŒ–æ¸¸æˆ
 
 }
 
-void CGoView::OnLButtonDown(UINT nFlags, CPoint point) //Âä×Ó¹æÔò
+void CGoView::OnLButtonDown(UINT nFlags, CPoint point) //è½å­è§„åˆ™
 {
 	// TODO: Add your message handler code here and/or call default	
 
-		if(GameSetup)//Èç¹û»¹Ã»ÓĞ½øĞĞ³õÊ¼ÉèÖÃ£¬Ôò²»´¦Àíµã»÷ÊÂ¼ş¡£
+		if(GameSetup)//å¦‚æœè¿˜æ²¡æœ‰è¿›è¡Œåˆå§‹è®¾ç½®ï¼Œåˆ™ä¸å¤„ç†ç‚¹å‡»äº‹ä»¶ã€‚
 		return;
 
 	
@@ -343,9 +343,9 @@ void CGoView::OnLButtonDown(UINT nFlags, CPoint point) //Âä×Ó¹æÔò
 		{
 			Invalidate();
 			if(game.ComputerColor==BLACK)
-				strcpy(msg,"ºÚÆå¼ÆËã»úÓ®£¡");
+				strcpy(msg,"é»‘æ£‹è®¡ç®—æœºèµ¢ï¼");
 			else
-				strcpy(msg,"°×Æå¼ÆËã»úÓ®£¡");
+				strcpy(msg,"ç™½æ£‹è®¡ç®—æœºèµ¢ï¼");
 			GameSetup=true;
 			AfxMessageBox(msg);
 			
@@ -353,32 +353,32 @@ void CGoView::OnLButtonDown(UINT nFlags, CPoint point) //Âä×Ó¹æÔò
 		}
 	}
 
- //Èç¹ûÊÇ¼ÆËã»ú×ß¡£
+ //å¦‚æœæ˜¯è®¡ç®—æœºèµ°ã€‚
 	{ 
 		int result=game.nextmove();
 		Invalidate();
 		PlaySound("IDR_ALERT", NULL, SND_RESOURCE | SND_ASYNC);
-		if(result==0) //¼ÆËã»úÒÑ¾­Âä×ÓÁË¡£
+		if(result==0) //è®¡ç®—æœºå·²ç»è½å­äº†ã€‚
 		{
 		
 			Invalidate();
 		}
 		else if(result==COMPUTER_PASS)
 		{
-			AfxMessageBox("¼ÆËã»ú²»×ßÁË!");
+			AfxMessageBox("è®¡ç®—æœºä¸èµ°äº†!");
 		}
 		else if(result==COMPUTER_LOS)
 		{
 			Invalidate();
 			if(game.ComputerColor==BLACK)
-				strcpy(msg,"°×ÆåÈËÓ®£¡");
+				strcpy(msg,"ç™½æ£‹äººèµ¢ï¼");
 			else
-				strcpy(msg,"ºÚÆåÈËÓ®£¡");
+				strcpy(msg,"é»‘æ£‹äººèµ¢ï¼");
 			GameSetup=true;
 			AfxMessageBox(msg);
 		}//
 		else 
-			AfxMessageBox("ComputerMoveµÄ·µ»ØÖµÒâÒå²»Ã÷È·");
+			AfxMessageBox("ComputerMoveçš„è¿”å›å€¼æ„ä¹‰ä¸æ˜ç¡®");
 		//game.OutputBoard();
 	}
 }
@@ -391,7 +391,7 @@ BOOL CGoView::OnEraseBkgnd(CDC* pDC)
 
 
 
-void CGoView::OnGamePass() //¹ıÆå
+void CGoView::OnGamePass() //è¿‡æ£‹
 {
 	if(GameSetup) return;
 

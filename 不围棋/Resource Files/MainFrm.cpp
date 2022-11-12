@@ -72,7 +72,7 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_wndToolBar.EnableDocking(CBRS_ALIGN_ANY);
 	EnableDocking(CBRS_ALIGN_ANY);
 	DockControlBar(&m_wndToolBar);
-   SetWindowText( "²»Î§Æå NoGo 2.0"); 
+   SetWindowText( "Â²Â»ÃŽÂ§Ã†Ã¥ NoGo 2.0"); 
 
 
 	return 0;

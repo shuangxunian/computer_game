@@ -14,34 +14,34 @@
 #define RESIGN (-2)	/*codes for resigning */
 #define PASS (-1)	/* passing moves*/
 #define BOTHPASS (-3)	/*code for both sides passed, game is over*/
-#define FAIL (-4)            //·Å×Ó´íÎó
-#define COMPUTER_WIN   1000 //¼ÆËã»úÓ®ÁË¡£
-#define COMPUTER_LOS  -1000//¼ÆËã»úÊäÁË¡£
-#define COMPUTER_PASS -1//¼ÆËã»ú²»×ßÁË
+#define FAIL (-4)            //æ”¾å­é”™è¯¯
+#define COMPUTER_WIN   1000 //è®¡ç®—æœºèµ¢äº†ã€‚
+#define COMPUTER_LOS  -1000//è®¡ç®—æœºè¾“äº†ã€‚
+#define COMPUTER_PASS -1//è®¡ç®—æœºä¸èµ°äº†
 /*codes for players; and a code for something (e.g. a point on the board) */
-/* which belongs to neither*///Æå×ÓºÍÑ¡ÊÖ´úºÅ
+/* which belongs to neither*///æ£‹å­å’Œé€‰æ‰‹ä»£å·
 #define BLACK 0
 #define WHITE 1
 #define EMPTY 2
 
-/*flags in shape table entries for types of points*///Èë¿Ú±ê×¼ÓÃÓÚÄ£Ê½Æ¥Åä
+/*flags in shape table entries for types of points*///å…¥å£æ ‡å‡†ç”¨äºæ¨¡å¼åŒ¹é…
 #define F_BLACK 1	/*the point has a black stone*///(0001)B
 #define F_WHITE 2	/*the point has a white stone*///(00010)B
 #define F_EMPTY 4	/*the point is empty*///(0100)B
-#define F_OFF   8	/*the point is off the board*///Ìá×Óµã(1000)B//±ß½çµã
+#define F_OFF   8	/*the point is off the board*///æå­ç‚¹(1000)B//è¾¹ç•Œç‚¹
 
 
 
 typedef struct group
 {
-	int	color,	/*the color of stones in this group*/ //Æå×ÓµÄÑÕÉ«
-	nliberties,	/*the number of liberties(×ÔÓÉ) that this group has*/
-	nstones,	/*the number of stones in this group*/ //×éÀïÓĞÆå×ÓµÄÊıÄ¿
-	x, y;		/*one point in this group*/ //ÅÌÉÏµÄµã
+	int	color,	/*the color of stones in this group*/ //æ£‹å­çš„é¢œè‰²
+	nliberties,	/*the number of liberties(è‡ªç”±) that this group has*/
+	nstones,	/*the number of stones in this group*/ //ç»„é‡Œæœ‰æ£‹å­çš„æ•°ç›®
+	x, y;		/*one point in this group*/ //ç›˜ä¸Šçš„ç‚¹
 
 } group;
 
-/*a struct for holding information on every square of the board*/ //´æ´¢ÆåÅÌÉÏµÄÊı¾İ
+/*a struct for holding information on every square of the board*/ //å­˜å‚¨æ£‹ç›˜ä¸Šçš„æ•°æ®
 typedef int board[EDGE][EDGE];
 
 
@@ -53,32 +53,32 @@ public:
 
 	int edge;		/*the number of intersections which we are using (a command line parameter)*/
 	board theboard;	/*current position of stones on the board*/ //
-	int mx,my;		// move of the game ²½Êı
+	int mx,my;		// move of the game æ­¥æ•°
 	int *player;		// next player to play
-	int ComputerColor;//¼ÆËã»úÆå×ÓÑÕÉ«
+	int ComputerColor;//è®¡ç®—æœºæ£‹å­é¢œè‰²
 
 
 
-	void SaveBoard();	//ÓÃÓÚ±£´æµ±Ç°ÆåÅÌ
-	void SaveScratch(int (*scratch)[EDGE],char *);//ÓÃÓÚ±£´æscratch£¬¹©µ÷ÊÔÊ¹ÓÃ¡£Liuc:2011-05-28
+	void SaveBoard();	//ç”¨äºä¿å­˜å½“å‰æ£‹ç›˜
+	void SaveScratch(int (*scratch)[EDGE],char *);//ç”¨äºä¿å­˜scratchï¼Œä¾›è°ƒè¯•ä½¿ç”¨ã€‚Liuc:2011-05-28
 
-	void initgame();//³õÊ¼»¯ÓÎÏ·
-	int nextmove();//ÅĞ¶ÏÏÂÒ»²½×ßÆå
+	void initgame();//åˆå§‹åŒ–æ¸¸æˆ
+	int nextmove();//åˆ¤æ–­ä¸‹ä¸€æ­¥èµ°æ£‹
 	int nextmove(int x, int y);
 
 	void movedone();
-	int placestone(int x, int y, int p);//Âä×Ó
+	int placestone(int x, int y, int p);//è½å­
 	
-	void count(register int x, register int y,  register group *thisgroup,  board scratch,  int mark);//¼ÆËã»úÆåÁ´µÄÆø
+	void count(register int x, register int y,  register group *thisgroup,  board scratch,  int mark);//è®¡ç®—æœºæ£‹é“¾çš„æ°”
 
 	
-	void pattern1(int *u,  board masks, board movehere,int *patAdd,int);//Ä£Ê½Æ¥Åä
-	void pattern(int *chosenx, int *choseny, int *urgency,  board movehere,int *patAdd);//½«Ä£Ê½Ó³Éä³É8ÖÖĞÎÊ½
-	int mymove();//¼ÆËã»ú×ßÆå
-	int enemymove();//¶ÔÊÖ×ßÆå
+	void pattern1(int *u,  board masks, board movehere,int *patAdd,int);//æ¨¡å¼åŒ¹é…
+	void pattern(int *chosenx, int *choseny, int *urgency,  board movehere,int *patAdd);//å°†æ¨¡å¼æ˜ å°„æˆ8ç§å½¢å¼
+	int mymove();//è®¡ç®—æœºèµ°æ£‹
+	int enemymove();//å¯¹æ‰‹èµ°æ£‹
 	void SetBoard(board scratch,int value);
-	int judgement(int *ua,int x,int y,int p);//ÅĞ¶Ï(x,y)µã´¦µÄ»·¾³
-	int myloss(int x,int y,int p);//ÅĞ¶Ï(x,y)Âä×ÓµãÊäÓ®
+	int judgement(int *ua,int x,int y,int p);//åˆ¤æ–­(x,y)ç‚¹å¤„çš„ç¯å¢ƒ
+	int myloss(int x,int y,int p);//åˆ¤æ–­(x,y)è½å­ç‚¹è¾“èµ¢
 
 };
 

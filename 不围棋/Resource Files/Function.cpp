@@ -1,6 +1,7 @@
 //代码版本		2017年国赛 
 //本代码由沈阳航空航天大学计算机博弈协会总负责人王跃霖统一调控
-//不围棋组负责人王佳俊所带博弈组开发维护 
+//不围棋组负责人王佳俊所带博弈组开发维护
+//代码来自哈工大开源代码,由以上成员维护 
 //本代码适用于中国大学生计算机博弈大赛博弈项目2017版交互协议
 //本代码仅提供交互协议的用法示范和简单AI博弈思路，开发者需自行改进完善代码参赛
 //如有意见和建议请与我们尽早联系
@@ -26,38 +27,38 @@ int outputmode = WALLY_OUTPUT;
 board Evaluate_Value;
 /*Return TRUE if (x,y) corresponds to a point on the board.*/
 #define on1board(x) (0<=(x)&&(x)<edge)
-#define onboard(x,y) (on1board(x)&&on1board(y))  //��������������
+#define onboard(x,y) (on1board(x)&&on1board(y))  //棋子落在棋盘里
 
-/*Return TRUE if (x,y) is on the edge of the board.*/ //���(x,y)�����̱�Ե�Ͼͷ���TURE
+/*Return TRUE if (x,y) is on the edge of the board.*/ //如果(x,y)在棋盘边缘上就返回TURE
 #define onedge1(x) (0==(x)||edge-1==(x))
 #define onedge(x,y) (onedge1(x)||onedge1(y))
 
 int flookup[]=	/*sets of flags corresponding to codes*/  
     { F_BLACK, F_WHITE, F_EMPTY };
 
-/*Return the code for the other player, who is the next to play.*/ //��һ���������
+/*Return the code for the other player, who is the next to play.*/ //下一个下棋的人
 #define nextp(p) (BLACK==(p)?WHITE:(WHITE==(p)?BLACK:WHITE))
 //	panic("illegal input to nextp()"))
 
 
-/*Convert any uppercase letter to lowercase.*/ //��Сдת��
+/*Convert any uppercase letter to lowercase.*/ //大小写转换
 #define lowercase(c) ('A'<=(c)&&(c)<='Z'?(c)-'A'+'a':(c))
 
 
 /*other information about the game*/
 struct thegame
 {
-	int pla;		/*code for next player to play*/ //�¸�����Ҫ�ߵĴ���
-	int tur;		/*the number of this move*/ //���ߵĲ���
+	int pla;		/*code for next player to play*/ //下个棋手要走的代号
+	int tur;		/*the number of this move*/ //已走的步数
 
 } thegame;
 
 #define PATTERN 12345	/*This integer should appear at the start of each */
-#define PATTEND 7171	/*This integer should appear at the end of the table.*/ //����������
-//�ҳ�����ƥ���ģ���������Ե���
-//#���� O���� ~��ȷ�� !�߽� $��ǰλ��*��ʾempty
-int patterns_B[]= //BLACK��ģʽ
-	{	PATTERN, 4, 60,	/*PATTERN ����ģʽ�Ŀ�ʼ����4����Ҫƥ��ĵ㣬��ģʽ�ķ�ֵ��60 */
+#define PATTEND 7171	/*This integer should appear at the end of the table.*/ //结束的整数
+//找出合适匹配的模版来供电脑调用
+//#黑子 O白子 ~不确定 !边界 $当前位置*表示empty
+int patterns_B[]= //BLACK方模式
+	{	PATTERN, 4, 60,	/*PATTERN 代表模式的开始，有4该需要匹配的点，该模式的分值是60 */
        	-1, 0,F_WHITE|F_OFF,//*	o *
 		 1, 0,F_WHITE|F_OFF,//o	$ *
 		 0,-1,F_WHITE|F_OFF,//*	o *
@@ -86,7 +87,7 @@ int patterns_B[]= //BLACK��ģʽ
 		 0, 1,F_EMPTY,		        //	o
 		 0, -1,F_EMPTY,
 
-	 PATTEND //ģʽ����
+	 PATTEND //模式结束
 	};
 int patterns_W[]=
 	{	PATTERN, 4, 60,	/*a code for the beginning of a pattern*/
@@ -131,11 +132,11 @@ a table of moves the heuristics are ambivalent about, for
 random selection
 */
 int goodmoves[2*EDGE*EDGE];
-int *pgoodmoves;	/*&next free space in goodmoves[]*/ //goodmoves�е�Ԫ�ظ���
+int *pgoodmoves;	/*&next free space in goodmoves[]*/ //goodmoves中的元素个数
 
 
-int rng(int n)// �ú�����������
-//����һ��0��n-1���������ȥ��̫�õ�ģ��
+int rng(int n)// 该函数很难理解
+//返回一个0到n-1间的数，舍去不太好的模版
 /*Return a (slightly) random number from 0 to n-1.*/
 /*(This is a really crummy rng, it just keeps the
 /*program's moves from all lying in a trivial pattern.)*/
@@ -151,21 +152,21 @@ int rng(int n)// �ú�����������
 // Construction/Destruction
 //////////////////////////////////////////////////////////////////////
 
-Function::Function()  //���캯��
+Function::Function()  //构造函数
 {
 
 }
 
-Function::~Function() //��������
+Function::~Function() //析构函数
 {
 
 }
 
-void Function::initgame() //��ʼ����Ϸ
+void Function::initgame() //初始化游戏
 {
 	register int x, y;
 
-	edge=EDGE;        //�߳�9 
+	edge=EDGE;        //边长9 
 
 
 	player=&thegame.pla;
@@ -176,7 +177,7 @@ void Function::initgame() //��ʼ����Ϸ
 
 	/*Initialize miscellaneous other stuff.*/
 
-	thegame.tur= 1;     //���ߵĲ���1
+	thegame.tur= 1;     //已走的步数1
 	
 	mx=my=-1;
 
@@ -184,7 +185,7 @@ void Function::initgame() //��ʼ����Ϸ
 }
 
 int Function::nextmove()
-//��һ����˭��
+//下一步该谁走
 {
 	
 	
@@ -205,7 +206,7 @@ int Function::nextmove(int x, int y)
 
 
 
-void Function::movedone() //���Ӻ�Ľ�������
+void Function::movedone() //落子后的交换对手
 /*
 Do everything which must be done to complete a move after the stone is
 placed.
@@ -218,10 +219,10 @@ placed.
 
 void Function::count(register int x, register int y,  register group *thisgroup,  board scratch,  int mark)
 /*
-Recursively group together connected stones.  Three things must be done: �ݹ���ص�����
-(1) ��thisgroup->nliberties�и����������������
-(2) ������������������thisgroup->nstones, scratch[][]= mark��(x,y)��this group�е�������Ŀ��
-��Ϊ���������(x,y)Ϊ�����γɵ���
+Recursively group together connected stones.  Three things must be done: 递归相关的棋子
+(1) 将thisgroup->nliberties中赋上这个棋链的气数
+(2) 计算棋盘上已有棋子thisgroup->nstones, scratch[][]= mark是(x,y)和this group中的棋子数目，
+因为这个组是有(x,y)为中心形成的组
 so that we only count each only once.  The calling routine must
 see to it that scratch[][]!=mark for all points and liberties that
 it wants counted.
@@ -229,24 +230,24 @@ it wants counted.
 {
 	register int *bxy, *sxy; 	//  *bxy=theboard[x][y] ; *sxy=scratch[x][y] //??why int type
 
-endrecurse:						//������ת��־λ
-	bxy= &(theboard[x][y]);                   //theboard[x][y]�ĵ�ַ
-	sxy= &(scratch[x][y]);                    //scratch[x][y]�ĵ�ַ
+endrecurse:						//设置跳转标志位
+	bxy= &(theboard[x][y]);                   //theboard[x][y]的地址
+	sxy= &(scratch[x][y]);                    //scratch[x][y]的地址
 
-	//����XY��ʹ֮��Ϊ����һԱ
-	++(thisgroup->nstones);                  //�������group�е����ּӡ�1��
-	*sxy= mark;                              //ʹ��scratch[x][y]=mark
+	//计算XY点使之成为组中一员
+	++(thisgroup->nstones);                  //属于这个group中的数字加‘1’
+	*sxy= mark;                              //使得scratch[x][y]=mark
 
-	y = y-1;                                  //����scratch[x][y-1]��theboard[x][y]
+	y = y-1;                                  //处理scratch[x][y-1]和theboard[x][y]
 	bxy -= 1;
 	sxy -= 1;
 	if (y>=0)
-		if (thisgroup->color==*bxy)            //theboard[][]�����������ӣ�
+		if (thisgroup->color==*bxy)            //theboard[][]现在已有棋子，
 		{
 			if (*sxy!=mark)
-				count(x, y, thisgroup, scratch, mark);//�ݹ��ѯ
+				count(x, y, thisgroup, scratch, mark);//递归查询
 		}
-		else if (EMPTY==*bxy)                  //û�����ӵĻ�
+		else if (EMPTY==*bxy)                  //没有棋子的话
 		{
 			if (*sxy!=mark)
 			{
@@ -256,7 +257,7 @@ endrecurse:						//������ת��־λ
 		}
 
 
-	y= y+2;                             //������ (x, y+1)
+	y= y+2;                             //处理点 (x, y+1)
 	bxy += 2;
 	sxy += 2;
 	if (y<edge)
@@ -275,7 +276,7 @@ endrecurse:						//������ת��־λ
 		}
 
 
-	y = y-1;                            //������(x-1, y)
+	y = y-1;                            //处理点(x-1, y)
 	x = x-1;
 	bxy -= EDGE+1;
 	sxy -= EDGE+1;
@@ -295,7 +296,7 @@ endrecurse:						//������ת��־λ
 		}
 
 
-	x = x+2;                           //������(x+1, y)
+	x = x+2;                           //处理点(x+1, y)
 	bxy += 2*EDGE;
 	sxy += 2*EDGE;
 
@@ -303,7 +304,7 @@ endrecurse:						//������ת��־λ
 		if (thisgroup->color==*bxy)
 		{
 			if (*sxy!=mark)
-				goto endrecurse;//���µݹ�
+				goto endrecurse;//重新递归
 		}
 		else if (EMPTY==*bxy)
 		{
@@ -317,7 +318,7 @@ endrecurse:						//������ת��־λ
 }
 
 
-int Function::myloss(int x,int y,int p)//�ж����ӵ�����������Ϊ0�򷵻�1�����򷵻�0.
+int Function::myloss(int x,int y,int p)//判断落子点的气数，如果为0则返回1，否则返回0.
 {
 	board scratch;	/*scratch for count() to use to say if a point is */
 
@@ -401,7 +402,7 @@ int Function::myloss(int x,int y,int p)//�ж����ӵ�������
 		return 0;	
 }
 
-int Function::placestone(int x, int y, int p)//���ӣ����ж��Ƿ�����
+int Function::placestone(int x, int y, int p)//落子，并判断是否输了
 
 {
 	int ncap;
@@ -410,7 +411,7 @@ int Function::placestone(int x, int y, int p)//���ӣ����ж��Ƿ
 	ncap=myloss(x,y,p);
  
 	if (1==ncap)
-		return 0;//����
+		return 0;//输了
 			
 	return 1;
 }
@@ -418,7 +419,7 @@ int Function::placestone(int x, int y, int p)//���ӣ����ж��Ƿ
 
 
 
-int Function::judgement(int *ua,int x,int y,int p)//��xy�������ӽ��л����жϣ��ú����ǳ���Ҫ
+int Function::judgement(int *ua,int x,int y,int p)//对xy处的棋子进行环境判断，该函数非常重要
 {
 	board scratch;	/*scratch for count() to use to say if a point is */
 //	register int *bxy= &theboard[x][y], *sxy= &scratch[x][y];
@@ -530,22 +531,22 @@ int Function::judgement(int *ua,int x,int y,int p)//��xy�������
 
 }
 
-//void Function::pattern1(int *u,  board masks, board movehere,int *patAdd)  //����Ѱ��ƥ���ģ��
-//��������������⣬�����������Ȳ�ϸ����ֻ��֪�����ǽ���ģ��ƥ��
-void Function::pattern1(int *u,  board masks, board movehere,int *patAdd,int Lab)  //����Ѱ��ƥ���ģ��
-/*����һ��int Lab������Ŀ������֪����ǰ���õ�pattern1����pattern�еڼ��ε��ã������˵��ԡ�
-  ������pattern()��Ѱ��ƥ����߷���ֻ����ѵģ����ڲ��õĲ������ᡣ
- ֻ��EMPTY�������ˣ�����pattern()�ɱ�����Ѱ����ص��߲�������
-�кõ�ģ������������á���������������movehere[][]��˵������߲��ĺô�
+//void Function::pattern1(int *u,  board masks, board movehere,int *patAdd)  //用来寻找匹配的模版
+//这个函数很难理解，如果不理解可先不细看，只是知道它是进行模版匹配
+void Function::pattern1(int *u,  board masks, board movehere,int *patAdd,int Lab)  //用来寻找匹配的模版
+/*加了一个int Lab参数，目的是想知道当前调用的pattern1是在pattern中第几次调用，方便了调试。
+  用来从pattern()中寻找匹配的走法，只找最佳的，对于不好的不予理会。
+ 只有EMPTY被检验了，所以pattern()可被用来寻找相关的走步或其他
+有好的模版的限制性设置。最后的修正允许用movehere[][]来说明最佳走步的好处
 */
 {
 	register int *is, *iis;/*pointers into patterns[]; or scratch*/ 
-	register int j;	/*& into a particular�����⣩ pattern, # points remaining��ʣ�ࣩ*/ //ָ���ر��ģ��
-	register int x, y;	/*current position we're trying to match pattern to*/  //������������ƥ��ģ���ͨ�����
-	register int xs, ys;	/*position of a point from a pattern*/  //ģ���е�һ��
-	int ua;		/*urgency and adjustment for this move*/ //��һ�����ж�
+	register int j;	/*& into a particular（特殊） pattern, # points remaining（剩余）*/ //指向特别的模版
+	register int x, y;	/*current position we're trying to match pattern to*/  //我们试着用来匹配模版的通用情况
+	register int xs, ys;	/*position of a point from a pattern*/  //模版中的一点
+	int ua;		/*urgency and adjustment for this move*/ //这一步的判断
 	int thispat;		/*which pattern in the table are we currently */
-	/* trying to match?*/  //�����õ�����һ��ģ����ƥ��
+	/* trying to match?*/  //我们用的是哪一个模版来匹配
 	int *patterns = patAdd;
 
 
@@ -558,36 +559,36 @@ void Function::pattern1(int *u,  board masks, board movehere,int *patAdd,int Lab
 				if (F_EMPTY==masks[x][y] )
 				      
 				{
-					for (iis=is+1,j= *iis++,ua= *iis++; j; --j)//�״�ѭ�� 
+					for (iis=is+1,j= *iis++,ua= *iis++; j; --j)//首次循环 
 					{
 						xs= *iis++;
 						ys= *iis++;
 						if (onboard(x+xs,y+ys))
 						{
-							if (0 == (masks[x+xs][y+ys] & *iis++)) goto mismatch;//����ͬ��
+							if (0 == (masks[x+xs][y+ys] & *iis++)) goto mismatch;//不相同的
 						}
 						else
 						{
-							if (0 == (F_OFF & *iis++)) goto mismatch;//���Ǳ߽�
+							if (0 == (F_OFF & *iis++)) goto mismatch;//不是边界
 						}
 					}
-					//���ִ�е�����ط����ˣ����Ǿ�ƥ�䵽һ��ģ��
+					//如果执行到这个地方来了，我们就匹配到一个模版
 					/*Compute adjusted urgency.*/
 					if (judgement(&ua,x,y,*player))
 					{
 								if ( ua>*u) 
 								{
 									*u= ua;	 				/*Replace old */
-									movehere[x][y]= ua;     /* urgency values.*/  //������ƽ����������߲������ԣ�
+									movehere[x][y]= ua;     /* urgency values.*/  //如果局势紧急，而且走步还可以，
 									patnum= thispat;	    /*Record pattern # for debugging.*/
-									pgoodmoves= goodmoves;  /*Reinit���ָ��� goodmoves[].*/ //������¼��goodmoves��goodmoves���±��С����һ�η���õ��߷���֮�ٴ���
+									pgoodmoves= goodmoves;  /*Reinit（恢复） goodmoves[].*/ //把它记录入goodmoves，goodmoves中下标从小到大一次放最好的走法次之再次在
 									goto intogoodmoves;
-								}						//����һ���ȽϺõ��߷�
+								}						//先找一个比较好的走法
 								else if ( ua==*u &&	      ua>movehere[x][y]	)/* and it's the best move here */
 										  
 								{
 									movehere[x][y]= ua;	/*Mark as best move here.*/
-						intogoodmoves: ;									/*Put it into goodmoves[].*/  //����goodmoves[]��õ��߷�������ǰ��
+						intogoodmoves: ;									/*Put it into goodmoves[].*/  //存入goodmoves[]最好的走法放在最前面
 									*pgoodmoves++= x;
 									*pgoodmoves++= y;
 								}
@@ -599,16 +600,16 @@ mismatch:
 	}
 }
 
-//������ƥ���ģ�����8�������ӳ��
-//��������������⣬�����������Ȳ�ϸ����ֻ��֪�����ǽ���8������ӳ��
+//用来对匹配的模版进行8个方向的映射
+//这个函数很难理解，如果不理解可先不细看，只是知道它是进行8个方向映射
 void Function::pattern(int *chosenx, int *choseny, int *urgency,  board movehere,int *patAdd)
 /*
 Try to find a good black move by matching to a table of patterns.
 Returns the urgency of the move; returns SMALL if no match found.
-Ѱ��ƥ���ģʽ������Ҳ������ʵ��򷵻�SMALL
+寻找匹配的模式。如果找不到合适的则返回SMALL
 
 In order to match the patterns in all orientations, we
-reflect(��˼) the entire��ȫ���� table eight times, checking for a match each time.
+reflect(反思) the entire（全部） table eight times, checking for a match each time.
 The reflections are
 (1)   y <-> edge-1-y	(across a mirror plane parallel to x-axis)
 (2)	x <-> edge-1-x	( " y-axis)
@@ -628,7 +629,7 @@ Draw pictures if necessary to see how this works.
 	/*Translate the board to flags for easy comparison with pattern table.*/
 	for (x=0; x<edge; ++x)
 		for (y=0; y<edge; ++y)
-			scratch[x][y]= flookup[theboard[x][y]];  //Ѱ��ÿ���ֵflookup[0]=1,flookup[1]=2,flookup[2]=4
+			scratch[x][y]= flookup[theboard[x][y]];  //寻找每点的值flookup[0]=1,flookup[1]=2,flookup[2]=4
 									//theboard[x][y]=0 BLACK theboard[x][y]=1 WITHE theboard[x][y]=2 EMPTY SYA2012-3-29
 
 	*urgency= SMALL;		/*No small move so far.*/
@@ -771,27 +772,27 @@ Draw pictures if necessary to see how this works.
 }
 
 
-int Function::mymove() //�����ִ�е��Ե��߲�
+int Function::mymove() //计算和执行电脑的走步
 /*Calculate and execute and print out the computer's move.*/
 {
 	int x, y,u;			/*coords of the move selected*/
 	int upattern, patternx, patterny;
 	int *patt;
 
-	/*Find the most urgent move to improve our shape.*/		 //Ѱ������Ҫ���߷������������ǵľ���
-	/*First say that all moves are to be considered.*/	   	//���е��߷���Ҫ����
-	SetBoard(Evaluate_Value,SMALL);	//��scratch����ֵ10000
-	/*Then call pattern search.*/  //�����е�ģ������
+	/*Find the most urgent move to improve our shape.*/		 //寻找最需要的走法用来改善我们的局势
+	/*First say that all moves are to be considered.*/	   	//所有的走法都要考虑
+	SetBoard(Evaluate_Value,SMALL);	//给scratch赋初值10000
+	/*Then call pattern search.*/  //用已有的模版搜索
 	patt=(*player==WHITE?patterns_W:patterns_B);
 	pattern(&patternx, &patterny, &upattern, Evaluate_Value,patt);
 	
-//ģ��ƥ��ɹ�	
+//模版匹配成功	
 if (upattern>1)
 	{		x= patternx;
 			y= patterny;
 			goto movexy;
 	}
-//û��ƥ������棬����judgement���������һ��
+//没有匹配的摸版，则用judgement函数随机找一点
 	for (x=0; x<edge; ++x)
 		for (y=0; y<edge; ++y)
 				
@@ -800,7 +801,7 @@ if (upattern>1)
 				{
 					goto movexy;
 				}
-//�����Ϸ�����û���ҵ���ѵ㣬ֻ�������һ��EMPTY��
+//用以上方法都没有找到最佳点，只好随机找一个EMPTY点
 		for (x=0; x<edge; ++x)
 			for (y=0; y<edge; ++y)
 				
@@ -810,23 +811,23 @@ if (upattern>1)
 				}
 	
 
-	return COMPUTER_PASS;//�����������
+	return COMPUTER_PASS;//计算机不走棋
 
 movexy:
 	//SaveScratch(Evaluate_Value,"scratch_patterns.txt");
 	mx=x;
 	my=y;
-	if(0==placestone(mx, my, ComputerColor))//���Ӳ��ж���Ӯ
+	if(0==placestone(mx, my, ComputerColor))//落子并判断输赢
 		return COMPUTER_LOS;
 	else
 	{
-		movedone();//��������
+		movedone();//交换对手
 		return 0;
 	}
 }
 
 
-int Function::enemymove() //���ֵ��߲����������ˣ�
+int Function::enemymove() //对手的走步，（下棋人）
 /*Read and execute opponent's move.*/
 {
 
@@ -845,13 +846,13 @@ int Function::enemymove() //���ֵ��߲����������ˣ�
 
 
 
-//�������������ǽ����ݴ洢�������ļ��С�
+//下面三个函数是将数据存储到磁盘文件中。
 void Function::SetBoard(board scratch,int value)
 {
 	register int *ip;
 	register int j;
 	ip = (int*)scratch;
-	for (j=EDGE*EDGE;j>0;j--)//��scratch����ֵ10000
+	for (j=EDGE*EDGE;j>0;j--)//给scratch赋初值10000
 	{
 		*ip = value;
 		ip++;
@@ -882,7 +883,7 @@ void Function::SaveBoard()
 	fclose(fp);
 }
 
-void Function::SaveScratch(int (*scratch)[EDGE],char *name)//Ϊ����д��
+void Function::SaveScratch(int (*scratch)[EDGE],char *name)//为调试写的
 {
 	FILE *fp;
 	int i,j;

@@ -44,7 +44,7 @@ BOOL CGoDoc::OnNewDocument()
 
 	// TODO: add reinitialization code here
 	// (SDI documents will reuse this document)
-	SetTitle   ( "   ÎÄµµ±êÌâ   "   );   
+	SetTitle   ( "   ÃŽÃ„ÂµÂµÂ±ÃªÃŒÃ¢   "   );   
 
 	return TRUE;
 }

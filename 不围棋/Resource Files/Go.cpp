@@ -1,8 +1,8 @@
 // Go.cpp : Defines the class behaviors for the application.
 //
 
-#include "stdafx.h" //��νͷ�ļ�Ԥ���룬���ǰ�һ������(Project)��ʹ�õ�һЩMFC��׼ͷ�ļ�(��Windows.H��Afxwin.H)Ԥ�ȱ���
-					//�Ժ�ù��̱���ʱ�����ٱ����ⲿ��ͷ�ļ�������ʹ��Ԥ����Ľ������׼AFXͷ�ļ�
+#include "stdafx.h" //所谓头文件预编译，就是把一个工程(Project)中使用的一些MFC标准头文件(如Windows.H、Afxwin.H)预先编译
+					//以后该工程编译时，不再编译这部分头文件，仅仅使用预编译的结果。标准AFX头文件
 #include "Go.h"
 
 #include "MainFrm.h"
@@ -10,11 +10,11 @@
 #include "GoView.h"
 
 #ifdef _DEBUG
-#define new DEBUG_NEW //����Ҫ�ļ����ڴ������и��٣���ô�ṩһ�����ӵĺ�DEBUG_NEW���滻new����,��ֹ���ڴ�ն�����
+#define new DEBUG_NEW //当需要文件及内存分配的行跟踪，那么提供一个附加的宏DEBUG_NEW来替换new操作,防止“内存空洞”。
 #undef THIS_FILE
 static char THIS_FILE[] = __FILE__;
 #endif
-//������ɵ��԰汾��Ҫָʾ��ǰ�ļ������ơ�__FILE__��һ���꣬�ڱ�������������и�����ֵΪ��ǰ���ڱ�����ļ����ơ�
+//如果生成调试版本，要指示当前文件的名称。__FILE__是一个宏，在编译器编译过程中给它赋值为当前正在编译的文件名称。
 /////////////////////////////////////////////////////////////////////////////
 // CGoApp
 
