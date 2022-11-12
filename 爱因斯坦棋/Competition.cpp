@@ -5,22 +5,22 @@ using namespace std;
 
 void Match()
 {
-	srand((unsigned)time(NULL));						//Ëæ»úÊı²¥ÖÖ
-	int AI;												//AI·½
-	int Dice;											//÷»×Ó
-	int win = 0;									    //Ê¤·½£¨1£ººì·½£¬-1£ºÀ¶·½£©
-	int player;											//µ±Ç°³ö×Ó·½
+	srand((unsigned)time(NULL));						//éšæœºæ•°æ’­ç§
+	int AI;												//AIæ–¹
+	int Dice;											//éª°å­
+	int win = 0;									    //èƒœæ–¹ï¼ˆ1ï¼šçº¢æ–¹ï¼Œ-1ï¼šè“æ–¹ï¼‰
+	int player;											//å½“å‰å‡ºå­æ–¹
 	while (1)
 	{
-		stack<Move_Recording> Recording;				//ÆåÅÌ¼ÇÂ¼
+		stack<Move_Recording> Recording;				//æ£‹ç›˜è®°å½•
 		player = -1;						
-		win = 0;										//Ã¿»ØºÏ¿ªÊ¼³õÊ¼Ê¤·½
-		int temp;										//Âß¼­×ª»»ÁÙÊ±±äÁ¿
+		win = 0;										//æ¯å›åˆå¼€å§‹åˆå§‹èƒœæ–¹
+		int temp;										//é€»è¾‘è½¬æ¢ä¸´æ—¶å˜é‡
 		system("cls");
-		cout << "»¶Ó­À´µ½ÃüÔËÖ®Ê¯\n" << endl;
-		int BOARD[5][5] = { 0 };					    //³õÊ¼»¯ÆåÅÌ
+		cout << "æ¬¢è¿æ¥åˆ°å‘½è¿ä¹‹çŸ³\n" << endl;
+		int BOARD[5][5] = { 0 };					    //åˆå§‹åŒ–æ£‹ç›˜
 		print();
-		cout << "ÊäÈëºì·½Æå×Ó°Ú²¼:(1,1)(1,2)(1,3)(2,1)(2,2)(3,1)" << endl << "ÀıÈç£º¡°123456¡±" << endl;
+		cout << "è¾“å…¥çº¢æ–¹æ£‹å­æ‘†å¸ƒ:(1,1)(1,2)(1,3)(2,1)(2,2)(3,1)" << endl << "ä¾‹å¦‚ï¼šâ€œ123456â€" << endl;
 		cin >> temp;
 		int piece;
 		for (int i = 6; i >0; i--)
@@ -37,7 +37,7 @@ void Match()
 			case 6:BOARD[2][0] = piece; break;
 			}
 		}
-		cout << "ÊäÈëÀ¶·½Æå×Ó°Ú²¼:(5,5)(5,4)(5,3)(4,5)(4,4)(3,5)" << endl << "ÀıÈç£º¡°123456¡±" << endl;
+		cout << "è¾“å…¥è“æ–¹æ£‹å­æ‘†å¸ƒ:(5,5)(5,4)(5,3)(4,5)(4,4)(3,5)" << endl << "ä¾‹å¦‚ï¼šâ€œ123456â€" << endl;
 		cin >> temp;
 		for (int i = 6; i >0; i--)
 		{
@@ -53,23 +53,23 @@ void Match()
 			case 6:BOARD[2][4] = -piece; break;
 			}
 		}
-		cout << "¡¾ 0 ¡¿AIºì·½       ¡¾ 1 ¡¿AIÀ¶·½ " << endl;
+		cout << "ã€ 0 ã€‘AIçº¢æ–¹       ã€ 1 ã€‘AIè“æ–¹ " << endl;
 		cin >> AI;
 		while (AI != 0 && AI != 1)
 		{
-			cout << "¿ªÊ²Ã´ÍæĞ¦£¬ÇëÖØĞÂÊäÈë£º" << endl;
+			cout << "å¼€ä»€ä¹ˆç©ç¬‘ï¼Œè¯·é‡æ–°è¾“å…¥ï¼š" << endl;
 			cin >> AI;
 		}
-		AI = -(AI * 2 - 1);                  //1Îªºì£¬-1ÎªÀ¶
+		AI = -(AI * 2 - 1);                  //1ä¸ºçº¢ï¼Œ-1ä¸ºè“
 		Board CB(BOARD);
 		while (1)
 		{
 			CB.show();
-			cout << "²»»ÚÆåÊäÈë0£¬»ÚÆåÊäÈë»ÚÆå²½Êı" << endl;
+			cout << "ä¸æ‚”æ£‹è¾“å…¥0ï¼Œæ‚”æ£‹è¾“å…¥æ‚”æ£‹æ­¥æ•°" << endl;
 			cin >> temp;
 			while (temp > CB.GetStep())
 			{
-				cout << "ÄãÔõÃ´²»»Øµ½Çå³¯?ÖØĞÂÊäÈë£¡" << endl;
+				cout << "ä½ æ€ä¹ˆä¸å›åˆ°æ¸…æœ?é‡æ–°è¾“å…¥ï¼" << endl;
 				cin >> temp;
 			}
 			if (temp % 2 == 1)
@@ -80,13 +80,13 @@ void Match()
 			win = CB.Winner();
 			if (win == 1)
 			{
-				cout << "ºì·½»ñÊ¤À²£¡" << endl;
+				cout << "çº¢æ–¹è·èƒœå•¦ï¼" << endl;
 				system("pause");
 				break;
 			}
 			else if (win == -1)
 			{
-				cout << "À¶·½»ñÊ¤À²£¡" << endl;
+				cout << "è“æ–¹è·èƒœå•¦ï¼" << endl;
 				system("pause");
 				break;
 			}
@@ -95,33 +95,33 @@ void Match()
 				player = player*-1;
 				if (player == AI)
 				{
-					cout << "÷»×ÓÊıÎª:" << endl;
+					cout << "éª°å­æ•°ä¸º:" << endl;
 					cin >> Dice;
 					while (Dice < 1 || Dice>6)
 					{
-						cout << "Æ¤£¿ÖØĞÂÊäÈë£¡" << endl;
+						cout << "çš®ï¼Ÿé‡æ–°è¾“å…¥ï¼" << endl;
 						cin >> Dice;
 					}
-					cout << "ÊäÈë»Ø³µÈ·¶¨AIÂä×Ó" << endl;
+					cout << "è¾“å…¥å›è½¦ç¡®å®šAIè½å­" << endl;
 					if (AI == 1)
-						cout << "ºì·½";
+						cout << "çº¢æ–¹";
 					else
-						cout << "À¶·½";
-					cout << "AIÂä×ÓË¼¿¼ÖĞ..." << endl;
+						cout << "è“æ–¹";
+					cout << "AIè½å­æ€è€ƒä¸­..." << endl;
 					MonteCarloMove(CB, AI*Dice, 1, Recording);
 					system("pause");
 				}
 				else
 				{
 					if (player == 1)
-						cout << "ºì·½";
+						cout << "çº¢æ–¹";
 					else
-						cout << "À¶·½";
-					cout << "×ß×Ó ÖÕµã(xy)" << endl << "ÀıÈç£º¡°1 22¡±" << endl;
+						cout << "è“æ–¹";
+					cout << "èµ°å­ ç»ˆç‚¹(xy)" << endl << "ä¾‹å¦‚ï¼šâ€œ1 22â€" << endl;
 					cin >> Dice >> temp;
 					while (!CB.IsAlive(player*Dice) || temp < 11 || temp > 55 || temp % 10 == 0)
 					{
-						cout << "Äã²»ÒªÏ¹¸ãºÃ·¥£¡ÖØĞÂÊäÈë£¡" << endl;
+						cout << "ä½ ä¸è¦çæå¥½ä¼ï¼é‡æ–°è¾“å…¥ï¼" << endl;
 						cin >> Dice >> temp;
 					}
 					Loc loc;

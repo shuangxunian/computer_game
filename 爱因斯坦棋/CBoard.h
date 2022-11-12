@@ -21,11 +21,11 @@ struct MovePiece
 	int piece;
 };
 
-struct Move_Recording						//ÆåÅÌÒÆ¶¯ĞÅÏ¢¼ÇÂ¼
+struct Move_Recording						//æ£‹ç›˜ç§»åŠ¨ä¿¡æ¯è®°å½•
 {
-	Loc end_move_piece;						//ÖÕµã
-	Loc start_move_piece;					//Æğµã
-	int covered_piece;						//±»¸²¸ÇµÄ×Ó
+	Loc end_move_piece;						//ç»ˆç‚¹
+	Loc start_move_piece;					//èµ·ç‚¹
+	int covered_piece;						//è¢«è¦†ç›–çš„å­
 	void Set(Loc start_move_piece, Loc end_move_piece, int covered_piece)
 	{
 		Move_Recording::start_move_piece = start_move_piece;
@@ -39,34 +39,34 @@ class Board
 {
 
 public:
-	Board(int arr[5][5]);								 //¹¹Ôìº¯Êı
-	void show();										 //Õ¹Ê¾µ±Ç°ÆåÅÌ
-	Loc GetPiece(int piece);							 //µÃµ½Æå×ÓÎ»ÖÃ
-	int GetPiece(Loc loc);								 //µÃµ½¸ÃÎ»ÖÃµÄÆå×ÓÖµ
-	inline int GetPieceFaction(int piece);				 //ÅĞ¶ÏÆå×ÓÕóÓª
-	inline bool GetPieceLegality(Loc ploc);				 //ÅĞ¶Ï×ß×ÓºÏ·¨ĞÔ
-	inline bool IsAlive(int piece);						 //»ñµÃÆå×Ó´æ»î×´Ì¬
-	int GetStep();										 //»ñµÃµ±Ç°Ö´ĞĞ²½Êı
-	bool Is_Waning_Zone(Loc loc);						 //ÅĞ¶ÏÊÇ·ñÎª½ûÇø£¨¾àÀë£©
-	int GetAllMoves(MovePiece* Moves, int Piece);		 //»ñµÃËùÓĞµÄ×ß·¨
-	int GetLargerPiece(int Piece);						 //×ªµ½ºÅ´óµÄÆå×Ó
-	int GetSmallerPiece(int Piece);						 //×ªµ½ºÅĞ¡µÄÆå×Ó
-	int Winner();										 //ÅĞ¶ÏÊäÓ®
-	void Move(Loc nloc, int piece);						 //ÒÆ×Ó
-	double GameState();									 //¾ÖÃæÆÀ¹À
+	Board(int arr[5][5]);								 //æ„é€ å‡½æ•°
+	void show();										 //å±•ç¤ºå½“å‰æ£‹ç›˜
+	Loc GetPiece(int piece);							 //å¾—åˆ°æ£‹å­ä½ç½®
+	int GetPiece(Loc loc);								 //å¾—åˆ°è¯¥ä½ç½®çš„æ£‹å­å€¼
+	inline int GetPieceFaction(int piece);				 //åˆ¤æ–­æ£‹å­é˜µè¥
+	inline bool GetPieceLegality(Loc ploc);				 //åˆ¤æ–­èµ°å­åˆæ³•æ€§
+	inline bool IsAlive(int piece);						 //è·å¾—æ£‹å­å­˜æ´»çŠ¶æ€
+	int GetStep();										 //è·å¾—å½“å‰æ‰§è¡Œæ­¥æ•°
+	bool Is_Waning_Zone(Loc loc);						 //åˆ¤æ–­æ˜¯å¦ä¸ºç¦åŒºï¼ˆè·ç¦»ï¼‰
+	int GetAllMoves(MovePiece* Moves, int Piece);		 //è·å¾—æ‰€æœ‰çš„èµ°æ³•
+	int GetLargerPiece(int Piece);						 //è½¬åˆ°å·å¤§çš„æ£‹å­
+	int GetSmallerPiece(int Piece);						 //è½¬åˆ°å·å°çš„æ£‹å­
+	int Winner();										 //åˆ¤æ–­è¾“èµ¢
+	void Move(Loc nloc, int piece);						 //ç§»å­
+	double GameState();									 //å±€é¢è¯„ä¼°
 
-	void Regret_Game(stack<Move_Recording> &Recording, int step);                          //»ÚÆå
+	void Regret_Game(stack<Move_Recording> &Recording, int step);                          //æ‚”æ£‹
 
 private:
-	int step;				 //²½Êı
-	int board[5][5];		 //5¡Á5ÆåÅÌ
-	int RedNum;				 //ºì·½ÊÆÁ¦Êı
-	int BlueNum;			 //À¶·½ÊÆÁ¦Êı
-	int RedState[7];         //ºì·½Æå×Ó×´Ì¬£¨ÏÂ±ê0´ú±íÆå×Ó´æ»î¸öÊı£¬ÏÂ±ê´Ó1ÖÁ6´ú±í´æ»î×´Ì¬£©
-	int BlueState[7];        //À¶·½Æå×Ó×´Ì¬
+	int step;				 //æ­¥æ•°
+	int board[5][5];		 //5Ã—5æ£‹ç›˜
+	int RedNum;				 //çº¢æ–¹åŠ¿åŠ›æ•°
+	int BlueNum;			 //è“æ–¹åŠ¿åŠ›æ•°
+	int RedState[7];         //çº¢æ–¹æ£‹å­çŠ¶æ€ï¼ˆä¸‹æ ‡0ä»£è¡¨æ£‹å­å­˜æ´»ä¸ªæ•°ï¼Œä¸‹æ ‡ä»1è‡³6ä»£è¡¨å­˜æ´»çŠ¶æ€ï¼‰
+	int BlueState[7];        //è“æ–¹æ£‹å­çŠ¶æ€
 };
 
-void print();										     //´òÓ¡¿Õ°®¶÷Ë¹Ì¹ÆåÅÌ
+void print();										     //æ‰“å°ç©ºçˆ±æ©æ–¯å¦æ£‹ç›˜
 
 inline int RandDice()
 {

@@ -2,18 +2,18 @@
 #include "stdafx.h"
 #include "CBoard.h"
 
-#define MC_CONSTANT 2000														 //Ä£Äâ´ÎÊı
+#define MC_CONSTANT 2000														 //æ¨¡æ‹Ÿæ¬¡æ•°
 
-//ÆÕÍ¨ÃÉÌØ¿¨Âå
+//æ™®é€šè’™ç‰¹å¡æ´›
 
-void RandMove(Board &CB, int Piece);															 //Ëæ»ú×ß×Ó
-int GetMCWinner(Board &CB, int NextPlayer, int algorithm);                                       //Ä£Äâ
-double GetMCEvalution(Board &CB, int NextPlayer, int times, int algorithm);				         //ÆÀ¹À
-void MonteCarloMove(Board &CB, int Piece, int algorithm, stack<Move_Recording> &Recording);      //ÒÆ×Ó
+void RandMove(Board &CB, int Piece);															 //éšæœºèµ°å­
+int GetMCWinner(Board &CB, int NextPlayer, int algorithm);                                       //æ¨¡æ‹Ÿ
+double GetMCEvalution(Board &CB, int NextPlayer, int times, int algorithm);				         //è¯„ä¼°
+void MonteCarloMove(Board &CB, int Piece, int algorithm, stack<Move_Recording> &Recording);      //ç§»å­
 
 //////////////////////////////////////////////////////////////////////////////////////////////////
 
-//»ìºÏ¾ÖÃæÆÀ¹ÀµÄÃÉÌØ¿¨Âå
-void Rand_Best_Move(Board &CB, int Picece);										  //´ÓËùÓĞ×îºÃµÄ¾ÖÃæÖĞËæ»ú×ß×Ó
+//æ··åˆå±€é¢è¯„ä¼°çš„è’™ç‰¹å¡æ´›
+void Rand_Best_Move(Board &CB, int Picece);										  //ä»æ‰€æœ‰æœ€å¥½çš„å±€é¢ä¸­éšæœºèµ°å­
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////

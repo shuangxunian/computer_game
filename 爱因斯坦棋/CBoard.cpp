@@ -30,27 +30,27 @@ Board::Board(int arr[5][5])
 void Board::show()
 {
 	system("cls");
-	cout << "     ----------»¶Ó­À´µ½ÃüÔËÖ®Ê¯----------" << endl;
-	cout << "\n     ²½Êı:" << step << endl;
+	cout << "     ----------æ¬¢è¿æ¥åˆ°å‘½è¿ä¹‹çŸ³----------" << endl;
+	cout << "\n     æ­¥æ•°:" << step << endl;
 	cout << "\n             1   2   3   4   5            " << endl;
-	cout << "          ©°©¤©¤©¤©Ğ©¤©¤©¤©Ğ©¤©¤©¤©Ğ©¤©¤©¤©Ğ©¤©¤©¤©´          " << endl;
+	cout << "          â”Œâ”€â”€â”€â”¬â”€â”€â”€â”¬â”€â”€â”€â”¬â”€â”€â”€â”¬â”€â”€â”€â”          " << endl;
 	for (int i = 0; i < 5; i++)
 	{
-		cout << "         " << (i + 1) << "©¦";
+		cout << "         " << (i + 1) << "â”‚";
 		for (int j = 0; j < 5; j++)
 		{
 			if (board[i][j] > 0)
-				cout << " R" << board[i][j] << "©¦";
+				cout << " R" << board[i][j] << "â”‚";
 			else if(board[i][j] < 0)
-				cout << " B" << -board[i][j] << "©¦";
-			else cout << "   ©¦";
+				cout << " B" << -board[i][j] << "â”‚";
+			else cout << "   â”‚";
 
 		}
 		cout << endl;
 		if (i == 4) 
-			cout << "          ©¸©¤©¤©¤©Ø©¤©¤©¤©Ø©¤©¤©¤©Ø©¤©¤©¤©Ø©¤©¤©¤©¼ " << endl;
+			cout << "          â””â”€â”€â”€â”´â”€â”€â”€â”´â”€â”€â”€â”´â”€â”€â”€â”´â”€â”€â”€â”˜ " << endl;
 		else       
-			cout << "          ©À©¤©¤©¤©à©¤©¤©¤©à©¤©¤©¤©à©¤©¤©¤©à©¤©¤©¤©È" << endl;
+			cout << "          â”œâ”€â”€â”€â”¼â”€â”€â”€â”¼â”€â”€â”€â”¼â”€â”€â”€â”¼â”€â”€â”€â”¤" << endl;
 	}
 	cout << endl;
 }
@@ -79,9 +79,9 @@ bool Board::IsAlive(int piece)
 int Board::GetPieceFaction(int	piece)
 {
 	if (piece > 0)
-		return 1;              //ºì·½Îª1
+		return 1;              //çº¢æ–¹ä¸º1
 	else if (piece < 0)
-		return -1;			   //À¶·½Îª-1
+		return -1;			   //è“æ–¹ä¸º-1
 	else
 		return 0;
 }
@@ -130,7 +130,7 @@ int Board::GetSmallerPiece(int piece)
 bool Board::Is_Waning_Zone(Loc loc)
 {
 	int f=GetPieceFaction(board[loc.x][loc.y]);
-	if ((f*loc.x >= 2 * f + 1) && (f*loc.y >= 2 * f + 1))				//½ûÇø¹«Ê½
+	if ((f*loc.x >= 2 * f + 1) && (f*loc.y >= 2 * f + 1))				//ç¦åŒºå…¬å¼
 		return true;
 	else
 		return false;
@@ -139,10 +139,10 @@ bool Board::Is_Waning_Zone(Loc loc)
 int Board::GetAllMoves(MovePiece* Moves, int piece)
 {
 	int MoveNum = 0;
-	int Direction[3][2] = { { 1, 0 },{ 1, 1 },{ 0, 1 } };				//Èı¸ö×ß×Ó·½Ïò
-	int f = GetPieceFaction(piece);										//ÏòÁ¿(Æå×ÓÕóÓª)
-	Loc nloc;															//ÒÆ¶¯ºó×ø±ê
-	Loc ploc;															//Æå×Ó×ø±ê
+	int Direction[3][2] = { { 1, 0 },{ 1, 1 },{ 0, 1 } };				//ä¸‰ä¸ªèµ°å­æ–¹å‘
+	int f = GetPieceFaction(piece);										//å‘é‡(æ£‹å­é˜µè¥)
+	Loc nloc;															//ç§»åŠ¨ååæ ‡
+	Loc ploc;															//æ£‹å­åæ ‡
 	if (IsAlive(piece))
 	{
 		ploc = GetPiece(piece);
@@ -151,7 +151,7 @@ int Board::GetAllMoves(MovePiece* Moves, int piece)
 		if (Is_Waning_Zone(ploc))					     ////
 		{											     ////
 			nloc.Set(2 + 2 * f, 2 + 2 * f);			     ////
-			Moves[0] = { nloc,piece };					 ////½ûÇø¶¨Ê½
+			Moves[0] = { nloc,piece };					 ////ç¦åŒºå®šå¼
 			return 1;									 ////
 		}												 ////
 /////////////////////////////////////////////////////////////
@@ -177,7 +177,7 @@ int Board::GetAllMoves(MovePiece* Moves, int piece)
 			if (Is_Waning_Zone(ploc))					 ////
 			{											 ////
 				nloc.Set(2 + 2 * f, 2 + 2 * f);		     ////
-				Moves[0] = { nloc,L };				     ////½ûÇø¶¨Ê½
+				Moves[0] = { nloc,L };				     ////ç¦åŒºå®šå¼
 				return 1;								 ////
 			}											 ////
 /////////////////////////////////////////////////////////////
@@ -198,7 +198,7 @@ int Board::GetAllMoves(MovePiece* Moves, int piece)
 			if (Is_Waning_Zone(ploc))					 ////
 			{											 ////
 				nloc.Set(2 + 2 * f, 2 + 2 * f);		     ////
-				Moves[0] = { nloc,S };					 ////½ûÇø¶¨Ê½
+				Moves[0] = { nloc,S };					 ////ç¦åŒºå®šå¼
 				return 1;								 ////
 			}											 ////
 /////////////////////////////////////////////////////////////
@@ -219,11 +219,11 @@ int Board::GetAllMoves(MovePiece* Moves, int piece)
 int Board::Winner()
 {
 	if (BlueState[0] == 0 || board[4][4] > 0)
-		return 1;				//ºìÊ¤
+		return 1;				//çº¢èƒœ
 	else if (RedState[0] == 0 || board[0][0] < 0)
-		return -1;				//À¶Ê¤
+		return -1;				//è“èƒœ
 	else
-		return 0;               //Î´·Ö³öÊ¤¸º
+		return 0;               //æœªåˆ†å‡ºèƒœè´Ÿ
 }
 
 void Board::Move(Loc nloc, int piece)
@@ -248,27 +248,27 @@ void Board::Move(Loc nloc, int piece)
 void print()
 {
 	cout << "\n             1   2   3   4   5            " << endl;
-	cout << "          ©°©¤©¤©¤©Ğ©¤©¤©¤©Ğ©¤©¤©¤©Ğ©¤©¤©¤©Ğ©¤©¤©¤©´          " << endl;
+	cout << "          â”Œâ”€â”€â”€â”¬â”€â”€â”€â”¬â”€â”€â”€â”¬â”€â”€â”€â”¬â”€â”€â”€â”          " << endl;
 	for (int i = 0; i < 5; i++)
 	{
-		cout << "         " << (i + 1) << "©¦";
+		cout << "         " << (i + 1) << "â”‚";
 		for (int j = 0; j < 5; j++)
-			cout << "   ©¦";
+			cout << "   â”‚";
 		cout << endl;
 		if (i == 4)
-			cout << "          ©¸©¤©¤©¤©Ø©¤©¤©¤©Ø©¤©¤©¤©Ø©¤©¤©¤©Ø©¤©¤©¤©¼ " << endl;
+			cout << "          â””â”€â”€â”€â”´â”€â”€â”€â”´â”€â”€â”€â”´â”€â”€â”€â”´â”€â”€â”€â”˜ " << endl;
 		else
-			cout << "          ©À©¤©¤©¤©à©¤©¤©¤©à©¤©¤©¤©à©¤©¤©¤©à©¤©¤©¤©È" << endl;
+			cout << "          â”œâ”€â”€â”€â”¼â”€â”€â”€â”¼â”€â”€â”€â”¼â”€â”€â”€â”¼â”€â”€â”€â”¤" << endl;
 	}
 	cout << endl;
 }
 
-double Board::GameState()											//½ø¹¥Öµ£ºÍşĞ²Öµ=1:0.17
+double Board::GameState()											//è¿›æ”»å€¼ï¼šå¨èƒå€¼=1:0.17
 {
 	float Red_w[7] = { 0 }, Blue_w[7] = { 0 };
 	double Red_Value = 0, Blue_Value = 0;
 ////////////////////////////////////////////////////////////////////////////////////////////////
-//¼ÆËãÆå×ÓÒÆ¶¯¸ÅÂÊ£¨½á¹û¡Á6£©
+//è®¡ç®—æ£‹å­ç§»åŠ¨æ¦‚ç‡ï¼ˆç»“æœÃ—6ï¼‰
 	for (int i = 1; i <= 6; i++)
 	{
 		if (RedState[i] == 0)
@@ -290,7 +290,7 @@ double Board::GameState()											//½ø¹¥Öµ£ºÍşĞ²Öµ=1:0.17
 			Blue_w[i]--;
 	}
 ///////////////////////////////////////////////////////////////////////////////////////////////
-//¼ÆËã½ø¹¥Öµ
+//è®¡ç®—è¿›æ”»å€¼
 	for(int i = 0; i < 5; i++)
 		for (int j = 0; j < 5; j++)
 		{
@@ -302,10 +302,10 @@ double Board::GameState()											//½ø¹¥Öµ£ºÍşĞ²Öµ=1:0.17
 		}
 	//cout << Red_Value << endl << Blue_Value << endl;
 //////////////////////////////////////////////////////////////////////////////////////////////
-//¼ÆËãÍşĞ²Öµ
+//è®¡ç®—å¨èƒå€¼
 	Loc loc, point_temp;
 	double max, value_temp;
-	int f;                        //ÕóÓª
+	int f;                        //é˜µè¥
 	int Direction[3][2] = { { 1, 0 },{ 1, 1 },{ 0, 1 } };
 	for (int i = 0; i < 5; i++)
 		for (int j = 0; j < 5; j++)
@@ -313,7 +313,7 @@ double Board::GameState()											//½ø¹¥Öµ£ºÍşĞ²Öµ=1:0.17
 			max = 0;
 			loc.Set(i, j);
 			f = GetPieceFaction(GetPiece(loc));
-			if (f > 0)             //ºì×Ó
+			if (f > 0)             //çº¢å­
 			{
 				for (int i = 0; i < 3; i++)
 				{
@@ -326,7 +326,7 @@ double Board::GameState()											//½ø¹¥Öµ£ºÍşĞ²Öµ=1:0.17
 				}
 				Red_Value -= (0.17 * max);
 			}
-			if (f < 0)				   //À¶×Ó
+			if (f < 0)				   //è“å­
 			{
 				for (int i = 0; i < 3; i++)
 				{

@@ -42,9 +42,9 @@ int GetMCWinner(Board &CB, int NextPlayer, int algorithm)
 double GetMCEvalution(Board &CB, int NextPlayer, int times, int algorithm)
 {
 	Board NCB = CB;
-	int Eva = 0;															 //¶¨Òå³õÊ¼¹ÀÖµº¯ÊıÎª0
+	int Eva = 0;															 //å®šä¹‰åˆå§‹ä¼°å€¼å‡½æ•°ä¸º0
 	for (int i = 0; i<times; i++)
-		if (GetMCWinner(NCB, NextPlayer, algorithm) == -NextPlayer)           //NextPlayerÊä
+		if (GetMCWinner(NCB, NextPlayer, algorithm) == -NextPlayer)           //NextPlayerè¾“
 			Eva++;
 	double Result = (double)Eva / (double)times;
 	return Result;
