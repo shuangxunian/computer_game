@@ -4,13 +4,13 @@
 #include "Define.h"
 
 
-char		board[GRID_NUM][GRID_NUM];		//棋盘表示
-char		board_know[GRID_NUM][GRID_NUM]; //试探棋盘
-int			mark[GRID_NUM][GRID_NUM];		//MonteCarlo分数棋盘
-char		chessColor;				    	//自己棋的颜色
-SMove		bestMove ;						//最优棋
+char		board[GRID_NUM][GRID_NUM];		//妫嬬洏琛ㄧず
+char		board_know[GRID_NUM][GRID_NUM]; //璇曟帰妫嬬洏
+int			mark[GRID_NUM][GRID_NUM];		//MonteCarlo鍒嗘暟妫嬬洏
+char		chessColor;				    	//鑷繁妫嬬殑棰滆壊
+SMove		bestMove ;						//鏈�浼樻
 
-int boardBaseScore[GRID_NUM][GRID_NUM] = 			//棋盘的基础分数
+int boardBaseScore[GRID_NUM][GRID_NUM] = 			//妫嬬洏鐨勫熀纭�鍒嗘暟
 {	
 	0,0,0,0,0,0,0,0,0,0,0,
 	0,1,1,1,1,1,1,1,1,1,0,

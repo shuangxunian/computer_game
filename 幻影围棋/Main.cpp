@@ -29,49 +29,49 @@ int main()
 		fflush(stdin);
 		Sleep(50);
 		fflush(stdout);
-		printf("���֣�'new' or 'quit'\n");
+		printf("开局：'new' or 'quit'\n");
 		scanf("%s",msg);  
-		if (strcmp(msg,"quit") == 0)                                 //������Ϸ
+		if (strcmp(msg,"quit") == 0)                                 //结束游戏
 		{	
 			break;
 		}
-		else if (strcmp(msg,"new") == 0)                	         //��ʼ�����
+		else if (strcmp(msg,"new") == 0)                	         //开始新棋局
 		{
 			InitGame();
 			PrintBoard();
-			printf("���ӣ�'black' or other\n");
+			printf("棋子：'black' or other\n");
 			scanf("%s",msg);
-			if (strcmp(msg,"black") == 0)                            //���msg��black���Լ��Ǻ���
+			if (strcmp(msg,"black") == 0)                            //如果msg是black，自己是黑子
 			{
 				chessColor = BLACK;
 				SearchMove(&bestMove);
-			    printf("-->%d %c",bestMove.x,bestMove.y+'@');        //���һ������з�
-				printf("   ���ߣ�'m' or 'i'\n");
+			    printf("-->%d %c",bestMove.x,bestMove.y+'@');        //输出一个最好招法
+				printf("   可走：'m' or 'i'\n");
 				while(1)
 				{ 	
-			           scanf("%s",msg);                              //��ȡ������Ϣ
-				       if (strcmp(msg,"m") == 0)                     //�Լ��ϴ��ߵ�Ϊ�Ϸ��з�
+			           scanf("%s",msg);                              //读取黑子信息
+				       if (strcmp(msg,"m") == 0)                     //自己上次走的为合法招法
 					   {	     
 					     board[bestMove.x][bestMove.y] = BLACK;
 					     PrintBoard();
 					     record();
 				       	 player[BLACK].total++;
 					     player[WHITE].total++;                      //  ////
-                         printf("������'go' / 'take' / 'taked' / 'undo' / 'passed'\n");
+                         printf("继续：'go' / 'take' / 'taked' / 'undo' / 'passed'\n");
 					   }
 					   else if (strcmp(msg,"go")==0)
 					   {
 						   if (SearchMove(&bestMove))
 						   {
-						      printf("-->%d %c",bestMove.x,bestMove.y+'@');     //�����з��ɹ�������ƽ̨ 
-							  printf("   ���ߣ�'m' or 'i'\n");
+						      printf("-->%d %c",bestMove.x,bestMove.y+'@');     //产生招法成功，返回平台 
+							  printf("   可走：'m' or 'i'\n");
 						   }
 						   else
 						   {	   
-						       printf("passed\n");                   //���ɹ����Լ�pass
+						       printf("passed\n");                   //不成功，自己pass
 						   }
 					   }	   
-				       else if (strcmp(msg,"i") == 0)                //�Լ��ϴ��ߵ�Ϊ�Ƿ��з�
+				       else if (strcmp(msg,"i") == 0)                //自己上次走的为非法招法
 					   {  
 					      board[bestMove.x][bestMove.y] = WHITE;
 					      PrintBoard();
@@ -79,23 +79,23 @@ int main()
 					      board_know[bestMove.x][bestMove.y] ++;     //  ???
 					      if (SearchMove(&bestMove))
 						  {
-						     printf("-->%d %c",bestMove.x,bestMove.y+'@');      //�����з��ɹ�������ƽ̨
-							 printf("   ���ߣ�'m' or 'i'\n");
+						     printf("-->%d %c",bestMove.x,bestMove.y+'@');      //产生招法成功，返回平台
+							 printf("   可走：'m' or 'i'\n");
 						  }
 					      else
 						  {
-						      printf("passed\n");			         //���ɹ����Լ�pass
+						      printf("passed\n");			         //不成功，自己pass
 						  }
 					   }
-				       else if (strcmp(msg,"take") == 0)            //�Լ�����,��ȡ������Ŀ
+				       else if (strcmp(msg,"take") == 0)            //自己提子,读取提子数目
 					   {
 					      SMove moveList[81] ;
-						  printf("������Ŀ��");
+						  printf("提子数目：");
 					      scanf("%d",&numTi);
 					      player[WHITE].total -= numTi;
 					      for(int k = 0 ; k < numTi ; k++)
 						  {
-                             printf("�������꣺");
+                             printf("提子坐标：");
 						     Sleep(50);
 						     fflush(stdin);
 						     scanf("%d%d",&x,&y);
@@ -107,23 +107,23 @@ int main()
 							  board[moveList[i].x][moveList[i].y] = NOSTONE;
 						  }
 					      PrintBoard();
-                          printf("������'go' / 'passed' / 'taked'\n");
+                          printf("继续：'go' / 'passed' / 'taked'\n");
 					   }
-			           else if (strcmp(msg,"taked") == 0)            //�Է�����,��ȡ������Ŀ
+			           else if (strcmp(msg,"taked") == 0)            //对方提子,读取提子数目
 					   {					      
 					      SMove moveList[81] ;
-						  printf("��������Ŀ��");
+						  printf("被提子数目：");
 					      scanf("%d",&numTi);
 					      player[BLACK].total -= numTi;					      
 					      for(int k = 0 ; k < numTi ; k++)
 						  {
-                             printf("���������꣺");
+                             printf("被提子坐标：");
 						     Sleep(50);
 						     fflush(stdin);
 						     scanf("%d %d",&x,&y);
 						     moveList[k].x = x;
 						     moveList[k].y = y;     
-						     if (board[x-1][y] == NOSTONE)           //��������ӵı߽����̽�⣬����ǿգ��϶��ǶԷ�����
+						     if (board[x-1][y] == NOSTONE)           //对所提的子的边界进行探测，如果是空，肯定是对方的子
 							 {
 							     board[x-1][y] = WHITE;
 							     player[WHITE].know++;
@@ -149,16 +149,16 @@ int main()
 						     board[moveList[i].x][moveList[i].y] = NOSTONE;
 						  }
 						  PrintBoard();
-                          printf("������'go' / 'passed'\n");
+                          printf("继续：'go' / 'passed'\n");
 					   }
-			           else if (strcmp(msg,"passed") == 0)           //�Է�pass
+			           else if (strcmp(msg,"passed") == 0)           //对方pass
 					   {    
 					     player[WHITE].know  = player[WHITE].total;
 					   }
 		               else if (strcmp(msg,"undo") == 0)
 					   {
 			               Undo();
-                           printf("������'i' or 'm'\n");
+                           printf("继续：'i' or 'm'\n");
 					   }
 		               else
 					   {
@@ -173,29 +173,29 @@ int main()
 				while(1)
 				{
 					scanf("%s",msg);
-			        chessColor = WHITE;			                     //�Լ��ǰ���		    
-				    if (strcmp(msg,"m") == 0)					     //�Լ��ϴ��ߵ�Ϊ�Ϸ��з�
+			        chessColor = WHITE;			                     //自己是白子		    
+				    if (strcmp(msg,"m") == 0)					     //自己上次走的为合法招法
 					{
 					   board[bestMove.x][bestMove.y] = WHITE;
 					   PrintBoard();
 					   record();
 					   player[WHITE].total++;
 					   player[BLACK].total++;
-					   printf("������'go' / 'take' / 'taked' / 'undo' / 'passed'\n");
+					   printf("继续：'go' / 'take' / 'taked' / 'undo' / 'passed'\n");
 					}
 				    else if (strcmp(msg,"go")==0)
 					{
 					   if (SearchMove(&bestMove))
 					   {
-					      printf("%d %c",bestMove.x,bestMove.y+'@');          //�����з��ɹ�������ƽ̨
-						  printf("   ���ߣ�'m' or 'i'\n");
+					      printf("%d %c",bestMove.x,bestMove.y+'@');          //产生招法成功，返回平台
+						  printf("   可走：'m' or 'i'\n");
 					   }
-					   else                                          //���ɹ����Լ�pass
+					   else                                          //不成功，自己pass
 					   {
 						   printf("passed\n");
 					   }
 					}
-				    else if (strcmp(msg,"i") == 0)                   //�Լ��ϴ��ߵ�Ϊ�Ƿ��з�
+				    else if (strcmp(msg,"i") == 0)                   //自己上次走的为非法招法
 					{	    
 					    board[bestMove.x][bestMove.y] = BLACK;
                         PrintBoard();
@@ -203,23 +203,23 @@ int main()
 					    board_know[bestMove.x][bestMove.y] ++;
 					    if (SearchMove(&bestMove))
 						{
-						    printf("%d %c",bestMove.x,bestMove.y+'@');          //�����з��ɹ�������ƽ̨
-							printf("   ���ߣ�'m' or 'i'\n");
+						    printf("%d %c",bestMove.x,bestMove.y+'@');          //产生招法成功，返回平台
+							printf("   可走：'m' or 'i'\n");
 						}
-					    else                                         //���ɹ����Լ�pass
+					    else                                         //不成功，自己pass
 						{  
 						    printf("passed\n");
 						}
 					}
 				    else if (strcmp(msg,"take") == 0)
 					{
-					    SMove moveList[81] ;                         //�Լ�����,��ȡ������Ŀ
-						printf("������Ŀ��");
+					    SMove moveList[81] ;                         //自己提子,读取提子数目
+						printf("提子数目：");
 					    scanf("%d",&numTi);
 					    player[BLACK].total -= numTi;
 					    for(int k = 0 ; k < numTi ; k++)
 						{
-							printf("�������꣺");
+							printf("提子坐标：");
 						    Sleep(50);
 						    fflush(stdin);							
 						    scanf("%d%d",&x,&y);
@@ -230,25 +230,25 @@ int main()
 						{
 						    board[moveList[i].x][moveList[i].y] = NOSTONE;
 						}
-					                                                 //�Լ�֪������ҲӦ������
+					                                                 //自己知道的子也应该修正
 						PrintBoard();
-                        printf("������'go' or 'passed' or 'taked'\n");
+                        printf("继续：'go' or 'passed' or 'taked'\n");
 					}
-				    else if (strcmp(msg,"taked") == 0)               //�Է�����,��ȡ������Ŀ
+				    else if (strcmp(msg,"taked") == 0)               //对方提子,读取提子数目
 					{					    
 					    SMove moveList[81] ;
-						printf("��������Ŀ��");
+						printf("被提子数目：");
 					    scanf("%d",&numTi);
-					    player[WHITE].total -= numTi;                //��ȡ�Լ����б������	    
+					    player[WHITE].total -= numTi;                //读取自己所有被提的子	    
 					    for(int k = 0 ; k < numTi ; k++)
 						{
-							printf("���������꣺");
+							printf("被提子坐标：");
 						    Sleep(50);
 						    fflush(stdin);
 						    scanf("%d%d",&x,&y);
 						    moveList[k].x = x;
 						    moveList[k].y = y;			    
-						    if (board[x-1][y] == NOSTONE)            //��������ӵı߽����̽�⣬����ǿգ��϶��ǶԷ�����
+						    if (board[x-1][y] == NOSTONE)            //对所提的子的边界进行探测，如果是空，肯定是对方的子
 							{
 						     	board[x-1][y] = BLACK;
 						    	player[BLACK].know++;
@@ -274,16 +274,16 @@ int main()
 						    board[moveList[i].x][moveList[i].y] = NOSTONE;
 						}
 						PrintBoard();
-                        printf("������'go' or 'passed'\n");
+                        printf("继续：'go' or 'passed'\n");
 					}
-				    else if (strcmp(msg,"passed") == 0)              //�Է�pass
+				    else if (strcmp(msg,"passed") == 0)              //对方pass
 					{	    
 					    player[WHITE].know  = player[BLACK].total;
 					}
 		            else if (strcmp(msg,"undo") == 0)
 					{
 			             Undo();
-						 printf("������'i' or 'm'\n");
+						 printf("继续：'i' or 'm'\n");
 					}
 		            else
 					{
@@ -354,24 +354,24 @@ void PrintBoard()
 		printf("  %c%d",ch,j);
 		ch++;
 	}
-    printf("%s","\n  �����Щ��Щ��Щ��Щ��Щ��Щ��Щ��Щ���\n");
+    printf("%s","\n  ┌─┬─┬─┬─┬─┬─┬─┬─┬─┐\n");
 	for (long i=0;i<9;i++)
 	{
-		printf("%d %s",i+1,"��");
+		printf("%d %s",i+1,"│");
 		for(long j=0;j<9;j++)
 		{
 			if(board[i+1][j+1]==1)
-				printf("%s","�w��");
+				printf("%s","╳│");
 			else if(board[i+1][j+1]==2)
-				printf("%s","��");
+				printf("%s","○│");
 			else
-				printf("%s","  ��");
+				printf("%s","  │");
 		}
 		printf("%s","\n");
 		if(i==8)
-			printf("%s","  �����ة��ة��ة��ة��ة��ة��ة��ة���\n");
+			printf("%s","  └─┴─┴─┴─┴─┴─┴─┴─┴─┘\n");
 		else
-			printf("%s","  �����੤�੤�੤�੤�੤�੤�੤�੤��\n");
+			printf("%s","  ├─┼─┼─┼─┼─┼─┼─┼─┼─┤\n");
 	}
 }
 

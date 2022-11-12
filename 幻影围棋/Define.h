@@ -8,19 +8,19 @@
 #include <windows.h>
 
 
-#define GRID_NUM 11			//ÆåÅÌĞĞÊı£¬ÆäÖĞ1..9ÎªÆåµÄ×ø±ê£¬ÆäËûÎª±ß½ç
-#define GRID_COUNT 81		//¿É·ÅÆå×Ó×ÜÊı
-#define BLACK 	1			//ºÚÆå		ºÚ°×Æå×ª»»Ê±,¿É¶ÔÇóÒì»ò
-#define WHITE 	2			//°×Æå
-#define BORDER	3			//±ß½ç
-#define NOSTONE 	0		//¿Õ×ÓÎŞÆå
+#define GRID_NUM 11			//æ£‹ç›˜è¡Œæ•°ï¼Œå…¶ä¸­1..9ä¸ºæ£‹çš„åæ ‡ï¼Œå…¶ä»–ä¸ºè¾¹ç•Œ
+#define GRID_COUNT 81		//å¯æ”¾æ£‹å­æ€»æ•°
+#define BLACK 	1			//é»‘æ£‹		é»‘ç™½æ£‹è½¬æ¢æ—¶,å¯å¯¹æ±‚å¼‚æˆ–
+#define WHITE 	2			//ç™½æ£‹
+#define BORDER	3			//è¾¹ç•Œ
+#define NOSTONE 	0		//ç©ºå­æ— æ£‹
 
 typedef struct _stoneposition
 {
 		char x;
 		char y;
 		int	score;
-}SMove;				    	//ÕĞ·¨
+}SMove;				    	//æ‹›æ³•
 
 typedef struct SGroup
 {
@@ -35,12 +35,12 @@ typedef struct SPlayer
 	int know;
 }SPlayer;
 
-extern char		board[GRID_NUM][GRID_NUM];		//ÆåÅÌ±íÊ¾
-extern char		board_know[GRID_NUM][GRID_NUM]; //ÊÔÌ½ÆåÅÌ
-extern char		chessColor;						//×Ô¼ºÆåµÄÑÕÉ«
-extern SMove	bestMove;						//×îÓÅÆå
+extern char		board[GRID_NUM][GRID_NUM];		//æ£‹ç›˜è¡¨ç¤º
+extern char		board_know[GRID_NUM][GRID_NUM]; //è¯•æ¢æ£‹ç›˜
+extern char		chessColor;						//è‡ªå·±æ£‹çš„é¢œè‰²
+extern SMove	bestMove;						//æœ€ä¼˜æ£‹
 
-extern SPlayer  player[3];			        	//°×ºÍºÚÆå,¼ÇÂ¼¸÷·½µÄ×ß×Ó×ÜÊıºÍÖªµÀ¶Ô·½µÄ×ÓÊı
+extern SPlayer  player[3];			        	//ç™½å’Œé»‘æ£‹,è®°å½•å„æ–¹çš„èµ°å­æ€»æ•°å’ŒçŸ¥é“å¯¹æ–¹çš„å­æ•°
 
 extern int boardBaseScore[GRID_NUM][GRID_NUM];
 

@@ -6,8 +6,8 @@
 #define Score_1 100
 #define Score_2	40
 
-SGroup	group[GRID_COUNT];						//ÈºÄÚµÄĞÅÏ¢
-int	boardGroup[GRID_NUM][GRID_NUM] = {0};		//¼ÇÂ¼ÏàÓ¦µÄ×ÓÔÚµÚ¼¸¸öÈºÀïÃæ
+SGroup	group[GRID_COUNT];						//ç¾¤å†…çš„ä¿¡æ¯
+int	boardGroup[GRID_NUM][GRID_NUM] = {0};		//è®°å½•ç›¸åº”çš„å­åœ¨ç¬¬å‡ ä¸ªç¾¤é‡Œé¢
 
 int CountGroup(int x,int y,int index,int dir = 0)
 {
@@ -21,26 +21,26 @@ int CountGroup(int x,int y,int index,int dir = 0)
 	boardGroup[x][y] = index;
 	group[index].count += 1;
 
-	//×ó·½Ïò
+	//å·¦æ–¹å‘
 	if (board[x-1][y] == board[x][y] && dir != 3)
 		CountGroup(x-1,y,index,1);
 	else 
 		if (board[x-1][y] == NOSTONE)
 	    	eyes += 1.0/4;
 
-	//ÓÒ·½Ïò
+	//å³æ–¹å‘
 	if (board[x+1][y] == board[x][y] && dir != 1)
 		CountGroup(x+1,y,index,3);
 	else 
 		if (board[x+1][y] == NOSTONE)
 	    	eyes += 1.0/4;
-	//ÉÏ·½Ïò
+	//ä¸Šæ–¹å‘
 	if (board[x][y-1] == board[x][y] && dir != 2)
 		CountGroup(x,y-1,index,4);
 	else 
 		if (board[x][y-1] == NOSTONE)
 	    	eyes += 1.0/4;
-	//ÏÂ·½Ïò
+	//ä¸‹æ–¹å‘
 	if (board[x][y+1] == board[x][y] && dir != 4)
 		CountGroup(x,y+1,index,2);
 	else
@@ -54,7 +54,7 @@ bool	GetGoMove(SMove*	pMove)
 {
 	int score = 0;
 	SMove preMove;
-	//¶ÔËùÓĞµÄÓĞµãÎ»ÖÃÆÀ·Ö
+	//å¯¹æ‰€æœ‰çš„æœ‰ç‚¹ä½ç½®è¯„åˆ†
 	int count = 0;
 	int groupIndex = 0;
 	int boardScore[GRID_NUM][GRID_NUM] = {0};
@@ -83,14 +83,14 @@ bool	GetGoMove(SMove*	pMove)
 		{	
 			if (board[k][j] == NOSTONE)
 			{
-				//¼ÆËãÃ¿Ò»µãµÄ·ÖÊı
+				//è®¡ç®—æ¯ä¸€ç‚¹çš„åˆ†æ•°
 				if (preMove.x == k && preMove.y == j)
 					score = -10;
 				else
 					score = GetScore(k,j);								
 				boardScore[k][j] = score;
 
-				//Ñ°ÕÒ×î´óÖµ
+				//å¯»æ‰¾æœ€å¤§å€¼
 				if (pMove->score < score)
 				{
 					pMove->score = score;
@@ -107,7 +107,7 @@ bool	GetGoMove(SMove*	pMove)
 	}
 	else
 	{
-		//Ëæ»ú²úÉúÕĞ·¨
+		//éšæœºäº§ç”Ÿæ‹›æ³•
 		int num = 0;
 		int index ;
 		for(int i = 1 ; i < 10 ; i++)
@@ -292,7 +292,7 @@ int GetScore(int x,int y)
 	switch(selfG)
 	{
 	case 0:
-		//ÖÜÎ§Ã»ÓĞ×Ô¼ºµÄ×Ó
+		//å‘¨å›´æ²¡æœ‰è‡ªå·±çš„å­
 		switch(oppG)
 		{
 		case 0:
@@ -321,7 +321,7 @@ int GetScore(int x,int y)
 		}
 		break;
 	case 1:
-		//ÖÜÎ§ÓĞÒ»¸ö×Ô¼ºµÄÈº
+		//å‘¨å›´æœ‰ä¸€ä¸ªè‡ªå·±çš„ç¾¤
 		switch(oppG)
 		{
 		case 0:
@@ -341,7 +341,7 @@ int GetScore(int x,int y)
 		}
 		break;
 	case 2:
-		//ÖÜÎ§ÓÉÁ½¸ö×Ô¼ºµÄÈº
+		//å‘¨å›´ç”±ä¸¤ä¸ªè‡ªå·±çš„ç¾¤
 		switch(oppG)
 		{
 		case 0:
@@ -379,7 +379,7 @@ int GetScore(int x,int y)
 		}
 		break;
 	case 3:
-		//ÖÜÎ§ÓĞÈı¸ö×Ô¼ºµÄÈº
+		//å‘¨å›´æœ‰ä¸‰ä¸ªè‡ªå·±çš„ç¾¤
 		switch(oppG)
 		{
 		case 0:
@@ -420,7 +420,7 @@ int GetScore(int x,int y)
 			score += group[oppGIndex[i]].count * 80;
 		}
 	}
-	//Èô²»ÎªÁãµÄ»°¼ÓÉÏ»ù´¡·ÖÊı
+	//è‹¥ä¸ä¸ºé›¶çš„è¯åŠ ä¸ŠåŸºç¡€åˆ†æ•°
 	if (score) 
 		score += boardBaseScore[x][y] + eyes * 3;
 

@@ -3,8 +3,8 @@
 
 #include "Define.h"
 
-bool	SearchMove(SMove*	pMove);	//若pass，返回false，否则返回true以及招法
-bool	GetGoMove(SMove*	pMove);	//普通的产生招法。若pass，返回false，否则返回true以及招法
+bool	SearchMove(SMove*	pMove);	//鑻ass锛岃繑鍥瀎alse锛屽惁鍒欒繑鍥瀟rue浠ュ強鎷涙硶
+bool	GetGoMove(SMove*	pMove);	//鏅�氱殑浜х敓鎷涙硶銆傝嫢pass锛岃繑鍥瀎alse锛屽惁鍒欒繑鍥瀟rue浠ュ強鎷涙硶
 int     GetScore(int x,int y);
 
 
