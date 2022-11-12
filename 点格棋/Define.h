@@ -3,7 +3,7 @@
 
 #pragma  once
 
-//¶¨Òå¼¸¸ö³£Êı
+//å®šä¹‰å‡ ä¸ªå¸¸æ•°
 #define RED 1
 #define BLUE -1
 #define EMPTY 0
@@ -14,19 +14,19 @@
 #define RED_BOX 2
 #define BLUE_BOX -2
 
-//¶¨Òå´óĞ¡
-#define LEN 11			//LENÎªÊı×éµÄ³¤¶È£¬Õı³£Îª¸ñ×ÓÊıX2+1
-#define MOVENUM 60		//MOVENUMÎª×î´óÕĞÊ½µÄ´óĞ¡£¬
-#define BOXNUM 25		//×Ü¸ñ×ÓÊı
-#define BOXLEN 5		//¸ñ×ÓÊı×é³¤¶È
+//å®šä¹‰å¤§å°
+#define LEN 11			//LENä¸ºæ•°ç»„çš„é•¿åº¦ï¼Œæ­£å¸¸ä¸ºæ ¼å­æ•°X2+1
+#define MOVENUM 60		//MOVENUMä¸ºæœ€å¤§æ‹›å¼çš„å¤§å°ï¼Œ
+#define BOXNUM 25		//æ€»æ ¼å­æ•°
+#define BOXLEN 5		//æ ¼å­æ•°ç»„é•¿åº¦
 
-//¶¨Òå¸ñ×ÓÀàĞÍ
-#define FULLBOX	0		//Âú¸ñ
-#define DEADBOX 1		//ËÀ¸ñ
-#define CHAINBOX 2		//Á´¸ñ
-#define FREEBOX 3		//×ÔÓÉ¸ñ
+//å®šä¹‰æ ¼å­ç±»å‹
+#define FULLBOX	0		//æ»¡æ ¼
+#define DEADBOX 1		//æ­»æ ¼
+#define CHAINBOX 2		//é“¾æ ¼
+#define FREEBOX 3		//è‡ªç”±æ ¼
 
-//TURNÀàÓÃÓÚ±íÊ¾Ò»¸öĞÂµÄ»ØºÏ£¬ÀïÃæ°üº¬ÁËĞÂ»ØºÏµÄ¾ÖÃæÒÔ¼°ËùÂäµÄÕĞ·¨
+//TURNç±»ç”¨äºè¡¨ç¤ºä¸€ä¸ªæ–°çš„å›åˆï¼Œé‡Œé¢åŒ…å«äº†æ–°å›åˆçš„å±€é¢ä»¥åŠæ‰€è½çš„æ‹›æ³•
 class TURN
 {
 public:
@@ -34,11 +34,11 @@ public:
 	void SetBoard(int Array[LEN][LEN]);
 	void SetCaptualInfo(int OB[LEN][LEN], int NB[LEN][LEN]);
 	int Owner;
-	bool Captual[LEN][LEN];//±»Ê¹ÓÃµÄÕĞ·¨
-	int NewBoard[LEN][LEN];//ĞÂ²úÉúµÄ¾ÖÃæ
+	bool Captual[LEN][LEN];//è¢«ä½¿ç”¨çš„æ‹›æ³•
+	int NewBoard[LEN][LEN];//æ–°äº§ç”Ÿçš„å±€é¢
 };
 
-//LOCÀàÓÃÓÚ±íÊ¾×ø±ê£¬ÎŞÂÛÊÇBox»¹ÊÇEdge¶¼¿ÉÒÔÊ¹ÓÃ
+//LOCç±»ç”¨äºè¡¨ç¤ºåæ ‡ï¼Œæ— è®ºæ˜¯Boxè¿˜æ˜¯Edgeéƒ½å¯ä»¥ä½¿ç”¨
 class LOC
 {
 public:
@@ -48,57 +48,57 @@ public:
 	
 };
 
-//BoardÀàÊÇÒ»¸ö»ù±¾µÄÆåÅÌÀà
+//Boardç±»æ˜¯ä¸€ä¸ªåŸºæœ¬çš„æ£‹ç›˜ç±»
 class Board{
 public:
 	int board[LEN][LEN];
 	int Step;
 
-	Board();//¹¹Ôìº¯Êı
-	Board(int Array[LEN][LEN], int step);			//¹¹Ôìº¯Êı
-	void PrintBoard();								//ÏÔÊ¾º¯Êı1
-	void ShowBoard();								//ÏÔÊ¾º¯Êı2
-	void ShowLiberties();							//ÏÔÊ¾ËùÓĞ¸ñ×ÓµÄ×ÔÓÉ¶È
-	int GetEmptyEdges();							//µÃµ½Î´±»Õ¼ÁìµÄ±ßµÄÊıÄ¿
-	int GetEmptyBoxes();							//µÃµ½Î´±»Õ¼ÁìµÄ¸ñ×ÓµÄÊıÄ¿
-	int GetEdgeOwner(int x,int y);					//µÃµ½Ä³¸ö±ßµÄËùÓĞÕß
-	int GetBoxOwner(int x,int y);					//µÃµ½Ä³¸ö¸ñ×ÓµÄËùÓĞÕß
-	int GetBoxLiberties(int x,int y);				//µÃµ½Ä³¸ö¸ñ×ÓµÄ×ÔÓÉ¶È
-	int GetPlayerBoxes(int player);					//µÃµ½Ä³¸öÍæ¼ÒÕ¼ÁìµÄ¸ñ×ÓµÄ×ÜÊı
-	int GetPlayerEdges(int player);					//µÃµ½Ä³¸öÍæ¼ÒÕ¼ÁìµÄ±ßµÄ×ÜÊı
-	bool GetEdgeLegality(int x,int y);				//µÃµ½Ä³¸ö±ßÊÇ·ñºÏ·¨µÄº¯Êı
-	int Winner();									//µÃµ½Ê¤ÀûÕß£¨-1/0/1£©
-	void SetBoard(int Array[LEN][LEN]);				//ÉèÖÃ¾ÖÃæ
-	void LoadBoard();								//¶ÁÈ¡¾ÖÃæ
+	Board();//æ„é€ å‡½æ•°
+	Board(int Array[LEN][LEN], int step);			//æ„é€ å‡½æ•°
+	void PrintBoard();								//æ˜¾ç¤ºå‡½æ•°1
+	void ShowBoard();								//æ˜¾ç¤ºå‡½æ•°2
+	void ShowLiberties();							//æ˜¾ç¤ºæ‰€æœ‰æ ¼å­çš„è‡ªç”±åº¦
+	int GetEmptyEdges();							//å¾—åˆ°æœªè¢«å é¢†çš„è¾¹çš„æ•°ç›®
+	int GetEmptyBoxes();							//å¾—åˆ°æœªè¢«å é¢†çš„æ ¼å­çš„æ•°ç›®
+	int GetEdgeOwner(int x,int y);					//å¾—åˆ°æŸä¸ªè¾¹çš„æ‰€æœ‰è€…
+	int GetBoxOwner(int x,int y);					//å¾—åˆ°æŸä¸ªæ ¼å­çš„æ‰€æœ‰è€…
+	int GetBoxLiberties(int x,int y);				//å¾—åˆ°æŸä¸ªæ ¼å­çš„è‡ªç”±åº¦
+	int GetPlayerBoxes(int player);					//å¾—åˆ°æŸä¸ªç©å®¶å é¢†çš„æ ¼å­çš„æ€»æ•°
+	int GetPlayerEdges(int player);					//å¾—åˆ°æŸä¸ªç©å®¶å é¢†çš„è¾¹çš„æ€»æ•°
+	bool GetEdgeLegality(int x,int y);				//å¾—åˆ°æŸä¸ªè¾¹æ˜¯å¦åˆæ³•çš„å‡½æ•°
+	int Winner();									//å¾—åˆ°èƒœåˆ©è€…ï¼ˆ-1/0/1ï¼‰
+	void SetBoard(int Array[LEN][LEN]);				//è®¾ç½®å±€é¢
+	void LoadBoard();								//è¯»å–å±€é¢
 
-	//¾ÖÃæ¹ÀÖµ
-	bool GetFreeBoxBool(int bx, int xy);			//ÅĞ¶ÏÄ³¸ö¸ñ×ÓÊÇ·ñÎª×ÔÓÉ¸ñ
-	int GetFreeEdgeNum();							//µÃµ½×ÔÓÉ±ßµÄÊıÁ¿
-	bool GetCTypeBoxBool(int bx, int by);			//ÅĞ¶Ï¾ÖÃæÖĞÊÇ·ñÓĞCĞÍ¸ñ
-	bool GetCTypeBox(int Player,bool Msg);			//Õ¼ÁìÒ»¸ö¾ÖÃæÖĞµÄCĞÍ¸ñ
-	bool GetLongCTypeBoxExist();					//ÅĞ¶Ï¾ÖÃæÖĞÊÇ·ñ´æÔÚ³¤CĞÍÁ´
-	void GetAllCTypeBoxes(int Player,bool Msg);		//³ÔµôËùÓĞµÄCĞÍ¸ñ
-	LOC FindNextBox(LOC FoundBox, LOC LastBox);		//²éÕÒÄ³¸öÁ´¸ñ
+	//å±€é¢ä¼°å€¼
+	bool GetFreeBoxBool(int bx, int xy);			//åˆ¤æ–­æŸä¸ªæ ¼å­æ˜¯å¦ä¸ºè‡ªç”±æ ¼
+	int GetFreeEdgeNum();							//å¾—åˆ°è‡ªç”±è¾¹çš„æ•°é‡
+	bool GetCTypeBoxBool(int bx, int by);			//åˆ¤æ–­å±€é¢ä¸­æ˜¯å¦æœ‰Cå‹æ ¼
+	bool GetCTypeBox(int Player,bool Msg);			//å é¢†ä¸€ä¸ªå±€é¢ä¸­çš„Cå‹æ ¼
+	bool GetLongCTypeBoxExist();					//åˆ¤æ–­å±€é¢ä¸­æ˜¯å¦å­˜åœ¨é•¿Cå‹é“¾
+	void GetAllCTypeBoxes(int Player,bool Msg);		//åƒæ‰æ‰€æœ‰çš„Cå‹æ ¼
+	LOC FindNextBox(LOC FoundBox, LOC LastBox);		//æŸ¥æ‰¾æŸä¸ªé“¾æ ¼
 
-	//ºóÆÚ¼ÆËã
-	LOC GetDoubleCrossLoc(int Player);				//²éÕÒÒ»¸ödoublecrossµÄÖÆ×÷·½·¨£¬·µ»ØÖµÎª¸Ã±ßµÄ×ø±ê
-	bool GetCTypeBoxLimit(int Player, bool Msg);	//ÏŞÖÆ°æ³ÔCĞÍ¸ñ
+	//åæœŸè®¡ç®—
+	LOC GetDoubleCrossLoc(int Player);				//æŸ¥æ‰¾ä¸€ä¸ªdoublecrossçš„åˆ¶ä½œæ–¹æ³•ï¼Œè¿”å›å€¼ä¸ºè¯¥è¾¹çš„åæ ‡
+	bool GetCTypeBoxLimit(int Player, bool Msg);	//é™åˆ¶ç‰ˆåƒCå‹æ ¼
 
-	//MoveÊÇµ±Ç°×îÓĞĞ§ÂÊµÄ·½·¨£¬Ò²¾ÍÊÇ½ö¿¼ÂÇ×îºóÒ»²½£¬ÔÚÖ®Ç°¾ùÊ¹ÓÃÌ°À··½·¨
-	bool Move(int x, int y, int owner);							//Õ¼ÁìÒ»Ìõ±ßµÄº¯Êı
-	int GetAllMoves(LOC Moves[MOVENUM]);						//µÃµ½ËùÓĞµÄ¿ÉĞĞ±ß
-	int GetFreeMoves(LOC Moves[MOVENUM]);						//µÃµ½ËùÓĞµÄ×ÔÓÉ±ß
-	int GetFilterMoves(LOC Moves[MOVENUM]);						//µÃµ½ËùÓĞµÄ¹ıÂË¿ÉĞĞ±ß(²»²úÉú³¤Á´)
-	int GetFilterMoveNum();										//µÃµ½ËùÓĞµÄ¹ıÂË¿ÉĞĞ±ßµÄÊıÁ¿
-	bool GetLongCTypeBoxBool(int bx, int by);					//ÅĞ¶ÏÒ»¸ö¸ñ×ÓÊÇ·ñÊÇÒ»Ìõ³¤ËÀ¸ñµÄÆğµã
+	//Moveæ˜¯å½“å‰æœ€æœ‰æ•ˆç‡çš„æ–¹æ³•ï¼Œä¹Ÿå°±æ˜¯ä»…è€ƒè™‘æœ€åä¸€æ­¥ï¼Œåœ¨ä¹‹å‰å‡ä½¿ç”¨è´ªå©ªæ–¹æ³•
+	bool Move(int x, int y, int owner);							//å é¢†ä¸€æ¡è¾¹çš„å‡½æ•°
+	int GetAllMoves(LOC Moves[MOVENUM]);						//å¾—åˆ°æ‰€æœ‰çš„å¯è¡Œè¾¹
+	int GetFreeMoves(LOC Moves[MOVENUM]);						//å¾—åˆ°æ‰€æœ‰çš„è‡ªç”±è¾¹
+	int GetFilterMoves(LOC Moves[MOVENUM]);						//å¾—åˆ°æ‰€æœ‰çš„è¿‡æ»¤å¯è¡Œè¾¹(ä¸äº§ç”Ÿé•¿é“¾)
+	int GetFilterMoveNum();										//å¾—åˆ°æ‰€æœ‰çš„è¿‡æ»¤å¯è¡Œè¾¹çš„æ•°é‡
+	bool GetLongCTypeBoxBool(int bx, int by);					//åˆ¤æ–­ä¸€ä¸ªæ ¼å­æ˜¯å¦æ˜¯ä¸€æ¡é•¿æ­»æ ¼çš„èµ·ç‚¹
 
-	//Turn±»Ö¤Ã÷ÎªµÍĞ§ÂÊ£¬±ÈÖ±½ÓµÄ¿¼ÂÇ×îºóÒ»²½MoveÒªÂı´óÔ¼1000±¶£¬¹Ø¼üÔÚÓÚTurnĞèÒª¹¹½¨ĞÂµÄBoard£¬ÕâÒ»µãÊ®·ÖºÄÊ±¡£
-	void TurnMove(TURN Turn);									//Ò»¸ö»ØºÏÒÆ¶¯
-	int GetAllTurns(TURN Turns[MOVENUM], int Player);			//µÃµ½ËùÓĞ¿ÉĞĞµÄ»ØºÏ
-	int GetFilterTurn(TURN Turns[MOVENUM], int Player);			//»ñµÃ½ÓÏÂÀ´Ò»¸ö¹ıÂËµÄ¿ÉĞĞ¾ÖÃæ
+	//Turnè¢«è¯æ˜ä¸ºä½æ•ˆç‡ï¼Œæ¯”ç›´æ¥çš„è€ƒè™‘æœ€åä¸€æ­¥Moveè¦æ…¢å¤§çº¦1000å€ï¼Œå…³é”®åœ¨äºTurnéœ€è¦æ„å»ºæ–°çš„Boardï¼Œè¿™ä¸€ç‚¹ååˆ†è€—æ—¶ã€‚
+	void TurnMove(TURN Turn);									//ä¸€ä¸ªå›åˆç§»åŠ¨
+	int GetAllTurns(TURN Turns[MOVENUM], int Player);			//å¾—åˆ°æ‰€æœ‰å¯è¡Œçš„å›åˆ
+	int GetFilterTurn(TURN Turns[MOVENUM], int Player);			//è·å¾—æ¥ä¸‹æ¥ä¸€ä¸ªè¿‡æ»¤çš„å¯è¡Œå±€é¢
 };
 
-//³£ÓÃº¯Êı
+//å¸¸ç”¨å‡½æ•°
 void cprintf(char* str, WORD color, ...);
 void cprintNum(int color, int Num);
 bool LocEqual(LOC a, LOC b);

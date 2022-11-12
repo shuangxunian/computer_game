@@ -1,12 +1,12 @@
-//´úÂë°æ±¾		2017Äê¹úÈü 
-//±¾´úÂëÓÉÉòÑôº½¿Õº½Ìì´óÑ§¼ÆËã»ú²©ÞÄÐ­»á×Ü¸ºÔðÈËÍõÔ¾ÁØÍ³Ò»µ÷¿Ø
-//µã¸ñÆå×é¸ºÔðÈË³ÂÐ£éªËù´ø²©ÞÄ×é¿ª·¢Î¬»¤
-//´úÂëÀ´×Ô¹þ¹¤´ó¿ªÔ´´úÂë,ÓÉÒÔÉÏ³ÉÔ±Î¬»¤ 
-//±¾´úÂëÊÊÓÃÓÚÖÐ¹ú´óÑ§Éú¼ÆËã»ú²©ÞÄ´óÈü²©ÞÄÏîÄ¿2017°æ½»»¥Ð­Òé
-//±¾´úÂë½öÌá¹©½»»¥Ð­ÒéµÄÓÃ·¨Ê¾·¶ºÍ¼òµ¥AI²©ÞÄË¼Â·£¬¿ª·¢ÕßÐè×ÔÐÐ¸Ä½øÍêÉÆ´úÂë²ÎÈü
-//ÈçÓÐÒâ¼ûºÍ½¨ÒéÇëÓëÎÒÃÇ¾¡ÔçÁªÏµ
-//ÍõÔ¾ÁØ	QQ£º836473734
-//³ÂÐ£éª	QQ£º1198583339 
+//ä»£ç ç‰ˆæœ¬		2017å¹´å›½èµ› 
+//æœ¬ä»£ç ç”±æ²ˆé˜³èˆªç©ºèˆªå¤©å¤§å­¦è®¡ç®—æœºåšå¼ˆåä¼šæ€»è´Ÿè´£äººçŽ‹è·ƒéœ–ç»Ÿä¸€è°ƒæŽ§
+//ç‚¹æ ¼æ£‹ç»„è´Ÿè´£äººé™ˆæ ¡æ¥ æ‰€å¸¦åšå¼ˆç»„å¼€å‘ç»´æŠ¤
+//ä»£ç æ¥è‡ªå“ˆå·¥å¤§å¼€æºä»£ç ,ç”±ä»¥ä¸Šæˆå‘˜ç»´æŠ¤ 
+//æœ¬ä»£ç é€‚ç”¨äºŽä¸­å›½å¤§å­¦ç”Ÿè®¡ç®—æœºåšå¼ˆå¤§èµ›åšå¼ˆé¡¹ç›®2017ç‰ˆäº¤äº’åè®®
+//æœ¬ä»£ç ä»…æä¾›äº¤äº’åè®®çš„ç”¨æ³•ç¤ºèŒƒå’Œç®€å•AIåšå¼ˆæ€è·¯ï¼Œå¼€å‘è€…éœ€è‡ªè¡Œæ”¹è¿›å®Œå–„ä»£ç å‚èµ›
+//å¦‚æœ‰æ„è§å’Œå»ºè®®è¯·ä¸Žæˆ‘ä»¬å°½æ—©è”ç³»
+//çŽ‹è·ƒéœ–	QQï¼š836473734
+//é™ˆæ ¡æ¥ 	QQï¼š1198583339 
 #include "stdafx.h"
 #include <iostream>
 #include <stdio.h>
@@ -31,17 +31,17 @@ void Model_AI_Game(Board &CB)
 	//char blue_name[20];
 	//void(*func_red)(Board&, int, bool);
 	//void(*func_blue)(Board&, int, bool);
-	//clock_t t_start, t_finish;		//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
-	//double t_totaltime;				//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
-	//srand((unsigned)time(NULL));	//½øÐÐÒ»´ÎËæ»úÊý²¥ÖÖ
+	//clock_t t_start, t_finish;		//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
+	//double t_totaltime;				//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
+	//srand((unsigned)time(NULL));	//è¿›è¡Œä¸€æ¬¡éšæœºæ•°æ’­ç§
 
 
-	//								//Ñ¡Ôñ¶ÔÞÄµÄËã·¨
+	//								//é€‰æ‹©å¯¹å¼ˆçš„ç®—æ³•
 	//for (;;)
 	//{
-	//	cprintf("Îªºì·½Ñ¡ÔñËã·¨£º\n¡¾ 1.GameTurnMove_Rave ¡¿\n¡¾ 2.GameTurnMove_RaveSolverDouble ¡¿\n¡¾ 3.UCTËã·¨ ¡¿\n¡¾ 4.UCTËã·¨_2 ¡¿\n¡¾ 5.GameTurnMove_T ¡¿\n¡¾ 6.GameTurnMove ¡¿\n\nÑ¡ÔñÎª£º", 12);
+	//	cprintf("ä¸ºçº¢æ–¹é€‰æ‹©ç®—æ³•ï¼š\nã€ 1.GameTurnMove_Rave ã€‘\nã€ 2.GameTurnMove_RaveSolverDouble ã€‘\nã€ 3.UCTç®—æ³• ã€‘\nã€ 4.UCTç®—æ³•_2 ã€‘\nã€ 5.GameTurnMove_T ã€‘\nã€ 6.GameTurnMove ã€‘\n\né€‰æ‹©ä¸ºï¼š", 12);
 	//	cin >> model;
-	//	if (model >= 1 && model <= 6)//¡¾¼ÇµÃ¸Ä×ÜÊý¡¿
+	//	if (model >= 1 && model <= 6)//ã€è®°å¾—æ”¹æ€»æ•°ã€‘
 	//	{
 	//		if (model == 1)
 	//		{
@@ -56,17 +56,17 @@ void Model_AI_Game(Board &CB)
 	//		else if (model == 3)
 	//		{
 	//			func_red = UCTMove;
-	//			strcpy_s(red_name, "UCTËã·¨");
+	//			strcpy_s(red_name, "UCTç®—æ³•");
 	//		}
 	//		else if (model == 4)
 	//		{
 	//			func_red = UCTMove_2;
-	//			strcpy_s(red_name, "UCT_2Ëã·¨");
+	//			strcpy_s(red_name, "UCT_2ç®—æ³•");
 	//		}
 	//		else if (model == 5)
 	//		{
 	//			func_red = GameTurnMove_T;
-	//			strcpy_s(red_name, "GameTurnMove_TËã·¨");
+	//			strcpy_s(red_name, "GameTurnMove_Tç®—æ³•");
 	//		}
 	//		else if (model == 6)
 	//		{
@@ -77,14 +77,14 @@ void Model_AI_Game(Board &CB)
 	//	}
 	//	else
 	//	{
-	//		cprintf("ÊäÈë´íÎó£¡", 8);
+	//		cprintf("è¾“å…¥é”™è¯¯ï¼", 8);
 	//	}
 	//}
 	//for (;;)
 	//{
-	//	cprintf("ÎªÀ¶·½Ñ¡ÔñËã·¨£º\n¡¾ 1.GameTurnMove_Rave ¡¿\n¡¾ 2.RaveSolverDouble ¡¿\n¡¾ 3.UCTËã·¨ ¡¿\n¡¾ 4.UCTËã·¨_2 ¡¿\n¡¾ 5.GameTurnMove_T ¡¿\n¡¾ 6.GameTurnMove ¡¿\n\nÑ¡ÔñÎª£º", 9);
+	//	cprintf("ä¸ºè“æ–¹é€‰æ‹©ç®—æ³•ï¼š\nã€ 1.GameTurnMove_Rave ã€‘\nã€ 2.RaveSolverDouble ã€‘\nã€ 3.UCTç®—æ³• ã€‘\nã€ 4.UCTç®—æ³•_2 ã€‘\nã€ 5.GameTurnMove_T ã€‘\nã€ 6.GameTurnMove ã€‘\n\né€‰æ‹©ä¸ºï¼š", 9);
 	//	cin >> model;
-	//	if (model >= 1 && model <= 6)//¡¾¼ÇµÃ¸Ä×ÜÊý¡¿
+	//	if (model >= 1 && model <= 6)//ã€è®°å¾—æ”¹æ€»æ•°ã€‘
 	//	{
 	//		if (model == 1)
 	//		{
@@ -99,17 +99,17 @@ void Model_AI_Game(Board &CB)
 	//		else if (model == 3)
 	//		{
 	//			func_blue = UCTMove;
-	//			strcpy_s(blue_name, "UCTËã·¨");
+	//			strcpy_s(blue_name, "UCTç®—æ³•");
 	//		}
 	//		else if (model == 4)
 	//		{
 	//			func_blue = UCTMove_2;
-	//			strcpy_s(blue_name, "UCT_2Ëã·¨");
+	//			strcpy_s(blue_name, "UCT_2ç®—æ³•");
 	//		}
 	//		else if (model == 5)
 	//		{
 	//			func_blue = GameTurnMove_T;
-	//			strcpy_s(blue_name, "GameTurnMove_TËã·¨");
+	//			strcpy_s(blue_name, "GameTurnMove_Tç®—æ³•");
 	//		}
 	//		else if (model == 6)
 	//		{
@@ -120,34 +120,34 @@ void Model_AI_Game(Board &CB)
 	//	}
 	//	else
 	//	{
-	//		cprintf("ÊäÈë´íÎó£¡", 8);
+	//		cprintf("è¾“å…¥é”™è¯¯ï¼", 8);
 	//	}
 	//}
 
-	////¿ªÊ¼±ÈÈü
+	////å¼€å§‹æ¯”èµ›
 	//int red_count = 0, blue_count = 0;
 	//for (int n = 1; n<200; n++)
 	//{
 	//	//system("pause");
 	//	Board NewBoard = CB;
 	//	NewBoard.PrintBoard();
-	//	int player = 1 - (2 * (n % 2));//ÏÈÊÖÎªË«·½ÂÖÁ÷½»Ìæ
-	//	cout << "µÚ" << n << "³¡¿ªÊ¼" << endl;
-	//	printf("%sÏÈÊÖ", player == RED ? "ºì·½" : "À¶·½");
+	//	int player = 1 - (2 * (n % 2));//å…ˆæ‰‹ä¸ºåŒæ–¹è½®æµäº¤æ›¿
+	//	cout << "ç¬¬" << n << "åœºå¼€å§‹" << endl;
+	//	printf("%så…ˆæ‰‹", player == RED ? "çº¢æ–¹" : "è“æ–¹");
 	//	for (;;)
 	//	{
 	//		int w = 0, tz = 0;
 	//		if (player == RED)
-	//			cprintf("ºì·½ ", 12);
+	//			cprintf("çº¢æ–¹ ", 12);
 	//		else
-	//			cprintf("À¶·½ ", 9);
-	//		cout << "ÕýÔÚ¿¼ÂÇµÚ" << NewBoard.Step + 1 << "²½" << endl;
-	//		cout << "ÐÎÊÆÎª ºì·½¸ñ×ÓÊý[" << NewBoard.GetPlayerBoxes(RED) << "]  À¶·½¸ñ×ÓÊý[" << NewBoard.GetPlayerBoxes(BLUE) << "]" << endl;
-	//		cout << "µÚ[" << n << "]³¡£¬";
+	//			cprintf("è“æ–¹ ", 9);
+	//		cout << "æ­£åœ¨è€ƒè™‘ç¬¬" << NewBoard.Step + 1 << "æ­¥" << endl;
+	//		cout << "å½¢åŠ¿ä¸º çº¢æ–¹æ ¼å­æ•°[" << NewBoard.GetPlayerBoxes(RED) << "]  è“æ–¹æ ¼å­æ•°[" << NewBoard.GetPlayerBoxes(BLUE) << "]" << endl;
+	//		cout << "ç¬¬[" << n << "]åœºï¼Œ";
 	//		cprintf(red_name, 12);
-	//		cout << "Ê¤[" << red_count << "]¾Ö£¬";
+	//		cout << "èƒœ[" << red_count << "]å±€ï¼Œ";
 	//		cprintf(blue_name, 9);
-	//		cout << "Ê¤[" << blue_count << "]¾Ö" << endl;
+	//		cout << "èƒœ[" << blue_count << "]å±€" << endl;
 
 	//		//w = GetBoardWinner(NewBoard, -player);
 	//		w = NewBoard.Winner();
@@ -175,9 +175,9 @@ void Model_AI_Game(Board &CB)
 	//		}
 	//		t_finish = clock();
 	//		t_totaltime = (double)(t_finish - t_start) / CLOCKS_PER_SEC;
-	//		cout << "\nÏûºÄÊ±¼äÎª" << t_totaltime << "Ãë£¡" << endl;
-	//		player = -player;//Íæ¼ÒÇÐ»»
-	//		NewBoard.PrintBoard();//ÏÔÊ¾¾ÖÃæ
+	//		cout << "\næ¶ˆè€—æ—¶é—´ä¸º" << t_totaltime << "ç§’ï¼" << endl;
+	//		player = -player;//çŽ©å®¶åˆ‡æ¢
+	//		NewBoard.PrintBoard();//æ˜¾ç¤ºå±€é¢
 	//		w = NewBoard.Winner();
 	//		if (w == RED)
 	//		{
@@ -191,11 +191,11 @@ void Model_AI_Game(Board &CB)
 	//		}
 	//	}
 	//}
-	//cout << "È«²¿¼ÆËã½áÊø\n\n\nºì·½Ê¤Àû" << red_count << "    À¶·½Ê¤Àû" << blue_count << endl;
+	//cout << "å…¨éƒ¨è®¡ç®—ç»“æŸ\n\n\nçº¢æ–¹èƒœåˆ©" << red_count << "    è“æ–¹èƒœåˆ©" << blue_count << endl;
 }
 void Model_Rnd_Test(Board &CB)
 {
-	srand((unsigned)time(NULL));//½øÐÐÒ»´ÎËæ»úÊý²¥ÖÖ
+	srand((unsigned)time(NULL));//è¿›è¡Œä¸€æ¬¡éšæœºæ•°æ’­ç§
 
 	int player = RED;
 	Board NewBoard = CB;
@@ -210,11 +210,11 @@ void Model_Rnd_Test(Board &CB)
 			RndTurn(NewBoard, player, false);
 		//
 		if (player == RED)
-			cprintf("\nºì·½ÒÑ¾­Âä×Ó\n", 12);
+			cprintf("\nçº¢æ–¹å·²ç»è½å­\n", 12);
 		else
-			cprintf("\nÀ¶·½ÒÑ¾­Âä×Ó\n", 9);
-		player = -player;//Íæ¼ÒÇÐ»»
-		NewBoard.PrintBoard();//ÏÔÊ¾¾ÖÃæ
+			cprintf("\nè“æ–¹å·²ç»è½å­\n", 9);
+		player = -player;//çŽ©å®¶åˆ‡æ¢
+		NewBoard.PrintBoard();//æ˜¾ç¤ºå±€é¢
 
 		system("pause");
 		w = NewBoard.Winner();
@@ -241,17 +241,17 @@ void Model_Board_Winner_Test()
 		int b = GetBoardWinner(Test, RED);
 		if (r || b)
 		{
-			cout << "µ±ÏÈÊÖÎªºìÊ±Õâ¸ö¾ÖÃæµÄÊ¤ÀûÕßÎª";
+			cout << "å½“å…ˆæ‰‹ä¸ºçº¢æ—¶è¿™ä¸ªå±€é¢çš„èƒœåˆ©è€…ä¸º";
 			if (r == RED)
-				cprintf("ºì·½", 12);
+				cprintf("çº¢æ–¹", 12);
 			else
-				cprintf("À¶·½", 9);
+				cprintf("è“æ–¹", 9);
 
-			cout << endl << "µ±ÏÈÊÖÎªÀ¶Ê±Õâ¸ö¾ÖÃæµÄÊ¤ÀûÕßÎª";
+			cout << endl << "å½“å…ˆæ‰‹ä¸ºè“æ—¶è¿™ä¸ªå±€é¢çš„èƒœåˆ©è€…ä¸º";
 			if (b == RED)
-				cprintf("ºì·½", 12);
+				cprintf("çº¢æ–¹", 12);
 			else
-				cprintf("À¶·½", 9);
+				cprintf("è“æ–¹", 9);
 		}
 		cout << endl;
 		system("pause");
@@ -279,22 +279,22 @@ void Model_Define_Chain()
 }
 int _tmain(int argc, _TCHAR* argv[])
 {
-	Board CB;						//ÐÂ½¨Ò»¸öÓÎÏ·Ö÷ÏÔÊ¾ÆåÅÌCB
-	clock_t start, finish;			//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
-	double totaltime;				//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
-	srand((unsigned)time(NULL));	//½øÐÐÒ»´ÎËæ»úÊý²¥ÖÖ
+	Board CB;						//æ–°å»ºä¸€ä¸ªæ¸¸æˆä¸»æ˜¾ç¤ºæ£‹ç›˜CB
+	clock_t start, finish;			//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
+	double totaltime;				//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
+	srand((unsigned)time(NULL));	//è¿›è¡Œä¸€æ¬¡éšæœºæ•°æ’­ç§
 
 	cout << "Board size from 488 to " << sizeof(Board) << endl;
 	cout << "Node size from 1232 to " << sizeof(UCTNode) << endl;
 
-	//³õÊ¼½çÃæÐÅÏ¢
-	cprintf("¡¾DOT&BOX KILLER¡¿\n\n", 14);
-	cprintf("¡¾  0 ¡¿Ä¬ÈÏ²¼¾Ö \n¡¾  1 ¡¿Ëã·¨¶ÔÞÄÄ£Ê½\n¡¾  2 ¡¿Ëæ»ú²âÊÔÄ£Ê½\n¡¾  3 ¡¿²âÊÔÊ¤ÀûÕß\n¡¾  4 ¡¿²âÊÔ\n¡¾ÆäËû¡¿×Ô¶¨Òå²¼¾Ö\n\n", 10);
-	//Ä£Ê½Ñ¡Ôñ
+	//åˆå§‹ç•Œé¢ä¿¡æ¯
+	cprintf("ã€DOT&BOX KILLERã€‘\n\n", 14);
+	cprintf("ã€  0 ã€‘é»˜è®¤å¸ƒå±€ \nã€  1 ã€‘ç®—æ³•å¯¹å¼ˆæ¨¡å¼\nã€  2 ã€‘éšæœºæµ‹è¯•æ¨¡å¼\nã€  3 ã€‘æµ‹è¯•èƒœåˆ©è€…\nã€  4 ã€‘æµ‹è¯•\nã€å…¶ä»–ã€‘è‡ªå®šä¹‰å¸ƒå±€\n\n", 10);
+	//æ¨¡å¼é€‰æ‹©
 	int model;
 	cin >> model;
 	if (model == 0)
-		cprintf("Ä¬ÈÏÄ£Ê½¿ªÆô", 8);
+		cprintf("é»˜è®¤æ¨¡å¼å¼€å¯", 8);
 	else if (model == 1)
 		Model_AI_Game(CB);
 	else if (model == 2)
@@ -309,26 +309,26 @@ int _tmain(int argc, _TCHAR* argv[])
 
 	for (;;)
 	{
-		//ÏÈ¼ì²éÊÇ·ñÊ¤Àû(ÒòÎªÓÎÏ·ÓÐ¿ÉÄÜ´ÓÒ»¸öÒÑ¾­Ê¤ÀûµÄ¾ÖÃæ¿ªÊ¼)
+		//å…ˆæ£€æŸ¥æ˜¯å¦èƒœåˆ©(å› ä¸ºæ¸¸æˆæœ‰å¯èƒ½ä»Žä¸€ä¸ªå·²ç»èƒœåˆ©çš„å±€é¢å¼€å§‹)
 		int W = CB.Winner();
 		if (W == RED)
 		{
-			cout << "ºì·½Ê¤Àû£¬ÓÎÏ·½áÊøÁË¡£" << endl;
+			cout << "çº¢æ–¹èƒœåˆ©ï¼Œæ¸¸æˆç»“æŸäº†ã€‚" << endl;
 			CB.PrintBoard();
 			system("pause");
 			break;
 		}
 		if (W == BLUE)
 		{
-			cout << "À¶·½Ê¤Àû£¬ÓÎÏ·½áÊøÁË¡£" << endl;
+			cout << "è“æ–¹èƒœåˆ©ï¼Œæ¸¸æˆç»“æŸäº†ã€‚" << endl;
 			CB.PrintBoard();
 			system("pause");
 			break;
 		}
 
-		//È»ºó¿ªÊ¼Ö´ÐÐË«·½×ß²½
+		//ç„¶åŽå¼€å§‹æ‰§è¡ŒåŒæ–¹èµ°æ­¥
 		CB.PrintBoard();
-		cout << "\n¡¾0¡¿ÈË¹¤Õ¼±ß  ¡¾1¡¿AIÕ¼±ß" << endl;
+		cout << "\nã€0ã€‘äººå·¥å è¾¹  ã€1ã€‘AIå è¾¹" << endl;
 		int com;
 		for (;;)
 		{
@@ -341,49 +341,49 @@ int _tmain(int argc, _TCHAR* argv[])
 			}
 			else
 			{
-				cprintf("ÊäÈë´íÎó£¬ÇëÖØÐÂÊäÈëÃüÁî", 8);
+				cprintf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥å‘½ä»¤", 8);
 			}
 		}
 		if (com == 0)
 		{
 			system("cls");
 			//CB.PrintBoard();
-			printf("¡ð(0, 1)¡ð(0 ,3)¡ð(0 ,5)¡ð(0,7 )¡ð(0, 9)¡ð\n1      1      1      1      1      1\n0      2      4      6      8     10\n¡ð(2, 1)¡ð(2, 3)¡ð(2, 5)¡ð(2 ,7)¡ð(2, 9)¡ð\n3      3      3      3      3      3\n0      2      4      6      8     10\n¡ð(4, 1)¡ð(4 ,3)¡ð(4, 5)¡ð(4 ,7)¡ð(4, 9)¡ð\n5      5      5      5      5      5\n0      2      4      6      8     10\n¡ð(6, 1)¡ð(6, 3)¡ð(6, 5)¡ð(6 ,7)¡ð(6, 9)¡ð\n7      7      7      7      7      7\n0      2      4      6      8     10\n¡ð (8,1)¡ð(8 ,3)¡ð(8, 5)¡ð(8, 7)¡ð(8 ,9)¡ð\n9      9      9      9      9      9\n0      2      4      6      8     10\n¡ð(10,1)¡ð(10,3)¡ð(10,5)¡ð(10,7)¡ð(10,9)¡ð\n");
-			cout << "\nÇëÊäÈë£¨Âäµãºá×ø±ê£¬Âäµãºá×ø±ê£©£¬Èç£¨2,1£©" << endl;
+			printf("â—‹(0, 1)â—‹(0 ,3)â—‹(0 ,5)â—‹(0,7 )â—‹(0, 9)â—‹\n1      1      1      1      1      1\n0      2      4      6      8     10\nâ—‹(2, 1)â—‹(2, 3)â—‹(2, 5)â—‹(2 ,7)â—‹(2, 9)â—‹\n3      3      3      3      3      3\n0      2      4      6      8     10\nâ—‹(4, 1)â—‹(4 ,3)â—‹(4, 5)â—‹(4 ,7)â—‹(4, 9)â—‹\n5      5      5      5      5      5\n0      2      4      6      8     10\nâ—‹(6, 1)â—‹(6, 3)â—‹(6, 5)â—‹(6 ,7)â—‹(6, 9)â—‹\n7      7      7      7      7      7\n0      2      4      6      8     10\nâ—‹ (8,1)â—‹(8 ,3)â—‹(8, 5)â—‹(8, 7)â—‹(8 ,9)â—‹\n9      9      9      9      9      9\n0      2      4      6      8     10\nâ—‹(10,1)â—‹(10,3)â—‹(10,5)â—‹(10,7)â—‹(10,9)â—‹\n");
+			cout << "\nè¯·è¾“å…¥ï¼ˆè½ç‚¹æ¨ªåæ ‡ï¼Œè½ç‚¹æ¨ªåæ ‡ï¼‰ï¼Œå¦‚ï¼ˆ2,1ï¼‰" << endl;
 			for (;;)
 			{
 				int locx, locy, owner;
 				owner = HUMAN;
 				scanf("%d,%d", &locy, &locx);
-				if ((owner == 1 || owner == 2) && locx >= 0 && locx <= (LEN - 1) && locy >= 0 && locy <= (LEN - 1))//ÏÞÖÆÈý¸öÊýµÄÊäÈë·¶Î§
+				if ((owner == 1 || owner == 2) && locx >= 0 && locx <= (LEN - 1) && locy >= 0 && locy <= (LEN - 1))//é™åˆ¶ä¸‰ä¸ªæ•°çš„è¾“å…¥èŒƒå›´
 				{
 					if (owner == 2)
 						owner = -1;
-					if ((IfOddNumber(locx) && IfEvenNumber(locy)) || (IfEvenNumber(locx) && IfOddNumber(locy)))//ÊäÈëµÄxyÎªÒ»¸öÆæÊýÓëÒ»¸öÅ¼Êý
+					if ((IfOddNumber(locx) && IfEvenNumber(locy)) || (IfEvenNumber(locx) && IfOddNumber(locy)))//è¾“å…¥çš„xyä¸ºä¸€ä¸ªå¥‡æ•°ä¸Žä¸€ä¸ªå¶æ•°
 					{
 						bool HH = CB.Move(locx, locy, owner);
 						if (HH)
-							cout << owner << "Õ¼¾ÝÁËÒ»¸ö¸ñ×Ó£¡" << endl;
+							cout << owner << "å æ®äº†ä¸€ä¸ªæ ¼å­ï¼" << endl;
 						break;
 					}
 					else
 					{
-						cout << "XYÖáÓ¦¸ÃÊÇÒ»¸öÆæÊýÓëÒ»¸öÅ¼Êý£¡" << endl;
+						cout << "XYè½´åº”è¯¥æ˜¯ä¸€ä¸ªå¥‡æ•°ä¸Žä¸€ä¸ªå¶æ•°ï¼" << endl;
 					}
 				}
 				else
 				{
-					cprintf("ÊäÈë´íÎó£¬ÇëÖØÐÂÊäÈëÃüÁî\n", 8);
+					cprintf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥å‘½ä»¤\n", 8);
 					scanf("%d,%d,%d", &locx, &locy, &owner);
 				}
-				cprintf("ÊäÈë´íÎó£¬ÇëÖØÐÂÊäÈëÃüÁî\n", 8);
+				cprintf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥å‘½ä»¤\n", 8);
 			}
 			system("cls");
 		}
 		else if (com == 1)
 		{
-			printf("ÕýÔÚ¼ÆËã¡­¡­¡­¡­");
-			//cout << "ÇëÊäÈëÂä×Ó·½(1»òÕß2)" << endl;
+			printf("æ­£åœ¨è®¡ç®—â€¦â€¦â€¦â€¦");
+			//cout << "è¯·è¾“å…¥è½å­æ–¹(1æˆ–è€…2)" << endl;
 			for (;;)
 			{
 				int owner;
@@ -393,15 +393,15 @@ int _tmain(int argc, _TCHAR* argv[])
 				{
 					if (owner == 2)
 						owner = BLUE;
-					//µçÄÔµÄÒÆ¶¯º¯Êý
+					//ç”µè„‘çš„ç§»åŠ¨å‡½æ•°
 					start = clock();
 					GameTurnMove(CB, owner, true);
 					finish = clock();
 					totaltime = (double)(finish - start) / CLOCKS_PER_SEC;
-					cout << "\nÏûºÄÊ±¼äÎª" << totaltime << "Ãë£¡" << endl;
+					cout << "\næ¶ˆè€—æ—¶é—´ä¸º" << totaltime << "ç§’ï¼" << endl;
 					break;
 				}
-				cprintf("ÊäÈë´íÎó£¬ÇëÖØÐÂÊäÈëÃüÁî", 8);
+				cprintf("è¾“å…¥é”™è¯¯ï¼Œè¯·é‡æ–°è¾“å…¥å‘½ä»¤", 8);
 			}
 		}
 	}

@@ -9,18 +9,18 @@ enum ChainType
 	NotDefine, SingleChain, LongChain, ShortChain, Circle, PreCircle, DeadChain, DeadCircle
 };
 
-//BoxTypeÀàÊÇÒ»¸öÓÃÓÚ¼ø¶¨ºóÆÚ¸ñ×ÓÀàĞÍµÄÀà
+//BoxTypeç±»æ˜¯ä¸€ä¸ªç”¨äºé‰´å®šåæœŸæ ¼å­ç±»å‹çš„ç±»
 class BoxType
 {
 public:
 	BoxType();
 	LOC BoxLoc;
-	int BoxOwner;			//¸ñ×ÓµÄÊôÖ÷£¬´ó²¿·Ö¸ñ×ÓÃ»ÓĞÊôÖ÷
-	int Type;				//[0]ÒÑ±»Õ¼Áì [1]ËÀ¸ñ [2]Á´¸ñ [3]×ÔÓÉ¸ñ
-	int BelongingChainNum;		//ËùÊôÁ´ÀàĞÍµÄ±àºÅ£¬»á´Ó1¿ªÊ¼×Ô¶¯±àºÅ¡£
+	int BoxOwner;			//æ ¼å­çš„å±ä¸»ï¼Œå¤§éƒ¨åˆ†æ ¼å­æ²¡æœ‰å±ä¸»
+	int Type;				//[0]å·²è¢«å é¢† [1]æ­»æ ¼ [2]é“¾æ ¼ [3]è‡ªç”±æ ¼
+	int BelongingChainNum;		//æ‰€å±é“¾ç±»å‹çš„ç¼–å·ï¼Œä¼šä»1å¼€å§‹è‡ªåŠ¨ç¼–å·ã€‚
 };
 
-//ChainInfoÊÇÒ»¸ö°üº¬ÁËÒ»ÌõÁ´µÄ»ù±¾ĞÅÏ¢µÄÀà
+//ChainInfoæ˜¯ä¸€ä¸ªåŒ…å«äº†ä¸€æ¡é“¾çš„åŸºæœ¬ä¿¡æ¯çš„ç±»
 class ChainInfo
 {
 public:
@@ -32,49 +32,49 @@ public:
 	bool ConditionOfPreCircle;
 };
 
-//BoxBoardÀàÊÇÒ»¸ö½ø½×µÄÀà
+//BoxBoardç±»æ˜¯ä¸€ä¸ªè¿›é˜¶çš„ç±»
 class BoxBoard :public Board
 {
 public:
-	BoxBoard(Board NewB);						//¹¹Ôìº¯Êı
-	BoxBoard(int Array[LEN][LEN], int step);	//¹¹Ôìº¯Êı
-	BoxType Boxes[BOXLEN + 1][BOXLEN + 1];			//ºóÆÚÆåÅÌµÄ»ù±¾ÀàĞÍ£¬ÓÉ¸ñ×Ó×é³É,±àºÅ´Ó1¿ªÊ¼¡£
-	ChainInfo Chains[BOXNUM];					//Á´µÄÊıÁ¿±Ø¶¨²»»á³¬¹ıÈ«²¿¸ñ×ÓÊı
-	int GetFirstEmptyChainNum();				//»ñµÃÒ»¸ö¿ÕµÄÁ´±àºÅ
-	void DefineBoxesType();						//½«ËùÓĞ¸ñ×ÓµÄ»ù±¾ĞÅÏ¢ÌîÈë¡£
-	int GetBoxType(int bx, int by);				//µÃµ½Ä³¸ö¸ñ×ÓµÄÀàĞÍ£¬²»ÔÚ×ø±ê·¶Î§ÄÚµÄÈ«²¿·µ»Ø×ÔÓÉ¸ñÀàĞÍ[×ø±êÏŞÖÆÎª1µ½BOXLEN]¡£
-	void ShowBoxType();							//ÏÔÊ¾ËùÓĞ¸ñ×ÓµÄÀàĞÍ
+	BoxBoard(Board NewB);						//æ„é€ å‡½æ•°
+	BoxBoard(int Array[LEN][LEN], int step);	//æ„é€ å‡½æ•°
+	BoxType Boxes[BOXLEN + 1][BOXLEN + 1];			//åæœŸæ£‹ç›˜çš„åŸºæœ¬ç±»å‹ï¼Œç”±æ ¼å­ç»„æˆ,ç¼–å·ä»1å¼€å§‹ã€‚
+	ChainInfo Chains[BOXNUM];					//é“¾çš„æ•°é‡å¿…å®šä¸ä¼šè¶…è¿‡å…¨éƒ¨æ ¼å­æ•°
+	int GetFirstEmptyChainNum();				//è·å¾—ä¸€ä¸ªç©ºçš„é“¾ç¼–å·
+	void DefineBoxesType();						//å°†æ‰€æœ‰æ ¼å­çš„åŸºæœ¬ä¿¡æ¯å¡«å…¥ã€‚
+	int GetBoxType(int bx, int by);				//å¾—åˆ°æŸä¸ªæ ¼å­çš„ç±»å‹ï¼Œä¸åœ¨åæ ‡èŒƒå›´å†…çš„å…¨éƒ¨è¿”å›è‡ªç”±æ ¼ç±»å‹[åæ ‡é™åˆ¶ä¸º1åˆ°BOXLEN]ã€‚
+	void ShowBoxType();							//æ˜¾ç¤ºæ‰€æœ‰æ ¼å­çš„ç±»å‹
 
-	//¼ø±ğÁ´
-	void ShowBelongingChain();									//ÏÔÊ¾ËùÓĞ¸ñ×ÓËùÊôµÄÁ´Óë¸÷¸öÁ´µÄĞÅÏ¢
-	void InheritChain(int InheritorRegNum, int AncesterRegNum);	//Ò»ÌõÁ´ÍÌ²¢ÁíÒ»ÌõÁ´
-	void RegisterChain(LOC FreeBoxLoc, LOC NextLoc);			//´ÓÒ»¸ö³¡ÄÚµÄ×ÔÓÉ¸ñ³ö·¢£¬¸øËùÓĞµÄÅÉÉúÁ´×öÒ»¸ö¶¨Òå¡£
-	void RegisterCircle(LOC StartLoc, LOC NextLoc);				//´ÓÒ»¸ö¸ñ³ö·¢£¬È·¶¨ÊÇ·ñÎªÒ»¸ö»·¡£
-	void SearchingFromBox(LOC BoxLoc);							//´ÓÒ»¸ö¸ñ³ö·¢£¬×¢²áËûµÄËùÓĞÅÉÉúÁ´,ChianPlusÓ¦½öÔÚÃ»ÓĞ¶ÌÁ´Ê±ÆôÓÃ¡£
-	void SearchingCircle(LOC BoxLoc);							//´ÓÒ»¸ö¸ñ³ö·¢£¬×¢²áËûµÄËùÓĞÅÉÉú»·¡£
-	void ResetChainsInfo();										//ÖØ¶¨ÒåÁ´Óë¸ñµÄµÄĞÅÏ¢
-	void DefineAllChains(bool ChainPlus);						//¶¨ÒåËùÓĞµÄÁ´
+	//é‰´åˆ«é“¾
+	void ShowBelongingChain();									//æ˜¾ç¤ºæ‰€æœ‰æ ¼å­æ‰€å±çš„é“¾ä¸å„ä¸ªé“¾çš„ä¿¡æ¯
+	void InheritChain(int InheritorRegNum, int AncesterRegNum);	//ä¸€æ¡é“¾åå¹¶å¦ä¸€æ¡é“¾
+	void RegisterChain(LOC FreeBoxLoc, LOC NextLoc);			//ä»ä¸€ä¸ªåœºå†…çš„è‡ªç”±æ ¼å‡ºå‘ï¼Œç»™æ‰€æœ‰çš„æ´¾ç”Ÿé“¾åšä¸€ä¸ªå®šä¹‰ã€‚
+	void RegisterCircle(LOC StartLoc, LOC NextLoc);				//ä»ä¸€ä¸ªæ ¼å‡ºå‘ï¼Œç¡®å®šæ˜¯å¦ä¸ºä¸€ä¸ªç¯ã€‚
+	void SearchingFromBox(LOC BoxLoc);							//ä»ä¸€ä¸ªæ ¼å‡ºå‘ï¼Œæ³¨å†Œä»–çš„æ‰€æœ‰æ´¾ç”Ÿé“¾,ChianPlusåº”ä»…åœ¨æ²¡æœ‰çŸ­é“¾æ—¶å¯ç”¨ã€‚
+	void SearchingCircle(LOC BoxLoc);							//ä»ä¸€ä¸ªæ ¼å‡ºå‘ï¼Œæ³¨å†Œä»–çš„æ‰€æœ‰æ´¾ç”Ÿç¯ã€‚
+	void ResetChainsInfo();										//é‡å®šä¹‰é“¾ä¸æ ¼çš„çš„ä¿¡æ¯
+	void DefineAllChains(bool ChainPlus);						//å®šä¹‰æ‰€æœ‰çš„é“¾
 
-	//ËµÃ÷£ºÁ´ÊÇ¶¯Ì¬×¢²áµÄ¡£µ±Ò»ÌõÁ´±»¹éÀàµ½ÁíÒ»ÌõÁ´Ê±ºò£¬Ëû±¾Éí»á±»ÖØĞÂ¶¨ÒåÎª"NotDefine"£¬¶øÃ¿´ÎĞèÒª×¢²áÁ´µÄÊ±ºò»á´Ó0¿ªÊ¼²éÕÒµ½Ò»Ìõ¿ÕÁ´¡£
+	//è¯´æ˜ï¼šé“¾æ˜¯åŠ¨æ€æ³¨å†Œçš„ã€‚å½“ä¸€æ¡é“¾è¢«å½’ç±»åˆ°å¦ä¸€æ¡é“¾æ—¶å€™ï¼Œä»–æœ¬èº«ä¼šè¢«é‡æ–°å®šä¹‰ä¸º"NotDefine"ï¼Œè€Œæ¯æ¬¡éœ€è¦æ³¨å†Œé“¾çš„æ—¶å€™ä¼šä»0å¼€å§‹æŸ¥æ‰¾åˆ°ä¸€æ¡ç©ºé“¾ã€‚
 
-	//ÀàĞÍÅĞ¶Ï
-	void RegisterDeadChain(LOC FreeBoxLoc, LOC NextLoc);		//´ÓÒ»¸ö³¡ÄÚµÄËÀ¸ñ³ö·¢£¬¸øÆäÅÉÉúÁ´×öÒ»¸ö¶¨Òå¡£
-	void SearchingDeadChain(LOC BoxLoc);						//´ÓÒ»¸ö¸ñ³ö·¢£¬×¢²áËûµÄËùÓĞÅÉÉú»·¡£
-	void DefineDeadChain();										//¼ì²éËùÓĞµÄËÀ¸ñ
+	//ç±»å‹åˆ¤æ–­
+	void RegisterDeadChain(LOC FreeBoxLoc, LOC NextLoc);		//ä»ä¸€ä¸ªåœºå†…çš„æ­»æ ¼å‡ºå‘ï¼Œç»™å…¶æ´¾ç”Ÿé“¾åšä¸€ä¸ªå®šä¹‰ã€‚
+	void SearchingDeadChain(LOC BoxLoc);						//ä»ä¸€ä¸ªæ ¼å‡ºå‘ï¼Œæ³¨å†Œä»–çš„æ‰€æœ‰æ´¾ç”Ÿç¯ã€‚
+	void DefineDeadChain();										//æ£€æŸ¥æ‰€æœ‰çš„æ­»æ ¼
 	bool GetDeadChainExist();
 	bool GetDeadCircleExist();
 
-	//Õ¼¾İÁ´
-	bool CaptualAnySingleChain(int LatterPlayer);				//Ëæ»úÍÌ²¢Ò»Ìõµ¥Á´£¬²ÎÊıÎªÕ¼ÁìÕß¡£
-	bool CaptualAnyShortChain(int LatterPlayer);				//Ëæ»úÍÌ²¢Ò»Ìõ¶ÌÁ´£¬²ÎÊıÎªÕ¼ÁìÕß¡£
-	bool CaptualShortestChain(int LatterPlayer);				//ÍÌ²¢Ò»Ìõµ±Ç°×î¶ÌµÄ³¤Á´»òÕß»·
+	//å æ®é“¾
+	bool CaptualAnySingleChain(int LatterPlayer);				//éšæœºåå¹¶ä¸€æ¡å•é“¾ï¼Œå‚æ•°ä¸ºå é¢†è€…ã€‚
+	bool CaptualAnyShortChain(int LatterPlayer);				//éšæœºåå¹¶ä¸€æ¡çŸ­é“¾ï¼Œå‚æ•°ä¸ºå é¢†è€…ã€‚
+	bool CaptualShortestChain(int LatterPlayer);				//åå¹¶ä¸€æ¡å½“å‰æœ€çŸ­çš„é•¿é“¾æˆ–è€…ç¯
 
-	//´ò¿ªÁ´
+	//æ‰“å¼€é“¾
 	LOC GetOpenShortestChainLoc();
 	LOC GetOpenSuitableChainLoc();
 
-	//×îÖÕÅĞ¶¨¾ÖÃæ
-	bool RationalState(LOC BoxNum);								//ÅĞ¶ÏË«·½ÊÇ·ñÎªÀíĞÔ×´Ì¬
-	LOC GetRationalStateBoxNum();								//»ñµÃµ±Ç°¾ÖÃæÏÂË«·½ÒÔÀíĞÔ×´Ì¬¿ÉÒÔ»ñµÃµÄ¸ñ×ÓÊıÁ¿£¬xÎªÏÈÊÖ£¬yÎªºóÊÖ
-	int GetBoardWinner(int LatterPlayer);						//»ñµÃ±¾¾ÖÃæÏÂµÄÊ¤ÀûÕß£¬²ÎÊıÎªºóÊÖ·½¡£
+	//æœ€ç»ˆåˆ¤å®šå±€é¢
+	bool RationalState(LOC BoxNum);								//åˆ¤æ–­åŒæ–¹æ˜¯å¦ä¸ºç†æ€§çŠ¶æ€
+	LOC GetRationalStateBoxNum();								//è·å¾—å½“å‰å±€é¢ä¸‹åŒæ–¹ä»¥ç†æ€§çŠ¶æ€å¯ä»¥è·å¾—çš„æ ¼å­æ•°é‡ï¼Œxä¸ºå…ˆæ‰‹ï¼Œyä¸ºåæ‰‹
+	int GetBoardWinner(int LatterPlayer);						//è·å¾—æœ¬å±€é¢ä¸‹çš„èƒœåˆ©è€…ï¼Œå‚æ•°ä¸ºåæ‰‹æ–¹ã€‚
 };

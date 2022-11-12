@@ -7,7 +7,7 @@
 
 using namespace std;
 
-//»ù´¡Àà
+//åŸºç¡€ç±»
 void LOC::Set(int lx, int ly)
 {
 	x = lx;
@@ -20,19 +20,19 @@ TURN::TURN()
 		for (int j = 0; j < LEN; j++)
 		{
 			Captual[i][j] = false;
-			if (IfOddNumber(i) && IfOddNumber(j))//xy¾ùÎªÆæÊı£¬Îª¸ñ×Ó
+			if (IfOddNumber(i) && IfOddNumber(j))//xyå‡ä¸ºå¥‡æ•°ï¼Œä¸ºæ ¼å­
 			{
 				NewBoard[i][j] = BOX;
 			}
-			else if (IfEvenNumber(i) && IfOddNumber(j))//xÅ¼Êı£¬yÆæÊı£¬ÎªĞĞ
+			else if (IfEvenNumber(i) && IfOddNumber(j))//xå¶æ•°ï¼Œyå¥‡æ•°ï¼Œä¸ºè¡Œ
 			{
 				NewBoard[i][j] = EDGE;
 			}
-			else if (IfOddNumber(i) && IfEvenNumber(j))//xÆæÊı£¬yÅ¼Êı£¬ÎªĞĞ
+			else if (IfOddNumber(i) && IfEvenNumber(j))//xå¥‡æ•°ï¼Œyå¶æ•°ï¼Œä¸ºè¡Œ
 			{
 				NewBoard[i][j] = EDGE;
 			}
-			else//Ê£ÏÂµÄ¾ÍÊÇxy¾ùÅ¼Êı£¬Îª¿Õµã¡£
+			else//å‰©ä¸‹çš„å°±æ˜¯xyå‡å¶æ•°ï¼Œä¸ºç©ºç‚¹ã€‚
 			{
 				NewBoard[i][j] = EMPTY;
 			}
@@ -61,7 +61,7 @@ void TURN::SetCaptualInfo(int OB[LEN][LEN], int NB[LEN][LEN])
 	}
 }
 
-//¶¨ÒåÆåÅÌÀà
+//å®šä¹‰æ£‹ç›˜ç±»
 Board::Board()
 {
 	Step = 0;
@@ -69,19 +69,19 @@ Board::Board()
 	{
 		for(int j=0;j<LEN;j++)
 		{
-			if(IfOddNumber(i)&&IfOddNumber(j))//xy¾ùÎªÆæÊı£¬Îª¸ñ×Ó
+			if(IfOddNumber(i)&&IfOddNumber(j))//xyå‡ä¸ºå¥‡æ•°ï¼Œä¸ºæ ¼å­
 			{
 				board[i][j] = BOX;
 			}
-			else if(IfEvenNumber(i)&&IfOddNumber(j))//xÅ¼Êı£¬yÆæÊı£¬ÎªĞĞ
+			else if(IfEvenNumber(i)&&IfOddNumber(j))//xå¶æ•°ï¼Œyå¥‡æ•°ï¼Œä¸ºè¡Œ
 			{
 				board[i][j] = EDGE;
 			}
-			else if(IfOddNumber(i)&&IfEvenNumber(j))//xÆæÊı£¬yÅ¼Êı£¬ÎªĞĞ
+			else if(IfOddNumber(i)&&IfEvenNumber(j))//xå¥‡æ•°ï¼Œyå¶æ•°ï¼Œä¸ºè¡Œ
 			{
 				board[i][j] = EDGE;
 			}
-			else//Ê£ÏÂµÄ¾ÍÊÇxy¾ùÅ¼Êı£¬Îª¿Õµã¡£
+			else//å‰©ä¸‹çš„å°±æ˜¯xyå‡å¶æ•°ï¼Œä¸ºç©ºç‚¹ã€‚
 			{
 				board[i][j] = EMPTY;
 			}
@@ -127,7 +127,7 @@ int Board::GetEmptyBoxes()
 }
 void Board::PrintBoard()
 {
-	//´òÓ¡ÆåÅÌº¯Êı
+	//æ‰“å°æ£‹ç›˜å‡½æ•°
 	cout<<"  ";
 	for(int i = 0;i<=(LEN-1);i++)
 	{
@@ -145,50 +145,50 @@ void Board::PrintBoard()
 			}
 			else if(board[i][j]==RED_BOX)
 			{
-				cprintf("¡ö",12);
+				cprintf("â– ",12);
 			}
 			else if(board[i][j]==BLUE_BOX)
 			{
-				cprintf("¡ö",9);
+				cprintf("â– ",9);
 			}
 			else if(board[i][j]==EDGE)
 			{
 				if(IfOddNumber(j)&&IfEvenNumber(i))
 				{
 					cout << "  ";
-					//cprintf("©§",15);
+					//cprintf("â”ƒ",15);
 				}
 				else
 				{
 					cout << "  ";
-					//cprintf("©¥",15);
+					//cprintf("â”",15);
 				}
 			}
 			else if(board[i][j]==RED_EDGE)
 			{
 				if(IfOddNumber(j)&&IfEvenNumber(i))
 				{
-					cprintf("©§",12);
+					cprintf("â”ƒ",12);
 				}
 				else
 				{
-					cprintf("©¥",12);
+					cprintf("â”",12);
 				}
 			}
 			else if(board[i][j]==BLUE_EDGE)
 			{
 				if(IfOddNumber(j)&&IfEvenNumber(i))
 				{
-					cprintf("©§",9);
+					cprintf("â”ƒ",9);
 				}
 				else
 				{
-					cprintf("©¥",9);
+					cprintf("â”",9);
 				}
 			}
 			else if(board[i][j]==EMPTY)
 			{
-				cprintf("¡ğ", 15);
+				cprintf("â—‹", 15);
 			}
 		}
 		printf("%2d",j);
@@ -203,7 +203,7 @@ void Board::PrintBoard()
 }
 void Board::ShowBoard()
 {
-	//´òÓ¡ÆåÅÌº¯Êı
+	//æ‰“å°æ£‹ç›˜å‡½æ•°
 	cout << "  ";
 	for (int i = 0; i <= (LEN - 1); i++)
 	{
@@ -221,82 +221,82 @@ void Board::ShowBoard()
 			}
 			else if (board[i][j] == RED_BOX)
 			{
-				cprintf("¡ö", 12);
+				cprintf("â– ", 12);
 			}
 			else if (board[i][j] == BLUE_BOX)
 			{
-				cprintf("¡ö", 9);
+				cprintf("â– ", 9);
 			}
 			else if (board[i][j] == EDGE)
 			{
 				if (IfOddNumber(j) && IfEvenNumber(i))
 				{
-					cprintf("©§", 15);
+					cprintf("â”ƒ", 15);
 				}
 				else
 				{
-					cprintf("©¥", 15);
+					cprintf("â”", 15);
 				}
 			}
 			else if (board[i][j] == RED_EDGE)
 			{
 				if (IfOddNumber(j) && IfEvenNumber(i))
 				{
-					cprintf("©§", 12);
+					cprintf("â”ƒ", 12);
 				}
 				else
 				{
-					cprintf("©¥", 12);
+					cprintf("â”", 12);
 				}
 			}
 			else if (board[i][j] == BLUE_EDGE)
 			{
 				if (IfOddNumber(j) && IfEvenNumber(i))
 				{
-					cprintf("©§", 9);
+					cprintf("â”ƒ", 9);
 				}
 				else
 				{
-					cprintf("©¥", 9);
+					cprintf("â”", 9);
 				}
 			}
 			else if (board[i][j] == EMPTY)
 			{
 				if (i == 0 && j == 0)
 				{
-					cprintf("©°", 8);
+					cprintf("â”Œ", 8);
 				}
 				else if (i == (LEN - 1) && j == 0)
 				{
-					cprintf("©´", 8);
+					cprintf("â”", 8);
 				}
 				else if (i == 0 && j == (LEN - 1))
 				{
-					cprintf("©¸", 8);
+					cprintf("â””", 8);
 				}
 				else if (i == (LEN - 1) && j == (LEN - 1))
 				{
-					cprintf("©¼", 8);
+					cprintf("â”˜", 8);
 				}
 				else if (i == 0 && j != (LEN - 1) && j != 0)
 				{
-					cprintf("©À", 8);
+					cprintf("â”œ", 8);
 				}
 				else if (i == (LEN - 1) && j != (LEN - 1) && j != 0)
 				{
-					cprintf("©È", 8);
+					cprintf("â”¤", 8);
 				}
 				else if (j == 0 && i != (LEN - 1) && i != 0)
 				{
-					cprintf("©Ğ", 8);
+					cprintf("â”¬", 8);
 				}
 				else if (j == (LEN - 1) && i != (LEN - 1) && i != 0)
 				{
-					cprintf("©Ø", 8);
+					cprintf("â”´", 8);
 				}
 				else
 				{
-					cprintf("©à", 8);
+					cprintf("â”¼", 8);
 				}
 			}
 		}
@@ -346,7 +346,7 @@ int Board::GetEdgeOwner(int x,int y)
 	int num = board[x][y];
 	if(num!=EDGE&&num!=RED_EDGE&&num!=BLUE_EDGE)
 	{
-		cout<<"GetEdgeOwnerPlayerº¯ÊıÊäÈëÁËÒ»¸ö´íÎóµÄµØÖ·";
+		cout<<"GetEdgeOwnerPlayerå‡½æ•°è¾“å…¥äº†ä¸€ä¸ªé”™è¯¯çš„åœ°å€";
 		return 0;
 	}
 	if(num>0)
@@ -366,7 +366,7 @@ int Board::GetBoxOwner(int x,int y)
 	int num = board[x][y];
 	if(num!=BOX&&num!=RED_BOX&&num!=BLUE_BOX)
 	{
-		cout<<"GetEdgeOwnerPlayerº¯ÊıÊäÈëÁËÒ»¸ö´íÎóµÄµØÖ·";
+		cout<<"GetEdgeOwnerPlayerå‡½æ•°è¾“å…¥äº†ä¸€ä¸ªé”™è¯¯çš„åœ°å€";
 		return 0;
 	}
 	if(num>0)
@@ -386,7 +386,7 @@ int Board::GetBoxLiberties(int x,int y)
 	int num = board[x][y];
 	if(num!=BOX&&num!=RED_BOX&&num!=BLUE_BOX)
 	{
-		cout<<"GetBoxLibertiesº¯ÊıÊäÈëÁËÒ»¸ö´íÎóµÄµØÖ·";
+		cout<<"GetBoxLibertieså‡½æ•°è¾“å…¥äº†ä¸€ä¸ªé”™è¯¯çš„åœ°å€";
 		return 0;
 	}
 	int lib = 0;
@@ -493,7 +493,7 @@ void Board::LoadBoard()
 			{
 				system("cls");
 				PrintBoard();
-				cout << "ÇëÊäÈë[" << i << " , " << j << "]ÕâÌõ±ßµÄÊôÖ÷¡¾0£¬1£¬2¡¿" << endl;
+				cout << "è¯·è¾“å…¥[" << i << " , " << j << "]è¿™æ¡è¾¹çš„å±ä¸»ã€0ï¼Œ1ï¼Œ2ã€‘" << endl;
 				int Num;
 				cin >> Num;
 				if (Num == 1)
@@ -515,7 +515,7 @@ void Board::LoadBoard()
 			{
 				system("cls");
 				PrintBoard();
-				cout << "ÇëÊäÈë[" << i << " , " << j << "]Õâ¸ö¸ñ×ÓµÄÊôÖ÷¡¾0£¬1£¬2¡¿" << endl;
+				cout << "è¯·è¾“å…¥[" << i << " , " << j << "]è¿™ä¸ªæ ¼å­çš„å±ä¸»ã€0ï¼Œ1ï¼Œ2ã€‘" << endl;
 				int Num;
 				cin >> Num;
 				if (Num == 1)
@@ -534,11 +534,11 @@ void Board::LoadBoard()
 	cout << "Load Board Finish!" << endl;
 }
 
-//¾ÖÃæ¹ÀÖµ
+//å±€é¢ä¼°å€¼
 bool Board::GetFreeBoxBool(int bx, int by)
 {
-	//×¢ÒâµÄÊÇ£¬ÊäÈëµÄXÓëYÊÇBoxÊµ¼ÊµØÖ·
-	if (1<=bx&&LEN-2>=bx&&1<=by&&LEN-2>=by&&IfOddNumber(bx)&&IfOddNumber(by))//BoxÎ»ÖÃ±àºÅ±ØĞëÕıÈ·
+	//æ³¨æ„çš„æ˜¯ï¼Œè¾“å…¥çš„Xä¸Yæ˜¯Boxå®é™…åœ°å€
+	if (1<=bx&&LEN-2>=bx&&1<=by&&LEN-2>=by&&IfOddNumber(bx)&&IfOddNumber(by))//Boxä½ç½®ç¼–å·å¿…é¡»æ­£ç¡®
 	{
 		if (GetBoxLiberties(bx, by) >= 3)
 			return true;
@@ -555,55 +555,55 @@ bool Board::GetFreeBoxBool(int bx, int by)
 int Board::GetFreeEdgeNum()
 {
 	int EdgeNum = 0;
-	//µÃµ½ËùÓĞµÄ×ÔÓÉ±ß
+	//å¾—åˆ°æ‰€æœ‰çš„è‡ªç”±è¾¹
 	for (int y = 1; y < LEN - 1; y = y + 2)
 	{
-		//ÏÈÅĞ¶¨Í·²¿µÚÒ»¸ö¸ñ×ÓÓëÍâ½çµÄ±ßÊÇ·ñ×ÔÓÉ±ß
-		if (GetFreeBoxBool(1, y) && GetEdgeLegality(0, y))//µÚÒ»¸öÎª½»¸ñ¶øÇÒÓëÍâ½ç½»»¥µÄ±ßÎª¿Õ±ß
+		//å…ˆåˆ¤å®šå¤´éƒ¨ç¬¬ä¸€ä¸ªæ ¼å­ä¸å¤–ç•Œçš„è¾¹æ˜¯å¦è‡ªç”±è¾¹
+		if (GetFreeBoxBool(1, y) && GetEdgeLegality(0, y))//ç¬¬ä¸€ä¸ªä¸ºäº¤æ ¼è€Œä¸”ä¸å¤–ç•Œäº¤äº’çš„è¾¹ä¸ºç©ºè¾¹
 		{
-			EdgeNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+			EdgeNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 		}
-		//Ñ­»·ÅĞ¶¨ÖĞ¼äµÄ¼¸¸ö¸ñ×Ó
-		for (int x = 1; x < LEN - 3; x = x + 2)//xÖá
+		//å¾ªç¯åˆ¤å®šä¸­é—´çš„å‡ ä¸ªæ ¼å­
+		for (int x = 1; x < LEN - 3; x = x + 2)//xè½´
 		{
 			if (GetFreeBoxBool(x, y) && GetFreeBoxBool(x + 2, y) && GetEdgeLegality(x + 1, y))
 			{
-				EdgeNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+				EdgeNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 			}
 		}
-		//ÅĞ¶ÏÄ©Î²µÄ¸ñ×Ó
-		if (GetFreeBoxBool(LEN - 2, y) && GetEdgeLegality(LEN - 1, y))//×îºóÒ»¸öÎª½»¸ñÇÒÓëÍâ½ç½»»¥µÄ±ßÎª¿Õ±ß
+		//åˆ¤æ–­æœ«å°¾çš„æ ¼å­
+		if (GetFreeBoxBool(LEN - 2, y) && GetEdgeLegality(LEN - 1, y))//æœ€åä¸€ä¸ªä¸ºäº¤æ ¼ä¸”ä¸å¤–ç•Œäº¤äº’çš„è¾¹ä¸ºç©ºè¾¹
 		{
-			EdgeNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+			EdgeNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 		}
 
-		//XYÌæ»»£¬ÔÙ½øĞĞÒ»´ÎÅĞ¶¨
+		//XYæ›¿æ¢ï¼Œå†è¿›è¡Œä¸€æ¬¡åˆ¤å®š
 
-		//ÏÈÅĞ¶¨Í·²¿µÚÒ»¸ö¸ñ×ÓÓëÍâ½çµÄ±ßÊÇ·ñ×ÔÓÉ±ß
-		if (GetFreeBoxBool(y, 1) && GetEdgeLegality(y, 0))//µÚÒ»¸öÎª½»¸ñ¶øÇÒÓëÍâ½ç½»»¥µÄ±ßÎª¿Õ±ß
+		//å…ˆåˆ¤å®šå¤´éƒ¨ç¬¬ä¸€ä¸ªæ ¼å­ä¸å¤–ç•Œçš„è¾¹æ˜¯å¦è‡ªç”±è¾¹
+		if (GetFreeBoxBool(y, 1) && GetEdgeLegality(y, 0))//ç¬¬ä¸€ä¸ªä¸ºäº¤æ ¼è€Œä¸”ä¸å¤–ç•Œäº¤äº’çš„è¾¹ä¸ºç©ºè¾¹
 		{
-			EdgeNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+			EdgeNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 		}
-		//Ñ­»·ÅĞ¶¨ÖĞ¼äµÄ¼¸¸ö¸ñ×Ó
-		for (int x = 1; x < LEN - 3; x = x + 2)//xÖá
+		//å¾ªç¯åˆ¤å®šä¸­é—´çš„å‡ ä¸ªæ ¼å­
+		for (int x = 1; x < LEN - 3; x = x + 2)//xè½´
 		{
 			if (GetFreeBoxBool(y, x) && GetFreeBoxBool(y, x + 2) && GetEdgeLegality(y, x + 1))
 			{
-				EdgeNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+				EdgeNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 			}
 		}
-		//ÅĞ¶ÏÄ©Î²µÄ¸ñ×Ó
-		if (GetFreeBoxBool(y, LEN - 2) && GetEdgeLegality(y, LEN - 1))//×îºóÒ»¸öÎª½»¸ñÇÒÓëÍâ½ç½»»¥µÄ±ßÎª¿Õ±ß
+		//åˆ¤æ–­æœ«å°¾çš„æ ¼å­
+		if (GetFreeBoxBool(y, LEN - 2) && GetEdgeLegality(y, LEN - 1))//æœ€åä¸€ä¸ªä¸ºäº¤æ ¼ä¸”ä¸å¤–ç•Œäº¤äº’çš„è¾¹ä¸ºç©ºè¾¹
 		{
-			EdgeNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+			EdgeNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 		}
 	}
-	return EdgeNum;//·µ»Ø×ÔÓÉ±ßµÄ×ÜÊı
+	return EdgeNum;//è¿”å›è‡ªç”±è¾¹çš„æ€»æ•°
 }
 bool Board::GetCTypeBoxBool(int bx, int by)
 {
-	//×¢ÒâµÄÊÇ£¬ÊäÈëµÄXÓëYÊÇBoxÊµ¼ÊµØÖ·
-	if (bx >= 1 && bx <= LEN - 2 && by >= 1 && by <= LEN - 2 && IfOddNumber(bx) && IfOddNumber(by))//BoxÎ»ÖÃ±àºÅ±ØĞëÕıÈ·
+	//æ³¨æ„çš„æ˜¯ï¼Œè¾“å…¥çš„Xä¸Yæ˜¯Boxå®é™…åœ°å€
+	if (bx >= 1 && bx <= LEN - 2 && by >= 1 && by <= LEN - 2 && IfOddNumber(bx) && IfOddNumber(by))//Boxä½ç½®ç¼–å·å¿…é¡»æ­£ç¡®
 	{
 		if (GetBoxLiberties(bx, by) ==DEADBOX)
 			return true;
@@ -614,10 +614,10 @@ bool Board::GetCTypeBoxBool(int bx, int by)
 }
 bool Board::GetCTypeBox(int Player,bool Msg)
 {
-	//½öÓÃÔÚÇ°ÆÚ£¬ÓÃÓÚÔÚËÑË÷µÄÊ±ºòÕ¼ÁìËùÓĞCĞÍ¸ñ
+	//ä»…ç”¨åœ¨å‰æœŸï¼Œç”¨äºåœ¨æœç´¢çš„æ—¶å€™å é¢†æ‰€æœ‰Cå‹æ ¼
 	for (int y = 1; y < LEN - 1; y = y + 2)
 	{
-		for (int x = 1; x < LEN - 1; x = x + 2)//xÖá
+		for (int x = 1; x < LEN - 1; x = x + 2)//xè½´
 		{
 			if (GetCTypeBoxBool(x,y))
 			{
@@ -650,11 +650,11 @@ bool Board::GetCTypeBox(int Player,bool Msg)
 				{
 					MoveMsg(lx, ly, Player);
 				}
-				return true;//Õ¼¾İÖ®ºó¾Í·µ»ØÕæ
+				return true;//å æ®ä¹‹åå°±è¿”å›çœŸ
 			}
 		}
 	}
-	return false;//·µ»Ø¼Ù
+	return false;//è¿”å›å‡
 }
 bool Board::GetLongCTypeBoxExist()
 {
@@ -662,7 +662,7 @@ bool Board::GetLongCTypeBoxExist()
 	{
 		for (int bx = 1; bx < LEN - 1; bx = bx + 2)
 		{
-			if (GetBoxLiberties(bx, by) == DEADBOX)//Èç¹û´æÔÚ×ÔÓÉ¶ÈÎª1µÄ¸ñ×Ó
+			if (GetBoxLiberties(bx, by) == DEADBOX)//å¦‚æœå­˜åœ¨è‡ªç”±åº¦ä¸º1çš„æ ¼å­
 			{
 				int Dir[4][2] = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 				for (int n = 0; n < 4; n++)
@@ -684,7 +684,7 @@ bool Board::GetLongCTypeBoxExist()
 }
 void Board::GetAllCTypeBoxes(int Player,bool Msg)
 {
-	for (;;)//Ö±µ½ÎŞ·¨Õ¼¾İCTypeBoxÁË¾Í½áÊø
+	for (;;)//ç›´åˆ°æ— æ³•å æ®CTypeBoxäº†å°±ç»“æŸ
 	{
 		if (!GetCTypeBox(Player, Msg))
 			break;
@@ -692,45 +692,45 @@ void Board::GetAllCTypeBoxes(int Player,bool Msg)
 }
 LOC Board::FindNextBox(LOC FoundBox, LOC LastBox)
 {
-	//²éÕÒÄ³¸öÁ´¸ñ,¸ø³öµÄ×ø±ê¿ÉÄÜ°üº¬³¬Çø×ø±ê¡£ÇëÊ¹ÓÃÇ°ÀûÓÃGetBoxType¼ø¶¨
+	//æŸ¥æ‰¾æŸä¸ªé“¾æ ¼,ç»™å‡ºçš„åæ ‡å¯èƒ½åŒ…å«è¶…åŒºåæ ‡ã€‚è¯·ä½¿ç”¨å‰åˆ©ç”¨GetBoxTypeé‰´å®š
 	int fbx = FoundBox.x * 2 - 1;
 	int fby = FoundBox.y * 2 - 1;
 	LOC AimBox;
-	if (board[fbx + 1][fby] == EDGE && ((FoundBox.x + 1) != LastBox.x || (FoundBox.y) != LastBox.y))//·½ÏòÎª0¶È
+	if (board[fbx + 1][fby] == EDGE && ((FoundBox.x + 1) != LastBox.x || (FoundBox.y) != LastBox.y))//æ–¹å‘ä¸º0åº¦
 	{
 		AimBox.Set(FoundBox.x + 1, FoundBox.y);
 		return AimBox;
 	}
-	else if (board[fbx][fby + 1] == EDGE && ((FoundBox.x) != LastBox.x || (FoundBox.y + 1) != LastBox.y))//·½ÏòÎª90¶È
+	else if (board[fbx][fby + 1] == EDGE && ((FoundBox.x) != LastBox.x || (FoundBox.y + 1) != LastBox.y))//æ–¹å‘ä¸º90åº¦
 	{
 		AimBox.Set(FoundBox.x, FoundBox.y + 1);
 		return AimBox;
 	}
-	else if (board[fbx - 1][fby] == EDGE && ((FoundBox.x - 1) != LastBox.x || (FoundBox.y) != LastBox.y))//·½ÏòÎª180¶È
+	else if (board[fbx - 1][fby] == EDGE && ((FoundBox.x - 1) != LastBox.x || (FoundBox.y) != LastBox.y))//æ–¹å‘ä¸º180åº¦
 	{
 		AimBox.Set(FoundBox.x - 1, FoundBox.y);
 		return AimBox;
 	}
-	else if (board[fbx][fby - 1] == EDGE && ((FoundBox.x) != LastBox.x || (FoundBox.y - 1) != LastBox.y))//·½ÏòÎª270¶È
+	else if (board[fbx][fby - 1] == EDGE && ((FoundBox.x) != LastBox.x || (FoundBox.y - 1) != LastBox.y))//æ–¹å‘ä¸º270åº¦
 	{
 		AimBox.Set(FoundBox.x, FoundBox.y - 1);
 		return AimBox;
 	}
-	AimBox.Set(0, 0);//´ú±í´íÎó
+	AimBox.Set(0, 0);//ä»£è¡¨é”™è¯¯
 	return AimBox;
 }
 
-//ºóÆÚ¼ÆËã
+//åæœŸè®¡ç®—
 LOC Board::GetDoubleCrossLoc(int Player)
 {
-	//µÃµ½¿ÉÒÔÖÆÔìË«½»µÄÄÇ¸ö±ßµÄ×ø±ê
+	//å¾—åˆ°å¯ä»¥åˆ¶é€ åŒäº¤çš„é‚£ä¸ªè¾¹çš„åæ ‡
 	for (int by = 1; by < LEN - 1; by = by + 2)
 	{
 		for (int bx = 1; bx < LEN - 1; bx = bx + 2)
 		{
 			if (GetLongCTypeBoxBool(bx, by))
 			{
-				//ÏÖÔÚµÄbxºÍby¾ÍÊÇÊµ¼ÊµÄ¸ñ×Ó
+				//ç°åœ¨çš„bxå’Œbyå°±æ˜¯å®é™…çš„æ ¼å­
 				int Dir[4][2] = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 				for (int n = 0; n < 4; n++)
 				{
@@ -740,12 +740,12 @@ LOC Board::GetDoubleCrossLoc(int Player)
 					int nby = by + Dir[n][1] + Dir[n][1];
 					if (board[ex][ey] == EDGE&&nbx >= 1 && nbx <= LEN - 2 && nby >= 1 && nby <= LEN - 2)
 					{
-						//ÏÖÔÚex,eyÊÇÆä¹«¹²±ß£¬nbx,nbyÊÇdoublecrossµÄÄ©¶ËCHAINBOX
+						//ç°åœ¨ex,eyæ˜¯å…¶å…¬å…±è¾¹ï¼Œnbx,nbyæ˜¯doublecrossçš„æœ«ç«¯CHAINBOX
 						for (int n = 0; n < 4; n++)
 						{
 							int nex = nbx + Dir[n][0];
 							int ney = nby + Dir[n][1];
-							if (board[nex][ney] == EDGE && (nex != ex || ney != ey))//¿Õ±ß¶øÇÒ²»ÊÇÖĞ¼äµÄ¹«¹²±ß(ex,ey)
+							if (board[nex][ney] == EDGE && (nex != ex || ney != ey))//ç©ºè¾¹è€Œä¸”ä¸æ˜¯ä¸­é—´çš„å…¬å…±è¾¹(ex,ey)
 							{
 								LOC k;
 								k.Set(nex, ney);
@@ -763,10 +763,10 @@ LOC Board::GetDoubleCrossLoc(int Player)
 }
 bool Board::GetCTypeBoxLimit(int Player,bool Msg)
 {
-	//½öÓÃÔÚÇ°ÆÚ£¬ÓÃÓÚÔÚËÑË÷µÄÊ±ºòÕ¼ÁìËùÓĞCĞÍ¸ñ
+	//ä»…ç”¨åœ¨å‰æœŸï¼Œç”¨äºåœ¨æœç´¢çš„æ—¶å€™å é¢†æ‰€æœ‰Cå‹æ ¼
 	for (int y = 1; y < LEN - 1; y = y + 2)
 	{
-		for (int x = 1; x < LEN - 1; x = x + 2)//xÖá
+		for (int x = 1; x < LEN - 1; x = x + 2)//xè½´
 		{
 			if (GetCTypeBoxBool(x, y))
 			{
@@ -780,7 +780,7 @@ bool Board::GetCTypeBoxLimit(int Player,bool Msg)
 					{
 						MoveMsg(lx, ly, Player);
 					}
-					return true;//Õ¼¾İÖ®ºó¾Í·µ»ØÕæ
+					return true;//å æ®ä¹‹åå°±è¿”å›çœŸ
 				}
 				else if (board[x - 1][y] == EDGE&&!GetCTypeBoxBool(x - 2, y))
 				{
@@ -792,7 +792,7 @@ bool Board::GetCTypeBoxLimit(int Player,bool Msg)
 					{
 						MoveMsg(lx, ly, Player);
 					}
-					return true;//Õ¼¾İÖ®ºó¾Í·µ»ØÕæ
+					return true;//å æ®ä¹‹åå°±è¿”å›çœŸ
 				}
 				else if (board[x][y + 1] == EDGE &&!GetCTypeBoxBool(x , y+2))
 				{
@@ -804,7 +804,7 @@ bool Board::GetCTypeBoxLimit(int Player,bool Msg)
 					{
 						MoveMsg(lx, ly, Player);
 					}
-					return true;//Õ¼¾İÖ®ºó¾Í·µ»ØÕæ
+					return true;//å æ®ä¹‹åå°±è¿”å›çœŸ
 				}
 				else if (board[x][y - 1] == EDGE &&!GetCTypeBoxBool(x, y-2))
 				{
@@ -816,15 +816,15 @@ bool Board::GetCTypeBoxLimit(int Player,bool Msg)
 					{
 						MoveMsg(lx, ly, Player);
 					}
-					return true;//Õ¼¾İÖ®ºó¾Í·µ»ØÕæ
+					return true;//å æ®ä¹‹åå°±è¿”å›çœŸ
 				}
 			}
 		}
 	}
-	return false;//·µ»Ø¼Ù
+	return false;//è¿”å›å‡
 }
 
-//ÕĞ·¨
+//æ‹›æ³•
 bool Board::Move(int x, int y, int owner)
 {
 	bool GetBoxes = false;
@@ -832,9 +832,9 @@ bool Board::Move(int x, int y, int owner)
 	if (GetEdgeLegality(x, y) && (owner == RED || owner == BLUE) && x >= 0 && x <= (LEN - 1) && y >= 0 && y <= (LEN - 1))
 	{
 		int ex, ey;
-		board[x][y] = owner;//°ÑÕâ¸ö±ßÌîÂú
-		//¼ì²éÒ»ÏÂËÄ¸ö·½ÏòÓĞÃ»ÓĞ±»ÌîÂúµ«»¹Ã»ÓĞ±»Õ¼ÁìµÄ¸÷×Ô£¬Õ¼ÁìËû¡£
-		if (IfOddNumber(x) && IfEvenNumber(y))//XÆæÊıYÅ¼Êı£¬ºáĞĞ
+		board[x][y] = owner;//æŠŠè¿™ä¸ªè¾¹å¡«æ»¡
+		//æ£€æŸ¥ä¸€ä¸‹å››ä¸ªæ–¹å‘æœ‰æ²¡æœ‰è¢«å¡«æ»¡ä½†è¿˜æ²¡æœ‰è¢«å é¢†çš„å„è‡ªï¼Œå é¢†ä»–ã€‚
+		if (IfOddNumber(x) && IfEvenNumber(y))//Xå¥‡æ•°Yå¶æ•°ï¼Œæ¨ªè¡Œ
 		{
 			if (y == 0)
 			{
@@ -870,7 +870,7 @@ bool Board::Move(int x, int y, int owner)
 				}
 			}
 		}
-		else if (IfEvenNumber(x) && IfOddNumber(y))//XÅ¼ÊıYÆæÊı£¬ÊúĞĞ
+		else if (IfEvenNumber(x) && IfOddNumber(y))//Xå¶æ•°Yå¥‡æ•°ï¼Œç«–è¡Œ
 		{
 			if (x == 0)
 			{
@@ -920,7 +920,7 @@ int Board::GetAllMoves(LOC Moves[MOVENUM])
 			if (board[i][j] == EDGE)
 			{
 				Moves[MoveNum].Set(i, j);
-				MoveNum++;											//×ÜÊıÄ¿×ÔÔö
+				MoveNum++;											//æ€»æ•°ç›®è‡ªå¢
 			}
 		}
 	}
@@ -929,56 +929,56 @@ int Board::GetAllMoves(LOC Moves[MOVENUM])
 int Board::GetFreeMoves(LOC Moves[MOVENUM])
 {
 	int MoveNum = 0;
-	//µÃµ½ËùÓĞµÄ×ÔÓÉ±ß
+	//å¾—åˆ°æ‰€æœ‰çš„è‡ªç”±è¾¹
 	for (int y = 1; y < LEN - 1; y = y + 2)
 	{
-		//ÏÈÅĞ¶¨Í·²¿µÚÒ»¸ö¸ñ×ÓÓëÍâ½çµÄ±ßÊÇ·ñ×ÔÓÉ±ß
-		if (GetFreeBoxBool(1, y) && GetEdgeLegality(0, y))//µÚÒ»¸öÎª½»¸ñ¶øÇÒÓëÍâ½ç½»»¥µÄ±ßÎª¿Õ±ß
+		//å…ˆåˆ¤å®šå¤´éƒ¨ç¬¬ä¸€ä¸ªæ ¼å­ä¸å¤–ç•Œçš„è¾¹æ˜¯å¦è‡ªç”±è¾¹
+		if (GetFreeBoxBool(1, y) && GetEdgeLegality(0, y))//ç¬¬ä¸€ä¸ªä¸ºäº¤æ ¼è€Œä¸”ä¸å¤–ç•Œäº¤äº’çš„è¾¹ä¸ºç©ºè¾¹
 		{
-			Moves[MoveNum].Set(0, y);//±£´æ×ø±ê
-			MoveNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+			Moves[MoveNum].Set(0, y);//ä¿å­˜åæ ‡
+			MoveNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 		}
-		//Ñ­»·ÅĞ¶¨ÖĞ¼äµÄ¼¸¸ö¸ñ×Ó
-		for (int x = 1; x < LEN - 3; x = x + 2)//xÖá
+		//å¾ªç¯åˆ¤å®šä¸­é—´çš„å‡ ä¸ªæ ¼å­
+		for (int x = 1; x < LEN - 3; x = x + 2)//xè½´
 		{
 			if (GetFreeBoxBool(x, y) && GetFreeBoxBool(x + 2, y) && GetEdgeLegality(x + 1, y))
 			{
-				Moves[MoveNum].Set(x + 1, y);//±£´æ×ø±ê
-				MoveNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+				Moves[MoveNum].Set(x + 1, y);//ä¿å­˜åæ ‡
+				MoveNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 			}
 		}
-		//ÅĞ¶ÏÄ©Î²µÄ¸ñ×Ó
-		if (GetFreeBoxBool(LEN - 2, y) && GetEdgeLegality(LEN - 1, y))//×îºóÒ»¸öÎª½»¸ñÇÒÓëÍâ½ç½»»¥µÄ±ßÎª¿Õ±ß
+		//åˆ¤æ–­æœ«å°¾çš„æ ¼å­
+		if (GetFreeBoxBool(LEN - 2, y) && GetEdgeLegality(LEN - 1, y))//æœ€åä¸€ä¸ªä¸ºäº¤æ ¼ä¸”ä¸å¤–ç•Œäº¤äº’çš„è¾¹ä¸ºç©ºè¾¹
 		{
-			Moves[MoveNum].Set(LEN - 1, y);//±£´æ×ø±ê
-			MoveNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+			Moves[MoveNum].Set(LEN - 1, y);//ä¿å­˜åæ ‡
+			MoveNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 		}
 
-		//XYÌæ»»£¬ÔÙ½øĞĞÒ»´ÎÅĞ¶¨
+		//XYæ›¿æ¢ï¼Œå†è¿›è¡Œä¸€æ¬¡åˆ¤å®š
 
-		//ÏÈÅĞ¶¨Í·²¿µÚÒ»¸ö¸ñ×ÓÓëÍâ½çµÄ±ßÊÇ·ñ×ÔÓÉ±ß
-		if (GetFreeBoxBool(y, 1) && GetEdgeLegality(y, 0))//µÚÒ»¸öÎª½»¸ñ¶øÇÒÓëÍâ½ç½»»¥µÄ±ßÎª¿Õ±ß
+		//å…ˆåˆ¤å®šå¤´éƒ¨ç¬¬ä¸€ä¸ªæ ¼å­ä¸å¤–ç•Œçš„è¾¹æ˜¯å¦è‡ªç”±è¾¹
+		if (GetFreeBoxBool(y, 1) && GetEdgeLegality(y, 0))//ç¬¬ä¸€ä¸ªä¸ºäº¤æ ¼è€Œä¸”ä¸å¤–ç•Œäº¤äº’çš„è¾¹ä¸ºç©ºè¾¹
 		{
-			Moves[MoveNum].Set(y, 0);//±£´æ×ø±ê
-			MoveNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+			Moves[MoveNum].Set(y, 0);//ä¿å­˜åæ ‡
+			MoveNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 		}
-		//Ñ­»·ÅĞ¶¨ÖĞ¼äµÄ¼¸¸ö¸ñ×Ó
-		for (int x = 1; x < LEN - 3; x = x + 2)//xÖá
+		//å¾ªç¯åˆ¤å®šä¸­é—´çš„å‡ ä¸ªæ ¼å­
+		for (int x = 1; x < LEN - 3; x = x + 2)//xè½´
 		{
 			if (GetFreeBoxBool(y, x) && GetFreeBoxBool(y, x + 2) && GetEdgeLegality(y, x + 1))
 			{
-				Moves[MoveNum].Set(y, x + 1);//±£´æ×ø±ê
-				MoveNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+				Moves[MoveNum].Set(y, x + 1);//ä¿å­˜åæ ‡
+				MoveNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 			}
 		}
-		//ÅĞ¶ÏÄ©Î²µÄ¸ñ×Ó
-		if (GetFreeBoxBool(y, LEN - 2) && GetEdgeLegality(y, LEN - 1))//×îºóÒ»¸öÎª½»¸ñÇÒÓëÍâ½ç½»»¥µÄ±ßÎª¿Õ±ß
+		//åˆ¤æ–­æœ«å°¾çš„æ ¼å­
+		if (GetFreeBoxBool(y, LEN - 2) && GetEdgeLegality(y, LEN - 1))//æœ€åä¸€ä¸ªä¸ºäº¤æ ¼ä¸”ä¸å¤–ç•Œäº¤äº’çš„è¾¹ä¸ºç©ºè¾¹
 		{
-			Moves[MoveNum].Set(y, LEN - 1);//±£´æ×ø±ê
-			MoveNum++;//×Ü×ÔÓÉ±ßÊıÄ¿×ÔÔö1
+			Moves[MoveNum].Set(y, LEN - 1);//ä¿å­˜åæ ‡
+			MoveNum++;//æ€»è‡ªç”±è¾¹æ•°ç›®è‡ªå¢1
 		}
 	}
-	return MoveNum;//·µ»Ø×ÔÓÉ±ßµÄ×ÜÊı
+	return MoveNum;//è¿”å›è‡ªç”±è¾¹çš„æ€»æ•°
 }
 int Board::GetFilterMoves(LOC Moves[MOVENUM])
 {
@@ -987,77 +987,77 @@ int Board::GetFilterMoves(LOC Moves[MOVENUM])
 	{
 		for (int x = 0; x < LEN; x++)
 		{
-			if (board[x][y] == EDGE)//ÈôÎª¿Õ°×±ß
+			if (board[x][y] == EDGE)//è‹¥ä¸ºç©ºç™½è¾¹
 			{
 				//Board Test(board,Step);
 				int BoardSave[LEN][LEN];
 				int CurrentStep = Step;
-				BoardCopy(board, BoardSave);	//±£´æÒ»ÏÂ
-				Move(x, y, RED);				//Íæ¼ÒÄ£Äâ×ßÒ»²½ÊÔÊÔ
+				BoardCopy(board, BoardSave);	//ä¿å­˜ä¸€ä¸‹
+				Move(x, y, RED);				//ç©å®¶æ¨¡æ‹Ÿèµ°ä¸€æ­¥è¯•è¯•
 
-				if (IfOddNumber(x) && IfEvenNumber(y))//XÆæÊıYÅ¼Êı£¬ºáĞĞ
+				if (IfOddNumber(x) && IfEvenNumber(y))//Xå¥‡æ•°Yå¶æ•°ï¼Œæ¨ªè¡Œ
 				{
 					if (y == 0)
 					{
-						if (!GetLongCTypeBoxBool(x, y + 1))//Èç¹ûÏÂÃæµÄÄÇ¸ö¸ñ×ÓÃ»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x, y + 1))//å¦‚æœä¸‹é¢çš„é‚£ä¸ªæ ¼å­æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
 							Moves[MoveNum].Set(x, y);
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 					else if (y == LEN - 1)
 					{
-						if (!GetLongCTypeBoxBool(x, y - 1))//Èç¹ûÉÏÃæµÄÄÇ¸ö¸ñ×ÓÃ»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x, y - 1))//å¦‚æœä¸Šé¢çš„é‚£ä¸ªæ ¼å­æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
 							Moves[MoveNum].Set(x, y);
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 					else
 					{
-						if (!GetLongCTypeBoxBool(x, y + 1) && !GetLongCTypeBoxBool(x, y - 1))//Èç¹ûÉÏÏÂµÄ¸ñ×Ó¶¼Ã»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x, y + 1) && !GetLongCTypeBoxBool(x, y - 1))//å¦‚æœä¸Šä¸‹çš„æ ¼å­éƒ½æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
 							Moves[MoveNum].Set(x, y);
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 				}
-				else//ÊúĞĞ
+				else//ç«–è¡Œ
 				{
 					if (x == 0)
 					{
-						if (!GetLongCTypeBoxBool(x + 1, y))//Èç¹ûÓÒ±ßµÄÄÇ¸ö¸ñ×ÓÃ»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x + 1, y))//å¦‚æœå³è¾¹çš„é‚£ä¸ªæ ¼å­æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
 							Moves[MoveNum].Set(x, y);
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 					else if (x == LEN - 1)
 					{
-						if (!GetLongCTypeBoxBool(x - 1, y))//Èç¹û×ó±ßµÄÄÇ¸ö¸ñ×ÓÃ»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x - 1, y))//å¦‚æœå·¦è¾¹çš„é‚£ä¸ªæ ¼å­æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
 							Moves[MoveNum].Set(x, y);
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 					else
 					{
-						if (!GetLongCTypeBoxBool(x + 1, y) && !GetLongCTypeBoxBool(x - 1, y))//Èç¹û×óÓÒÁ½±ßµÄ¸ñ×Ó¶¼Ã»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x + 1, y) && !GetLongCTypeBoxBool(x - 1, y))//å¦‚æœå·¦å³ä¸¤è¾¹çš„æ ¼å­éƒ½æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
 							Moves[MoveNum].Set(x, y);
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 				}
 
-				/*if (!GetLongCTypeBoxExist())	//Èô²»´æÔÚ³¤ËÀ¸ñ£¬Ò²¾ÍÊÇÖ»ÓĞµ¥Á´»òÕßÃ»ÓĞËÀ¸ñ
+				/*if (!GetLongCTypeBoxExist())	//è‹¥ä¸å­˜åœ¨é•¿æ­»æ ¼ï¼Œä¹Ÿå°±æ˜¯åªæœ‰å•é“¾æˆ–è€…æ²¡æœ‰æ­»æ ¼
 				{
-				//´æÈëTURN
+				//å­˜å…¥TURN
 				Moves[MoveNum].Set(x, y);
-				MoveNum++;//×ÜÊıÄ¿×ÔÔö
+				MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 				}*/
-				SetBoard(BoardSave);			//»¹Ô­
-				Step = CurrentStep;				//»¹Ô­
+				SetBoard(BoardSave);			//è¿˜åŸ
+				Step = CurrentStep;				//è¿˜åŸ
 			}
 		}
 	}
@@ -1071,71 +1071,71 @@ int Board::GetFilterMoveNum()
 	{
 		for (int x = 0; x < LEN; x++)
 		{
-			if (board[x][y] == EDGE)//ÈôÎª¿Õ°×±ß
+			if (board[x][y] == EDGE)//è‹¥ä¸ºç©ºç™½è¾¹
 			{
 				//Board Test(board,Step);
 				int BoardSave[LEN][LEN];
 				int CurrentStep = Step;
-				BoardCopy(board, BoardSave);	//±£´æÒ»ÏÂ
-				Move(x, y, RED);				//Íæ¼ÒÄ£Äâ×ßÒ»²½ÊÔÊÔ
+				BoardCopy(board, BoardSave);	//ä¿å­˜ä¸€ä¸‹
+				Move(x, y, RED);				//ç©å®¶æ¨¡æ‹Ÿèµ°ä¸€æ­¥è¯•è¯•
 
-				if (IfOddNumber(x) && IfEvenNumber(y))//XÆæÊıYÅ¼Êı£¬ºáĞĞ
+				if (IfOddNumber(x) && IfEvenNumber(y))//Xå¥‡æ•°Yå¶æ•°ï¼Œæ¨ªè¡Œ
 				{
 					if (y == 0)
 					{
-						if (!GetLongCTypeBoxBool(x, y + 1))//Èç¹ûÏÂÃæµÄÄÇ¸ö¸ñ×ÓÃ»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x, y + 1))//å¦‚æœä¸‹é¢çš„é‚£ä¸ªæ ¼å­æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 					else if (y == LEN - 1)
 					{
-						if (!GetLongCTypeBoxBool(x, y - 1))//Èç¹ûÉÏÃæµÄÄÇ¸ö¸ñ×ÓÃ»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x, y - 1))//å¦‚æœä¸Šé¢çš„é‚£ä¸ªæ ¼å­æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 					else
 					{
-						if (!GetLongCTypeBoxBool(x, y + 1) && !GetLongCTypeBoxBool(x, y - 1))//Èç¹ûÉÏÏÂµÄ¸ñ×Ó¶¼Ã»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x, y + 1) && !GetLongCTypeBoxBool(x, y - 1))//å¦‚æœä¸Šä¸‹çš„æ ¼å­éƒ½æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 				}
-				else//ÊúĞĞ
+				else//ç«–è¡Œ
 				{
 					if (x == 0)
 					{
-						if (!GetLongCTypeBoxBool(x + 1, y))//Èç¹ûÓÒ±ßµÄÄÇ¸ö¸ñ×ÓÃ»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x + 1, y))//å¦‚æœå³è¾¹çš„é‚£ä¸ªæ ¼å­æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 					else if (x == LEN - 1)
 					{
-						if (!GetLongCTypeBoxBool(x - 1, y))//Èç¹û×ó±ßµÄÄÇ¸ö¸ñ×ÓÃ»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x - 1, y))//å¦‚æœå·¦è¾¹çš„é‚£ä¸ªæ ¼å­æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 					else
 					{
-						if (!GetLongCTypeBoxBool(x + 1, y) && !GetLongCTypeBoxBool(x - 1, y))//Èç¹û×óÓÒÁ½±ßµÄ¸ñ×Ó¶¼Ã»ÎÊÌâµÄ»°£¬Õâ¸öÕĞ·¨Ò²Ã»ÎÊÌâ
+						if (!GetLongCTypeBoxBool(x + 1, y) && !GetLongCTypeBoxBool(x - 1, y))//å¦‚æœå·¦å³ä¸¤è¾¹çš„æ ¼å­éƒ½æ²¡é—®é¢˜çš„è¯ï¼Œè¿™ä¸ªæ‹›æ³•ä¹Ÿæ²¡é—®é¢˜
 						{
-							MoveNum++;//×ÜÊıÄ¿×ÔÔö
+							MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 						}
 					}
 				}
 
-				/*if (!GetLongCTypeBoxExist())	//Èô²»´æÔÚ³¤ËÀ¸ñ£¬Ò²¾ÍÊÇÖ»ÓĞµ¥Á´»òÕßÃ»ÓĞËÀ¸ñ
+				/*if (!GetLongCTypeBoxExist())	//è‹¥ä¸å­˜åœ¨é•¿æ­»æ ¼ï¼Œä¹Ÿå°±æ˜¯åªæœ‰å•é“¾æˆ–è€…æ²¡æœ‰æ­»æ ¼
 				{
-				//´æÈëTURN
+				//å­˜å…¥TURN
 				Moves[MoveNum].Set(x, y);
-				MoveNum++;//×ÜÊıÄ¿×ÔÔö
+				MoveNum++;//æ€»æ•°ç›®è‡ªå¢
 				}*/
-				SetBoard(BoardSave);			//»¹Ô­
-				Step = CurrentStep;				//»¹Ô­
+				SetBoard(BoardSave);			//è¿˜åŸ
+				Step = CurrentStep;				//è¿˜åŸ
 			}
 		}
 	}
@@ -1144,15 +1144,15 @@ int Board::GetFilterMoveNum()
 }
 bool Board::GetLongCTypeBoxBool(int bx, int by)
 {
-	if (GetBoxLiberties(bx, by) == DEADBOX)//Ê×ÏÈÕâ¸ö¸ñ×Ó±ØĞë±¾ÉíÊÇÒ»¸öCĞÍ¸ñ
+	if (GetBoxLiberties(bx, by) == DEADBOX)//é¦–å…ˆè¿™ä¸ªæ ¼å­å¿…é¡»æœ¬èº«æ˜¯ä¸€ä¸ªCå‹æ ¼
 	{
 		int Dir[4][2] = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 		for (int n = 0; n < 4; n++)
 		{
 			int ex = bx + Dir[n][0];
 			int ey = by + Dir[n][1];
-			int nbx = bx + Dir[n][0] + Dir[n][0];//ÏÂÒ»¸ö¸ñ×ÓµÄÊµ¼ÊµØÖ·
-			int nby = by + Dir[n][1] + Dir[n][1];//ÏÂÒ»¸ö¸ñ×ÓµÄÊµ¼ÊµØÖ·
+			int nbx = bx + Dir[n][0] + Dir[n][0];//ä¸‹ä¸€ä¸ªæ ¼å­çš„å®é™…åœ°å€
+			int nby = by + Dir[n][1] + Dir[n][1];//ä¸‹ä¸€ä¸ªæ ¼å­çš„å®é™…åœ°å€
 			if (board[ex][ey] == EDGE&&nbx >= 1 && nbx <= LEN - 2 && nby >= 1 && nby <= LEN - 2)
 			{
 				if (GetBoxLiberties(nbx, nby) == CHAINBOX)
@@ -1164,15 +1164,15 @@ bool Board::GetLongCTypeBoxBool(int bx, int by)
 }
 
 
-//Turn±»Ö¤Ã÷ÎªµÍĞ§ÂÊ£¬±ÈÖ±½ÓµÄ¿¼ÂÇ×îºóÒ»²½MoveÒªÂı´óÔ¼1000±¶£¬¹Ø¼üÔÚÓÚTurnĞèÒª¹¹½¨ĞÂµÄBoard£¬ÕâÒ»µãÊ®·ÖºÄÊ±¡£
+//Turnè¢«è¯æ˜ä¸ºä½æ•ˆç‡ï¼Œæ¯”ç›´æ¥çš„è€ƒè™‘æœ€åä¸€æ­¥Moveè¦æ…¢å¤§çº¦1000å€ï¼Œå…³é”®åœ¨äºTurnéœ€è¦æ„å»ºæ–°çš„Boardï¼Œè¿™ä¸€ç‚¹ååˆ†è€—æ—¶ã€‚
 void Board::TurnMove(TURN Turn)
 {
-	SetBoard(Turn.NewBoard);//ÉèÖÃÎªĞÂ¾ÖÃæ
+	SetBoard(Turn.NewBoard);//è®¾ç½®ä¸ºæ–°å±€é¢
 }
 int Board::GetAllTurns(TURN Turns[MOVENUM], int Player)
 {
 	int TurnNum = 0;
-	Board ChosenBoard(board, Step);//½¨Á¢Ä£ÄâÆåÅÌ
+	Board ChosenBoard(board, Step);//å»ºç«‹æ¨¡æ‹Ÿæ£‹ç›˜
 	GetAllCTypeBoxes(Player,false);
 	for (int j = 0; j<LEN; j++)
 	{
@@ -1181,12 +1181,12 @@ int Board::GetAllTurns(TURN Turns[MOVENUM], int Player)
 			if (board[i][j] == EDGE)
 			{
 				Board Test(ChosenBoard.board, ChosenBoard.Step);
-				//Test.Move(i, j, Player);							//Íæ¼Ò¾Í×ßÕâÒ»²½ÊÔÊÔ
-				Turns[TurnNum].Owner = Player;						//ÕâÒ»ÂÖµÄÊôÖ÷ÊÇ¸ÃÍæ¼Ò
-				Turns[TurnNum].SetBoard(board);						//´æÈëĞÂ¾ÖÃæ
+				//Test.Move(i, j, Player);							//ç©å®¶å°±èµ°è¿™ä¸€æ­¥è¯•è¯•
+				Turns[TurnNum].Owner = Player;						//è¿™ä¸€è½®çš„å±ä¸»æ˜¯è¯¥ç©å®¶
+				Turns[TurnNum].SetBoard(board);						//å­˜å…¥æ–°å±€é¢
 				Turns[TurnNum].NewBoard[i][j] = Player;
-				//Turns[TurnNum].SetCaptualInfo(board, Test.board);	//´æÈëÕĞ·¨
-				TurnNum++;											//×ÜÊıÄ¿×ÔÔö
+				//Turns[TurnNum].SetCaptualInfo(board, Test.board);	//å­˜å…¥æ‹›æ³•
+				TurnNum++;											//æ€»æ•°ç›®è‡ªå¢
 			}
 		}
 	}
@@ -1195,24 +1195,24 @@ int Board::GetAllTurns(TURN Turns[MOVENUM], int Player)
 int Board::GetFilterTurn(TURN Turns[MOVENUM], int Player)
 {
 	int TurnNum = 0;
-	Board ChosenBoard(board, Step);//½¨Á¢Ä£ÄâÆåÅÌ
+	Board ChosenBoard(board, Step);//å»ºç«‹æ¨¡æ‹Ÿæ£‹ç›˜
 	GetAllCTypeBoxes(Player,false);
-	//´ËÊ±µÄChosenBoardÊÇ±ê×¼¾ÖÃæ£¬ĞèÒª×öÒ»¸öÑ¡Ôñ
+	//æ­¤æ—¶çš„ChosenBoardæ˜¯æ ‡å‡†å±€é¢ï¼Œéœ€è¦åšä¸€ä¸ªé€‰æ‹©
 	for (int y = 0; y < LEN; y++)
 	{
 		for (int x = 0; x < LEN; x++)
 		{
-			if (board[x][y] == EDGE)//ÈôÎª¿Õ°×±ß
+			if (board[x][y] == EDGE)//è‹¥ä¸ºç©ºç™½è¾¹
 			{
 				Board Test(ChosenBoard.board, ChosenBoard.Step);
-				Test.Move(x, y, Player);//Íæ¼ÒÄ£Äâ×ßÒ»²½ÊÔÊÔ
-				if (!Test.GetLongCTypeBoxExist())//Èô²»´æÔÚ³¤ËÀ¸ñ£¬Ò²¾ÍÊÇÖ»ÓĞµ¥Á´»òÕßÃ»ÓĞËÀ¸ñ
+				Test.Move(x, y, Player);//ç©å®¶æ¨¡æ‹Ÿèµ°ä¸€æ­¥è¯•è¯•
+				if (!Test.GetLongCTypeBoxExist())//è‹¥ä¸å­˜åœ¨é•¿æ­»æ ¼ï¼Œä¹Ÿå°±æ˜¯åªæœ‰å•é“¾æˆ–è€…æ²¡æœ‰æ­»æ ¼
 				{
-					//´æÈëTURN
-					Turns[TurnNum].Owner = Player;						//ÕâÒ»ÂÖµÄÊôÖ÷ÊÇ¸ÃÍæ¼Ò
-					Turns[TurnNum].SetBoard(Test.board);				//´æÈëĞÂ¾ÖÃæ
-					Turns[TurnNum].SetCaptualInfo(board, Test.board);	//´æÈëÕĞ·¨
-					TurnNum++;//×ÜÊıÄ¿×ÔÔö
+					//å­˜å…¥TURN
+					Turns[TurnNum].Owner = Player;						//è¿™ä¸€è½®çš„å±ä¸»æ˜¯è¯¥ç©å®¶
+					Turns[TurnNum].SetBoard(Test.board);				//å­˜å…¥æ–°å±€é¢
+					Turns[TurnNum].SetCaptualInfo(board, Test.board);	//å­˜å…¥æ‹›æ³•
+					TurnNum++;//æ€»æ•°ç›®è‡ªå¢
 				}
 			}
 		}
@@ -1221,7 +1221,7 @@ int Board::GetFilterTurn(TURN Turns[MOVENUM], int Player)
 	return TurnNum;
 }
 
-//³£ÓÃº¯Êı
+//å¸¸ç”¨å‡½æ•°
 void cprintf(char* str, WORD color, ...) {
 	WORD colorOld;
 	HANDLE handle = ::GetStdHandle(STD_OUTPUT_HANDLE);
@@ -1232,17 +1232,17 @@ void cprintf(char* str, WORD color, ...) {
 	cout << str;
 	SetConsoleTextAttribute(handle, colorOld);
 	/*
-	cprintf("H", 10);//ÂÌÉ«
-	cprintf("e", 9);//À¶É«
-	cprintf("l", 12);//ºìÉ«
-	cprintf("l", 11);//ÇàÉ«
-	cprintf("o", 13);//·ÛÉ«
-	cprintf("W", 15);//°×
-	cprintf("o", 2);//¾üÂÌ
-	cprintf("r", 5);//×Ï
-	cprintf("l", 8);//»Ò
-	cprintf("d", 14);//»Æ
-	cprintf("!", 4);//×Ø
+	cprintf("H", 10);//ç»¿è‰²
+	cprintf("e", 9);//è“è‰²
+	cprintf("l", 12);//çº¢è‰²
+	cprintf("l", 11);//é’è‰²
+	cprintf("o", 13);//ç²‰è‰²
+	cprintf("W", 15);//ç™½
+	cprintf("o", 2);//å†›ç»¿
+	cprintf("r", 5);//ç´«
+	cprintf("l", 8);//ç°
+	cprintf("d", 14);//é»„
+	cprintf("!", 4);//æ£•
 	*/
 }
 void cprintNum(int color, int Num)
@@ -1271,14 +1271,14 @@ bool BoardEqual(int a[LEN][LEN], int b[LEN][LEN])
 }
 bool IfOddNumber(int num)
 {
-	//ÅĞ¶ÏÒ»¸öÊı×ÖÊÇ·ñÊÇÆæÊı
+	//åˆ¤æ–­ä¸€ä¸ªæ•°å­—æ˜¯å¦æ˜¯å¥‡æ•°
 	if (num % 2 != 0)
 		return true;
 	return false;
 }
 bool IfEvenNumber(int num)
 {
-	//ÅĞ¶ÏÒ»¸öÊı×ÖÊÇ·ñÊÇÅ¼Êı
+	//åˆ¤æ–­ä¸€ä¸ªæ•°å­—æ˜¯å¦æ˜¯å¶æ•°
 	if (num % 2 == 0 || num == 0)
 		return true;
 	return false;

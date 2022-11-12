@@ -11,22 +11,22 @@ using namespace std;
 //BoxType
 BoxType::BoxType()
 {
-	Type = 0;//Ä¬ÈÏÀàĞÍ
-	BelongingChainNum = 0;//Ä¬ÈÏÎª±Ø¿ÕµÄ0ºÅ¿Õ¼ä
+	Type = 0;//é»˜è®¤ç±»å‹
+	BelongingChainNum = 0;//é»˜è®¤ä¸ºå¿…ç©ºçš„0å·ç©ºé—´
 }
 
 //ChainInfo
 ChainInfo::ChainInfo()
 {
-	Type = NotDefine;				//ÀàĞÍÎªÎª¶¨Òå
-	ChainBoxNum = 0;				//ËùÊô¸ñ×ÓÊıÔÚ¿ªÊ¼Ê±ºòÎª0
-	ConditionOfPreCircle = false;	//ÊÇ·ñÔ¤±¸»·µÄÏÈ¾öÌõ¼ş
+	Type = NotDefine;				//ç±»å‹ä¸ºä¸ºå®šä¹‰
+	ChainBoxNum = 0;				//æ‰€å±æ ¼å­æ•°åœ¨å¼€å§‹æ—¶å€™ä¸º0
+	ConditionOfPreCircle = false;	//æ˜¯å¦é¢„å¤‡ç¯çš„å…ˆå†³æ¡ä»¶
 }
 
 //BoxBoard
 BoxBoard::BoxBoard(Board NewB)
 {
-	//¸´ÖÆ»ù±¾ÊôĞÔ
+	//å¤åˆ¶åŸºæœ¬å±æ€§
 	for (int i = 0; i < LEN; i++)
 	{
 		for (int j = 0; j < LEN; j++)
@@ -35,12 +35,12 @@ BoxBoard::BoxBoard(Board NewB)
 		}
 	}
 	Step = NewB.Step;
-	//¶¨Òå¸ñ×ÓÊôĞÔ
+	//å®šä¹‰æ ¼å­å±æ€§
 	//DefineBoxesType();
 }
 BoxBoard::BoxBoard(int Array[LEN][LEN], int step)
 {
-	//¸´ÖÆ»ù±¾ÊôĞÔ
+	//å¤åˆ¶åŸºæœ¬å±æ€§
 	for (int i = 0; i < LEN; i++)
 	{
 		for (int j = 0; j < LEN; j++)
@@ -49,37 +49,37 @@ BoxBoard::BoxBoard(int Array[LEN][LEN], int step)
 		}
 	}
 	Step = step;
-	//¶¨Òå¸ñ×ÓÊôĞÔ
+	//å®šä¹‰æ ¼å­å±æ€§
 	//DefineBoxesType();
 }
 void BoxBoard::DefineBoxesType()
 {
-	for (int y = 1; y <= BOXLEN; y++)//¸ñ×ÓÊı
+	for (int y = 1; y <= BOXLEN; y++)//æ ¼å­æ•°
 	{
-		for (int x = 1; x <= BOXLEN; x++)//¸ñ×ÓÊı
+		for (int x = 1; x <= BOXLEN; x++)//æ ¼å­æ•°
 		{
-			int bx = (x * 2) - 1;//BoardÖĞµÄ×ø±ê
-			int by = (y * 2) - 1;//BoardÖĞµÄ×ø±ê
-			Boxes[x][y].BoxLoc.Set(bx, by);//´æÈë×ø±ê
-			//¶¨ÒåOwner
-			if (board[bx][by] == BOX)//Èç¹û»¹Ã»±»Õ¼Áì
-				Boxes[x][y].BoxOwner = 0;//Î´±»Õ¼Áì
+			int bx = (x * 2) - 1;//Boardä¸­çš„åæ ‡
+			int by = (y * 2) - 1;//Boardä¸­çš„åæ ‡
+			Boxes[x][y].BoxLoc.Set(bx, by);//å­˜å…¥åæ ‡
+			//å®šä¹‰Owner
+			if (board[bx][by] == BOX)//å¦‚æœè¿˜æ²¡è¢«å é¢†
+				Boxes[x][y].BoxOwner = 0;//æœªè¢«å é¢†
 			else
-				Boxes[x][y].BoxOwner = board[bx][by] / 2;//³ıÒÔ¶şÖ®ºóµÄÊıÖµµÈÍ¬ÓÚÍæ¼Ò±àºÅ
-			//¶¨ÒåType
-			int bl = GetBoxLiberties(bx, by);//µÃµ½¸ñ×ÓµÄ×ÔÓÉ¶È
+				Boxes[x][y].BoxOwner = board[bx][by] / 2;//é™¤ä»¥äºŒä¹‹åçš„æ•°å€¼ç­‰åŒäºç©å®¶ç¼–å·
+			//å®šä¹‰Type
+			int bl = GetBoxLiberties(bx, by);//å¾—åˆ°æ ¼å­çš„è‡ªç”±åº¦
 			if (bl == 4)
-				Boxes[x][y].Type = FREEBOX;	//ÊÇ×ÔÓÉ¸ñ
+				Boxes[x][y].Type = FREEBOX;	//æ˜¯è‡ªç”±æ ¼
 			else
-				Boxes[x][y].Type = bl;	//²»È»¾Í¸ú×ÔÓÉ±ßµÄÊıÁ¿ÊÇÏàÍ¬µÄ¡£
+				Boxes[x][y].Type = bl;	//ä¸ç„¶å°±è·Ÿè‡ªç”±è¾¹çš„æ•°é‡æ˜¯ç›¸åŒçš„ã€‚
 		}
 	}
 }
 int BoxBoard::GetBoxType(int bx, int by)
 {
-	if (bx >= 1 && by >= 1 && bx <= BOXLEN&& by <= BOXLEN)//Âú×ã¸ñ×ÓÒªÇó
-		return Boxes[bx][by].Type;//·µ»Ø¸ñ×ÓÀàĞÍ
-	return FREEBOX;//ÆäÓà³¬³ö·¶Î§µÄ¾ù·µ»Ø×ÔÓÉ¸ñ
+	if (bx >= 1 && by >= 1 && bx <= BOXLEN&& by <= BOXLEN)//æ»¡è¶³æ ¼å­è¦æ±‚
+		return Boxes[bx][by].Type;//è¿”å›æ ¼å­ç±»å‹
+	return FREEBOX;//å…¶ä½™è¶…å‡ºèŒƒå›´çš„å‡è¿”å›è‡ªç”±æ ¼
 }
 void BoxBoard::ShowBoxType()
 {
@@ -88,34 +88,34 @@ void BoxBoard::ShowBoxType()
 		for (int i = 1; i <= BOXLEN; i++)
 		{
 			if (Boxes[i][j].Type == FULLBOX)
-				cprintf("¡ö", 8);
+				cprintf("â– ", 8);
 			else if (Boxes[i][j].Type == DEADBOX)
-				cprintf("¡ö", 2);
+				cprintf("â– ", 2);
 			else if (Boxes[i][j].Type == CHAINBOX)
-				cprintf("¡ö", 14);
+				cprintf("â– ", 14);
 			else if (Boxes[i][j].Type == FREEBOX)
-				cprintf("¡ö", 5);
+				cprintf("â– ", 5);
 		}
 		cout << endl;
 	}
-	cprintf("\n×ÔÓÉ¸ñ", 5);
-	cprintf("\nÁ´¸ñ", 14);
-	cprintf("\nËÀ¸ñ", 2);
-	cprintf("\nÒÑ±»Õ¼Áì\n", 8);
+	cprintf("\nè‡ªç”±æ ¼", 5);
+	cprintf("\né“¾æ ¼", 14);
+	cprintf("\næ­»æ ¼", 2);
+	cprintf("\nå·²è¢«å é¢†\n", 8);
 }
 int BoxBoard::GetFirstEmptyChainNum()
 {
-	for (int i = 1; i < BOXNUM; i++)//²»²ÉÓÃ0ºÅ¿Õ¼ä
+	for (int i = 1; i < BOXNUM; i++)//ä¸é‡‡ç”¨0å·ç©ºé—´
 	{
 		if (Chains[i].Type == NotDefine)
 			return i;
 	}
-	cout << "Á´¿Õ¼ä²»×ã£¡" << endl;
+	cout << "é“¾ç©ºé—´ä¸è¶³ï¼" << endl;
 	system("pause");
 	return 0;
 }
 
-//¼ø±ğÁ´
+//é‰´åˆ«é“¾
 void BoxBoard::ShowBelongingChain()
 {
 	cout << "  ";
@@ -141,9 +141,9 @@ void BoxBoard::ShowBelongingChain()
 					if (Boxes[(i + 1) / 2][(j + 1) / 2].BoxOwner != 0)
 					{
 						if (Boxes[(i + 1) / 2][(j + 1) / 2].BoxOwner == RED)
-							cprintf("¡ö", 12);
+							cprintf("â– ", 12);
 						else
-							cprintf("¡ö", 9);
+							cprintf("â– ", 9);
 					}
 					else
 						cprintf("  ", 8);
@@ -155,39 +155,39 @@ void BoxBoard::ShowBelongingChain()
 				if (IfOddNumber(j) && IfEvenNumber(i))
 				{
 					cout << "  ";
-					//cprintf("©§",15);
+					//cprintf("â”ƒ",15);
 				}
 				else
 				{
 					cout << "  ";
-					//cprintf("©¥",15);
+					//cprintf("â”",15);
 				}
 			}
 			else if (board[i][j] == RED_EDGE)
 			{
 				if (IfOddNumber(j) && IfEvenNumber(i))
 				{
-					cprintf("©§", 12);
+					cprintf("â”ƒ", 12);
 				}
 				else
 				{
-					cprintf("©¥", 12);
+					cprintf("â”", 12);
 				}
 			}
 			else if (board[i][j] == BLUE_EDGE)
 			{
 				if (IfOddNumber(j) && IfEvenNumber(i))
 				{
-					cprintf("©§", 9);
+					cprintf("â”ƒ", 9);
 				}
 				else
 				{
-					cprintf("©¥", 9);
+					cprintf("â”", 9);
 				}
 			}
 			else if (board[i][j] == EMPTY)
 			{
-				cprintf("¡ğ", 15);
+				cprintf("â—‹", 15);
 			}
 		}
 		printf("%2d", j);
@@ -238,43 +238,43 @@ void BoxBoard::InheritChain(int InheritorRegNum, int AncesterRegNum)
 		for (int i = 1; i <= BOXLEN; i++)
 		{
 			if (Boxes[i][j].BelongingChainNum == AncesterRegNum)
-				Boxes[i][j].BelongingChainNum = InheritorRegNum;//±»¼Ì³Ğ
+				Boxes[i][j].BelongingChainNum = InheritorRegNum;//è¢«ç»§æ‰¿
 		}
 	}
-	Chains[InheritorRegNum].ChainBoxNum += Chains[AncesterRegNum].ChainBoxNum;//¸ñ×ÓÊıÀÛ¼Ó
-	Chains[InheritorRegNum].Type = LongChain;//±Ø¶¨ÊÇ³¤Á´¡£
+	Chains[InheritorRegNum].ChainBoxNum += Chains[AncesterRegNum].ChainBoxNum;//æ ¼å­æ•°ç´¯åŠ 
+	Chains[InheritorRegNum].Type = LongChain;//å¿…å®šæ˜¯é•¿é“¾ã€‚
 
-	//Ïú»Ù±»¼Ì³ĞÕßµÄ×¢²á¿Õ¼ä
+	//é”€æ¯è¢«ç»§æ‰¿è€…çš„æ³¨å†Œç©ºé—´
 	Chains[AncesterRegNum].ChainBoxNum = 0;
 	Chains[AncesterRegNum].Type = NotDefine;
 }
 void BoxBoard::RegisterChain(LOC FreeBoxLoc, LOC FirstLoc)
 {
-	//¶¯Ì¬×¢²áÁ´¡£´ÓÒ»¸ö¸ñ×Ó³ö·¢ £¬ÏòÒ»¸ö¸ñ×Ó¿ªÊ¼½øĞĞÁ´µÄ×¢²á¡£Ò»°ã½ö´Ó×ÔÓÉ¸ñ³ö·¢
+	//åŠ¨æ€æ³¨å†Œé“¾ã€‚ä»ä¸€ä¸ªæ ¼å­å‡ºå‘ ï¼Œå‘ä¸€ä¸ªæ ¼å­å¼€å§‹è¿›è¡Œé“¾çš„æ³¨å†Œã€‚ä¸€èˆ¬ä»…ä»è‡ªç”±æ ¼å‡ºå‘
 
-	int x = FreeBoxLoc.x;				//³õÊ¼XÖµ
-	int y = FreeBoxLoc.y;				//³õÊ¼YÖµ
-	LOC Loc = FreeBoxLoc;				//ÉèÖÃÆğµã×ø±ê
-	LOC NewLoc = FirstLoc;				//ÉèÖÃĞÂ×ø±ê
-	int Re = GetFirstEmptyChainNum();	//»ñÈ¡Ò»¸ö¿Õ°×µÄÁ´¿Õ¼ä
-	Chains[Re].StartLoc = Loc;			//ÆğµãÎªÄ³¸ö×ÔÓÉ¸ñ
-	Chains[Re].ChainBoxNum = 0;			//¸üĞÂÆğµã
+	int x = FreeBoxLoc.x;				//åˆå§‹Xå€¼
+	int y = FreeBoxLoc.y;				//åˆå§‹Yå€¼
+	LOC Loc = FreeBoxLoc;				//è®¾ç½®èµ·ç‚¹åæ ‡
+	LOC NewLoc = FirstLoc;				//è®¾ç½®æ–°åæ ‡
+	int Re = GetFirstEmptyChainNum();	//è·å–ä¸€ä¸ªç©ºç™½çš„é“¾ç©ºé—´
+	Chains[Re].StartLoc = Loc;			//èµ·ç‚¹ä¸ºæŸä¸ªè‡ªç”±æ ¼
+	Chains[Re].ChainBoxNum = 0;			//æ›´æ–°èµ·ç‚¹
 	Chains[Re].Type = NotDefine;
 
-	//ÔÚÈçÏÂ¹ı³ÌÖĞ£¬NewLoc²ÅÊÇÊµ¼ÊÁ´µÄÃ¿Ò»¸ö¸ñ×ÓµÄ×ø±ê¡£Á´µÄÀàĞÍÔÚËÑË÷½áÊøÊ±ºòÅĞ¶Ï
+	//åœ¨å¦‚ä¸‹è¿‡ç¨‹ä¸­ï¼ŒNewLocæ‰æ˜¯å®é™…é“¾çš„æ¯ä¸€ä¸ªæ ¼å­çš„åæ ‡ã€‚é“¾çš„ç±»å‹åœ¨æœç´¢ç»“æŸæ—¶å€™åˆ¤æ–­
 	for (int i = 0; i < BOXNUM; i++)
 	{
-		if (GetBoxType(NewLoc.x, NewLoc.y) != CHAINBOX)//µ±ËÑË÷½áÊøµÄÊ±ºò£¬ÅĞ¶¨Á´µÄÀàĞÍ¡£´ËÊ±£¬NewLocÎªËÑË÷µ½µÄÖÕµã¸ñ×ø±ê
+		if (GetBoxType(NewLoc.x, NewLoc.y) != CHAINBOX)//å½“æœç´¢ç»“æŸçš„æ—¶å€™ï¼Œåˆ¤å®šé“¾çš„ç±»å‹ã€‚æ­¤æ—¶ï¼ŒNewLocä¸ºæœç´¢åˆ°çš„ç»ˆç‚¹æ ¼åæ ‡
 		{
-			Chains[Re].EndLoc = NewLoc;//ËÑË÷µ½´ïÖÕµã
+			Chains[Re].EndLoc = NewLoc;//æœç´¢åˆ°è¾¾ç»ˆç‚¹
 			if (NewLoc.x == FreeBoxLoc.x&&NewLoc.y == FreeBoxLoc.y&&Boxes[NewLoc.x][NewLoc.y].BelongingChainNum == EMPTY)
 			{
-				//ÈôÖÕµã¸ñµÄ×ø±êÓëÆğµã¸ñÏàÍ¬²¢ÇÒ¸Ã¸ñ»¹Î´±»ÈÏ¶¨ÀàĞÍ£¬ÔòÈÏ¶¨ÎªPreCircle
+				//è‹¥ç»ˆç‚¹æ ¼çš„åæ ‡ä¸èµ·ç‚¹æ ¼ç›¸åŒå¹¶ä¸”è¯¥æ ¼è¿˜æœªè¢«è®¤å®šç±»å‹ï¼Œåˆ™è®¤å®šä¸ºPreCircle
 				Chains[Re].Type = PreCircle;
-				Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;//°üÀ¨¸Ã¸ñÔÚÄÚÒ²ĞèÒª±»×¢²á
+				Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;//åŒ…æ‹¬è¯¥æ ¼åœ¨å†…ä¹Ÿéœ€è¦è¢«æ³¨å†Œ
 				Chains[Re].ChainBoxNum++;
 			}
-			else//ÈôÆğÖÕµã²»Ò»Ñù£¬ÔòÎªÁ´¡£¸ù¾İÊıÄ¿ÅĞ¶¨ÆäÀàĞÍ
+			else//è‹¥èµ·ç»ˆç‚¹ä¸ä¸€æ ·ï¼Œåˆ™ä¸ºé“¾ã€‚æ ¹æ®æ•°ç›®åˆ¤å®šå…¶ç±»å‹
 			{
 				if (Chains[Re].ChainBoxNum == 1)
 					Chains[Re].Type = SingleChain;
@@ -285,52 +285,52 @@ void BoxBoard::RegisterChain(LOC FreeBoxLoc, LOC FirstLoc)
 			}
 			break;
 		}
-		else//Ã¿ËÑµ½Ò»¸öĞÂµÄ¸ñ×Ó
+		else//æ¯æœåˆ°ä¸€ä¸ªæ–°çš„æ ¼å­
 		{
 			LOC mLoc = NewLoc;
-			//¶¨Òå¸ñ×ÓµÄĞÅÏ¢
-			Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;	//ÓëÁ´¹Ò¹³
-			Chains[Re].ChainBoxNum++;							//Á´µÄ¸ñ×ÓÊıÄ¿×ÔÔö1
-			NewLoc = FindNextBox(NewLoc, Loc);					//Ñ°ÕÒÏÂÒ»¸ö¡£
+			//å®šä¹‰æ ¼å­çš„ä¿¡æ¯
+			Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;	//ä¸é“¾æŒ‚é’©
+			Chains[Re].ChainBoxNum++;							//é“¾çš„æ ¼å­æ•°ç›®è‡ªå¢1
+			NewLoc = FindNextBox(NewLoc, Loc);					//å¯»æ‰¾ä¸‹ä¸€ä¸ªã€‚
 			Loc = mLoc;
 		}
 	}
 }
 void BoxBoard::RegisterCircle(LOC StartLoc, LOC NextLoc)
 {
-	//¶¯Ì¬×¢²áÁ´¡£´ÓÒ»¸ö¸ñ×Ó³ö·¢ £¬ÏòÒ»¸ö¸ñ×Ó¿ªÊ¼½øĞĞÁ´µÄ×¢²á¡£Ò»°ã½ö´Ó×ÔÓÉ¸ñ³ö·¢
+	//åŠ¨æ€æ³¨å†Œé“¾ã€‚ä»ä¸€ä¸ªæ ¼å­å‡ºå‘ ï¼Œå‘ä¸€ä¸ªæ ¼å­å¼€å§‹è¿›è¡Œé“¾çš„æ³¨å†Œã€‚ä¸€èˆ¬ä»…ä»è‡ªç”±æ ¼å‡ºå‘
 
-	int x = StartLoc.x;//³õÊ¼XÖµ
-	int y = StartLoc.y;//³õÊ¼YÖµ
-	LOC Loc = StartLoc;//ÉèÖÃÆğµã×ø±ê
-	LOC NewLoc = NextLoc;//ÉèÖÃĞÂ×ø±ê
-	int Re = GetFirstEmptyChainNum();//»ñÈ¡Ò»¸ö¿Õ°×µÄÁ´¿Õ¼ä
-	Chains[Re].ChainBoxNum = 0;//¸ÄÎª0
+	int x = StartLoc.x;//åˆå§‹Xå€¼
+	int y = StartLoc.y;//åˆå§‹Yå€¼
+	LOC Loc = StartLoc;//è®¾ç½®èµ·ç‚¹åæ ‡
+	LOC NewLoc = NextLoc;//è®¾ç½®æ–°åæ ‡
+	int Re = GetFirstEmptyChainNum();//è·å–ä¸€ä¸ªç©ºç™½çš„é“¾ç©ºé—´
+	Chains[Re].ChainBoxNum = 0;//æ”¹ä¸º0
 	Chains[Re].Type = NotDefine;
-	//ÔÚÈçÏÂ¹ı³ÌÖĞ£¬NewLoc²ÅÊÇÊµ¼ÊÁ´µÄÃ¿Ò»¸ö¸ñ×ÓµÄ×ø±ê¡£Á´µÄÀàĞÍÔÚËÑË÷½áÊøÊ±ºòÅĞ¶Ï
+	//åœ¨å¦‚ä¸‹è¿‡ç¨‹ä¸­ï¼ŒNewLocæ‰æ˜¯å®é™…é“¾çš„æ¯ä¸€ä¸ªæ ¼å­çš„åæ ‡ã€‚é“¾çš„ç±»å‹åœ¨æœç´¢ç»“æŸæ—¶å€™åˆ¤æ–­
 	for (int i = 0; i < BOXNUM; i++)
 	{
-		if (Boxes[NewLoc.x][NewLoc.y].Type != 2)//Èô·¢ÏÖ×ÔÓÉ¸ñ£¬ÔòÈ¡Ïû×¢²á¡£
+		if (Boxes[NewLoc.x][NewLoc.y].Type != 2)//è‹¥å‘ç°è‡ªç”±æ ¼ï¼Œåˆ™å–æ¶ˆæ³¨å†Œã€‚
 		{
-			InheritChain(EMPTY, Re);//0ºÅÁ´ÍÌ²¢ËùÓĞÒÑ¾­×¢²áµÄÁ´
+			InheritChain(EMPTY, Re);//0å·é“¾åå¹¶æ‰€æœ‰å·²ç»æ³¨å†Œçš„é“¾
 			break;
 		}
-		else if (NewLoc.x == StartLoc.x&&NewLoc.y == StartLoc.y)//ËÑµ½Æğµã£¬È·¶¨ÎªCircle
+		else if (NewLoc.x == StartLoc.x&&NewLoc.y == StartLoc.y)//æœåˆ°èµ·ç‚¹ï¼Œç¡®å®šä¸ºCircle
 		{
 			Chains[Re].Type = Circle;
-			Chains[Re].StartLoc = NewLoc;						//ÆğµãÓëÖÕµã¶¼±ê¼ÇÎªÕâ¸ö¸ñ×Ó
-			Chains[Re].EndLoc = NewLoc;							//ÆğµãÓëÖÕµã¶¼±ê¼ÇÎªÕâ¸ö¸ñ×Ó
-			Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;	//°üÀ¨¸Ã¸ñÔÚÄÚÒ²ĞèÒª±»×¢²á
-			Chains[Re].ChainBoxNum++;							//Á´µÄ¸ñ×ÓÊıÄ¿×ÔÔö1
+			Chains[Re].StartLoc = NewLoc;						//èµ·ç‚¹ä¸ç»ˆç‚¹éƒ½æ ‡è®°ä¸ºè¿™ä¸ªæ ¼å­
+			Chains[Re].EndLoc = NewLoc;							//èµ·ç‚¹ä¸ç»ˆç‚¹éƒ½æ ‡è®°ä¸ºè¿™ä¸ªæ ¼å­
+			Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;	//åŒ…æ‹¬è¯¥æ ¼åœ¨å†…ä¹Ÿéœ€è¦è¢«æ³¨å†Œ
+			Chains[Re].ChainBoxNum++;							//é“¾çš„æ ¼å­æ•°ç›®è‡ªå¢1
 			break;
 		}
-		else//Ã¿ËÑµ½Ò»¸öĞÂµÄ¸ñ×Ó
+		else//æ¯æœåˆ°ä¸€ä¸ªæ–°çš„æ ¼å­
 		{
 			LOC mLoc = NewLoc;
-			//¶¨Òå¸ñ×ÓµÄĞÅÏ¢
-			Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;	//ÓëÁ´¹Ò¹³
-			Chains[Re].ChainBoxNum++;							//Á´µÄ¸ñ×ÓÊıÄ¿×ÔÔö1
-			NewLoc = FindNextBox(NewLoc, Loc);					//Ñ°ÕÒÏÂÒ»¸ö¡£
+			//å®šä¹‰æ ¼å­çš„ä¿¡æ¯
+			Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;	//ä¸é“¾æŒ‚é’©
+			Chains[Re].ChainBoxNum++;							//é“¾çš„æ ¼å­æ•°ç›®è‡ªå¢1
+			NewLoc = FindNextBox(NewLoc, Loc);					//å¯»æ‰¾ä¸‹ä¸€ä¸ªã€‚
 			Loc = mLoc;
 		}
 	}
@@ -344,9 +344,9 @@ void BoxBoard::SearchingFromBox(LOC BoxLoc)
 		int by = BoxLoc.y + Dir[n][1];
 		int lx = (BoxLoc.x * 2) - 1 + Dir[n][0];
 		int ly = (BoxLoc.y * 2) - 1 + Dir[n][1];
-		if (board[lx][ly] == EDGE&&GetBoxType(bx, by) == CHAINBOX)//ÁÚ±ßÎª¿Õ£¬Ä¿±ê¸ñ×ÓÎªÁ´¸ñ
+		if (board[lx][ly] == EDGE&&GetBoxType(bx, by) == CHAINBOX)//é‚»è¾¹ä¸ºç©ºï¼Œç›®æ ‡æ ¼å­ä¸ºé“¾æ ¼
 		{
-			if (Boxes[bx][by].BelongingChainNum == EMPTY)//±ØĞëÎªÎ´¹éÊôµÄ¸ñ×Ó£¬±ÜÃâ»·ÖØ¸´´Ó²»Í¬·½Ïò³ö·¢¡£
+			if (Boxes[bx][by].BelongingChainNum == EMPTY)//å¿…é¡»ä¸ºæœªå½’å±çš„æ ¼å­ï¼Œé¿å…ç¯é‡å¤ä»ä¸åŒæ–¹å‘å‡ºå‘ã€‚
 			{
 				LOC NewLoc;
 				NewLoc.Set(bx, by);
@@ -365,9 +365,9 @@ void BoxBoard::SearchingCircle(LOC BoxLoc)
 		int by = BoxLoc.y + Dir[n][1];
 		int lx = (BoxLoc.x * 2) - 1 + Dir[n][0];
 		int ly = (BoxLoc.y * 2) - 1 + Dir[n][1];
-		if (board[lx][ly] == EDGE&&GetBoxType(bx, by) == CHAINBOX)//ÁÚ±ßÎª¿Õ£¬Ä¿±ê¸ñ×ÓÎªÁ´¸ñ
+		if (board[lx][ly] == EDGE&&GetBoxType(bx, by) == CHAINBOX)//é‚»è¾¹ä¸ºç©ºï¼Œç›®æ ‡æ ¼å­ä¸ºé“¾æ ¼
 		{
-			if (Boxes[bx][by].BelongingChainNum == EMPTY)//±ØĞëÎªÎ´¹éÊôµÄ¸ñ×Ó£¬±ÜÃâ»·ÖØ¸´´Ó²»Í¬·½Ïò³ö·¢¡£
+			if (Boxes[bx][by].BelongingChainNum == EMPTY)//å¿…é¡»ä¸ºæœªå½’å±çš„æ ¼å­ï¼Œé¿å…ç¯é‡å¤ä»ä¸åŒæ–¹å‘å‡ºå‘ã€‚
 			{
 				LOC NewLoc;
 				NewLoc.Set(bx, by);
@@ -394,10 +394,10 @@ void BoxBoard::ResetChainsInfo()
 }
 void BoxBoard::DefineAllChains(bool ChainPlus)
 {
-	DefineBoxesType();//Ê×ÏÈ¶¨ÒåËùÓĞ¸ñ×ÓµÄÀàĞÍ
-	ResetChainsInfo();//ÖØÖÃÁ´µÄÊı¾İ
+	DefineBoxesType();//é¦–å…ˆå®šä¹‰æ‰€æœ‰æ ¼å­çš„ç±»å‹
+	ResetChainsInfo();//é‡ç½®é“¾çš„æ•°æ®
 
-	//Ê×ÏÈ´Ó×ÔÓÉ¸ñ³ö·¢ËÑË÷ËùÓĞ³¤Á´
+	//é¦–å…ˆä»è‡ªç”±æ ¼å‡ºå‘æœç´¢æ‰€æœ‰é•¿é“¾
 	for (int i = 1; i <= BOXLEN; i++)
 	{
 		for (int j = 1; j <= BOXLEN; j++)
@@ -411,7 +411,7 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 		}
 	}
 
-	//È»ºóÔÚ±ßÔµËÑË÷»¹Ã»ÓĞ±»ÅÅ²éµÄÁ´
+	//ç„¶ååœ¨è¾¹ç¼˜æœç´¢è¿˜æ²¡æœ‰è¢«æ’æŸ¥çš„é“¾
 	for (int i = 1; i <= BOXLEN; i++)
 	{
 		LOC k;
@@ -437,10 +437,10 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 		SearchingFromBox(k);
 	}
 
-	/*È»ºóÔÚ±ßÔµËÑË÷»¹Ã»ÓĞ±»ÅÅ²éµÄÁ´
+	/*ç„¶ååœ¨è¾¹ç¼˜æœç´¢è¿˜æ²¡æœ‰è¢«æ’æŸ¥çš„é“¾
 	for (int i = 1; i <= BOXLEN; i++)
 	{
-	//ËÑË÷ÉÏ±ß
+	//æœç´¢ä¸Šè¾¹
 	if (board[(i * 2) - 1][0] == EDGE&&Boxes[i][1].BelongingChainNum == EMPTY&&Boxes[i][1].Type == CHAINBOX)
 	{
 	LOC BoxLoc,NewLoc;
@@ -448,7 +448,7 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 	NewLoc.Set(i, 1);
 	RegisterChain(BoxLoc, NewLoc);
 	}
-	//ËÑË÷ÓÒ±ß
+	//æœç´¢å³è¾¹
 	if (board[LEN-1][(i * 2) - 1] == EDGE&&Boxes[BOXLEN][i].BelongingChainNum == EMPTY&&Boxes[BOXLEN][i].Type == CHAINBOX)
 	{
 	LOC BoxLoc, NewLoc;
@@ -456,7 +456,7 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 	NewLoc.Set(BOXLEN, i);
 	RegisterChain(BoxLoc, NewLoc);
 	}
-	//ËÑË÷ÏÂ±ß
+	//æœç´¢ä¸‹è¾¹
 	if (board[(i * 2) - 1][LEN - 1] == EDGE&&Boxes[i][BOXLEN].BelongingChainNum == EMPTY&&Boxes[i][BOXLEN].Type == CHAINBOX)
 	{
 	LOC BoxLoc, NewLoc;
@@ -464,7 +464,7 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 	NewLoc.Set(i,BOXLEN);
 	RegisterChain(BoxLoc, NewLoc);
 	}
-	//ËÑË÷×ó±ß
+	//æœç´¢å·¦è¾¹
 	if (board[0][(i * 2) - 1] == EDGE&&Boxes[1][i].BelongingChainNum == EMPTY&&Boxes[1][i].Type == CHAINBOX)
 	{
 	LOC BoxLoc, NewLoc;
@@ -475,7 +475,7 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 	}*/
 
 
-	//È»ºóËÑË÷»¹Ã»ÓĞ±»ËÑË÷µ½µÄÁ´¸ñ£¬¿ÉÄÜÎª»·
+	//ç„¶åæœç´¢è¿˜æ²¡æœ‰è¢«æœç´¢åˆ°çš„é“¾æ ¼ï¼Œå¯èƒ½ä¸ºç¯
 	for (int i = 1; i <= BOXLEN; i++)
 	{
 		for (int j = 1; j <= BOXLEN; j++)
@@ -489,10 +489,10 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 		}
 	}
 
-	//×îºó¿ªÊ¼ChainPlus
+	//æœ€åå¼€å§‹ChainPlus
 	if (ChainPlus)
 	{
-		//Ê×ÏÈ²éÕÒÊÇ·ñÓĞÊ×Î²ÏàÍ¬µÄÁ´£¬¶¨ÒåÎªPreChain
+		//é¦–å…ˆæŸ¥æ‰¾æ˜¯å¦æœ‰é¦–å°¾ç›¸åŒçš„é“¾ï¼Œå®šä¹‰ä¸ºPreChain
 		for (int i = 1; i < BOXNUM; i++)
 		{
 			if (Chains[i].Type == LongChain)
@@ -503,8 +503,8 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 					{
 						if (Boxes[Chains[j].StartLoc.x][Chains[j].StartLoc.y].BelongingChainNum == EMPTY&&Boxes[Chains[j].EndLoc.x][Chains[j].EndLoc.y].BelongingChainNum == EMPTY)
 						{
-							//´ËÊ±£¬iÓëjÍ¬Îª³¤Á´¶øÇÒÊ×Î²ÏàÍ¬ÇÒÊ×Î²µÄ¸ñ×Ó¶¼Î´±»ÈÏ¶¨£¬¿ÉÒÔÈÏ¶¨ËûÃÇÎªPreChain
-							InheritChain(i, j);//Á´i¼Ì³ĞÁËÁ´j
+							//æ­¤æ—¶ï¼Œiä¸jåŒä¸ºé•¿é“¾è€Œä¸”é¦–å°¾ç›¸åŒä¸”é¦–å°¾çš„æ ¼å­éƒ½æœªè¢«è®¤å®šï¼Œå¯ä»¥è®¤å®šä»–ä»¬ä¸ºPreChain
+							InheritChain(i, j);//é“¾iç»§æ‰¿äº†é“¾j
 							Boxes[Chains[i].StartLoc.x][Chains[i].StartLoc.y].BelongingChainNum = i;
 							Boxes[Chains[i].EndLoc.x][Chains[i].EndLoc.y].BelongingChainNum = i;
 							Chains[i].ChainBoxNum = Chains[i].ChainBoxNum + 2;
@@ -516,7 +516,7 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 			}
 		}
 
-		//È»ºó°ÑËùÓĞPreCircleµÄPreChain¶¨ÒåºÃ
+		//ç„¶åæŠŠæ‰€æœ‰PreCircleçš„PreChainå®šä¹‰å¥½
 		for (int y = 1; y <= BOXLEN; y++)
 		{
 			for (int x = 1; x <= BOXLEN; x++)
@@ -526,7 +526,7 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 					int Dir[4][2] = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 					int bx = x * 2 - 1;
 					int by = y * 2 - 1;
-					//ÏÈÊÖÏÈ²úÉúÒ»¸öËÀ¸ñ
+					//å…ˆæ‰‹å…ˆäº§ç”Ÿä¸€ä¸ªæ­»æ ¼
 					for (int n = 0; n < 4; n++)
 					{
 						int ex = bx + Dir[n][0];
@@ -541,13 +541,13 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 				}
 			}
 		}
-		//×îºó°ÑËùÓĞ»¹Ã»¶¨ÒåµÄ×ÔÓÉ¸ñ¹éÊôµ½Ëû×î³¤µÄÁ½ÌõÅÉÉúÁ´µÄºÏ²¢ÖĞ
+		//æœ€åæŠŠæ‰€æœ‰è¿˜æ²¡å®šä¹‰çš„è‡ªç”±æ ¼å½’å±åˆ°ä»–æœ€é•¿çš„ä¸¤æ¡æ´¾ç”Ÿé“¾çš„åˆå¹¶ä¸­
 		for (int y = 1; y < BOXNUM; y++)
 		{
 			for (int x = 1; x <= BOXNUM; x++)
 			{
 				int Dir[4][2] = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
-				if (Boxes[x][y].Type == FREEBOX&&Boxes[x][y].BelongingChainNum == EMPTY)//Èô±¾×ÔÓÉ¸ñ»¹Î´È·¶¨
+				if (Boxes[x][y].Type == FREEBOX&&Boxes[x][y].BelongingChainNum == EMPTY)//è‹¥æœ¬è‡ªç”±æ ¼è¿˜æœªç¡®å®š
 				{
 					int ChainRegNum[4];
 					int Total = 0;
@@ -557,13 +557,13 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 						int by = y + Dir[n][1];
 						int lx = (x * 2) - 1 + Dir[n][0];
 						int ly = (y * 2) - 1 + Dir[n][1];
-						if (board[lx][ly] == EDGE&&GetBoxType(bx, by) == CHAINBOX)//ÁÚ±ßÎª¿Õ£¬Ä¿±ê¸ñ×ÓÎªÁ´¸ñ
+						if (board[lx][ly] == EDGE&&GetBoxType(bx, by) == CHAINBOX)//é‚»è¾¹ä¸ºç©ºï¼Œç›®æ ‡æ ¼å­ä¸ºé“¾æ ¼
 						{
 							ChainRegNum[Total] = Boxes[bx][by].BelongingChainNum;
 							Total++;
 						}
 					}
-					//ÏÈÕÒ³ö×î³¤µÄ
+					//å…ˆæ‰¾å‡ºæœ€é•¿çš„
 					int FirstChainNum = 0;
 					int FirstChainBoxes = 0;
 					for (int i = 0; i < Total; i++)
@@ -574,7 +574,7 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 							FirstChainBoxes = Chains[ChainRegNum[i]].ChainBoxNum;
 						}
 					}
-					//ÔÙÕÒ³ö´Î³¤µÄ
+					//å†æ‰¾å‡ºæ¬¡é•¿çš„
 					int SecChainNum = 0;
 					int SecChainBoxes = 0;
 					for (int i = 0; i < Total; i++)
@@ -585,7 +585,7 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 							SecChainBoxes = Chains[ChainRegNum[i]].ChainBoxNum;
 						}
 					}
-					//½«Á½¸öÁ´£¬ÒÔ¼°±¾¸ñÀÛ¼ÓÔÚÒ»Æğ
+					//å°†ä¸¤ä¸ªé“¾ï¼Œä»¥åŠæœ¬æ ¼ç´¯åŠ åœ¨ä¸€èµ·
 					Boxes[x][y].BelongingChainNum = FirstChainNum;
 					Chains[FirstChainNum].ChainBoxNum++;
 					InheritChain(FirstChainNum, SecChainNum);
@@ -595,45 +595,45 @@ void BoxBoard::DefineAllChains(bool ChainPlus)
 	}
 }
 
-//ÀàĞÍÅĞ¶Ï
+//ç±»å‹åˆ¤æ–­
 void BoxBoard::RegisterDeadChain(LOC FreeBoxLoc, LOC FirstLoc)
 {
-	//¶¯Ì¬×¢²áÁ´¡£´ÓÒ»¸ö¸ñ×Ó³ö·¢ £¬ÏòÒ»¸ö¸ñ×Ó¿ªÊ¼½øĞĞÁ´µÄ×¢²á¡£Ò»°ã½ö´Ó×ÔÓÉ¸ñ³ö·¢
+	//åŠ¨æ€æ³¨å†Œé“¾ã€‚ä»ä¸€ä¸ªæ ¼å­å‡ºå‘ ï¼Œå‘ä¸€ä¸ªæ ¼å­å¼€å§‹è¿›è¡Œé“¾çš„æ³¨å†Œã€‚ä¸€èˆ¬ä»…ä»è‡ªç”±æ ¼å‡ºå‘
 
-	int x = FreeBoxLoc.x;				//³õÊ¼XÖµ
-	int y = FreeBoxLoc.y;				//³õÊ¼YÖµ
-	LOC Loc = FreeBoxLoc;				//ÉèÖÃÆğµã×ø±ê
-	LOC NewLoc = FirstLoc;				//ÉèÖÃĞÂ×ø±ê
-	int Re = GetFirstEmptyChainNum();	//»ñÈ¡Ò»¸ö¿Õ°×µÄÁ´¿Õ¼ä
-	Chains[Re].StartLoc = Loc;			//ÆğµãÎªÄ³¸ö×ÔÓÉ¸ñ
-	Chains[Re].ChainBoxNum = 1;			//¸üĞÂÆğµã
+	int x = FreeBoxLoc.x;				//åˆå§‹Xå€¼
+	int y = FreeBoxLoc.y;				//åˆå§‹Yå€¼
+	LOC Loc = FreeBoxLoc;				//è®¾ç½®èµ·ç‚¹åæ ‡
+	LOC NewLoc = FirstLoc;				//è®¾ç½®æ–°åæ ‡
+	int Re = GetFirstEmptyChainNum();	//è·å–ä¸€ä¸ªç©ºç™½çš„é“¾ç©ºé—´
+	Chains[Re].StartLoc = Loc;			//èµ·ç‚¹ä¸ºæŸä¸ªè‡ªç”±æ ¼
+	Chains[Re].ChainBoxNum = 1;			//æ›´æ–°èµ·ç‚¹
 	Chains[Re].Type = NotDefine;
 
-	//ÔÚÈçÏÂ¹ı³ÌÖĞ£¬NewLoc²ÅÊÇÊµ¼ÊÁ´µÄÃ¿Ò»¸ö¸ñ×ÓµÄ×ø±ê¡£Á´µÄÀàĞÍÔÚËÑË÷½áÊøÊ±ºòÅĞ¶Ï
+	//åœ¨å¦‚ä¸‹è¿‡ç¨‹ä¸­ï¼ŒNewLocæ‰æ˜¯å®é™…é“¾çš„æ¯ä¸€ä¸ªæ ¼å­çš„åæ ‡ã€‚é“¾çš„ç±»å‹åœ¨æœç´¢ç»“æŸæ—¶å€™åˆ¤æ–­
 	for (int i = 0; i < BOXNUM; i++)
 	{
-		if (GetBoxType(NewLoc.x, NewLoc.y) != CHAINBOX)//µ±ËÑË÷½áÊøµÄÊ±ºò£¬ÅĞ¶¨Á´µÄÀàĞÍ¡£´ËÊ±£¬NewLocÎªËÑË÷µ½µÄÖÕµã¸ñ×ø±ê
+		if (GetBoxType(NewLoc.x, NewLoc.y) != CHAINBOX)//å½“æœç´¢ç»“æŸçš„æ—¶å€™ï¼Œåˆ¤å®šé“¾çš„ç±»å‹ã€‚æ­¤æ—¶ï¼ŒNewLocä¸ºæœç´¢åˆ°çš„ç»ˆç‚¹æ ¼åæ ‡
 		{
-			Chains[Re].EndLoc = NewLoc;//ËÑË÷µ½´ïÖÕµã
-			if (GetBoxType(NewLoc.x, NewLoc.y) == DEADBOX)//Èç¹ûÖÕ¶ËÊÇÒ»¸öËÀ¸ñµÄ»°£¬Õâ¾ÍÊÇÒ»¸öËÀÑ­»·(DeadCircle)
+			Chains[Re].EndLoc = NewLoc;//æœç´¢åˆ°è¾¾ç»ˆç‚¹
+			if (GetBoxType(NewLoc.x, NewLoc.y) == DEADBOX)//å¦‚æœç»ˆç«¯æ˜¯ä¸€ä¸ªæ­»æ ¼çš„è¯ï¼Œè¿™å°±æ˜¯ä¸€ä¸ªæ­»å¾ªç¯(DeadCircle)
 			{
 				Chains[Re].Type = DeadCircle;
-				Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;//°üÀ¨¸Ã¸ñÔÚÄÚÒ²ĞèÒª±»×¢²á
+				Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;//åŒ…æ‹¬è¯¥æ ¼åœ¨å†…ä¹Ÿéœ€è¦è¢«æ³¨å†Œ
 				Chains[Re].ChainBoxNum++;
 			}
-			else//ÈôÆğÖÕµã²»Ò»Ñù£¬ÔòÎªÁ´¡£¸ù¾İÊıÄ¿ÅĞ¶¨ÆäÀàĞÍ
+			else//è‹¥èµ·ç»ˆç‚¹ä¸ä¸€æ ·ï¼Œåˆ™ä¸ºé“¾ã€‚æ ¹æ®æ•°ç›®åˆ¤å®šå…¶ç±»å‹
 			{
 				Chains[Re].Type = DeadChain;
 			}
 			break;
 		}
-		else//Ã¿ËÑµ½Ò»¸öĞÂµÄ¸ñ×Ó
+		else//æ¯æœåˆ°ä¸€ä¸ªæ–°çš„æ ¼å­
 		{
 			LOC mLoc = NewLoc;
-			//¶¨Òå¸ñ×ÓµÄĞÅÏ¢
-			Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;	//ÓëÁ´¹Ò¹³
-			Chains[Re].ChainBoxNum++;							//Á´µÄ¸ñ×ÓÊıÄ¿×ÔÔö1
-			NewLoc = FindNextBox(NewLoc, Loc);					//Ñ°ÕÒÏÂÒ»¸ö¡£
+			//å®šä¹‰æ ¼å­çš„ä¿¡æ¯
+			Boxes[NewLoc.x][NewLoc.y].BelongingChainNum = Re;	//ä¸é“¾æŒ‚é’©
+			Chains[Re].ChainBoxNum++;							//é“¾çš„æ ¼å­æ•°ç›®è‡ªå¢1
+			NewLoc = FindNextBox(NewLoc, Loc);					//å¯»æ‰¾ä¸‹ä¸€ä¸ªã€‚
 			Loc = mLoc;
 		}
 	}
@@ -647,9 +647,9 @@ void BoxBoard::SearchingDeadChain(LOC BoxLoc)
 		int by = BoxLoc.y + Dir[n][1];
 		int lx = (BoxLoc.x * 2) - 1 + Dir[n][0];
 		int ly = (BoxLoc.y * 2) - 1 + Dir[n][1];
-		if (board[lx][ly] == EDGE&&GetBoxType(bx, by) == CHAINBOX)//ÁÚ±ßÎª¿Õ£¬Ä¿±ê¸ñ×ÓÎªÁ´¸ñ
+		if (board[lx][ly] == EDGE&&GetBoxType(bx, by) == CHAINBOX)//é‚»è¾¹ä¸ºç©ºï¼Œç›®æ ‡æ ¼å­ä¸ºé“¾æ ¼
 		{
-			if (Boxes[bx][by].BelongingChainNum == EMPTY)//±ØĞëÎªÎ´¹éÊôµÄ¸ñ×Ó£¬±ÜÃâ»·ÖØ¸´´Ó²»Í¬·½Ïò³ö·¢¡£
+			if (Boxes[bx][by].BelongingChainNum == EMPTY)//å¿…é¡»ä¸ºæœªå½’å±çš„æ ¼å­ï¼Œé¿å…ç¯é‡å¤ä»ä¸åŒæ–¹å‘å‡ºå‘ã€‚
 			{
 				LOC NewLoc;
 				NewLoc.Set(bx, by);
@@ -660,8 +660,8 @@ void BoxBoard::SearchingDeadChain(LOC BoxLoc)
 }
 void BoxBoard::DefineDeadChain()
 {
-	DefineBoxesType();//Ê×ÏÈ¶¨ÒåËùÓĞ¸ñ×ÓµÄÀàĞÍ
-	ResetChainsInfo();//ÖØÖÃÁ´µÄÊı¾İ
+	DefineBoxesType();//é¦–å…ˆå®šä¹‰æ‰€æœ‰æ ¼å­çš„ç±»å‹
+	ResetChainsInfo();//é‡ç½®é“¾çš„æ•°æ®
 	for (int i = 1; i <= BOXLEN; i++)
 	{
 		for (int j = 1; j <= BOXLEN; j++)
@@ -696,14 +696,14 @@ bool BoxBoard::GetDeadCircleExist()
 	return false;
 }
 
-//Õ¼¾İÁ´
+//å æ®é“¾
 bool BoxBoard::CaptualAnySingleChain(int LatterPlayer)
 {
 	DefineAllChains(false);
 
 	for (int i = 1; i < BOXNUM; i++)
 	{
-		if (Chains[i].Type == SingleChain)//ÕÒµ½µÄÈÎÒâÒ»Ìõµ¥Á´
+		if (Chains[i].Type == SingleChain)//æ‰¾åˆ°çš„ä»»æ„ä¸€æ¡å•é“¾
 		{
 			for (int y = 1; y <= BOXLEN; y++)
 			{
@@ -715,7 +715,7 @@ bool BoxBoard::CaptualAnySingleChain(int LatterPlayer)
 						int Dir[4][2] = { { 1, 0 }, { 0, 1 }, { -1, 0 }, { 0, -1 } };
 						int bx = x * 2 - 1;
 						int by = y * 2 - 1;
-						//ÏÈÊÖÏÈ²úÉúÒ»¸öËÀ¸ñ
+						//å…ˆæ‰‹å…ˆäº§ç”Ÿä¸€ä¸ªæ­»æ ¼
 						for (int n = 0; n < 4; n++)
 						{
 							int ex = bx + Dir[n][0];
@@ -726,7 +726,7 @@ bool BoxBoard::CaptualAnySingleChain(int LatterPlayer)
 								break;
 							}
 						}
-						//ºóÊÖÕ¼¾İÕâ¸ö¸ñ×Ó
+						//åæ‰‹å æ®è¿™ä¸ªæ ¼å­
 						for (int n = 0; n < 4; n++)
 						{
 							int ex = bx + Dir[n][0];
@@ -737,7 +737,7 @@ bool BoxBoard::CaptualAnySingleChain(int LatterPlayer)
 								break;
 							}
 						}
-						//Õ¼¾İ½áÊø£¬Ë¢ĞÂÁ´ĞÅÏ¢£¬½áÊø¡£
+						//å æ®ç»“æŸï¼Œåˆ·æ–°é“¾ä¿¡æ¯ï¼Œç»“æŸã€‚
 						Boxes[x][y].BelongingChainNum = 0;
 						InheritChain(EMPTY, i);
 						DefineBoxesType();
@@ -755,9 +755,9 @@ bool BoxBoard::CaptualAnyShortChain(int LatterPlayer)
 
 	for (int i = 1; i < BOXNUM; i++)
 	{
-		if (Chains[i].Type == ShortChain)//ÕÒµ½µÄÈÎÒâÒ»Ìõµ¥Á´
+		if (Chains[i].Type == ShortChain)//æ‰¾åˆ°çš„ä»»æ„ä¸€æ¡å•é“¾
 		{
-			//ÏÈÊÖÏÈÕ¼Áì¶ÌÁ´Á½¸ö¸ñ×ÓÖĞ¼äµÄÄÇ¸ö±ß
+			//å…ˆæ‰‹å…ˆå é¢†çŸ­é“¾ä¸¤ä¸ªæ ¼å­ä¸­é—´çš„é‚£ä¸ªè¾¹
 			for (int y = 1; y <= BOXLEN; y++)
 			{
 				for (int x = 1; x <= BOXLEN; x++)
@@ -775,7 +775,7 @@ bool BoxBoard::CaptualAnyShortChain(int LatterPlayer)
 							int ey = by + Dir[n][1];
 							int nbx = x + Dir[n][0];
 							int nby = y + Dir[n][1];
-							if (board[ex][ey] == EDGE&&Boxes[nbx][nby].BelongingChainNum == i)//ÕÒµ½Á½¸ö¸ñ×Ó½»²æµÄÄÇ¸ö¸ñ×Ó
+							if (board[ex][ey] == EDGE&&Boxes[nbx][nby].BelongingChainNum == i)//æ‰¾åˆ°ä¸¤ä¸ªæ ¼å­äº¤å‰çš„é‚£ä¸ªæ ¼å­
 							{
 								Move(ex, ey, -LatterPlayer);
 								break;
@@ -786,7 +786,7 @@ bool BoxBoard::CaptualAnyShortChain(int LatterPlayer)
 				}
 			}
 
-			//ºóÊÖÕ¼Áì¶ÌÁ´Á½¸ö¸ñ×ÓÊ£ÓàµÄ±ß
+			//åæ‰‹å é¢†çŸ­é“¾ä¸¤ä¸ªæ ¼å­å‰©ä½™çš„è¾¹
 			for (int y = 1; y <= BOXLEN; y++)
 			{
 				for (int x = 1; x <= BOXLEN; x++)
@@ -806,12 +806,12 @@ bool BoxBoard::CaptualAnyShortChain(int LatterPlayer)
 								break;
 							}
 						}
-						//Õ¼¾İ½áÊø£¬Ë¢ĞÂÁ´ĞÅÏ¢£¬½áÊø¡£
+						//å æ®ç»“æŸï¼Œåˆ·æ–°é“¾ä¿¡æ¯ï¼Œç»“æŸã€‚
 						Boxes[x][y].BelongingChainNum = 0;
 					}
 				}
 			}
-			//½áÊø
+			//ç»“æŸ
 			InheritChain(EMPTY, i);
 			DefineBoxesType();
 			return true;
@@ -824,9 +824,9 @@ bool BoxBoard::CaptualShortestChain(int LatterPlayer)
 {
 	DefineAllChains(false);
 
-	//ÏÈÕÒµ½×î¶ÌµÄÄÇÌõ³¤Á´/»·
+	//å…ˆæ‰¾åˆ°æœ€çŸ­çš„é‚£æ¡é•¿é“¾/ç¯
 	int Least = 0;
-	int LeastBoxNum = BOXNUM;//¼ÙÉè×î¶ÌµÄÁ´ÓĞ25¸ö
+	int LeastBoxNum = BOXNUM;//å‡è®¾æœ€çŸ­çš„é“¾æœ‰25ä¸ª
 	for (int i = 1; i < BOXNUM; i++)
 	{
 		if (Chains[i].Type == LongChain || Chains[i].Type == Circle)
@@ -842,7 +842,7 @@ bool BoxBoard::CaptualShortestChain(int LatterPlayer)
 		return false;
 
 
-	//ÏÈÊÖÏÈÕ¼ÁìÈÎÒâÁ½¸ö¸ñ×ÓÖ®¼äµÄ±ß
+	//å…ˆæ‰‹å…ˆå é¢†ä»»æ„ä¸¤ä¸ªæ ¼å­ä¹‹é—´çš„è¾¹
 	bool Finish = false;
 	for (int y = 1; y <= BOXLEN; y++)
 	{
@@ -861,7 +861,7 @@ bool BoxBoard::CaptualShortestChain(int LatterPlayer)
 					int ey = by + Dir[n][1];
 					int nbx = x + Dir[n][0];
 					int nby = y + Dir[n][1];
-					if (board[ex][ey] == EDGE&&Boxes[nbx][nby].BelongingChainNum == Least)//ÕÒµ½Á½¸ö¸ñ×Ó½»²æµÄÄÇ¸ö¸ñ×Ó
+					if (board[ex][ey] == EDGE&&Boxes[nbx][nby].BelongingChainNum == Least)//æ‰¾åˆ°ä¸¤ä¸ªæ ¼å­äº¤å‰çš„é‚£ä¸ªæ ¼å­
 					{
 						Move(ex, ey, -LatterPlayer);
 						Finish = true;
@@ -872,7 +872,7 @@ bool BoxBoard::CaptualShortestChain(int LatterPlayer)
 		}
 	}
 
-	//ºóÊÖÕ¼ÁìÕâÌõÁ´ËùÓĞÆäËû¸ñ×Ó¿ÕÓàµÄ±ß
+	//åæ‰‹å é¢†è¿™æ¡é“¾æ‰€æœ‰å…¶ä»–æ ¼å­ç©ºä½™çš„è¾¹
 	for (int y = 1; y <= BOXLEN; y++)
 	{
 		for (int x = 1; x <= BOXLEN; x++)
@@ -892,25 +892,25 @@ bool BoxBoard::CaptualShortestChain(int LatterPlayer)
 						break;
 					}
 				}
-				//Õ¼¾İ½áÊø£¬Ë¢ĞÂÁ´ĞÅÏ¢£¬½áÊø¡£
+				//å æ®ç»“æŸï¼Œåˆ·æ–°é“¾ä¿¡æ¯ï¼Œç»“æŸã€‚
 				Boxes[x][y].BelongingChainNum = 0;
 			}
 		}
 	}
-	//½áÊø
+	//ç»“æŸ
 	InheritChain(EMPTY, Least);
 	DefineBoxesType();
 	return true;
 }
 
-//´ò¿ªÁ´
+//æ‰“å¼€é“¾
 LOC BoxBoard::GetOpenShortestChainLoc()
 {
 	DefineAllChains(false);
 
-	//ÏÈÕÒµ½×î¶ÌµÄÄÇÌõ³¤Á´/»·
+	//å…ˆæ‰¾åˆ°æœ€çŸ­çš„é‚£æ¡é•¿é“¾/ç¯
 	int Least = 0;
-	int LeastBoxNum = BOXNUM;//¼ÙÉè×î¶ÌµÄÁ´ÓĞ25¸ö
+	int LeastBoxNum = BOXNUM;//å‡è®¾æœ€çŸ­çš„é“¾æœ‰25ä¸ª
 	for (int i = 1; i < BOXNUM; i++)
 	{
 		if (Chains[i].Type == LongChain || Chains[i].Type == Circle)
@@ -924,7 +924,7 @@ LOC BoxBoard::GetOpenShortestChainLoc()
 	}
 
 
-	//ÏÈÊÖÏÈÕ¼ÁìÈÎÒâÁ½¸ö¸ñ×ÓÖ®¼äµÄ±ß
+	//å…ˆæ‰‹å…ˆå é¢†ä»»æ„ä¸¤ä¸ªæ ¼å­ä¹‹é—´çš„è¾¹
 	for (int y = 1; y <= BOXLEN; y++)
 	{
 		for (int x = 1; x <= BOXLEN; x++)
@@ -942,7 +942,7 @@ LOC BoxBoard::GetOpenShortestChainLoc()
 					int ey = by + Dir[n][1];
 					int nbx = x + Dir[n][0];
 					int nby = y + Dir[n][1];
-					if (board[ex][ey] == EDGE&&Boxes[nbx][nby].BelongingChainNum == Least)//ÕÒµ½Á½¸ö¸ñ×Ó½»²æµÄÄÇ¸ö¸ñ×Ó
+					if (board[ex][ey] == EDGE&&Boxes[nbx][nby].BelongingChainNum == Least)//æ‰¾åˆ°ä¸¤ä¸ªæ ¼å­äº¤å‰çš„é‚£ä¸ªæ ¼å­
 					{
 						LOC k;
 						k.Set(ex, ey);
@@ -960,7 +960,7 @@ LOC BoxBoard::GetOpenSuitableChainLoc()
 {
 	DefineAllChains(false);
 
-	//ÏÈÕÒµ½×î¶ÌµÄÄÇÌõ³¤Á´/»·
+	//å…ˆæ‰¾åˆ°æœ€çŸ­çš„é‚£æ¡é•¿é“¾/ç¯
 	int SuitChainNum = 99;
 	for (int i = 1; i < BOXNUM; i++)
 	{
@@ -1010,7 +1010,7 @@ LOC BoxBoard::GetOpenSuitableChainLoc()
 					int ey = by + Dir[n][1];
 					int nbx = x + Dir[n][0];
 					int nby = y + Dir[n][1];
-					if (board[ex][ey] == EDGE&&Boxes[nbx][nby].BelongingChainNum == SuitChainNum)//ÕÒµ½Á½¸ö¸ñ×Ó½»²æµÄÄÇ¸ö¸ñ×Ó
+					if (board[ex][ey] == EDGE&&Boxes[nbx][nby].BelongingChainNum == SuitChainNum)//æ‰¾åˆ°ä¸¤ä¸ªæ ¼å­äº¤å‰çš„é‚£ä¸ªæ ¼å­
 					{
 						LOC k;
 						k.Set(ex, ey);
@@ -1025,7 +1025,7 @@ LOC BoxBoard::GetOpenSuitableChainLoc()
 	return k;
 }
 
-//ÅĞ¶Ïº¯Êı
+//åˆ¤æ–­å‡½æ•°
 bool BoxBoard::RationalState(LOC BoxNum)
 {
 	if (BoxNum.x >= BoxNum.y)
@@ -1034,17 +1034,17 @@ bool BoxBoard::RationalState(LOC BoxNum)
 }
 LOC BoxBoard::GetRationalStateBoxNum()
 {
-	//»ñÖªµ±Ç°¾ÖÃæÊÇ·ñÊÇÒ»¸öÀíĞÔ¾ÖÃæ£¬Ê×ÏÈĞèÒªÅĞ¶Ïµ±Ç°¾ÖÃæµÄÊıÄ¿¡£
+	//è·çŸ¥å½“å‰å±€é¢æ˜¯å¦æ˜¯ä¸€ä¸ªç†æ€§å±€é¢ï¼Œé¦–å…ˆéœ€è¦åˆ¤æ–­å½“å‰å±€é¢çš„æ•°ç›®ã€‚
 	DefineAllChains(true);
 
-	//Ê×ÏÈÇåËã¸÷ÖÖÁ´µÄÊıÄ¿
+	//é¦–å…ˆæ¸…ç®—å„ç§é“¾çš„æ•°ç›®
 	int LCNum = 0;
 	int LCBox = 0;
 	int CNum = 0;
 	int CBox = 0;
 	int PCNum = 0;
 	int PCBox = 0;
-	bool OnlyPreChain = true;//ÊÇ·ñ½öÓĞÔ¤±¸Á´£¬Ò²¾ÍÊÇÔ¤±¸»·µÄÏÈ¾öÌõ¼ş¡£ÊÇµÄ»°£¬×îºóÒ»¸ö±Ø¶¨ÊÇÔ¤±¸»·
+	bool OnlyPreChain = true;//æ˜¯å¦ä»…æœ‰é¢„å¤‡é“¾ï¼Œä¹Ÿå°±æ˜¯é¢„å¤‡ç¯çš„å…ˆå†³æ¡ä»¶ã€‚æ˜¯çš„è¯ï¼Œæœ€åä¸€ä¸ªå¿…å®šæ˜¯é¢„å¤‡ç¯
 	for (int i = 1; i <= BOXNUM; i++)
 	{
 		if (Chains[i].Type != NotDefine)
@@ -1069,23 +1069,23 @@ LOC BoxBoard::GetRationalStateBoxNum()
 		}
 	}
 
-	//¿ªÊ¼¼ÆËãÎşÉüÊıÄ¿
-	int Total = LCBox + PCBox + CBox;//×Ü¸ñ×ÓÊı
+	//å¼€å§‹è®¡ç®—ç‰ºç‰²æ•°ç›®
+	int Total = LCBox + PCBox + CBox;//æ€»æ ¼å­æ•°
 	int Sacrifice = 0;
 	if (OnlyPreChain)
 	{
-		if (LCNum == 0)//µ«Õâ¸ö×´¿öÏÂ²»´æÔÚ³¤Á´£¬Ôò¸ÃÇé¿ö¶¼ÊÇ»·
+		if (LCNum == 0)//ä½†è¿™ä¸ªçŠ¶å†µä¸‹ä¸å­˜åœ¨é•¿é“¾ï¼Œåˆ™è¯¥æƒ…å†µéƒ½æ˜¯ç¯
 		{
 			Sacrifice = (CNum - 1) * 4;
 		}
-		else//´æÔÚ³¤Á´£¬µ«¶¼ÊÇÔ¤±¸Á´¡£×îºóÒ»¸ö±Ø¶¨ÎªÔ¤±¸»·
+		else//å­˜åœ¨é•¿é“¾ï¼Œä½†éƒ½æ˜¯é¢„å¤‡é“¾ã€‚æœ€åä¸€ä¸ªå¿…å®šä¸ºé¢„å¤‡ç¯
 		{
 			Sacrifice = (PCNum * 4) + (CNum * 4) + (LCNum * 2) - 4;
 		}
 	}
 	else
 	{
-		//ÓĞ³¤Á´µÄÊ±ºò£¬×îºóÒ»¸ö±Ø¶¨ÊÇ³¤Á´
+		//æœ‰é•¿é“¾çš„æ—¶å€™ï¼Œæœ€åä¸€ä¸ªå¿…å®šæ˜¯é•¿é“¾
 		Sacrifice = (PCNum * 4) + (CNum * 4) + (LCNum * 2) - 2;
 	}
 	//ShowBelongingChain();
@@ -1104,7 +1104,7 @@ int BoxBoard::GetBoardWinner(int LatterPlayer)
 	//ShowBelongingChain();
 	//system("pause");
 	/*
-	for (;;)//ÏÈÍÌ²¢ËùÓĞµÄµ¥Á´
+	for (;;)//å…ˆåå¹¶æ‰€æœ‰çš„å•é“¾
 	{
 		if (CaptualAnySingleChain(player) == false)
 			break;
@@ -1121,7 +1121,7 @@ int BoxBoard::GetBoardWinner(int LatterPlayer)
 		cout << "Single Chain Finish , The Latter Player This Time is " << player << endl;
 	}
 
-	for (;;)//ÔÙÍÌ²¢ËùÓĞµÄ¶ÌÁ´
+	for (;;)//å†åå¹¶æ‰€æœ‰çš„çŸ­é“¾
 	{
 		if (CaptualAnyShortChain(player) == false)
 			break;
@@ -1139,15 +1139,15 @@ int BoxBoard::GetBoardWinner(int LatterPlayer)
 	}
 	*/
 	LOC BoxNum;
-	for (;;)//·ÇÀíĞÔÇé¿öÏÂÍÌ²¢ËùÓĞ
+	for (;;)//éç†æ€§æƒ…å†µä¸‹åå¹¶æ‰€æœ‰
 	{
-		DefineAllChains(true);//ÏÈ¶¨ÒåÎªÍêÈ«×´Ì¬ÅĞ¶¨Ò»´Î
-		BoxNum = GetRationalStateBoxNum();//È»ºóÔÙÅĞ¶¨Ò»´ÎÀíĞÔÇé¿ö
+		DefineAllChains(true);//å…ˆå®šä¹‰ä¸ºå®Œå…¨çŠ¶æ€åˆ¤å®šä¸€æ¬¡
+		BoxNum = GetRationalStateBoxNum();//ç„¶åå†åˆ¤å®šä¸€æ¬¡ç†æ€§æƒ…å†µ
 		if (RationalState(BoxNum))
 			break;
 		else
 		{
-			if (!CaptualShortestChain(player))//Èç¹û³Ô²»ÏÂÈ¥ÁËÒ²ÍË³ö
+			if (!CaptualShortestChain(player))//å¦‚æœåƒä¸ä¸‹å»äº†ä¹Ÿé€€å‡º
 				break;
 			else
 				player = -player;
@@ -1155,7 +1155,7 @@ int BoxBoard::GetBoardWinner(int LatterPlayer)
 	}
 	//ShowBelongingChain();
 	//system("pause");
-	if (Winner() == 0)//Ò²¾ÍÊÇ»¹Ã»Ê¤Àû
+	if (Winner() == 0)//ä¹Ÿå°±æ˜¯è¿˜æ²¡èƒœåˆ©
 	{
 		int r, b;
 		if (player == RED)

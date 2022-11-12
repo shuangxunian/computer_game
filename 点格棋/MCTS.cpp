@@ -13,12 +13,12 @@ using namespace std;
 
 //UCT for DAB
 
-//ÇëÄ¬ÄîÒ»¾ä»°£ºÃ¿Ò»¸ö×Ó½ÚµãµÄÊÕÒæÖµ£¬¶¼ÊÇ¶ÔÓÚ¸¸½ÚµãËùÓĞÕß¶øÑÔµÄÊÕÒæ£¡
+//è¯·é»˜å¿µä¸€å¥è¯ï¼šæ¯ä¸€ä¸ªå­èŠ‚ç‚¹çš„æ”¶ç›Šå€¼ï¼Œéƒ½æ˜¯å¯¹äºçˆ¶èŠ‚ç‚¹æ‰€æœ‰è€…è€Œè¨€çš„æ”¶ç›Šï¼
 
 
 UCTNode::UCTNode()
 {
-	//³õÊ¼»¯ÆåÅÌ
+	//åˆå§‹åŒ–æ£‹ç›˜
 	Step = 0;
 	for (int i = 0; i < LEN; i++)
 	{
@@ -32,7 +32,7 @@ UCTNode::UCTNode()
 }
 UCTNode::UCTNode(int Player, int Array[LEN][LEN], int step,bool GetCBox, int Filter_Range)
 {
-	//³õÊ¼»¯ÆåÅÌ
+	//åˆå§‹åŒ–æ£‹ç›˜
 	Step = step;
 	for (int i = 0; i < LEN; i++)
 	{
@@ -42,66 +42,66 @@ UCTNode::UCTNode(int Player, int Array[LEN][LEN], int step,bool GetCBox, int Fil
 		}
 	}
 	if (GetCBox)
-		GetAllCTypeBoxes(Player, false);		//ÏÈÈ«²¿³ÔµôCĞÍ¸ñ£¬´ËÊ±µÄNode×Ô¶¯Ô¾Ç¨ÎªGotten Node
+		GetAllCTypeBoxes(Player, false);		//å…ˆå…¨éƒ¨åƒæ‰Cå‹æ ¼ï¼Œæ­¤æ—¶çš„Nodeè‡ªåŠ¨è·ƒè¿ä¸ºGotten Node
 
 
-	//È»ºó¿ªÊ¼³õÊ¼»¯Êı¾İ
-	Owner = Player;								//Õâ¸ö½ÚµãµÄÓµÓĞÕßÊÇ´«ÈëµÄÊı¾İ
-	Times = 1;									//´´½¨Ê±ºòÕâ¸ö½ÚµãÒÑ¾­±»·ÃÎÊÒ»´ÎÁË
-	Board Win(board, Step);						//´´½¨µ±Ç°¾ÖÃæµÄÅĞ¶Ïµã
-	BoardWinner = GetBoardWinner(Win, -Player);	//Õâ¸ö¾ÖÃæµÄÊ¤ÀûÕß£¬×¢Òâ´ËÊ±µÄÏÈÊÖÊÇÎÒ·½
-	ExistChild = 0;								//ÒÑ¾­´æÔÚµÄ×Ó½ÚµãÊıÎª0
+	//ç„¶åå¼€å§‹åˆå§‹åŒ–æ•°æ®
+	Owner = Player;								//è¿™ä¸ªèŠ‚ç‚¹çš„æ‹¥æœ‰è€…æ˜¯ä¼ å…¥çš„æ•°æ®
+	Times = 1;									//åˆ›å»ºæ—¶å€™è¿™ä¸ªèŠ‚ç‚¹å·²ç»è¢«è®¿é—®ä¸€æ¬¡äº†
+	Board Win(board, Step);						//åˆ›å»ºå½“å‰å±€é¢çš„åˆ¤æ–­ç‚¹
+	BoardWinner = GetBoardWinner(Win, -Player);	//è¿™ä¸ªå±€é¢çš„èƒœåˆ©è€…ï¼Œæ³¨æ„æ­¤æ—¶çš„å…ˆæ‰‹æ˜¯æˆ‘æ–¹
+	ExistChild = 0;								//å·²ç»å­˜åœ¨çš„å­èŠ‚ç‚¹æ•°ä¸º0
 
 	int F = Win.GetFreeEdgeNum();
 	if (F>=Filter_Range)
-		TotalChild = GetFreeMoves(NodeMoves);		//ÌáÇ°¼ÆËã×Ü½ÚµãÊı
+		TotalChild = GetFreeMoves(NodeMoves);		//æå‰è®¡ç®—æ€»èŠ‚ç‚¹æ•°
 	else
-		TotalChild = GetFilterMoves(NodeMoves);		//ÌáÇ°¼ÆËã×Ü½ÚµãÊı
+		TotalChild = GetFilterMoves(NodeMoves);		//æå‰è®¡ç®—æ€»èŠ‚ç‚¹æ•°
 }
 UCTNode* UCTNode::ExpandUCTNode(int MC_Times, int Filter_Range)
 {
-	//´´½¨ĞÂ½Úµã
+	//åˆ›å»ºæ–°èŠ‚ç‚¹
 	Board CB(board, Step);
 	CB.Move(NodeMoves[ExistChild].x, NodeMoves[ExistChild].y, Owner);
 	UCTNode *NewB = new UCTNode(-Owner, CB.board, CB.Step, true, Filter_Range);
 
-	//×öÒ»´ÎMCÆÀ¹À
+	//åšä¸€æ¬¡MCè¯„ä¼°
 	CB.SetBoard(NewB->board);
 	NewB->AvgValue = GetFilterMCEvalution(CB, -Owner, Owner, MC_Times, Filter_Range);
-	return NewB;//·µ»ØNewBµÄµØÖ·
+	return NewB;//è¿”å›NewBçš„åœ°å€
 }
 UCTNode* UCTNode::ExpandUCTNodeRave(int MC_Times, int Filter_Range,int RaveTable[LEN][LEN])
 {
-	//´´½¨ĞÂ½Úµã
+	//åˆ›å»ºæ–°èŠ‚ç‚¹
 	Board CB(board, Step);
 	CB.Move(NodeMoves[ExistChild].x, NodeMoves[ExistChild].y, Owner);
 	UCTNode *NewB = new UCTNode(-Owner, CB.board, CB.Step, true, Filter_Range);
 
-	//×öÒ»´ÎMCÆÀ¹À
+	//åšä¸€æ¬¡MCè¯„ä¼°
 	CB.SetBoard(NewB->board);
 	NewB->AvgValue = GetRaveFilterMCEvalution(CB, -Owner, Owner, MC_Times, Filter_Range,RaveTable);
-	return NewB;//·µ»ØNewBµÄµØÖ·
+	return NewB;//è¿”å›NewBçš„åœ°å€
 }
 float UCTNode::RefreshAvgValue()
 {
 	float Value = 0;
-	//Ê×ÏÈ¼ÆËãÆ½¾ùÊÕÒæ
+	//é¦–å…ˆè®¡ç®—å¹³å‡æ”¶ç›Š
 	for (int i = 0; i < ExistChild; i++)
 	{
-		/*if (ChildNodes[i]->AvgValue == 1)//Èç¹ûÈÎÒâÒ»¸ö×Ó½ÚµãµÄÊÕÒæÎª1
+		/*if (ChildNodes[i]->AvgValue == 1)//å¦‚æœä»»æ„ä¸€ä¸ªå­èŠ‚ç‚¹çš„æ”¶ç›Šä¸º1
 		{
-			AvgValue = 0;	//Ôò±¾½ÚµãµÄÊÕÒæ±Ø¶¨Îª0
-			return 0;		//·µ»Ø0
+			AvgValue = 0;	//åˆ™æœ¬èŠ‚ç‚¹çš„æ”¶ç›Šå¿…å®šä¸º0
+			return 0;		//è¿”å›0
 		}*/
 		Value += ChildNodes[i]->AvgValue;
 	}
-	AvgValue = 1 - (Value / ExistChild);//µ±Ç°½ÚµãµÄÆ½¾ùÊÕÒæ±Ø¶¨ÊÇ(1 - ×Ó½ÚµãµÄÆ½¾ùÊÕÒæ )
+	AvgValue = 1 - (Value / ExistChild);//å½“å‰èŠ‚ç‚¹çš„å¹³å‡æ”¶ç›Šå¿…å®šæ˜¯(1 - å­èŠ‚ç‚¹çš„å¹³å‡æ”¶ç›Š )
 	return AvgValue;
 }
 float UCTNode::RefreshAvgValueWithSolver()
 {
 	float Value = 0;
-	//Ê×ÏÈ¼ÆËãÆ½¾ùÊÕÒæ
+	//é¦–å…ˆè®¡ç®—å¹³å‡æ”¶ç›Š
 	bool Fail = true;
 	for (int i = 0; i < ExistChild; i++)
 	{
@@ -120,10 +120,10 @@ float UCTNode::RefreshAvgValueWithSolver()
 	int VaildChildNum = ExistChild;
 	for (int i = 0; i < ExistChild; i++)
 	{
-		if (ChildNodes[i]->BoardWinner == Owner)//Èç¹ûÈÎÒâÒ»¸ö×Ó½ÚµãµÄÊÕÒæÎª1
+		if (ChildNodes[i]->BoardWinner == Owner)//å¦‚æœä»»æ„ä¸€ä¸ªå­èŠ‚ç‚¹çš„æ”¶ç›Šä¸º1
 		{
-			BoardWinner = Owner;	//ÄÇÃ´Õâ¸ö½ÚµãµÄÊ¤ÀûÕß¾ÍÊÇÆäËùÓĞÕß
-			AvgValue = 0;			//ÄÇÃ´¶ÔÓÚ¸¸½ÚµãÀ´Ëµ±¾½ÚµãµÄÊÕÒæÎª0
+			BoardWinner = Owner;	//é‚£ä¹ˆè¿™ä¸ªèŠ‚ç‚¹çš„èƒœåˆ©è€…å°±æ˜¯å…¶æ‰€æœ‰è€…
+			AvgValue = 0;			//é‚£ä¹ˆå¯¹äºçˆ¶èŠ‚ç‚¹æ¥è¯´æœ¬èŠ‚ç‚¹çš„æ”¶ç›Šä¸º0
 			return 0;
 		}
 		if (ChildNodes[i]->BoardWinner == -Owner)
@@ -131,7 +131,7 @@ float UCTNode::RefreshAvgValueWithSolver()
 		else
 			Value += ChildNodes[i]->AvgValue;
 	}
-	AvgValue = 1 - (Value / VaildChildNum);//µ±Ç°½ÚµãµÄÆ½¾ùÊÕÒæ±Ø¶¨ÊÇ(1 - ÓĞĞ§×Ó½ÚµãµÄÆ½¾ùÊÕÒæ )
+	AvgValue = 1 - (Value / VaildChildNum);//å½“å‰èŠ‚ç‚¹çš„å¹³å‡æ”¶ç›Šå¿…å®šæ˜¯(1 - æœ‰æ•ˆå­èŠ‚ç‚¹çš„å¹³å‡æ”¶ç›Š )
 	return AvgValue;
 }
 float UCTNode::GetUCBValue(int Total)
@@ -151,25 +151,25 @@ float UCTNode::GetUCBRaveValue(int Total,LOC Move,int RaveTable[LEN][LEN])
 }
 float UCTProcess(UCTNode &B, int &Total, int MC_Times, int Filter_Range)
 {
-	B.Times++;//·ÃÎÊµÄ´ÎÊıÔö¼ÓÒ»´Î
-	if (B.BoardWinner != 0)//Èç¹ûÓÎÏ·ÒÑ¾­½áÊøÁË
+	B.Times++;//è®¿é—®çš„æ¬¡æ•°å¢åŠ ä¸€æ¬¡
+	if (B.BoardWinner != 0)//å¦‚æœæ¸¸æˆå·²ç»ç»“æŸäº†
 	{
 		if (B.BoardWinner == B.Owner)
-			B.AvgValue = 0;//Èç¹ûÔÚÕâ¸ö½ÚµãÓÎÏ·½áÊøÁË£¬ÅĞ¶¨ÊÕÒæ¡£
+			B.AvgValue = 0;//å¦‚æœåœ¨è¿™ä¸ªèŠ‚ç‚¹æ¸¸æˆç»“æŸäº†ï¼Œåˆ¤å®šæ”¶ç›Šã€‚
 		else
-			B.AvgValue = 1;//Èç¹ûÔÚÕâ¸ö½ÚµãÓÎÏ·½áÊøÁË£¬ÅĞ¶¨ÊÕÒæ
-		Total++;//Èç¹ûËÑË÷µ½ÓÎÏ·½áÊøµÄ½Úµã£¬Ôò±¾´Îµü´ú½áÊø¡£
+			B.AvgValue = 1;//å¦‚æœåœ¨è¿™ä¸ªèŠ‚ç‚¹æ¸¸æˆç»“æŸäº†ï¼Œåˆ¤å®šæ”¶ç›Š
+		Total++;//å¦‚æœæœç´¢åˆ°æ¸¸æˆç»“æŸçš„èŠ‚ç‚¹ï¼Œåˆ™æœ¬æ¬¡è¿­ä»£ç»“æŸã€‚
 		return B.AvgValue;
 	}
-	if (B.ExistChild < B.TotalChild)//Èç¹û»¹ÓĞÎ´³¢ÊÔ¹ıµÄ½Úµã
+	if (B.ExistChild < B.TotalChild)//å¦‚æœè¿˜æœ‰æœªå°è¯•è¿‡çš„èŠ‚ç‚¹
 	{
-		Total++;//»ù×¼ÇéĞÎ£¬±¾´Îµü´ú½áÊø£¬³¢ÊÔ´ÎÊı+1¡£
-		B.ChildNodes[B.ExistChild] = B.ExpandUCTNode(MC_Times,Filter_Range);//À©Õ¹Ò»¸ö×Ó½Úµã
-		B.ExistChild++;//×Ó½ÚµãµÄÊıÄ¿×ÔÔö1
-		B.RefreshAvgValue();//Ë¢ĞÂÊÕÒæ
+		Total++;//åŸºå‡†æƒ…å½¢ï¼Œæœ¬æ¬¡è¿­ä»£ç»“æŸï¼Œå°è¯•æ¬¡æ•°+1ã€‚
+		B.ChildNodes[B.ExistChild] = B.ExpandUCTNode(MC_Times,Filter_Range);//æ‰©å±•ä¸€ä¸ªå­èŠ‚ç‚¹
+		B.ExistChild++;//å­èŠ‚ç‚¹çš„æ•°ç›®è‡ªå¢1
+		B.RefreshAvgValue();//åˆ·æ–°æ”¶ç›Š
 		return B.AvgValue;
 	}
-	else//ËµÃ÷Ã»ÓĞÎ´³¢ÊÔ¹ıµÄ½Úµã
+	else//è¯´æ˜æ²¡æœ‰æœªå°è¯•è¿‡çš„èŠ‚ç‚¹
 	{
 		int BestNodeNum = 0;
 		double BestUCBValue = 0;
@@ -192,13 +192,13 @@ float UCTProcess(UCTNode &B, int &Total, int MC_Times, int Filter_Range)
 
 void UCTMove(Board &CB, int Player, bool Msg)
 {
-	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step,true, UCT_FILTER_RANGE);//¸ù¾İµ±Ç°¾ÖÃæ´´½¨UCTµÄ¸ù½Úµã
+	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step,true, UCT_FILTER_RANGE);//æ ¹æ®å½“å‰å±€é¢åˆ›å»ºUCTçš„æ ¹èŠ‚ç‚¹
 	if (UCTB.BoardWinner == 0)
 	{
-		int Total = 0;//UCTµÄ´ÎÊıº¯Êı
-		clock_t start;	//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
+		int Total = 0;//UCTçš„æ¬¡æ•°å‡½æ•°
+		clock_t start;	//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
 		start = clock();
-		for (int i = 0; i < UCT_TIMES; i++)//µü´úÒ»¶¨´ÎÊı
+		for (int i = 0; i < UCT_TIMES; i++)//è¿­ä»£ä¸€å®šæ¬¡æ•°
 		{
 			UCTProcess(UCTB, Total, UCT_MC_TIMES, UCT_FILTER_RANGE);
 
@@ -207,7 +207,7 @@ void UCTMove(Board &CB, int Player, bool Msg)
 			if (totaltime >= UCT_LIMIT_TIME)
 				break;
 		}
-		//ÅĞ¶¨×î¼ÑÊÕÒæ
+		//åˆ¤å®šæœ€ä½³æ”¶ç›Š
 		int BestNodeNum = 0;
 		float BestAvgValue = 0;
 		int LargerTimesNodeNum = 0;
@@ -232,19 +232,19 @@ void UCTMove(Board &CB, int Player, bool Msg)
 		{
 			MoveMsg(UCTB.NodeMoves[BestNodeNum].x, UCTB.NodeMoves[BestNodeNum].y, Player);
 			cprintf("========================Infomation==========================\n", 8);
-			cout << "µ±Ç°½ÚµãÆ½¾ùÊÕÒæÎª" << 1 - UCTB.AvgValue << endl;
+			cout << "å½“å‰èŠ‚ç‚¹å¹³å‡æ”¶ç›Šä¸º" << 1 - UCTB.AvgValue << endl;
 			if (BestNodeNum == LargerTimesNodeNum)
-				cprintf("×î´ó·ÃÎÊÓë×î¼ÑÊÕÒæÏàÍ¬£¡\n", 10);
+				cprintf("æœ€å¤§è®¿é—®ä¸æœ€ä½³æ”¶ç›Šç›¸åŒï¼\n", 10);
 			else
-				cprintf("×î´ó·ÃÎÊ²»µÈÍ¬ÓÚ×î¼ÑÊÕÒæ£¡\n", 14);
-			cout << "×î¼ÑÊÕÒæ½Úµã·ÃÎÊÎª" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
-			cout << "×î¼ÑÊÕÒæ½ÚµãÊÕÒæÎª" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
-			cout << "×î¶à·ÃÎÊ½Úµã·ÃÎÊÎª" << UCTB.ChildNodes[LargerTimesNodeNum]->Times << endl;
-			cout << "×î¶à·ÃÎÊ½ÚµãÊÕÒæÎª" << UCTB.ChildNodes[LargerTimesNodeNum]->AvgValue << endl;
-			cout << "±¾´ÎUCT×Üµü´ú´ÎÊıÎª" << Total << endl;
+				cprintf("æœ€å¤§è®¿é—®ä¸ç­‰åŒäºæœ€ä½³æ”¶ç›Šï¼\n", 14);
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹è®¿é—®ä¸º" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹æ”¶ç›Šä¸º" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
+			cout << "æœ€å¤šè®¿é—®èŠ‚ç‚¹è®¿é—®ä¸º" << UCTB.ChildNodes[LargerTimesNodeNum]->Times << endl;
+			cout << "æœ€å¤šè®¿é—®èŠ‚ç‚¹æ”¶ç›Šä¸º" << UCTB.ChildNodes[LargerTimesNodeNum]->AvgValue << endl;
+			cout << "æœ¬æ¬¡UCTæ€»è¿­ä»£æ¬¡æ•°ä¸º" << Total << endl;
 			cprintf("============================================================\n", 8);
 		}
-		//ÊÍ·ÅÄÚ´æ
+		//é‡Šæ”¾å†…å­˜
 		DeleteUCTTree(UCTB);
 	}
 	else
@@ -259,13 +259,13 @@ void UCTMove(Board &CB, int Player, bool Msg)
 }
 void UCTMove_2(Board &CB, int Player, bool Msg)
 {
-	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//¸ù¾İµ±Ç°¾ÖÃæ´´½¨UCTµÄ¸ù½Úµã
+	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//æ ¹æ®å½“å‰å±€é¢åˆ›å»ºUCTçš„æ ¹èŠ‚ç‚¹
 	if (UCTB.BoardWinner == 0)
 	{
-		int Total = 0;//UCTµÄ´ÎÊıº¯Êı
-		clock_t start;	//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
+		int Total = 0;//UCTçš„æ¬¡æ•°å‡½æ•°
+		clock_t start;	//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
 		start = clock();
-		for (int i = 0; i < UCT_TIMES; i++)//µü´úÒ»¶¨´ÎÊı
+		for (int i = 0; i < UCT_TIMES; i++)//è¿­ä»£ä¸€å®šæ¬¡æ•°
 		{
 			UCTProcess(UCTB, Total, UCT_MC_TIMES, UCT_FILTER_RANGE);
 
@@ -274,7 +274,7 @@ void UCTMove_2(Board &CB, int Player, bool Msg)
 			if (totaltime >= UCT_LIMIT_TIME)
 				break;
 		}
-		//ÅĞ¶¨×î¼ÑÊÕÒæ
+		//åˆ¤å®šæœ€ä½³æ”¶ç›Š
 		int BestNodeNum = 0;
 		float BestAvgValue = 0;
 		int LargerTimesNodeNum = 0;
@@ -299,19 +299,19 @@ void UCTMove_2(Board &CB, int Player, bool Msg)
 		{
 			MoveMsg(UCTB.NodeMoves[BestNodeNum].x, UCTB.NodeMoves[BestNodeNum].y, Player);
 			cprintf("========================Infomation==========================\n", 8);
-			cout << "µ±Ç°½ÚµãÆ½¾ùÊÕÒæÎª" << 1 - UCTB.AvgValue << endl;
+			cout << "å½“å‰èŠ‚ç‚¹å¹³å‡æ”¶ç›Šä¸º" << 1 - UCTB.AvgValue << endl;
 			if (BestNodeNum == LargerTimesNodeNum)
-				cprintf("×î´ó·ÃÎÊÓë×î¼ÑÊÕÒæÏàÍ¬£¡\n", 10);
+				cprintf("æœ€å¤§è®¿é—®ä¸æœ€ä½³æ”¶ç›Šç›¸åŒï¼\n", 10);
 			else
-				cprintf("×î´ó·ÃÎÊ²»µÈÍ¬ÓÚ×î¼ÑÊÕÒæ£¡\n", 14);
-			cout << "×î¼ÑÊÕÒæ½Úµã·ÃÎÊÎª" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
-			cout << "×î¼ÑÊÕÒæ½ÚµãÊÕÒæÎª" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
-			cout << "×î¶à·ÃÎÊ½Úµã·ÃÎÊÎª" << UCTB.ChildNodes[LargerTimesNodeNum]->Times << endl;
-			cout << "×î¶à·ÃÎÊ½ÚµãÊÕÒæÎª" << UCTB.ChildNodes[LargerTimesNodeNum]->AvgValue << endl;
-			cout << "±¾´ÎUCT×Üµü´ú´ÎÊıÎª" << Total << endl;
+				cprintf("æœ€å¤§è®¿é—®ä¸ç­‰åŒäºæœ€ä½³æ”¶ç›Šï¼\n", 14);
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹è®¿é—®ä¸º" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹æ”¶ç›Šä¸º" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
+			cout << "æœ€å¤šè®¿é—®èŠ‚ç‚¹è®¿é—®ä¸º" << UCTB.ChildNodes[LargerTimesNodeNum]->Times << endl;
+			cout << "æœ€å¤šè®¿é—®èŠ‚ç‚¹æ”¶ç›Šä¸º" << UCTB.ChildNodes[LargerTimesNodeNum]->AvgValue << endl;
+			cout << "æœ¬æ¬¡UCTæ€»è¿­ä»£æ¬¡æ•°ä¸º" << Total << endl;
 			cprintf("============================================================\n", 8);
 		}
-		//ÊÍ·ÅÄÚ´æ
+		//é‡Šæ”¾å†…å­˜
 		DeleteUCTTree(UCTB);
 	}
 	else
@@ -326,13 +326,13 @@ void UCTMove_2(Board &CB, int Player, bool Msg)
 }
 void UCTMove_T(Board &CB, int Player, bool Msg)
 {
-	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//¸ù¾İµ±Ç°¾ÖÃæ´´½¨UCTµÄ¸ù½Úµã
+	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//æ ¹æ®å½“å‰å±€é¢åˆ›å»ºUCTçš„æ ¹èŠ‚ç‚¹
 	if (UCTB.BoardWinner == 0)
 	{
-		int Total = 0;//UCTµÄ´ÎÊıº¯Êı
-		clock_t start;	//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
+		int Total = 0;//UCTçš„æ¬¡æ•°å‡½æ•°
+		clock_t start;	//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
 		start = clock();
-		for (int i = 0; i < UCT_TIMES; i++)//µü´úÒ»¶¨´ÎÊı
+		for (int i = 0; i < UCT_TIMES; i++)//è¿­ä»£ä¸€å®šæ¬¡æ•°
 		{
 			UCTProcess(UCTB, Total, UCT_MC_TIMES, UCT_FILTER_RANGE);
 
@@ -341,7 +341,7 @@ void UCTMove_T(Board &CB, int Player, bool Msg)
 			if (totaltime >= UCT_LIMIT_TIME)
 				break;
 		}
-		//ÅĞ¶¨×î¼ÑÊÕÒæ
+		//åˆ¤å®šæœ€ä½³æ”¶ç›Š
 		int BestNodeNum = 0;
 		float BestAvgValue = 0;
 		int LargerTimesNodeNum = 0;
@@ -366,19 +366,19 @@ void UCTMove_T(Board &CB, int Player, bool Msg)
 		{
 			MoveMsg(UCTB.NodeMoves[BestNodeNum].x, UCTB.NodeMoves[BestNodeNum].y, Player);
 			cprintf("========================Infomation==========================\n", 8);
-			cout << "µ±Ç°½ÚµãÆ½¾ùÊÕÒæÎª" << 1 - UCTB.AvgValue << endl;
+			cout << "å½“å‰èŠ‚ç‚¹å¹³å‡æ”¶ç›Šä¸º" << 1 - UCTB.AvgValue << endl;
 			if (BestNodeNum == LargerTimesNodeNum)
-				cprintf("×î´ó·ÃÎÊÓë×î¼ÑÊÕÒæÏàÍ¬£¡\n", 10);
+				cprintf("æœ€å¤§è®¿é—®ä¸æœ€ä½³æ”¶ç›Šç›¸åŒï¼\n", 10);
 			else
-				cprintf("×î´ó·ÃÎÊ²»µÈÍ¬ÓÚ×î¼ÑÊÕÒæ£¡\n", 14);
-			cout << "×î¼ÑÊÕÒæ½Úµã·ÃÎÊÎª" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
-			cout << "×î¼ÑÊÕÒæ½ÚµãÊÕÒæÎª" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
-			cout << "×î¶à·ÃÎÊ½Úµã·ÃÎÊÎª" << UCTB.ChildNodes[LargerTimesNodeNum]->Times << endl;
-			cout << "×î¶à·ÃÎÊ½ÚµãÊÕÒæÎª" << UCTB.ChildNodes[LargerTimesNodeNum]->AvgValue << endl;
-			cout << "±¾´ÎUCT×Üµü´ú´ÎÊıÎª" << Total << endl;
+				cprintf("æœ€å¤§è®¿é—®ä¸ç­‰åŒäºæœ€ä½³æ”¶ç›Šï¼\n", 14);
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹è®¿é—®ä¸º" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹æ”¶ç›Šä¸º" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
+			cout << "æœ€å¤šè®¿é—®èŠ‚ç‚¹è®¿é—®ä¸º" << UCTB.ChildNodes[LargerTimesNodeNum]->Times << endl;
+			cout << "æœ€å¤šè®¿é—®èŠ‚ç‚¹æ”¶ç›Šä¸º" << UCTB.ChildNodes[LargerTimesNodeNum]->AvgValue << endl;
+			cout << "æœ¬æ¬¡UCTæ€»è¿­ä»£æ¬¡æ•°ä¸º" << Total << endl;
 			cprintf("============================================================\n", 8);
 		}
-		//ÊÍ·ÅÄÚ´æ
+		//é‡Šæ”¾å†…å­˜
 		DeleteUCTTree(UCTB);
 	}
 	else
@@ -394,12 +394,12 @@ void UCTMove_T(Board &CB, int Player, bool Msg)
 
 bool SearchingUCTNode(UCTNode* SearchingNode, int CurrentBoard[LEN][LEN], int Player, int Depth)
 {
-	if (BoardEqual(SearchingNode->board, CurrentBoard) && Player == SearchingNode->Owner)//·ûºÏ²éÕÒÌõ¼ş
+	if (BoardEqual(SearchingNode->board, CurrentBoard) && Player == SearchingNode->Owner)//ç¬¦åˆæŸ¥æ‰¾æ¡ä»¶
 	{
 		//CurrentUCTNode = SearchingNode;
 		return true;
 	}
-	else if (SearchingNode->BoardWinner != 0 && Depth > 0 && SearchingNode->ExistChild > 0)//ÈÔÎ´Ê¤Àû and Éî¶ÈÎ´µ½ and ÓĞ×Ó½Úµã
+	else if (SearchingNode->BoardWinner != 0 && Depth > 0 && SearchingNode->ExistChild > 0)//ä»æœªèƒœåˆ© and æ·±åº¦æœªåˆ° and æœ‰å­èŠ‚ç‚¹
 	{
 		for (int i = 0; i < SearchingNode->ExistChild; i++)
 		{
@@ -434,12 +434,12 @@ void UCTMoveWithSacrifice(Board &CB,int Player,bool Msg,int branch)
 	BoxBoard Dead(CB);
 	bool DeadChain = Dead.GetDeadChainExist();
 	bool DeadCircle = Dead.GetDeadCircleExist();
-	if (DeadCircle||DeadChain)//ÓĞ»·µÄÇé¿öÓÅÏÈ´¦Àí
+	if (DeadCircle||DeadChain)//æœ‰ç¯çš„æƒ…å†µä¼˜å…ˆå¤„ç†
 	{
 		LOC DCMove;
-		if (DeadChain)//È»ºó´¦ÀíËÀÁ´
+		if (DeadChain)//ç„¶åå¤„ç†æ­»é“¾
 		{
-			//Ê×ÏÈ³Ôµ½Ì°À·µÄÁÙ½çµã
+			//é¦–å…ˆåƒåˆ°è´ªå©ªçš„ä¸´ç•Œç‚¹
 			for (;;)
 			{
 				Board Test = CB;
@@ -450,12 +450,12 @@ void UCTMoveWithSacrifice(Board &CB,int Player,bool Msg,int branch)
 				else
 					break;
 			}
-			//È»ºó¿ªÊ¼¿¼ÂÇDoubleCross
+			//ç„¶åå¼€å§‹è€ƒè™‘DoubleCross
 			DCMove = CB.GetDoubleCrossLoc(Player);
 		}
 		else
 		{
-			//Ê×ÏÈ³Ôµ½Ì°À·µÄÁÙ½çµã
+			//é¦–å…ˆåƒåˆ°è´ªå©ªçš„ä¸´ç•Œç‚¹
 			for (;;)
 			{
 				Board Test = CB;
@@ -466,30 +466,30 @@ void UCTMoveWithSacrifice(Board &CB,int Player,bool Msg,int branch)
 				else
 					break;
 			}
-			//È»ºó¿ªÊ¼¿¼ÂÇDoubleCross
+			//ç„¶åå¼€å§‹è€ƒè™‘DoubleCross
 			DCMove = CB.GetDoubleCrossLoc(Player);
 		}
-		//È»ºó¿ªÊ¼ÖÆÔìUCTProcess
-		UCTNode GreedyChild = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//¸ù¾İµ±Ç°¾ÖÃæ´´½¨UCTµÄ¸ù½Úµã
-		UCTNode SacrificeChild = UCTNode(-Player, CB.board, CB.Step, false, UCT_FILTER_RANGE);//¸ù¾İµ±Ç°¾ÖÃæ´´½¨UCTµÄ¸ù½Úµã
+		//ç„¶åå¼€å§‹åˆ¶é€ UCTProcess
+		UCTNode GreedyChild = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//æ ¹æ®å½“å‰å±€é¢åˆ›å»ºUCTçš„æ ¹èŠ‚ç‚¹
+		UCTNode SacrificeChild = UCTNode(-Player, CB.board, CB.Step, false, UCT_FILTER_RANGE);//æ ¹æ®å½“å‰å±€é¢åˆ›å»ºUCTçš„æ ¹èŠ‚ç‚¹
 		SacrificeChild.Move(DCMove.x, DCMove.y, Player);
-		for (;;)//Ö±µ½ÎŞ·¨Õ¼¾İCTypeBoxÁË¾Í½áÊø
+		for (;;)//ç›´åˆ°æ— æ³•å æ®CTypeBoxäº†å°±ç»“æŸ
 		{
 			if (!SacrificeChild.GetCTypeBoxLimit(Player, false))
 				break;
 		}
-		//´ËÊ±µÄSacrificeÊÇ×¼±¸ÎşÉüµÄ¾ÖÃæÁË
+		//æ­¤æ—¶çš„Sacrificeæ˜¯å‡†å¤‡ç‰ºç‰²çš„å±€é¢äº†
 		SacrificeChild.TotalChild = SacrificeChild.GetFilterMoves(SacrificeChild.NodeMoves);
-		Board Win(SacrificeChild.board, SacrificeChild.Step);		//´´½¨µ±Ç°¾ÖÃæµÄÅĞ¶Ïµã
-		SacrificeChild.BoardWinner = GetBoardWinner(Win, Player);	//Õâ¸ö¾ÖÃæµÄÊ¤ÀûÕß£¬×¢Òâ´ËÊ±µÄÏÈÊÖÊÇ¶Ô·½
+		Board Win(SacrificeChild.board, SacrificeChild.Step);		//åˆ›å»ºå½“å‰å±€é¢çš„åˆ¤æ–­ç‚¹
+		SacrificeChild.BoardWinner = GetBoardWinner(Win, Player);	//è¿™ä¸ªå±€é¢çš„èƒœåˆ©è€…ï¼Œæ³¨æ„æ­¤æ—¶çš„å…ˆæ‰‹æ˜¯å¯¹æ–¹
 		if (SacrificeChild.BoardWinner == 0)
 		{
 			//
-			int Total = 0;//UCTµÄ´ÎÊıº¯Êı
+			int Total = 0;//UCTçš„æ¬¡æ•°å‡½æ•°
 			int Total2 = 0;
-			clock_t start;	//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
+			clock_t start;	//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
 			start = clock();
-			for (int i = 0; i < UCT_TIMES / 2; i++)//µü´úÒ»¶¨´ÎÊı
+			for (int i = 0; i < UCT_TIMES / 2; i++)//è¿­ä»£ä¸€å®šæ¬¡æ•°
 			{
 				UCTProcess(SacrificeChild, Total, UCT_MC_TIMES, UCT_FILTER_RANGE);
 				UCTProcess(GreedyChild, Total2, UCT_MC_TIMES, UCT_FILTER_RANGE);
@@ -500,7 +500,7 @@ void UCTMoveWithSacrifice(Board &CB,int Player,bool Msg,int branch)
 			}
 			//
 
-			//ÅĞ¶¨×î¼ÑÊÕÒæ
+			//åˆ¤å®šæœ€ä½³æ”¶ç›Š
 			int BestNodeNum = 0;
 			float BestAvgValue = 0;
 			for (int i = 0; i < GreedyChild.ExistChild; i++)
@@ -512,7 +512,7 @@ void UCTMoveWithSacrifice(Board &CB,int Player,bool Msg,int branch)
 				}
 			}
 
-			//ÓÃÌ°À·
+			//ç”¨è´ªå©ª
 			if (BestAvgValue >= SacrificeChild.AvgValue)
 			{
 				CB.GetAllCTypeBoxes(Player, Msg);
@@ -520,11 +520,11 @@ void UCTMoveWithSacrifice(Board &CB,int Player,bool Msg,int branch)
 				if (Msg)
 					MoveMsg(GreedyChild.NodeMoves[BestNodeNum].x, GreedyChild.NodeMoves[BestNodeNum].y, Player);
 			}
-			//Ê¹ÓÃÎşÉü
+			//ä½¿ç”¨ç‰ºç‰²
 			else
 			{
 				CB.Move(DCMove.x, DCMove.y, Player);
-				for (;;)//Ö±µ½ÎŞ·¨Õ¼¾İCTypeBoxÁË¾Í½áÊø
+				for (;;)//ç›´åˆ°æ— æ³•å æ®CTypeBoxäº†å°±ç»“æŸ
 				{
 					if (!CB.GetCTypeBoxLimit(Player, Msg))
 						break;
@@ -537,8 +537,8 @@ void UCTMoveWithSacrifice(Board &CB,int Player,bool Msg,int branch)
 			if (Msg)
 			{
 				cprintf("========================Infomation==========================\n", 8);
-				cout << "ÎşÉüµÄ½ÚµãÊÕÒæÎª" << SacrificeChild.AvgValue << endl;
-				cout << "Ì°À·×î¼Ñ½ÚµãÊÕÒæÎª" << GreedyChild.ChildNodes[BestNodeNum]->AvgValue << endl;
+				cout << "ç‰ºç‰²çš„èŠ‚ç‚¹æ”¶ç›Šä¸º" << SacrificeChild.AvgValue << endl;
+				cout << "è´ªå©ªæœ€ä½³èŠ‚ç‚¹æ”¶ç›Šä¸º" << GreedyChild.ChildNodes[BestNodeNum]->AvgValue << endl;
 				cprintf("============================================================\n", 8);
 			}
 		}
@@ -548,7 +548,7 @@ void UCTMoveWithSacrifice(Board &CB,int Player,bool Msg,int branch)
 		}
 	}
 
-	else//Õı³£UCTÒÆ¶¯
+	else//æ­£å¸¸UCTç§»åŠ¨
 	{
 		CB.GetAllCTypeBoxes(Player, Msg);
 		if (branch ==1)
@@ -565,10 +565,10 @@ void UCTMoveWithSacrifice(Board &CB,int Player,bool Msg,int branch)
 }
 void LatterSituationMove(Board &CB, int Player, bool Msg)
 {
-	//ºóÆÚËã·¨£¬´ËÊ±Ö»ÓĞ³¤Á´ºÍ»·¡£
+	//åæœŸç®—æ³•ï¼Œæ­¤æ—¶åªæœ‰é•¿é“¾å’Œç¯ã€‚
 	if (CB.GetLongCTypeBoxExist())
 	{
-		//ÒÑÓĞ´ò¿ªµÄ³¤Á´£¬¸ù¾İÎşÉüÓë²»ÎşÉüÖ®ºóµÄÀíĞÔ×´Ì¬¾ö¶¨ÊÇ·ñÎşÉü¡£
+		//å·²æœ‰æ‰“å¼€çš„é•¿é“¾ï¼Œæ ¹æ®ç‰ºç‰²ä¸ä¸ç‰ºç‰²ä¹‹åçš„ç†æ€§çŠ¶æ€å†³å®šæ˜¯å¦ç‰ºç‰²ã€‚
 		BoxBoard Dead(CB);
 		int SacrificeBoxNum;
 		if (Dead.GetDeadChainExist())
@@ -576,13 +576,13 @@ void LatterSituationMove(Board &CB, int Player, bool Msg)
 		if (Dead.GetDeadCircleExist())
 			SacrificeBoxNum = 4;
 		
-		//¼ÙÉèÈ«²¿¶¼³ÔµôÁË
+		//å‡è®¾å…¨éƒ¨éƒ½åƒæ‰äº†
 		Dead.GetAllCTypeBoxes(Player,false);
-		LOC BoxNum = Dead.GetRationalStateBoxNum();//xÊÇÏÈÊÖµÄ£¬yÊÇºóÊÖµÄ
+		LOC BoxNum = Dead.GetRationalStateBoxNum();//xæ˜¯å…ˆæ‰‹çš„ï¼Œyæ˜¯åæ‰‹çš„
 
-		//ÏÖÔÚ¸ù¾İ½ÓÏÂÀ´¾ÖÃæÄÜµÃµ½µÄ¸ñ×ÓÊıÀ´½øĞĞ·ÖÎö
+		//ç°åœ¨æ ¹æ®æ¥ä¸‹æ¥å±€é¢èƒ½å¾—åˆ°çš„æ ¼å­æ•°æ¥è¿›è¡Œåˆ†æ
 
-		//¼ÙÉèÔÚµ±Ç°Á´È«±»ÏûÃğºóºóÊÖ¿ÉÒÔÄÃµ½x¸ö£¬ÏÈÊÖ¿ÉÒÔÄÃµ½y¸ö¡£ÎÒ·½È«³Ôºó¿ÉÒÔÄÃµ½y+n£¬¶Ô·½ÄÃµ½x¸ö¡£Èôx-y<nÔòÎÒ·½È«³Ô
+		//å‡è®¾åœ¨å½“å‰é“¾å…¨è¢«æ¶ˆç­ååæ‰‹å¯ä»¥æ‹¿åˆ°xä¸ªï¼Œå…ˆæ‰‹å¯ä»¥æ‹¿åˆ°yä¸ªã€‚æˆ‘æ–¹å…¨åƒåå¯ä»¥æ‹¿åˆ°y+nï¼Œå¯¹æ–¹æ‹¿åˆ°xä¸ªã€‚è‹¥x-y<nåˆ™æˆ‘æ–¹å…¨åƒ
 
 		if (BoxNum.x - BoxNum.y <= SacrificeBoxNum||Dead.Winner()!=0)
 		{
@@ -592,11 +592,11 @@ void LatterSituationMove(Board &CB, int Player, bool Msg)
 		}
 		else
 		{
-			//ÎşÉü£¬´ËÊ±±ØÓĞËÀ³¤Á´»òËÀ»·
+			//ç‰ºç‰²ï¼Œæ­¤æ—¶å¿…æœ‰æ­»é•¿é“¾æˆ–æ­»ç¯
 			LOC DCMove;
-			if (SacrificeBoxNum==2)//È»ºó´¦ÀíËÀÁ´
+			if (SacrificeBoxNum==2)//ç„¶åå¤„ç†æ­»é“¾
 			{
-				//Ê×ÏÈ³Ôµ½Ì°À·µÄÁÙ½çµã
+				//é¦–å…ˆåƒåˆ°è´ªå©ªçš„ä¸´ç•Œç‚¹
 				for (;;)
 				{
 					Board Test = CB;
@@ -607,12 +607,12 @@ void LatterSituationMove(Board &CB, int Player, bool Msg)
 					else
 						break;
 				}
-				//È»ºó¿ªÊ¼¿¼ÂÇDoubleCross
+				//ç„¶åå¼€å§‹è€ƒè™‘DoubleCross
 				DCMove = CB.GetDoubleCrossLoc(Player);
 			}
 			else
 			{
-				//Ê×ÏÈ³Ôµ½Ì°À·µÄÁÙ½çµã
+				//é¦–å…ˆåƒåˆ°è´ªå©ªçš„ä¸´ç•Œç‚¹
 				for (;;)
 				{
 					Board Test = CB;
@@ -623,29 +623,29 @@ void LatterSituationMove(Board &CB, int Player, bool Msg)
 					else
 						break;
 				}
-				//È»ºó¿ªÊ¼¿¼ÂÇDoubleCross
+				//ç„¶åå¼€å§‹è€ƒè™‘DoubleCross
 				DCMove = CB.GetDoubleCrossLoc(Player);
 			}
 
 			CB.Move(DCMove.x, DCMove.y, Player);
-			for (;;)//Ö±µ½ÎŞ·¨Õ¼¾İCTypeBoxÁË¾Í½áÊø
+			for (;;)//ç›´åˆ°æ— æ³•å æ®CTypeBoxäº†å°±ç»“æŸ
 			{
 				if (!CB.GetCTypeBoxLimit(Player, Msg))
 					break;
 			}
 			MoveMsg(DCMove.x, DCMove.y, Player);
-			//ÎşÉü½áÊø
+			//ç‰ºç‰²ç»“æŸ
 		}
 
 	}
 	else
 	{
-		//Ñ¡Ôñ´ò¿ªÄÄÒ»Ìõ³¤Á´¡£¸ù¾İÀíĞÔ×´Ì¬¾ö¶¨ÊÇ´ò¿ª×î¶ÌµÄ³¤Á´»¹ÊÇÈçºÎ
+		//é€‰æ‹©æ‰“å¼€å“ªä¸€æ¡é•¿é“¾ã€‚æ ¹æ®ç†æ€§çŠ¶æ€å†³å®šæ˜¯æ‰“å¼€æœ€çŸ­çš„é•¿é“¾è¿˜æ˜¯å¦‚ä½•
 		CB.GetAllCTypeBoxes(Player, Msg);
 		BoxBoard Test(CB);
 		if (Test.RationalState(Test.GetRationalStateBoxNum()))
 		{
-			//Èç¹ûÊÇÀíĞÔ¾ÖÃæµÄ»°,ÒÀ´Î´ò¿ªÁ´
+			//å¦‚æœæ˜¯ç†æ€§å±€é¢çš„è¯,ä¾æ¬¡æ‰“å¼€é“¾
 			LOC M = Test.GetOpenSuitableChainLoc();
 			CB.Move(M.x, M.y, Player);
 			if (Msg)
@@ -653,8 +653,8 @@ void LatterSituationMove(Board &CB, int Player, bool Msg)
 		}
 		else
 		{
-			//Èç¹û²»ÊÇÀíĞÔ¾ÖÃæµÄ»°£¬´ò¿ª×î¶ÌµÄÁ´
-			//Èç¹ûÊÇÀíĞÔ¾ÖÃæµÄ»°
+			//å¦‚æœä¸æ˜¯ç†æ€§å±€é¢çš„è¯ï¼Œæ‰“å¼€æœ€çŸ­çš„é“¾
+			//å¦‚æœæ˜¯ç†æ€§å±€é¢çš„è¯
 			LOC M = Test.GetOpenShortestChainLoc();
 			CB.Move(M.x, M.y, Player);
 			if (Msg)
@@ -663,7 +663,7 @@ void LatterSituationMove(Board &CB, int Player, bool Msg)
 	}
 }
 
-//ÓÎÏ·ÒÆ¶¯£¬»á¸ù¾İÇ°ÖĞºóÆÚ×Ô¶¯ÒÆ¶¯
+//æ¸¸æˆç§»åŠ¨ï¼Œä¼šæ ¹æ®å‰ä¸­åæœŸè‡ªåŠ¨ç§»åŠ¨
 void GameTurnMove(Board &CB, int Player, bool Msg)
 {
 	//This Function is using for the game's move turn.
@@ -674,14 +674,14 @@ void GameTurnMove(Board &CB, int Player, bool Msg)
 	//bool LongCTypeBoolExist = CB.GetLongCTypeBoxExist();
 	if (!LatterSituation)
 	{
-		//cout << "Ê¹ÓÃUCT" << endl;
+		//cout << "ä½¿ç”¨UCT" << endl;
 		UCTMoveWithSacrifice(CB, Player, Msg,0);
 	}
-	else//Ò²¾ÍÊÇºóÆÚ¾ÖÃæÁË
+	else//ä¹Ÿå°±æ˜¯åæœŸå±€é¢äº†
 	{
-		//Ò²¾ÍÊÇFilter¶¼ÒÑ¾­ÎŞÄÜÎªÁ¦µÄÇé¿öÏÂ£¬Ö»ÓĞLongChain,Circle,PreCircle
+		//ä¹Ÿå°±æ˜¯Filteréƒ½å·²ç»æ— èƒ½ä¸ºåŠ›çš„æƒ…å†µä¸‹ï¼Œåªæœ‰LongChain,Circle,PreCircle
 		//cout << "then using evalution function" << endl;
-		//cout << "Ê¹ÓÃºóÆÚ" << endl;
+		//cout << "ä½¿ç”¨åæœŸ" << endl;
 		LatterSituationMove(CB, Player, Msg);
 	}
 }
@@ -695,14 +695,14 @@ void GameTurnMove_T(Board &CB, int Player, bool Msg)
 	//bool LongCTypeBoolExist = CB.GetLongCTypeBoxExist();
 	if (!LatterSituation)
 	{
-		//cout << "Ê¹ÓÃUCT" << endl;
+		//cout << "ä½¿ç”¨UCT" << endl;
 		UCTMoveWithSacrifice(CB, Player, Msg,1);
 	}
-	else//Ò²¾ÍÊÇºóÆÚ¾ÖÃæÁË
+	else//ä¹Ÿå°±æ˜¯åæœŸå±€é¢äº†
 	{
-		//Ò²¾ÍÊÇFilter¶¼ÒÑ¾­ÎŞÄÜÎªÁ¦µÄÇé¿öÏÂ£¬Ö»ÓĞLongChain,Circle,PreCircle
+		//ä¹Ÿå°±æ˜¯Filteréƒ½å·²ç»æ— èƒ½ä¸ºåŠ›çš„æƒ…å†µä¸‹ï¼Œåªæœ‰LongChain,Circle,PreCircle
 		//cout << "then using evalution function" << endl;
-		//cout << "Ê¹ÓÃºóÆÚ" << endl;
+		//cout << "ä½¿ç”¨åæœŸ" << endl;
 		LatterSituationMove(CB, Player, Msg);
 	}
 }
@@ -710,25 +710,25 @@ void GameTurnMove_T(Board &CB, int Player, bool Msg)
 //Rave
 float UCTProcessRave(UCTNode &B, int &Total, int MC_Times, int Filter_Range,int RaveTable[LEN][LEN])
 {
-	B.Times++;//·ÃÎÊµÄ´ÎÊıÔö¼ÓÒ»´Î
-	if (B.BoardWinner != 0)//Èç¹ûÓÎÏ·ÒÑ¾­½áÊøÁË
+	B.Times++;//è®¿é—®çš„æ¬¡æ•°å¢åŠ ä¸€æ¬¡
+	if (B.BoardWinner != 0)//å¦‚æœæ¸¸æˆå·²ç»ç»“æŸäº†
 	{
 		if (B.BoardWinner == B.Owner)
-			B.AvgValue = 0;//Èç¹ûÔÚÕâ¸ö½ÚµãÓÎÏ·½áÊøÁË£¬ÅĞ¶¨ÊÕÒæ¡£
+			B.AvgValue = 0;//å¦‚æœåœ¨è¿™ä¸ªèŠ‚ç‚¹æ¸¸æˆç»“æŸäº†ï¼Œåˆ¤å®šæ”¶ç›Šã€‚
 		else
-			B.AvgValue = 1;//Èç¹ûÔÚÕâ¸ö½ÚµãÓÎÏ·½áÊøÁË£¬ÅĞ¶¨ÊÕÒæ
-		Total++;//Èç¹ûËÑË÷µ½ÓÎÏ·½áÊøµÄ½Úµã£¬Ôò±¾´Îµü´ú½áÊø¡£
+			B.AvgValue = 1;//å¦‚æœåœ¨è¿™ä¸ªèŠ‚ç‚¹æ¸¸æˆç»“æŸäº†ï¼Œåˆ¤å®šæ”¶ç›Š
+		Total++;//å¦‚æœæœç´¢åˆ°æ¸¸æˆç»“æŸçš„èŠ‚ç‚¹ï¼Œåˆ™æœ¬æ¬¡è¿­ä»£ç»“æŸã€‚
 		return B.AvgValue;
 	}
-	if (B.ExistChild < B.TotalChild)//Èç¹û»¹ÓĞÎ´³¢ÊÔ¹ıµÄ½Úµã
+	if (B.ExistChild < B.TotalChild)//å¦‚æœè¿˜æœ‰æœªå°è¯•è¿‡çš„èŠ‚ç‚¹
 	{
-		Total++;//»ù×¼ÇéĞÎ£¬±¾´Îµü´ú½áÊø£¬³¢ÊÔ´ÎÊı+1¡£
-		B.ChildNodes[B.ExistChild] = B.ExpandUCTNodeRave(MC_Times, Filter_Range,RaveTable);//À©Õ¹Ò»¸ö×Ó½Úµã
-		B.ExistChild++;//×Ó½ÚµãµÄÊıÄ¿×ÔÔö1
-		B.RefreshAvgValue();//Ë¢ĞÂÊÕÒæ
+		Total++;//åŸºå‡†æƒ…å½¢ï¼Œæœ¬æ¬¡è¿­ä»£ç»“æŸï¼Œå°è¯•æ¬¡æ•°+1ã€‚
+		B.ChildNodes[B.ExistChild] = B.ExpandUCTNodeRave(MC_Times, Filter_Range,RaveTable);//æ‰©å±•ä¸€ä¸ªå­èŠ‚ç‚¹
+		B.ExistChild++;//å­èŠ‚ç‚¹çš„æ•°ç›®è‡ªå¢1
+		B.RefreshAvgValue();//åˆ·æ–°æ”¶ç›Š
 		return B.AvgValue;
 	}
-	else//ËµÃ÷Ã»ÓĞÎ´³¢ÊÔ¹ıµÄ½Úµã
+	else//è¯´æ˜æ²¡æœ‰æœªå°è¯•è¿‡çš„èŠ‚ç‚¹
 	{
 		int BestNodeNum = 0;
 		float BestUCBValue = 0;
@@ -750,11 +750,11 @@ float UCTProcessRave(UCTNode &B, int &Total, int MC_Times, int Filter_Range,int 
 }
 void UCTRaveMove(Board &CB, int Player, bool Msg)
 {
-	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//¸ù¾İµ±Ç°¾ÖÃæ´´½¨UCTµÄ¸ù½Úµã
+	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//æ ¹æ®å½“å‰å±€é¢åˆ›å»ºUCTçš„æ ¹èŠ‚ç‚¹
 	if (UCTB.BoardWinner == 0)
 	{
-		int Total = 0;//UCTµÄ´ÎÊıº¯Êı
-		clock_t start;	//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
+		int Total = 0;//UCTçš„æ¬¡æ•°å‡½æ•°
+		clock_t start;	//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
 		start = clock();
 		int RaveTable[LEN][LEN];
 		for (int y = 0; y < LEN; y++)
@@ -764,7 +764,7 @@ void UCTRaveMove(Board &CB, int Player, bool Msg)
 				RaveTable[x][y] = 0;
 			}
 		}
-		for (int i = 0; i < UCT_TIMES; i++)//µü´úÒ»¶¨´ÎÊı
+		for (int i = 0; i < UCT_TIMES; i++)//è¿­ä»£ä¸€å®šæ¬¡æ•°
 		{
 			UCTProcessRave(UCTB, Total, UCT_MC_TIMES, UCT_FILTER_RANGE,RaveTable);
 
@@ -773,7 +773,7 @@ void UCTRaveMove(Board &CB, int Player, bool Msg)
 			if (totaltime >= UCT_LIMIT_TIME)
 				break;
 		}
-		//ÅĞ¶¨×î¼ÑÊÕÒæ
+		//åˆ¤å®šæœ€ä½³æ”¶ç›Š
 		int BestNodeNum = 0;
 		float BestAvgValue = 0;
 		int LargerTimesNodeNum = 0;
@@ -798,19 +798,19 @@ void UCTRaveMove(Board &CB, int Player, bool Msg)
 		{
 			MoveMsg(UCTB.NodeMoves[BestNodeNum].x, UCTB.NodeMoves[BestNodeNum].y, Player);
 			cprintf("========================Infomation==========================\n", 8);
-			cout << "µ±Ç°½ÚµãÆ½¾ùÊÕÒæÎª" << 1 - UCTB.AvgValue << endl;
+			cout << "å½“å‰èŠ‚ç‚¹å¹³å‡æ”¶ç›Šä¸º" << 1 - UCTB.AvgValue << endl;
 			if (BestNodeNum == LargerTimesNodeNum)
-				cprintf("×î´ó·ÃÎÊÓë×î¼ÑÊÕÒæÏàÍ¬£¡\n", 10);
+				cprintf("æœ€å¤§è®¿é—®ä¸æœ€ä½³æ”¶ç›Šç›¸åŒï¼\n", 10);
 			else
-				cprintf("×î´ó·ÃÎÊ²»µÈÍ¬ÓÚ×î¼ÑÊÕÒæ£¡\n", 14);
-			cout << "×î¼ÑÊÕÒæ½Úµã·ÃÎÊÎª" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
-			cout << "×î¼ÑÊÕÒæ½ÚµãÊÕÒæÎª" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
-			cout << "×î¶à·ÃÎÊ½Úµã·ÃÎÊÎª" << UCTB.ChildNodes[LargerTimesNodeNum]->Times << endl;
-			cout << "×î¶à·ÃÎÊ½ÚµãÊÕÒæÎª" << UCTB.ChildNodes[LargerTimesNodeNum]->AvgValue << endl;
-			cout << "±¾´ÎUCT×Üµü´ú´ÎÊıÎª" << Total << endl;
+				cprintf("æœ€å¤§è®¿é—®ä¸ç­‰åŒäºæœ€ä½³æ”¶ç›Šï¼\n", 14);
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹è®¿é—®ä¸º" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹æ”¶ç›Šä¸º" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
+			cout << "æœ€å¤šè®¿é—®èŠ‚ç‚¹è®¿é—®ä¸º" << UCTB.ChildNodes[LargerTimesNodeNum]->Times << endl;
+			cout << "æœ€å¤šè®¿é—®èŠ‚ç‚¹æ”¶ç›Šä¸º" << UCTB.ChildNodes[LargerTimesNodeNum]->AvgValue << endl;
+			cout << "æœ¬æ¬¡UCTæ€»è¿­ä»£æ¬¡æ•°ä¸º" << Total << endl;
 			cprintf("============================================================\n", 8);
 		}
-		//ÊÍ·ÅÄÚ´æ
+		//é‡Šæ”¾å†…å­˜
 		DeleteUCTTree(UCTB);
 	}
 	else
@@ -833,14 +833,14 @@ void GameTurnMove_Rave(Board &CB, int Player, bool Msg)
 	//bool LongCTypeBoolExist = CB.GetLongCTypeBoxExist();
 	if (!LatterSituation)
 	{
-		//cout << "Ê¹ÓÃUCT" << endl;
+		//cout << "ä½¿ç”¨UCT" << endl;
 		UCTMoveWithSacrifice(CB, Player, Msg, 3);
 	}
-	else//Ò²¾ÍÊÇºóÆÚ¾ÖÃæÁË
+	else//ä¹Ÿå°±æ˜¯åæœŸå±€é¢äº†
 	{
-		//Ò²¾ÍÊÇFilter¶¼ÒÑ¾­ÎŞÄÜÎªÁ¦µÄÇé¿öÏÂ£¬Ö»ÓĞLongChain,Circle,PreCircle
+		//ä¹Ÿå°±æ˜¯Filteréƒ½å·²ç»æ— èƒ½ä¸ºåŠ›çš„æƒ…å†µä¸‹ï¼Œåªæœ‰LongChain,Circle,PreCircle
 		//cout << "then using evalution function" << endl;
-		//cout << "Ê¹ÓÃºóÆÚ" << endl;
+		//cout << "ä½¿ç”¨åæœŸ" << endl;
 		LatterSituationMove(CB, Player, Msg);
 	}
 }
@@ -848,25 +848,25 @@ void GameTurnMove_Rave(Board &CB, int Player, bool Msg)
 //Rave Double Solver
 float UCTProcessRaveSolver(UCTNode &B, int &Total, int MC_Times, int Filter_Range, int RaveTable[LEN][LEN])
 {
-	B.Times++;//·ÃÎÊµÄ´ÎÊıÔö¼ÓÒ»´Î
-	if (B.BoardWinner != 0)//Èç¹ûÓÎÏ·ÒÑ¾­½áÊøÁË
+	B.Times++;//è®¿é—®çš„æ¬¡æ•°å¢åŠ ä¸€æ¬¡
+	if (B.BoardWinner != 0)//å¦‚æœæ¸¸æˆå·²ç»ç»“æŸäº†
 	{
 		if (B.BoardWinner == B.Owner)
-			B.AvgValue = 0;//Èç¹ûÔÚÕâ¸ö½ÚµãÓÎÏ·½áÊøÁË£¬ÅĞ¶¨ÊÕÒæ¡£
+			B.AvgValue = 0;//å¦‚æœåœ¨è¿™ä¸ªèŠ‚ç‚¹æ¸¸æˆç»“æŸäº†ï¼Œåˆ¤å®šæ”¶ç›Šã€‚
 		else
-			B.AvgValue = 1;//Èç¹ûÔÚÕâ¸ö½ÚµãÓÎÏ·½áÊøÁË£¬ÅĞ¶¨ÊÕÒæ
-		Total++;//Èç¹ûËÑË÷µ½ÓÎÏ·½áÊøµÄ½Úµã£¬Ôò±¾´Îµü´ú½áÊø¡£
+			B.AvgValue = 1;//å¦‚æœåœ¨è¿™ä¸ªèŠ‚ç‚¹æ¸¸æˆç»“æŸäº†ï¼Œåˆ¤å®šæ”¶ç›Š
+		Total++;//å¦‚æœæœç´¢åˆ°æ¸¸æˆç»“æŸçš„èŠ‚ç‚¹ï¼Œåˆ™æœ¬æ¬¡è¿­ä»£ç»“æŸã€‚
 		return B.AvgValue;
 	}
-	if (B.ExistChild < B.TotalChild)//Èç¹û»¹ÓĞÎ´³¢ÊÔ¹ıµÄ½Úµã
+	if (B.ExistChild < B.TotalChild)//å¦‚æœè¿˜æœ‰æœªå°è¯•è¿‡çš„èŠ‚ç‚¹
 	{
-		Total++;//»ù×¼ÇéĞÎ£¬±¾´Îµü´ú½áÊø£¬³¢ÊÔ´ÎÊı+1¡£
-		B.ChildNodes[B.ExistChild] = B.ExpandUCTNodeRave(MC_Times, Filter_Range, RaveTable);//À©Õ¹Ò»¸ö×Ó½Úµã
-		B.ExistChild++;//×Ó½ÚµãµÄÊıÄ¿×ÔÔö1
-		B.RefreshAvgValueWithSolver();//Ë¢ĞÂÊÕÒæ
+		Total++;//åŸºå‡†æƒ…å½¢ï¼Œæœ¬æ¬¡è¿­ä»£ç»“æŸï¼Œå°è¯•æ¬¡æ•°+1ã€‚
+		B.ChildNodes[B.ExistChild] = B.ExpandUCTNodeRave(MC_Times, Filter_Range, RaveTable);//æ‰©å±•ä¸€ä¸ªå­èŠ‚ç‚¹
+		B.ExistChild++;//å­èŠ‚ç‚¹çš„æ•°ç›®è‡ªå¢1
+		B.RefreshAvgValueWithSolver();//åˆ·æ–°æ”¶ç›Š
 		return B.AvgValue;
 	}
-	else//ËµÃ÷Ã»ÓĞÎ´³¢ÊÔ¹ıµÄ½Úµã
+	else//è¯´æ˜æ²¡æœ‰æœªå°è¯•è¿‡çš„èŠ‚ç‚¹
 	{
 		int BestNodeNum = 0;
 		float BestUCBValue = 0;
@@ -888,11 +888,11 @@ float UCTProcessRaveSolver(UCTNode &B, int &Total, int MC_Times, int Filter_Rang
 }
 void UCTRaveSolverDoubleMove(Board &CB, int Player, bool Msg)
 {
-	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//¸ù¾İµ±Ç°¾ÖÃæ´´½¨UCTµÄ¸ù½Úµã
+	UCTNode UCTB = UCTNode(Player, CB.board, CB.Step, true, UCT_FILTER_RANGE);//æ ¹æ®å½“å‰å±€é¢åˆ›å»ºUCTçš„æ ¹èŠ‚ç‚¹
 	if (UCTB.BoardWinner == 0)
 	{
-		int Total = 0;//UCTµÄ´ÎÊıº¯Êı
-		clock_t start;	//ÉèÖÃ¼ÆÊ±Æ÷µÄ±äÁ¿
+		int Total = 0;//UCTçš„æ¬¡æ•°å‡½æ•°
+		clock_t start;	//è®¾ç½®è®¡æ—¶å™¨çš„å˜é‡
 		start = clock();
 		int RaveTable[LEN][LEN];
 		for (int y = 0; y < LEN; y++)
@@ -902,7 +902,7 @@ void UCTRaveSolverDoubleMove(Board &CB, int Player, bool Msg)
 				RaveTable[x][y] = 0;
 			}
 		}
-		for (int i = 0; i < UCT_TIMES; i++)//µü´úÒ»¶¨´ÎÊı
+		for (int i = 0; i < UCT_TIMES; i++)//è¿­ä»£ä¸€å®šæ¬¡æ•°
 		{
 			UCTProcessRaveSolver(UCTB, Total, 2, UCT_FILTER_RANGE, RaveTable);
 
@@ -911,7 +911,7 @@ void UCTRaveSolverDoubleMove(Board &CB, int Player, bool Msg)
 			if (totaltime >= UCT_LIMIT_TIME)
 				break;
 		}
-		//ÅĞ¶¨×î¼ÑÊÕÒæ
+		//åˆ¤å®šæœ€ä½³æ”¶ç›Š
 		int BestNodeNum = 0;
 		float BestAvgValue = 0;
 		int LargerTimesNodeNum = 0;
@@ -936,13 +936,13 @@ void UCTRaveSolverDoubleMove(Board &CB, int Player, bool Msg)
 		{
 			MoveMsg(UCTB.NodeMoves[BestNodeNum].x, UCTB.NodeMoves[BestNodeNum].y, Player);
 			cprintf("========================Infomation==========================\n", 8);
-			cout << "µ±Ç°½ÚµãÆ½¾ùÊÕÒæÎª" << 1 - UCTB.AvgValue << endl;
-			cout << "×î¼ÑÊÕÒæ½Úµã·ÃÎÊÎª" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
-			cout << "×î¼ÑÊÕÒæ½ÚµãÊÕÒæÎª" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
-			cout << "±¾´ÎUCT×Üµü´ú´ÎÊıÎª" << Total << endl;
+			cout << "å½“å‰èŠ‚ç‚¹å¹³å‡æ”¶ç›Šä¸º" << 1 - UCTB.AvgValue << endl;
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹è®¿é—®ä¸º" << UCTB.ChildNodes[BestNodeNum]->Times << endl;
+			cout << "æœ€ä½³æ”¶ç›ŠèŠ‚ç‚¹æ”¶ç›Šä¸º" << UCTB.ChildNodes[BestNodeNum]->AvgValue << endl;
+			cout << "æœ¬æ¬¡UCTæ€»è¿­ä»£æ¬¡æ•°ä¸º" << Total << endl;
 			cprintf("============================================================\n", 8);
 		}
-		//ÊÍ·ÅÄÚ´æ
+		//é‡Šæ”¾å†…å­˜
 		DeleteUCTTree(UCTB);
 	}
 	else
@@ -965,14 +965,14 @@ void RaveSolverDouble(Board &CB, int Player, bool Msg)
 	//bool LongCTypeBoolExist = CB.GetLongCTypeBoxExist();
 	if (!LatterSituation)
 	{
-		//cout << "Ê¹ÓÃUCT" << endl;
+		//cout << "ä½¿ç”¨UCT" << endl;
 		UCTMoveWithSacrifice(CB, Player, Msg, 4);
 	}
-	else//Ò²¾ÍÊÇºóÆÚ¾ÖÃæÁË
+	else//ä¹Ÿå°±æ˜¯åæœŸå±€é¢äº†
 	{
-		//Ò²¾ÍÊÇFilter¶¼ÒÑ¾­ÎŞÄÜÎªÁ¦µÄÇé¿öÏÂ£¬Ö»ÓĞLongChain,Circle,PreCircle
+		//ä¹Ÿå°±æ˜¯Filteréƒ½å·²ç»æ— èƒ½ä¸ºåŠ›çš„æƒ…å†µä¸‹ï¼Œåªæœ‰LongChain,Circle,PreCircle
 		//cout << "then using evalution function" << endl;
-		//cout << "Ê¹ÓÃºóÆÚ" << endl;
+		//cout << "ä½¿ç”¨åæœŸ" << endl;
 		LatterSituationMove(CB, Player, Msg);
 	}
 }

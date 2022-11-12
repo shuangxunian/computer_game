@@ -20,23 +20,23 @@
 class UCTNode :public Board
 {
 public:
-	UCTNode();//¹¹Ôìº¯Êı
-	UCTNode(int Player, int Array[LEN][LEN], int step, bool GetCBox, int Filter_Range);//¹¹Ôìº¯Êı
+	UCTNode();//æ„é€ å‡½æ•°
+	UCTNode(int Player, int Array[LEN][LEN], int step, bool GetCBox, int Filter_Range);//æ„é€ å‡½æ•°
 
-	//UCTÊ¹ÓÃµÄÖµ
-	int Owner;						//ËùÊôÍæ¼Ò
-	int Times;						//±»³¢ÊÔ¹ıµÄ´ÎÊı
-	int BoardWinner;				//Õâ¸ö¾ÖÃæµÄÊ¤ÀûÕß
-	int ExistChild;					//×Ó½Úµãµ±Ç°µÄÊıÄ¿
-	int TotalChild;					//×Ó½ÚµãµÄ×ÜÊı¡£
-	float AvgValue;					//¶Ô¸¸½Úµã¶øÑÔ£¬Õâ¸ö½ÚµãµÄÆ½¾ùÊÕÒæ 
-	LOC NodeMoves[MOVENUM];			//Õâ¸ö×Ó½ÚµãËùÓĞ¿ÉÄÜµÄÕĞÊ½
-	UCTNode* ChildNodes[MOVENUM];	//Ö¸ÏòµÚÒ»¸ö×Ó½ÚµãµÄÖ¸Õë
+	//UCTä½¿ç”¨çš„å€¼
+	int Owner;						//æ‰€å±ç©å®¶
+	int Times;						//è¢«å°è¯•è¿‡çš„æ¬¡æ•°
+	int BoardWinner;				//è¿™ä¸ªå±€é¢çš„èƒœåˆ©è€…
+	int ExistChild;					//å­èŠ‚ç‚¹å½“å‰çš„æ•°ç›®
+	int TotalChild;					//å­èŠ‚ç‚¹çš„æ€»æ•°ã€‚
+	float AvgValue;					//å¯¹çˆ¶èŠ‚ç‚¹è€Œè¨€ï¼Œè¿™ä¸ªèŠ‚ç‚¹çš„å¹³å‡æ”¶ç›Š 
+	LOC NodeMoves[MOVENUM];			//è¿™ä¸ªå­èŠ‚ç‚¹æ‰€æœ‰å¯èƒ½çš„æ‹›å¼
+	UCTNode* ChildNodes[MOVENUM];	//æŒ‡å‘ç¬¬ä¸€ä¸ªå­èŠ‚ç‚¹çš„æŒ‡é’ˆ
 
-	//¹¦ÄÜº¯Êı
-	float RefreshAvgValue();									//¸üĞÂÆ½¾ùÊÕÒæ
+	//åŠŸèƒ½å‡½æ•°
+	float RefreshAvgValue();									//æ›´æ–°å¹³å‡æ”¶ç›Š
 	float RefreshAvgValueWithSolver();
-	float GetUCBValue(int Total);								//¸ù¾İÏÖÔÚµÄÆ½¾ùÊÕÒæ¶ø»ñµÃUCBÖµ
+	float GetUCBValue(int Total);								//æ ¹æ®ç°åœ¨çš„å¹³å‡æ”¶ç›Šè€Œè·å¾—UCBå€¼
 	float GetUCBRaveValue(int Total, LOC Move, int RaveTable[LEN][LEN]);
 	UCTNode* ExpandUCTNode(int MC_Times, int Filter_Range);
 	UCTNode* ExpandUCTNodeRave(int MC_Times, int Filter_Range, int RaveTable[LEN][LEN]);

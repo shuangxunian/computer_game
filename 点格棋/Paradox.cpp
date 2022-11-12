@@ -46,19 +46,19 @@ int GetBoardWinner(Board &CB, int LatterPlayer)
 	return w;
 }*/
 
-//Ëæ»ú»ØºÏ¡£»áÏÈÊ¹ÓÃÌ°À·
+//éšæœºå›åˆã€‚ä¼šå…ˆä½¿ç”¨è´ªå©ª
 void RndTurn(Board &CB, int Player, bool Msg)
 {
 	LOC Moves[MOVENUM];
 	CB.GetAllCTypeBoxes(Player, Msg);
-	int MoveNum = CB.GetAllMoves(Moves);//È·¶¨Õâ¸ö¾ÖÃæÏÂTurnNumµÄÊıÁ¿
+	int MoveNum = CB.GetAllMoves(Moves);//ç¡®å®šè¿™ä¸ªå±€é¢ä¸‹TurnNumçš„æ•°é‡
 	if (MoveNum == 0)
 	{
-		cout << "RndTurnº¯ÊıÖĞµÄTurnNum =0" << endl;
+		cout << "RndTurnå‡½æ•°ä¸­çš„TurnNum =0" << endl;
 		CB.PrintBoard();
 		system("pause");
 	}
-	int Rnd = rand() % MoveNum;//ÔÚ0-MoveNumÖĞ³éÈ¡Ò»¸öËæ»úÊı
+	int Rnd = rand() % MoveNum;//åœ¨0-MoveNumä¸­æŠ½å–ä¸€ä¸ªéšæœºæ•°
 	CB.Move(Moves[Rnd].x, Moves[Rnd].y, Player);
 	if (Msg)
 		MoveMsg(Moves[Rnd].x, Moves[Rnd].y, Player);
@@ -70,22 +70,22 @@ int RndFilterTurn(Board &CB, int Player, bool Msg, int Filter_Range)
 
 	int MoveNum;
 	int FreeEdge = CB.GetFreeEdgeNum();
-	if (FreeEdge < Filter_Range)//½öÔÚFreeEdgeÊıÁ¿Ğ¡ÓÚ25µÄÇé¿öÏÂ¿¼ÂÇFilter
-		MoveNum = CB.GetFilterMoves(Moves);//È·¶¨Õâ¸ö¾ÖÃæÏÂMoveNumµÄÊıÁ¿
+	if (FreeEdge < Filter_Range)//ä»…åœ¨FreeEdgeæ•°é‡å°äº25çš„æƒ…å†µä¸‹è€ƒè™‘Filter
+		MoveNum = CB.GetFilterMoves(Moves);//ç¡®å®šè¿™ä¸ªå±€é¢ä¸‹MoveNumçš„æ•°é‡
 	else
-		MoveNum = CB.GetFreeMoves(Moves);//È·¶¨Õâ¸ö¾ÖÃæÏÂMoveNumµÄÊıÁ¿
+		MoveNum = CB.GetFreeMoves(Moves);//ç¡®å®šè¿™ä¸ªå±€é¢ä¸‹MoveNumçš„æ•°é‡
 
-	if (MoveNum != 0)//ÔÚÄ³Ğ©Ê±ºò£¬ÓÉÓÚ³ÔµôÁËÇ°ÃæµÄCĞÍ¸ñ¡£¿ÉÄÜµ¼ÖÂMoveNumµÄÊıÁ¿Îª0.ÕâÊ±ºòÖ»ÒªÌø¹ıÕâÒ»²½×ÔÈ»¾Í»á¿ªÊ¼ÅĞ¶ÏÊ¤Àû¡£
+	if (MoveNum != 0)//åœ¨æŸäº›æ—¶å€™ï¼Œç”±äºåƒæ‰äº†å‰é¢çš„Cå‹æ ¼ã€‚å¯èƒ½å¯¼è‡´MoveNumçš„æ•°é‡ä¸º0.è¿™æ—¶å€™åªè¦è·³è¿‡è¿™ä¸€æ­¥è‡ªç„¶å°±ä¼šå¼€å§‹åˆ¤æ–­èƒœåˆ©ã€‚
 	{
-		int Rnd = rand() % MoveNum;//ÔÚ0-MoveNumÖĞ³éÈ¡Ò»¸öËæ»úÊı
+		int Rnd = rand() % MoveNum;//åœ¨0-MoveNumä¸­æŠ½å–ä¸€ä¸ªéšæœºæ•°
 		CB.Move(Moves[Rnd].x, Moves[Rnd].y, Player);
 		if (Msg)
 			MoveMsg(Moves[Rnd].x, Moves[Rnd].y, Player);
-		return -Player;//»»ÊÖ
+		return -Player;//æ¢æ‰‹
 	}
 	else
 	{
-		return Player;//²»»»ÊÖ
+		return Player;//ä¸æ¢æ‰‹
 	}
 	
 }
@@ -94,7 +94,7 @@ int RndFilterTurn(Board &CB, int Player, bool Msg, int Filter_Range)
 int GetMCWinner(Board &CB, int NextPlayer)
 {
 	int player = NextPlayer;
-	while (CB.GetFreeEdgeNum() != 0)//µ±»¹´æÔÚ×ÔÓÉ±ßµÄÊ±ºò
+	while (CB.GetFreeEdgeNum() != 0)//å½“è¿˜å­˜åœ¨è‡ªç”±è¾¹çš„æ—¶å€™
 	{
 		RndTurn(CB, player, false);
 		player = -player;
@@ -104,7 +104,7 @@ int GetMCWinner(Board &CB, int NextPlayer)
 }
 float GetMCEvalution(Board &CB, int NextPlayer, int Winner, int TIMES)
 {
-	Board MCB = CB;//ÏÈ¸´ÖÆÒ»¸öÆåÅÌ
+	Board MCB = CB;//å…ˆå¤åˆ¶ä¸€ä¸ªæ£‹ç›˜
 	int MCE = 0;
 	for (int i = 0; i<TIMES; i++)
 	{
@@ -116,25 +116,25 @@ float GetMCEvalution(Board &CB, int NextPlayer, int Winner, int TIMES)
 }
 void MonteCarloMove(Board &CB, int Player, bool Msg)
 {
-	//±ØĞë×¢ÒâµÄÊÇ£¬MC¿ªÊ¼Ê±ºò£¬Ò»¶¨Òª×¢ÒâÊÇÃ»ÓĞCĞÍ¸ñµÄ×´Ì¬¡£Èç¹û´æÔÚCĞÍ¸ñ£¬ÇëÏÈ¾ö¶¨ÊÇ·ñÕ¼¾İ¡£
-	CB.GetAllCTypeBoxes(Player, Msg);//Ê×ÏÈ³ÔµôËùÓĞµÄCĞÍ¸ñ
+	//å¿…é¡»æ³¨æ„çš„æ˜¯ï¼ŒMCå¼€å§‹æ—¶å€™ï¼Œä¸€å®šè¦æ³¨æ„æ˜¯æ²¡æœ‰Cå‹æ ¼çš„çŠ¶æ€ã€‚å¦‚æœå­˜åœ¨Cå‹æ ¼ï¼Œè¯·å…ˆå†³å®šæ˜¯å¦å æ®ã€‚
+	CB.GetAllCTypeBoxes(Player, Msg);//é¦–å…ˆåƒæ‰æ‰€æœ‰çš„Cå‹æ ¼
 	LOC Moves[MOVENUM];
-	int MoveNum = CB.GetAllMoves(Moves);		//È·¶¨Õâ¸ö¾ÖÃæÏÂTurnNumµÄÊıÁ¿
-	float Best = -1;							//È·±£ÎŞÂÛ¶àÀÃµÄ³É¼¨¶¼ÄÜÓĞÒ»¸öBest
+	int MoveNum = CB.GetAllMoves(Moves);		//ç¡®å®šè¿™ä¸ªå±€é¢ä¸‹TurnNumçš„æ•°é‡
+	float Best = -1;							//ç¡®ä¿æ— è®ºå¤šçƒ‚çš„æˆç»©éƒ½èƒ½æœ‰ä¸€ä¸ªBest
 	int BestMove;
 	for (int i = 0; i<MoveNum; i++)
 	{
-		Board MCB(CB.board, CB.Step);				//ÏÈ´´½¨Ò»¸öĞÂÆåÅÌ
-		MCB.Move(Moves[i].x, Moves[i].y, Player);	//¼Ù¶¨ÎÒ·½ÒÆ¶¯ÁËÒ»¸ö²½
-		int NextPlayer = -Player;					//ÏÂÒ»¸öÒÆ¶¯Õß½«ÊÇ¶Ô·½
+		Board MCB(CB.board, CB.Step);				//å…ˆåˆ›å»ºä¸€ä¸ªæ–°æ£‹ç›˜
+		MCB.Move(Moves[i].x, Moves[i].y, Player);	//å‡å®šæˆ‘æ–¹ç§»åŠ¨äº†ä¸€ä¸ªæ­¥
+		int NextPlayer = -Player;					//ä¸‹ä¸€ä¸ªç§»åŠ¨è€…å°†æ˜¯å¯¹æ–¹
 		float Eva = GetMCEvalution(MCB, NextPlayer, Player, MC_TIMES);
-		if (Eva >= Best)//Èç¹û´óÓÚµÈÓÚ×î¼Ñ³É¼¨£¬¸üĞÂ¼ÇÂ¼
+		if (Eva >= Best)//å¦‚æœå¤§äºç­‰äºæœ€ä½³æˆç»©ï¼Œæ›´æ–°è®°å½•
 		{
 			Best = Eva;
 			BestMove = i;
 		}
 	}
-	CB.Move(Moves[BestMove].x, Moves[BestMove].y, Player);//Ñ¡Ôñ×î¼Ñ¾ö²ß
+	CB.Move(Moves[BestMove].x, Moves[BestMove].y, Player);//é€‰æ‹©æœ€ä½³å†³ç­–
 	if (Msg)
 		MoveMsg(Moves[BestMove].x, Moves[BestMove].y, Player);
 }
@@ -143,7 +143,7 @@ void MonteCarloMove(Board &CB, int Player, bool Msg)
 int GetFilterMCWinner(Board &CB, int NextPlayer, int Filter_Range)
 {
 	int player = NextPlayer;
-	while (CB.GetFreeEdgeNum() !=0)//µ±»¹´æÔÚ×ÔÓÉ±ßµÄÊ±ºò
+	while (CB.GetFreeEdgeNum() !=0)//å½“è¿˜å­˜åœ¨è‡ªç”±è¾¹çš„æ—¶å€™
 	{
 		player = RndFilterTurn(CB, player, false, Filter_Range);
 		//CB.PrintBoard();
@@ -155,7 +155,7 @@ int GetFilterMCWinner(Board &CB, int NextPlayer, int Filter_Range)
 }
 float GetFilterMCEvalution(Board &CB, int NextPlayer, int Winner, int TIMES, int Filter_Range)
 {
-	Board MCB = CB;//ÏÈ¸´ÖÆÒ»¸öÆåÅÌ
+	Board MCB = CB;//å…ˆå¤åˆ¶ä¸€ä¸ªæ£‹ç›˜
 	int MCE = 0;
 	for (int i = 0; i<TIMES; i++)
 	{
@@ -169,45 +169,45 @@ float GetFilterMCEvalution(Board &CB, int NextPlayer, int Winner, int TIMES, int
 }
 float GetFilterMCSingleEva(Board &CB, int NextPlayer, int Winner, int Filter_Range)
 {
-	Board MCB = CB;//ÏÈ¸´ÖÆÒ»¸öÆåÅÌ
+	Board MCB = CB;//å…ˆå¤åˆ¶ä¸€ä¸ªæ£‹ç›˜
 	if (GetFilterMCWinner(MCB, NextPlayer, Filter_Range) == Winner)
 		return 1;
 	return 0;
 }
 void FilterMCMove(Board &CB, int Player, bool Msg)
 {
-	//±ØĞë×¢ÒâµÄÊÇ£¬MC¿ªÊ¼Ê±ºò£¬Ò»¶¨Òª×¢ÒâÊÇÃ»ÓĞCĞÍ¸ñµÄ×´Ì¬¡£Èç¹û´æÔÚCĞÍ¸ñ£¬ÇëÏÈ¾ö¶¨ÊÇ·ñÕ¼¾İ¡£
-	CB.GetAllCTypeBoxes(Player,Msg);//Ê×ÏÈ³ÔµôËùÓĞµÄCĞÍ¸ñ
+	//å¿…é¡»æ³¨æ„çš„æ˜¯ï¼ŒMCå¼€å§‹æ—¶å€™ï¼Œä¸€å®šè¦æ³¨æ„æ˜¯æ²¡æœ‰Cå‹æ ¼çš„çŠ¶æ€ã€‚å¦‚æœå­˜åœ¨Cå‹æ ¼ï¼Œè¯·å…ˆå†³å®šæ˜¯å¦å æ®ã€‚
+	CB.GetAllCTypeBoxes(Player,Msg);//é¦–å…ˆåƒæ‰æ‰€æœ‰çš„Cå‹æ ¼
 	LOC Moves[MOVENUM];
 	int MoveNum;
 	int FreeEdge = CB.GetFreeEdgeNum();
-	if (FreeEdge < FILTER_RANGE)//½öÔÚFreeEdgeÊıÁ¿´óÓÚ4µÄÇé¿öÏÂ¿¼ÂÇFilter
-		MoveNum = CB.GetFilterMoves(Moves);//È·¶¨Õâ¸ö¾ÖÃæÏÂMoveNumµÄÊıÁ¿
+	if (FreeEdge < FILTER_RANGE)//ä»…åœ¨FreeEdgeæ•°é‡å¤§äº4çš„æƒ…å†µä¸‹è€ƒè™‘Filter
+		MoveNum = CB.GetFilterMoves(Moves);//ç¡®å®šè¿™ä¸ªå±€é¢ä¸‹MoveNumçš„æ•°é‡
 	else
-		MoveNum = CB.GetFreeMoves(Moves);//È·¶¨Õâ¸ö¾ÖÃæÏÂMoveNumµÄÊıÁ¿
+		MoveNum = CB.GetFreeMoves(Moves);//ç¡®å®šè¿™ä¸ªå±€é¢ä¸‹MoveNumçš„æ•°é‡
 
-	float Best = -1;							//È·±£ÎŞÂÛ¶àÀÃµÄ³É¼¨¶¼ÄÜÓĞÒ»¸öBest
+	float Best = -1;							//ç¡®ä¿æ— è®ºå¤šçƒ‚çš„æˆç»©éƒ½èƒ½æœ‰ä¸€ä¸ªBest
 	int BestMove;
 	for (int i = 0; i<MoveNum; i++)
 	{
-		Board MCB(CB.board, CB.Step);				//ÏÈ´´½¨Ò»¸öĞÂÆåÅÌ
-		MCB.Move(Moves[i].x, Moves[i].y, Player);	//¼Ù¶¨ÎÒ·½ÒÆ¶¯ÁËÒ»¸ö²½
-		int NextPlayer = -Player;					//ÏÂÒ»¸öÒÆ¶¯Õß½«ÊÇ¶Ô·½
+		Board MCB(CB.board, CB.Step);				//å…ˆåˆ›å»ºä¸€ä¸ªæ–°æ£‹ç›˜
+		MCB.Move(Moves[i].x, Moves[i].y, Player);	//å‡å®šæˆ‘æ–¹ç§»åŠ¨äº†ä¸€ä¸ªæ­¥
+		int NextPlayer = -Player;					//ä¸‹ä¸€ä¸ªç§»åŠ¨è€…å°†æ˜¯å¯¹æ–¹
 		float Eva = GetFilterMCEvalution(MCB, NextPlayer, Player, MC_TIMES,FILTER_RANGE);
-		if (Eva >= Best)//Èç¹û´óÓÚµÈÓÚ×î¼Ñ³É¼¨£¬¸üĞÂ¼ÇÂ¼
+		if (Eva >= Best)//å¦‚æœå¤§äºç­‰äºæœ€ä½³æˆç»©ï¼Œæ›´æ–°è®°å½•
 		{
 			Best = Eva;
 			BestMove = i;
 		}
 	}
-	CB.Move(Moves[BestMove].x, Moves[BestMove].y, Player );//Ñ¡Ôñ×î¼Ñ¾ö²ß
+	CB.Move(Moves[BestMove].x, Moves[BestMove].y, Player );//é€‰æ‹©æœ€ä½³å†³ç­–
 	if (Msg)
 		MoveMsg(Moves[BestMove].x, Moves[BestMove].y, Player);
 }
 
 float GetRaveFilterMCEvalution(Board &CB, int NextPlayer, int Winner, int TIMES, int Filter_Range,int RaveTable[LEN][LEN])
 {
-	Board MCB = CB;//ÏÈ¸´ÖÆÒ»¸öÆåÅÌ
+	Board MCB = CB;//å…ˆå¤åˆ¶ä¸€ä¸ªæ£‹ç›˜
 	int MCE = 0;
 	for (int i = 0; i<TIMES; i++)
 	{
