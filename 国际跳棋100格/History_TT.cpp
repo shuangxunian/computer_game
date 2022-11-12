@@ -31,8 +31,8 @@ void CHistory_TT::InitializeHistoryTable()
 double CHistory_TT::LookUpHHTable(MOVE *move)
 {
 	BYTE nFromID,nToID;
-	UINT m_HashKey16=0;			//	   //32Î»¹şÏ£Öµ
-	LONGLONG m_HashKey32=0;     //       //64Î»¹şÏ£Öµ
+	UINT m_HashKey16=0;			//	   //32ä½å“ˆå¸Œå€¼
+	LONGLONG m_HashKey32=0;     //       //64ä½å“ˆå¸Œå€¼
 	__int32 x;
 
 	nToID=nFromID = move->Kind;
@@ -41,15 +41,15 @@ double CHistory_TT::LookUpHHTable(MOVE *move)
 	if(move->move_stop_y==9&&move->Kind==BLACK)
 		nToID=move->Kind+2;
 
-	//½«ÒªÒÆ¶¯µÄÆå×Ó´ÓÖĞÈ¥³ı
+	//å°†è¦ç§»åŠ¨çš„æ£‹å­ä»ä¸­å»é™¤
 	m_HashKey16=m_nHashKey16[nFromID-1][move->move_star_x][move->move_star_y];//////
 	m_HashKey32=m_ulHashKey32[nFromID-1][move->move_star_x][move->move_star_y];////////
 
 	m_HashKey16 = m_HashKey16^m_nHashKey16[nToID - 1][move->move_stop_x][move->move_stop_y];///////
 	m_HashKey32 = m_HashKey32^m_nHashKey16[nToID - 1][move->move_stop_x][move->move_stop_y];//////
-	//m_HashKey64 = m_HashKey64^m_nHashKey32[nToID - 1][move->move_stop_x][move->move_stop_y];//Ô­
+	//m_HashKey64 = m_HashKey64^m_nHashKey32[nToID - 1][move->move_stop_x][move->move_stop_y];//åŸ
 
-	if(move->eatHowMany!=0)//ÓĞÆå×Ó±»³Ô£¬Ò²Òª´ÓÖĞÈ¥³ı
+	if(move->eatHowMany!=0)//æœ‰æ£‹å­è¢«åƒï¼Œä¹Ÿè¦ä»ä¸­å»é™¤
 	{
 		for(int k=0;k<move->eatHowMany;k++)
 		{
@@ -57,7 +57,7 @@ double CHistory_TT::LookUpHHTable(MOVE *move)
 			m_HashKey32 = m_HashKey32^m_ulHashKey32[move->eatKind[k] - 1][move->eatPoint[k][0]][move->eatPoint[k][1]];/////////
 		}
 	}
-	x = m_HashKey16 & 0x3FFFFF;///////Éú³É21Î»¹şÏ£µØÖ·/////////////
+	x = m_HashKey16 & 0x3FFFFF;///////ç”Ÿæˆ21ä½å“ˆå¸Œåœ°å€/////////////
 	if(m_HashKey32==m_pHH[x].checksum)//////////////////////
 		return m_pHH[x].score;
 	else 
@@ -67,8 +67,8 @@ double CHistory_TT::LookUpHHTable(MOVE *move)
 void CHistory_TT::EnterHHTable(MOVE *move,int depth)
 {
 	BYTE nFromID,nToID;
-	UINT m_HashKey16=0;		////		     //32Î»¹şÏ£Öµ
-	LONGLONG m_HashKey32=0; ////             //64Î»¹şÏ£Öµ
+	UINT m_HashKey16=0;		////		     //32ä½å“ˆå¸Œå€¼
+	LONGLONG m_HashKey32=0; ////             //64ä½å“ˆå¸Œå€¼
 	__int32 x;
 
 	nToID=nFromID = move->Kind;
@@ -77,14 +77,14 @@ void CHistory_TT::EnterHHTable(MOVE *move,int depth)
 	if(move->move_stop_y==9&&move->Kind==BLACK)
 		nToID=move->Kind+2;
 
-	//½«ÒªÒÆ¶¯µÄÆå×Ó´ÓÖĞÈ¥³ı
+	//å°†è¦ç§»åŠ¨çš„æ£‹å­ä»ä¸­å»é™¤
 	m_HashKey16=m_nHashKey16[nFromID-1][move->move_star_x][move->move_star_y];///////////
 	m_HashKey32=m_ulHashKey32[nFromID-1][move->move_star_x][move->move_star_y];///////////
 
 	m_HashKey16 = m_HashKey16^m_nHashKey16[nToID - 1][move->move_stop_x][move->move_stop_y];//////////
 	m_HashKey32 = m_HashKey32^m_nHashKey16[nToID - 1][move->move_stop_x][move->move_stop_y];/////////
 
-	if(move->eatHowMany!=0)//ÓĞÆå×Ó±»³Ô£¬Ò²Òª´ÓÖĞÈ¥³ı
+	if(move->eatHowMany!=0)//æœ‰æ£‹å­è¢«åƒï¼Œä¹Ÿè¦ä»ä¸­å»é™¤
 	{
 		for(int k=0;k<move->eatHowMany;k++)
 		{
@@ -92,7 +92,7 @@ void CHistory_TT::EnterHHTable(MOVE *move,int depth)
 			m_HashKey32 = m_HashKey32^m_ulHashKey32[move->eatKind[k] - 1][move->eatPoint[k][0]][move->eatPoint[k][1]];//////
 		}
 	}
-	x = m_HashKey16 & 0x3FFFFF;///////Éú³É21Î»¹şÏ£µØÖ·/////
+	x = m_HashKey16 & 0x3FFFFF;///////ç”Ÿæˆ21ä½å“ˆå¸Œåœ°å€/////
 	m_pHH[x].score+=2<<depth;
 	if(m_pHH[x].checksum==m_HashKey32)////////////////
 		m_pHH[x].score+=2<<depth;
@@ -114,13 +114,13 @@ void CHistory_TT::qrs(MOVE *a,int depth, int left, int right)
 	  middle = a[(left+right)/2].score; 
 	  
 	  do{ 
-		  while((a[i].score > middle) && (i<right))//´Ó×óÉ¨Ãè´óÓÚÖĞÖµµÄÊı 
+		  while((a[i].score > middle) && (i<right))//ä»å·¦æ‰«æå¤§äºä¸­å€¼çš„æ•° 
 			  i++;      
-		  while((a[j].score <middle) && (j>left))//´ÓÓÒÉ¨Ãè´óÓÚÖĞÖµµÄÊı 
+		  while((a[j].score <middle) && (j>left))//ä»å³æ‰«æå¤§äºä¸­å€¼çš„æ•° 
 			  j--; 
-		  if(i<=j)//ÕÒµ½ÁËÒ»¶ÔÖµ 
+		  if(i<=j)//æ‰¾åˆ°äº†ä¸€å¯¹å€¼ 
 		  { 
-			  //½»»» 
+			  //äº¤æ¢ 
 			  temp =a[i]; 
 			  a[i]= a[j]; 
 			  a[j] = temp; 
@@ -135,14 +135,14 @@ void CHistory_TT::qrs(MOVE *a,int depth, int left, int right)
 		  qrs(a,depth,i,right); 
 }
 
-//Éú³É64Î»Ëæ»úÊı
+//ç”Ÿæˆ64ä½éšæœºæ•°
 LONGLONG CHistory_TT::Rand32()//64->32
 {
     return rand()^((LONGLONG)rand()<<15)^((LONGLONG)rand()<<30)^
 		((LONGLONG)rand()<<45)^((LONGLONG)rand()<<60);
 }
 
-//Éú³É32Î»Ëæ»úÊı
+//ç”Ÿæˆ32ä½éšæœºæ•°
 LONG CHistory_TT::Rand16()//32->16
 {
     return rand()^((LONG)rand()<<15)^((LONG)rand()<<30);

@@ -28,7 +28,7 @@ MOVE CNegascout_HH_TT::SearchAGoodMove(int board[10][10], int Color,int Step)
 	{
 		::PostMessage(AfxGetMainWnd()->m_hWnd,UPDATE_TREE,m_iMaxDepth,0);
 	
-		if (Negascout_HH_TT(nowColor, m_iMaxDepth, -200000, 200000,Step) != 66666)//Èç¹û±¾´ÎËÑË÷Ã»ÓĞ±»ÖĞÖ¹£¬±£´æ×î¼Ñ×ß·¨
+		if (Negascout_HH_TT(nowColor, m_iMaxDepth, -200000, 200000,Step) != 66666)//å¦‚æœæœ¬æ¬¡æœç´¢æ²¡æœ‰è¢«ä¸­æ­¢ï¼Œä¿å­˜æœ€ä½³èµ°æ³•
 			theBestMove = BestMove;
 		else
 			break;
@@ -46,21 +46,21 @@ MOVE CNegascout_HH_TT::SearchAGoodMove_2(int board[10][10], int Color)
 	return theBestMove;
 }
 
-double CNegascout_HH_TT::alphabeta(int iDepth,int Color,double alpha,double beta)//Éî¶ÈÓÅÏÈ
+double CNegascout_HH_TT::alphabeta(int iDepth,int Color,double alpha,double beta)//æ·±åº¦ä¼˜å…ˆ
 {
 	int is;
 	int iCount;
 	double score;
 	is=CSearchengine::IsGameOver();
 	int iBestMove = -1;
-	if(is==99999||is==-99999)//µ±Ç°Æå¾ÖÒÑ¾­½áÊø
+	if(is==99999||is==-99999)//å½“å‰æ£‹å±€å·²ç»ç»“æŸ
 		{
 			if (Color == nowColor)
 				return is;
 			else if(Color != nowColor)
 				return -is;
 	}
-	if (iDepth <= 0)//Ò¶×Ó½ÚµãÈ¡¹ÀÖµ
+	if (iDepth <= 0)//å¶å­èŠ‚ç‚¹å–ä¼°å€¼
 	{
 		if (Color == nowColor)
 			score = Eval(board, nowColor);
@@ -68,7 +68,7 @@ double CNegascout_HH_TT::alphabeta(int iDepth,int Color,double alpha,double beta
 			score = -Eval(board, nowColor);
 		return score;
 	}
-	//µ÷ÓÃ×ß·¨Éú³ÉÆ÷º¯Êı²úÉúµ±Ç°¾ÖÃæµÄËùÓĞ×ß·¨·µ»Ø×ß·¨ÊıÁ¿
+	//è°ƒç”¨èµ°æ³•ç”Ÿæˆå™¨å‡½æ•°äº§ç”Ÿå½“å‰å±€é¢çš„æ‰€æœ‰èµ°æ³•è¿”å›èµ°æ³•æ•°é‡
 	iCount = allMove(board, PossibleMoves[iDepth],Color);
 
 	if(iDepth==m_nMaxDepth&&iCount==1)
@@ -76,22 +76,22 @@ double CNegascout_HH_TT::alphabeta(int iDepth,int Color,double alpha,double beta
 		BestMove = PossibleMoves[iDepth][0];
 		return 66666;
 	}
-	for (int i = 0; i < iCount; i++)                           //±éÀúÕâĞ©×ß·¨
+	for (int i = 0; i < iCount; i++)                           //éå†è¿™äº›èµ°æ³•
 	{
 		CSearchengine::goAMove(board, PossibleMoves[iDepth][i]);
 		//print_Board(position);
-		score=-alphabeta(iDepth-1,3-Color,-beta,-alpha);//µİ¹éµ÷ÓÃalphabetaº¯Êı½øĞĞÏÂÒ»²ãËÑË÷
+		score=-alphabeta(iDepth-1,3-Color,-beta,-alpha);//é€’å½’è°ƒç”¨alphabetaå‡½æ•°è¿›è¡Œä¸‹ä¸€å±‚æœç´¢
 		CSearchengine::goBack(board, PossibleMoves[iDepth][i]);
 		//print_Board(position);
 		if(score>alpha)
 		{
 			alpha=score;
-			if(iDepth==m_nMaxDepth)          //µ±ËÑË÷Éî¶È´ïµ½ÈËÎªÉèÖÃµÄ×î´óËÑË÷Éî¶È,m_nMaxDepthÎªÈË¹¤ÉèÖÃµÄ×î´óËÑËØÉî¶È
+			if(iDepth==m_nMaxDepth)          //å½“æœç´¢æ·±åº¦è¾¾åˆ°äººä¸ºè®¾ç½®çš„æœ€å¤§æœç´¢æ·±åº¦,m_nMaxDepthä¸ºäººå·¥è®¾ç½®çš„æœ€å¤§æœç´ æ·±åº¦
 			{
-					iBestMove = i;//Ö±½Ó i no iBestMove
+					iBestMove = i;//ç›´æ¥ i no iBestMove
 					BestMove = PossibleMoves[iDepth][iBestMove];
 					//return i;
-			}//½«µ±Ç°×ß·¨×÷Îª×î¼Ñ×ß·¨²¢ÇÒ·ÅÖÃÓÚ×ß·¨ÁĞ±íÖĞ
+			}//å°†å½“å‰èµ°æ³•ä½œä¸ºæœ€ä½³èµ°æ³•å¹¶ä¸”æ”¾ç½®äºèµ°æ³•åˆ—è¡¨ä¸­
 		}
 		if(alpha>=beta)                          
 			//return beta;
@@ -108,7 +108,7 @@ double CNegascout_HH_TT::Negascout_HH_TT(int Color,int iDepth, double iAlpha, do
 	int i;
 
 	iGameOverRet =CSearchengine:: IsGameOver();
-	if(iGameOverRet==99999||iGameOverRet==-99999)//µ±Ç°Æå¾ÖÒÑ¾­½áÊø
+	if(iGameOverRet==99999||iGameOverRet==-99999)//å½“å‰æ£‹å±€å·²ç»ç»“æŸ
 		{
 			if (Color == nowColor)
 				return iGameOverRet;
@@ -118,20 +118,20 @@ double CNegascout_HH_TT::Negascout_HH_TT(int Color,int iDepth, double iAlpha, do
 	
 	if(First_In_N!=0)
 	{
-		score = LookUpHashTable(iAlpha, iBeta, iDepth);//²éÕÒÖÃ»»±í
+		score = LookUpHashTable(iAlpha, iBeta, iDepth);//æŸ¥æ‰¾ç½®æ¢è¡¨
 		if (score != 66666)
 			return score;
 	}
 	else
 	First_In_N=1;
 
-	if (iDepth <= 0)//Ò¶×Ó½ÚµãÈ¡¹ÀÖµ
+	if (iDepth <= 0)//å¶å­èŠ‚ç‚¹å–ä¼°å€¼
 	{
 		if (Color == nowColor)
 			score = Eval(board, nowColor,Step);
 		if (Color != nowColor)
 			score = -Eval(board, nowColor,Step);
-		EnterHashTable(exact, score, iDepth);//½«¹ÀÖµ´æÈëÖÃ»»±í
+		EnterHashTable(exact, score, iDepth);//å°†ä¼°å€¼å­˜å…¥ç½®æ¢è¡¨
 			return score;
 	}
 
@@ -155,7 +155,7 @@ double CNegascout_HH_TT::Negascout_HH_TT(int Color,int iDepth, double iAlpha, do
 	for (i = 0; i<iCount; i++)
 	{
 		if ((double)(clock() - timeStart) / CLOCKS_PER_SEC >= m_fTimeLimit)
-			return 66666;//·µ»ØÖĞÖ¹±ê¼Ç
+			return 66666;//è¿”å›ä¸­æ­¢æ ‡è®°
 
 
 		Hash_MakeMove(&PossibleMoves[iDepth][i], board);
@@ -169,11 +169,11 @@ double CNegascout_HH_TT::Negascout_HH_TT(int Color,int iDepth, double iAlpha, do
 		 
 		if (t>a && t<iBeta && i>0)
 		{
-			//¶ÔÓÚµÚÒ»¸öºóµÄ½Úµã£¬Èç¹ûÉÏÃæµÄËÑË÷failhigh
+			//å¯¹äºç¬¬ä¸€ä¸ªåçš„èŠ‚ç‚¹ï¼Œå¦‚æœä¸Šé¢çš„æœç´¢failhigh
 			Hash_MakeMove(&PossibleMoves[iDepth][i], board);
 			CSearchengine::goAMove(board, PossibleMoves[iDepth][i]);
-			a = -Negascout_HH_TT(3-Color,iDepth - 1, -iBeta, -t,Step);//µİ¹éËÑË÷×Ó½Úµã
-			eval_is_exact = 1;//ÉèÊı¾İÀàĞÍÎª¾«È·Öµ
+			a = -Negascout_HH_TT(3-Color,iDepth - 1, -iBeta, -t,Step);//é€’å½’æœç´¢å­èŠ‚ç‚¹
+			eval_is_exact = 1;//è®¾æ•°æ®ç±»å‹ä¸ºç²¾ç¡®å€¼
 			Hash_UnMakeMove(&PossibleMoves[iDepth][i], board);
 			CSearchengine::goBack(board, PossibleMoves[iDepth][i]);
 			if (iDepth == m_iMaxDepth)

@@ -1,26 +1,26 @@
-//´úÂë°æ±¾		2017Äê¹úÈü 
-//±¾´úÂëÓÉÉòÑôº½¿Õº½Ìì´óÑ§¼ÆËã»ú²©ŞÄĞ­»á×Ü¸ºÔğÈËÍõÔ¾ÁØÍ³Ò»µ÷¿Ø
-//¹ú¼ÊÌøÆå×é¸ºÔğÈË»ÆÙ»Ëù´ø²©ŞÄ×é¿ª·¢Î¬»¤
-//´úÂëÀ´×Ô¹ş¹¤´ó¿ªÔ´´úÂë,ÓÉÒÔÉÏ³ÉÔ±Î¬»¤ 
-//±¾´úÂëÊÊÓÃÓÚÖĞ¹ú´óÑ§Éú¼ÆËã»ú²©ŞÄ´óÈü½»»¥Ğ­Òé
-//±¾´úÂë½öÌá¹©½»»¥Ğ­ÒéµÄÓÃ·¨Ê¾·¶ºÍ¼òµ¥AI²©ŞÄË¼Â·£¬¿ª·¢ÕßĞè×ÔĞĞ¸Ä½øÍêÉÆ´úÂë²ÎÈü
-//ÈçÓĞÒâ¼ûºÍ½¨ÒéÇëÓëÎÒÃÇ¾¡ÔçÁªÏµ
-//ÍõÔ¾ÁØ	QQ£º836473734
-//»ÆÙ»		QQ£º2505649975
+//ä»£ç ç‰ˆæœ¬		2017å¹´å›½èµ› 
+//æœ¬ä»£ç ç”±æ²ˆé˜³èˆªç©ºèˆªå¤©å¤§å­¦è®¡ç®—æœºåšå¼ˆåä¼šæ€»è´Ÿè´£äººç‹è·ƒéœ–ç»Ÿä¸€è°ƒæ§
+//å›½é™…è·³æ£‹ç»„è´Ÿè´£äººé»„å€©æ‰€å¸¦åšå¼ˆç»„å¼€å‘ç»´æŠ¤
+//ä»£ç æ¥è‡ªå“ˆå·¥å¤§å¼€æºä»£ç ,ç”±ä»¥ä¸Šæˆå‘˜ç»´æŠ¤ 
+//æœ¬ä»£ç é€‚ç”¨äºä¸­å›½å¤§å­¦ç”Ÿè®¡ç®—æœºåšå¼ˆå¤§èµ›äº¤äº’åè®®
+//æœ¬ä»£ç ä»…æä¾›äº¤äº’åè®®çš„ç”¨æ³•ç¤ºèŒƒå’Œç®€å•AIåšå¼ˆæ€è·¯ï¼Œå¼€å‘è€…éœ€è‡ªè¡Œæ”¹è¿›å®Œå–„ä»£ç å‚èµ›
+//å¦‚æœ‰æ„è§å’Œå»ºè®®è¯·ä¸æˆ‘ä»¬å°½æ—©è”ç³»
+//ç‹è·ƒéœ–	QQï¼š836473734
+//é»„å€©		QQï¼š2505649975
 #include <stdio.h>
 #include <stdlib.h>
 #include <cstdlib>
 
-int a[8][8];             //ÆåÅÌ
-int player = 1;				//player=1Îª°×·½  player=-1 ÎªºÚ·½
-int state = 0;				//state=0 ÎªÎŞ×Ó¿É³Ô   £¬1 ÎªÓĞ×Ó±Ø³Ô
-int record[100][2];			//¼ÇÂ¼±Ø³ÔÂ·¾¶
-int record1[20][2];         //ÔİÊ±¼ÇÂ¼±Ø³ÔÂ·¾¶
-int length;                  //±Ø³ÔµÄ³¤¶È
-int length1;				//ÔİÊ±¼ÇÂ¼±Ø³ÔµÄ³¤¶È
-int count;                   //±Ø³ÔµÄÓĞ¼¸ÖÖÇé¿ö
+int a[8][8];             //æ£‹ç›˜
+int player = 1;				//player=1ä¸ºç™½æ–¹  player=-1 ä¸ºé»‘æ–¹
+int state = 0;				//state=0 ä¸ºæ— å­å¯åƒ   ï¼Œ1 ä¸ºæœ‰å­å¿…åƒ
+int record[100][2];			//è®°å½•å¿…åƒè·¯å¾„
+int record1[20][2];         //æš‚æ—¶è®°å½•å¿…åƒè·¯å¾„
+int length;                  //å¿…åƒçš„é•¿åº¦
+int length1;				//æš‚æ—¶è®°å½•å¿…åƒçš„é•¿åº¦
+int count;                   //å¿…åƒçš„æœ‰å‡ ç§æƒ…å†µ
 
-// ÒÔÏÂº¯ÊıÖ»ÔÚfind º¯ÊıÖĞµ÷ÓÃ£¬»òÕßÕâĞ©º¯Êı»¥Ïàµ÷ÓÃ¡£
+// ä»¥ä¸‹å‡½æ•°åªåœ¨find å‡½æ•°ä¸­è°ƒç”¨ï¼Œæˆ–è€…è¿™äº›å‡½æ•°äº’ç›¸è°ƒç”¨ã€‚
 //----------------------------------------------------------------
 void Soilder(int, int);
 void King(int, int);
@@ -34,13 +34,13 @@ void KingRightUp(int, int);
 void KingRightDown(int, int);
 //-----------------------------------------------------------------
 
-void draw();                //»­ÆåÅÌ
-void start();				//¿ªÊ¼Ê± ½øĞĞ²¼¾Ö
-void go();				//ÏÂÆå
-void change();	        //ºÚ°×Æå½»»»Î»ÖÃ		
+void draw();                //ç”»æ£‹ç›˜
+void start();				//å¼€å§‹æ—¶ è¿›è¡Œå¸ƒå±€
+void go();				//ä¸‹æ£‹
+void change();	        //é»‘ç™½æ£‹äº¤æ¢ä½ç½®		
 void change1();
-void find();            //ÕÒ ÊÇ·ñÓĞ±Ø³ÔµÄÆå×Ó
-void findlongest();     //ÕÒµ½±Ø³ÔÖĞ³Ô×ÓÊı×î¶àµÄ³Ô·¨
+void find();            //æ‰¾ æ˜¯å¦æœ‰å¿…åƒçš„æ£‹å­
+void findlongest();     //æ‰¾åˆ°å¿…åƒä¸­åƒå­æ•°æœ€å¤šçš„åƒæ³•
 
 int main()
 {
@@ -62,23 +62,23 @@ void start()
 
 void draw()
 {
-	printf("¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª\n ");
+	printf("â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”\n ");
 	for (int i = 0; i < 8; i++)
 	{
 		for (int j = 0; j < 8; j++)
 		{
 			if (a[i][j] == 1)
-				printf("| ¡ñ ");
+				printf("| â— ");
 			if (a[i][j] == -1)
-				printf("| ¡ğ ");
+				printf("| â—‹ ");
 			if (a[i][j] == 0)
 				printf("|    ");
 			if (a[i][j] == 2)
-				printf("| ¨‹ ");
+				printf("| â–¼ ");
 			if (a[i][j] == -2)
-				printf("| ¨Œ ");
+				printf("| â–½ ");
 		}
-		printf("|  %d\n¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª¡ª\n ", i+1);
+		printf("|  %d\nâ€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”â€”\n ", i+1);
 	}
 	printf("  1    2    3    4    5    6     7    8   \n\n\n");
 	if (player==1)
@@ -116,14 +116,14 @@ void change1()
 void go()
 {
 	if (player == 1)
-		printf("Çë°×·½Âä×Ó ¸ñÊ½Îª£º ");
+		printf("è¯·ç™½æ–¹è½å­ æ ¼å¼ä¸ºï¼š ");
 	else
-		printf("ÇëºÚ·½Âä×Ó ¸ñÊ½Îª£º ");
+		printf("è¯·é»‘æ–¹è½å­ æ ¼å¼ä¸ºï¼š ");
 
-	if (state == 0)      //²»³Ô ×ß
+	if (state == 0)      //ä¸åƒ èµ°
 	{
 		int X1, Y1, X2, Y2, k;
-		printf("\n  X1£¨µã£©Y1£¨¿Õ¸ñ£©X2£¨µã£©Y2     Èç£¨1.1 2.2£©\n\n");
+		printf("\n  X1ï¼ˆç‚¹ï¼‰Y1ï¼ˆç©ºæ ¼ï¼‰X2ï¼ˆç‚¹ï¼‰Y2     å¦‚ï¼ˆ1.1 2.2ï¼‰\n\n");
 		scanf("%d.%d %d.%d", &X1, &Y1, &X2, &Y2);
 
 		X1 = X1 - 1;
@@ -131,7 +131,7 @@ void go()
 		X2 = X2 - 1;
 		Y2 = Y2 - 1;
 
-		if (player == -1)            // ½»»»Î»ÖÃ
+		if (player == -1)            // äº¤æ¢ä½ç½®
 		{
 			X1 = 7 - X1;
 			Y1 = 7 - Y1;
@@ -142,13 +142,13 @@ void go()
 
 		if (X1 >= 0 && X1 < 8 && Y1 >= 0 && Y1 < 8 && X2 >= 0 && X2 < 8 && Y2 >= 0 && Y2 < 8 && a[X2][Y2] == 0 && (a[X1][Y1] == 1 || a[X1][Y1] == 2))
 		{
-			if (a[X1][Y1] == 1 && X2 == X1 - 1 && (Y2 == Y1 + 1 || Y2 == Y1 - 1))        //±øÆå
+			if (a[X1][Y1] == 1 && X2 == X1 - 1 && (Y2 == Y1 + 1 || Y2 == Y1 - 1))        //å…µæ£‹
 			{
 				a[X1][Y1] = 0;
 				a[X2][Y2] = 1;
 			}
 
-			else if (a[X1][Y1] == 2 && (X1 -X2==Y1-Y2 || X1-X2==Y2-Y1))															//ÍõÆå
+			else if (a[X1][Y1] == 2 && (X1 -X2==Y1-Y2 || X1-X2==Y2-Y1))															//ç‹æ£‹
 			{
 				if (X1 < X2)
 				{
@@ -168,7 +168,7 @@ void go()
 
 				if (k != 0)
 				{
-					printf("ÇëÖØĞÂÊäÈë.\n");
+					printf("è¯·é‡æ–°è¾“å…¥.\n");
 					go();
 				}
 				else
@@ -180,22 +180,22 @@ void go()
 
 			else
 			{
-				printf("ÇëÖØĞÂÊäÈë£º");
+				printf("è¯·é‡æ–°è¾“å…¥ï¼š");
 				go();
 			}
 
 		}
 		else
 		{
-			printf("ÇëÖØĞÂÊäÈë£º");
+			printf("è¯·é‡æ–°è¾“å…¥ï¼š");
 			go();
 		}
 	}
 
-	if (state == 1)   //±Ø³Ô
+	if (state == 1)   //å¿…åƒ
 	{
 		int N;
-		printf("ÇëÊäÈëĞòºÅ£º\n");
+		printf("è¯·è¾“å…¥åºå·ï¼š\n");
 		for (int i = 1; i <= count; i++)
 		{
 			printf("%d.  ", i);
@@ -212,7 +212,7 @@ void go()
 		scanf("%d", &N);
 		if (N > count)
 		{
-			printf("ÇëÖØĞÂÊäÈë£º\n");
+			printf("è¯·é‡æ–°è¾“å…¥ï¼š\n");
 			go();
 		}
 		else
@@ -224,7 +224,7 @@ void go()
 					record[k][1] = 7 - record[k][1];
 				}
 
-			if (a[record[(length + 1)*(N - 1)][0]][record[(length + 1)*(N - 1)][1]] == 1) //±øÆå³Ô
+			if (a[record[(length + 1)*(N - 1)][0]][record[(length + 1)*(N - 1)][1]] == 1) //å…µæ£‹åƒ
 				{
 					a[record[(length + 1)*(N - 1)][0]][record[(length + 1)*(N - 1)][1]] = 0;
 					a[record[(length + 1)*(N - 1) + length][0]][record[(length + 1)*(N - 1) + length][1]] = 1;
@@ -234,14 +234,14 @@ void go()
 						}
 				}
 
-			else if (a[record[(length + 1)*(N - 1)][0]][record[(length + 1)*(N - 1)][1]] == 2)         //ÍõÆå³Ô
+			else if (a[record[(length + 1)*(N - 1)][0]][record[(length + 1)*(N - 1)][1]] == 2)         //ç‹æ£‹åƒ
 				{
 					a[record[(length + 1)*(N - 1)][0]][record[(length + 1)*(N - 1)][1]] = 0;
 					a[record[(length + 1)*(N - 1) + length][0]][record[(length + 1)*(N - 1) + length][1]] = 2;
 					for (int j = 1; j <= length; j++)
 					{
 						if (record[(length + 1)*(N - 1) + (j - 1)][0] > record[(length + 1)*(N - 1) + j][0] && record[(length + 1)*(N - 1) + (j - 1)][1] > record[(length + 1)*(N - 1) + j][1])
-						{       //ÓÒÏÂµ½×óÉÏ »»Î»
+						{       //å³ä¸‹åˆ°å·¦ä¸Š æ¢ä½
 							int temp;
 							temp=record[(length + 1)*(N - 1) + (j - 1)][0];
 							record[(length + 1)*(N - 1) + (j-1)][0] = record[(length + 1)*(N - 1) + j][0];
@@ -252,7 +252,7 @@ void go()
 							record[(length + 1)*(N - 1) + j][1] = temp;
 						}
 						else if (record[(length + 1)*(N - 1) + (j - 1)][0] > record[(length + 1)*(N - 1) + j][0] && record[(length + 1)*(N - 1) + (j - 1)][1] < record[(length + 1)*(N - 1) + j][1])
-						{       //×óÏÂµ½ÓÒÉÏ »»Î»;
+						{       //å·¦ä¸‹åˆ°å³ä¸Š æ¢ä½;
 							int temp;
 							temp = record[(length + 1)*(N - 1) + (j - 1)][0];
 							record[(length + 1)*(N - 1) + (j - 1)][0] = record[(length + 1)*(N - 1) + j][0];
@@ -264,7 +264,7 @@ void go()
 						}
 
 						if (record[(length + 1)*(N - 1) + (j - 1)][0] < record[(length + 1)*(N - 1) + j][0] && record[(length + 1)*(N - 1) + (j - 1)][1] < record[(length + 1)*(N - 1) + j][1])
-						{		//×óÉÏµ½ÓÒÏÂ + +
+						{		//å·¦ä¸Šåˆ°å³ä¸‹ + +
 
 							for (int k = 1; k < record[(length + 1)*(N - 1) + j][0] - record[(length + 1)*(N - 1) + (j - 1)][0]; k++)
 							{
@@ -277,7 +277,7 @@ void go()
 							}
 						}
 						else if (record[(length + 1)*(N - 1) + (j - 1)][0] < record[(length + 1)*(N - 1) + j][0] && record[(length + 1)*(N - 1) + (j - 1)][1] > record[(length + 1)*(N - 1) + j][1])
-						{		//ÓÒÉÏµ½×óÏÂ   + -
+						{		//å³ä¸Šåˆ°å·¦ä¸‹   + -
 							for (int k = 1; k < record[(length + 1)*(N - 1) + j][0] - record[(length + 1)*(N - 1) + (j - 1)][0]; k++)
 							{
 								if (a[(record[(length + 1)*(N - 1) + (j - 1)][0]) + k][record[(length + 1)*(N - 1) + (j - 1)][1] - k] == -1 || a[(record[(length + 1)*(N - 1) + (j - 1)][0]) + k][record[(length + 1)*(N - 1) + (j - 1)][1] - k] == -2)
@@ -294,17 +294,17 @@ void go()
 	}
 	
 
-	for (int i = 0; i < 100; i++)                       //»¹Ô­¼ÇÂ¼
+	for (int i = 0; i < 100; i++)                       //è¿˜åŸè®°å½•
 		for (int j = 0; j < 2; j++)
 			record[i][j] = 0;
 	length = 0;
 	count = 0;
 
-	for (int j = 1; j <= 7; j++)                           //³ÉÍõ
+	for (int j = 1; j <= 7; j++)                           //æˆç‹
 		if (a[0][j] == 1)
 			a[0][j] = 2;
 
-	int number = 0;                                //¼ìÑéÁíÒ»¸öÆå×Ó¸öÊı
+	int number = 0;                                //æ£€éªŒå¦ä¸€ä¸ªæ£‹å­ä¸ªæ•°
 	for (int i = 0; i <= 7; i++)
 		for (int j = 0; j <= 7; j++)
 			if (a[i][j] == -1 || a[i][j] == -2)
@@ -312,11 +312,11 @@ void go()
 
 	if (number == 0)
 	{
-		printf("½áÊø");
+		printf("ç»“æŸ");
 		if (player == 1)
-			printf("°×·½Ê¤");
+			printf("ç™½æ–¹èƒœ");
 		else if (player == -1)
-			printf("ºÚ·½Ê¤");
+			printf("é»‘æ–¹èƒœ");
 		system("pause");
 	}
 
@@ -563,10 +563,10 @@ void SoilderLeftUp(int i, int j)
 	k = a[i - 1][j - 1];
 	a[i - 1][j - 1] = 0;
 	a[i - 2][j - 2] = 1;
-	state = 1;                                     //¸Ä±ä×´Ì¬
+	state = 1;                                     //æ”¹å˜çŠ¶æ€
 	Soilder(i - 2, j - 2);
 
-	a[i][j] = 1;									  //»¹Ô­
+	a[i][j] = 1;									  //è¿˜åŸ
 	a[i - 1][j - 1] = k;
 	a[i - 2][j - 2] = 0;
 }
@@ -588,10 +588,10 @@ void SoilderRightUp(int i, int j)
 	k = a[i - 1][j + 1];
 	a[i - 1][j + 1] = 0;
 	a[i - 2][j + 2] = 1;
-	state = 1;                                          //¸Ä±ä×´Ì¬
+	state = 1;                                          //æ”¹å˜çŠ¶æ€
 	Soilder(i - 2, j + 2);
 
-	a[i][j] = 1;                                        //»¹Ô­
+	a[i][j] = 1;                                        //è¿˜åŸ
 	a[i - 1][j + 1] = k;
 	a[i - 2][j + 2] = 0;
 }
@@ -613,10 +613,10 @@ void SoilderLeftDown(int i, int j)
 	k = a[i + 1][j - 1];
 	a[i + 1][j - 1] = 0;
 	a[i + 2][j - 2] = 1;
-	state = 1;                                     //¸Ä±ä×´Ì¬
+	state = 1;                                     //æ”¹å˜çŠ¶æ€
 	Soilder(i + 2, j - 2);
 
-	a[i][j] = 1;									  //»¹Ô­
+	a[i][j] = 1;									  //è¿˜åŸ
 	a[i + 1][j - 1] = k;
 	a[i + 2][j - 2] = 0;
 }
@@ -638,10 +638,10 @@ void SoilderRightDown(int i, int j)
 	k = a[i + 1][j + 1];
 	a[i + 1][j + 1] = 0;
 	a[i + 2][j + 2] = 1;
-	state = 1;                                          //¸Ä±ä×´Ì¬
+	state = 1;                                          //æ”¹å˜çŠ¶æ€
 	Soilder(i + 2, j + 2);
 
-	a[i][j] = 1;                                        //»¹Ô­
+	a[i][j] = 1;                                        //è¿˜åŸ
 	a[i + 1][j + 1] = k;
 	a[i + 2][j + 2] = 0;
 }
@@ -702,7 +702,7 @@ void KingLeftUp(int i, int j)
 		if ((a[i - k][j - k] == -1 || a[i - k][j - k] == -2) && a[i - k - 1][j - k - 1] == 0)
 		{
 			a[i][j] = 0;
-			int i1 = i - k;                            //a[i1][j1]ÊÇ±»³ÔµÄ×Ó
+			int i1 = i - k;                            //a[i1][j1]æ˜¯è¢«åƒçš„å­
 			int j1 = j - k;
 			k = a[i1][j1];
 			a[i1][j1] = 0;
@@ -724,14 +724,14 @@ void KingLeftUp(int i, int j)
 						record1[length1][1] = 7 - j2;
 					}
 
-					state = 1;                          //¸Ä±ä×´Ì¬
+					state = 1;                          //æ”¹å˜çŠ¶æ€
 					King(i2, j2);
 
 					a[i2][j2] = 0;
 
 					findlongest();
 				}
-			a[i][j] = 2;						//»¹Ô­
+			a[i][j] = 2;						//è¿˜åŸ
 			a[i1][j1] = k;
 		break;
 		}
@@ -743,7 +743,7 @@ void KingLeftDown(int i, int j)
 		if ((a[i + k][j - k] == -1 || a[i + k][j - k] == -2) && a[i + k + 1][j - k - 1] == 0)
 		{
 			a[i][j] = 0;
-			int i1 = i + k;                            //a[i1][j1]ÊÇ±»³ÔµÄ×Ó
+			int i1 = i + k;                            //a[i1][j1]æ˜¯è¢«åƒçš„å­
 			int j1 = j - k;
 			k = a[i1][j1];
 			a[i1][j1] = 0;
@@ -765,14 +765,14 @@ void KingLeftDown(int i, int j)
 						record1[length1][1] = 7 - j2;
 					}
 
-					state = 1;                          //¸Ä±ä×´Ì¬
+					state = 1;                          //æ”¹å˜çŠ¶æ€
 					King(i2, j2);
 
 					a[i2][j2] = 0;
 
 					findlongest();
 				}
-			a[i][j] = 2;						//»¹Ô­
+			a[i][j] = 2;						//è¿˜åŸ
 			a[i1][j1] = k;
 			break;
 		}
@@ -785,7 +785,7 @@ void KingRightUp(int i, int j)
 		if ((a[i - k][j + k] == -1 || a[i - k][j + k] == -2) && a[i - k - 1][j + k + 1] == 0)
 		{
 			a[i][j] = 0;
-			int i1 = i - k;                            //a[i1][j1]ÊÇ±»³ÔµÄ×Ó
+			int i1 = i - k;                            //a[i1][j1]æ˜¯è¢«åƒçš„å­
 			int j1 = j + k;
 			k = a[i1][j1];
 			a[i1][j1] = 0;
@@ -807,14 +807,14 @@ void KingRightUp(int i, int j)
 						record1[length1][1] = 7 - j2;
 					}
 
-					state = 1;                          //¸Ä±ä×´Ì¬
+					state = 1;                          //æ”¹å˜çŠ¶æ€
 					King(i2, j2);
 
 					a[i2][j2] = 0;
 
 					findlongest();
 				}
-			a[i][j] = 2;						//»¹Ô­
+			a[i][j] = 2;						//è¿˜åŸ
 			a[i1][j1] = k;
 			break;
 		}
@@ -826,7 +826,7 @@ void KingRightDown(int i, int j)
 		if ((a[i + k][j + k] == -1 || a[i + k][j + k] == -2) && a[i + k + 1][j + k + 1] == 0)
 		{
 			a[i][j] = 0;
-			int i1 = i + k;                            //a[i1][j1]ÊÇ±»³ÔµÄ×Ó
+			int i1 = i + k;                            //a[i1][j1]æ˜¯è¢«åƒçš„å­
 			int j1 = j + k;
 			k = a[i1][j1];
 			a[i1][j1] = 0;
@@ -848,14 +848,14 @@ void KingRightDown(int i, int j)
 						record1[length1][1] = 7 - j2;
 					}
 
-					state = 1;                          //¸Ä±ä×´Ì¬
+					state = 1;                          //æ”¹å˜çŠ¶æ€
 					King(i2, j2);
 
-					a[i2][j2] = 0;            //»¹Ô­
+					a[i2][j2] = 0;            //è¿˜åŸ
 
 					findlongest();
 				}
-			a[i][j] = 2;						//»¹Ô­
+			a[i][j] = 2;						//è¿˜åŸ
 			a[i1][j1] = k;
 			break;
 		}

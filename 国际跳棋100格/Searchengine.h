@@ -10,19 +10,19 @@ public:
 	CSearchengine();
 	~CSearchengine();
 	void copy(int board[10][10], int Color);
-	void goAMove(int board[10][10],MOVE aMove);//×ßÒ»²½ÕĞ·¨µÄº¯Êı
-	void goBack(int board[10][10],MOVE aMove);//³·»ØÒ»²½µÄº¯Êı
-	int IsGameOver();										  //ÅĞ¶ÏÊÇ·ñ½áÊø
-	bool KING_FOUR_DIRECTION_CAN_EAT(int X, int Y, int Color);//Õâ¸öÊÇÅĞ¶ÏÍõµÄÄÜ²»ÄÜ³Ô
-	bool BING_FOUR_DIRECTION_CAN_EAT(int X, int Y, int Color);//ÅĞ¶Î±øÄÜ²»ÄÜ³Ô
-	bool IsBingCanMove(int X, int Y, int Color);			  //ÅĞ¶Ï±øÄÜ²»ÄÜ×ß
-	bool IsKingCanMove(int X, int Y, int Color);			  //ÅĞ¶ÏÍõÄÜ²»ÄÜ×ß
+	void goAMove(int board[10][10],MOVE aMove);//èµ°ä¸€æ­¥æ‹›æ³•çš„å‡½æ•°
+	void goBack(int board[10][10],MOVE aMove);//æ’¤å›ä¸€æ­¥çš„å‡½æ•°
+	int IsGameOver();										  //åˆ¤æ–­æ˜¯å¦ç»“æŸ
+	bool KING_FOUR_DIRECTION_CAN_EAT(int X, int Y, int Color);//è¿™ä¸ªæ˜¯åˆ¤æ–­ç‹çš„èƒ½ä¸èƒ½åƒ
+	bool BING_FOUR_DIRECTION_CAN_EAT(int X, int Y, int Color);//åˆ¤æ®µå…µèƒ½ä¸èƒ½åƒ
+	bool IsBingCanMove(int X, int Y, int Color);			  //åˆ¤æ–­å…µèƒ½ä¸èƒ½èµ°
+	bool IsKingCanMove(int X, int Y, int Color);			  //åˆ¤æ–­ç‹èƒ½ä¸èƒ½èµ°
 protected:
-	MOVE PossibleMoves[20][150];							//ÕĞ·¨Êı×é
+	MOVE PossibleMoves[20][150];							//æ‹›æ³•æ•°ç»„
 	//MOVE **PossibleMoves; 
 
-	int nowColor;					 						  //µ±Ç°×ß×Ó·½
-	int board[10][10];										  //ÆåÅÌĞÅÏ¢
+	int nowColor;					 						  //å½“å‰èµ°å­æ–¹
+	int board[10][10];										  //æ£‹ç›˜ä¿¡æ¯
 	clock_t timeStart;
 	clock_t timeStop;
 	MOVE theBestMove;

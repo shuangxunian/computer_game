@@ -4,8 +4,8 @@ class CEvelation
 {
 public:
 	double Eval(int position[10][10], int Type);
-	double Eval(int position[10][10], int Type, int Step);//接口
-	CString MFC_Eval(int position[10][10], int Type);//用来显示估值不参与引擎
+	double Eval(int position[10][10], int Type, int Step);//鎺ュ彛
+	CString MFC_Eval(int position[10][10], int Type);//鐢ㄦ潵鏄剧ず浼板�间笉鍙備笌寮曟搸
 	CEvelation();
 	~CEvelation();
 	LONG Tree;

@@ -1,4 +1,4 @@
-// Move_History_Dialog.cpp : ÊµÏÖÎÄ¼þ
+// Move_History_Dialog.cpp : å®žçŽ°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -7,7 +7,7 @@
 #include "afxdialogex.h"
 #include "head.h"
 
-// CMove_History_Dialog ¶Ô»°¿ò
+// CMove_History_Dialog å¯¹è¯æ¡†
 
 IMPLEMENT_DYNAMIC(CMove_History_Dialog, CDialogEx)
 
@@ -34,7 +34,7 @@ BEGIN_MESSAGE_MAP(CMove_History_Dialog, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CMove_History_Dialog ÏûÏ¢´¦Àí³ÌÐò
+// CMove_History_Dialog æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 
 void CMove_History_Dialog::OnSize(UINT nType, int cx, int cy)
@@ -44,9 +44,9 @@ void CMove_History_Dialog::OnSize(UINT nType, int cx, int cy)
 	pWnd = GetDlgItem(IDC_EDIT_Move_His);
 	if(pWnd!=NULL)
 	{	
-		pWnd->SetWindowPos(0,0,0,cx-21,cy-23,SWP_NOZORDER | SWP_NOMOVE ); //°Ñ±à¼­¿Ø¼þµÄ´óÐ¡ÉèÎª(100,80)£¬Î»ÖÃ²»±ä
+		pWnd->SetWindowPos(0,0,0,cx-21,cy-23,SWP_NOZORDER | SWP_NOMOVE ); //æŠŠç¼–è¾‘æŽ§ä»¶çš„å¤§å°è®¾ä¸º(100,80)ï¼Œä½ç½®ä¸å˜
 	}
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌÐò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 }
 
 
@@ -60,9 +60,9 @@ afx_msg LRESULT CMove_History_Dialog::OnUpdateMoveData(WPARAM wParam, LPARAM lPa
 		m_Font.CreateFont(0,0,0,0,  
 			0,FALSE,FALSE,0,ANSI_CHARSET,  
 			OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,  
-			DEFAULT_QUALITY,FF_SWISS,(LPCTSTR)"Arial");//´´½¨×ÖÌå  
+			DEFAULT_QUALITY,FF_SWISS,(LPCTSTR)"Arial");//åˆ›å»ºå­—ä½“  
 		Edit_Move_His.SetFont(&m_Font);*/
-		Edit_Move_His.ReplaceSel(_T("²½Êý	Æðµã	Âäµã	³Ô×ÓÊý	³Ô×Ó\r\n"));
+		Edit_Move_His.ReplaceSel(_T("æ­¥æ•°	èµ·ç‚¹	è½ç‚¹	åƒå­æ•°	åƒå­\r\n"));
 	}
 
 	MOVE *The_Move;

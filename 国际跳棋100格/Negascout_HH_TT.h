@@ -11,7 +11,7 @@ class CNegascout_HH_TT:
 	public CHistory_TT
 {
 private:
-								  //ÕÐ·¨Éú³É
+								  //ï¿½Ð·ï¿½ï¿½ï¿½ï¿½ï¿½
 	int m_iMaxDepth;
 	int First_In_N;
 	double Negascout_HH_TT(int Color,int depth,double alpha,double beta,int Step);

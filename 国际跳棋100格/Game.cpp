@@ -29,13 +29,13 @@ MOVE Game::Search_Good_Move(int board[][10],int Color,int Engine,int Step)
 	{	
 		The_Good_Move=Computer.SearchAGoodMove_2( board, Color);
 	}
-	//¼ìÑé×ß·¨ÕıÈ·ĞÔ
+	//æ£€éªŒèµ°æ³•æ­£ç¡®æ€§
 	int Move_Fault_Times=0;
 	while(Check_Move(The_Good_Move, All_Moves_Temp,Move_Num))
 	{
 		Error=Error|(Engine&Err_Engine_N?Err_Engine_N:Err_Engine_AB);
 		Move_Fault_Times++;
-		if(Move_Fault_Times>3)//×Å·¨´íÎó3´ÎÌø³ö
+		if(Move_Fault_Times>3)//ç€æ³•é”™è¯¯3æ¬¡è·³å‡º
 		{
 			Error=Error|Err_Engine_Check;
 			The_Good_Move=All_Moves_Temp[0];

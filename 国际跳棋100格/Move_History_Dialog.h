@@ -2,20 +2,20 @@
 #include "afxwin.h"
 
 
-// CMove_History_Dialog ¶Ô»°¿ò
+// CMove_History_Dialog å¯¹è¯æ¡†
 
 class CMove_History_Dialog : public CDialogEx
 {
 	DECLARE_DYNAMIC(CMove_History_Dialog)
 
 public:
-	CMove_History_Dialog(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êı
+	CMove_History_Dialog(CWnd* pParent = NULL);   // æ ‡å‡†æ„é€ å‡½æ•°
 	virtual ~CMove_History_Dialog();
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_DIALOG_MOVE_HIS };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 
 	DECLARE_MESSAGE_MAP()
 private:

@@ -1,4 +1,4 @@
-// Evel_Dialog.cpp : ÊµÏÖÎÄ¼ş
+// Evel_Dialog.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -7,7 +7,7 @@
 #include "afxdialogex.h"
 
 
-// CEvel_Dialog ¶Ô»°¿ò
+// CEvel_Dialog å¯¹è¯æ¡†
 
 IMPLEMENT_DYNAMIC(CEvel_Dialog, CDialogEx)
 
@@ -34,7 +34,7 @@ BEGIN_MESSAGE_MAP(CEvel_Dialog, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CEvel_Dialog ÏûÏ¢´¦Àí³ÌĞò
+// CEvel_Dialog æ¶ˆæ¯å¤„ç†ç¨‹åº
 void CEvel_Dialog::OnSize(UINT nType, int cx, int cy)
 {
 	CDialogEx::OnSize(nType, cx, cy);
@@ -42,9 +42,9 @@ void CEvel_Dialog::OnSize(UINT nType, int cx, int cy)
 	pWnd = GetDlgItem(IDC_EDIT_Evel);
 	if(pWnd!=NULL)
 	{	
-		pWnd->SetWindowPos(0,0,0,cx-21,cy-23,SWP_NOZORDER | SWP_NOMOVE ); //°Ñ±à¼­¿Ø¼şµÄ´óĞ¡ÉèÎª(100,80)£¬Î»ÖÃ²»±ä
+		pWnd->SetWindowPos(0,0,0,cx-21,cy-23,SWP_NOZORDER | SWP_NOMOVE ); //æŠŠç¼–è¾‘æ§ä»¶çš„å¤§å°è®¾ä¸º(100,80)ï¼Œä½ç½®ä¸å˜
 	}
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 }
 
 afx_msg LRESULT CEvel_Dialog::OnUpdateMoveData(WPARAM wParam, LPARAM lParam)
@@ -53,13 +53,13 @@ afx_msg LRESULT CEvel_Dialog::OnUpdateMoveData(WPARAM wParam, LPARAM lParam)
 	m_Font.CreateFont(0,0,0,0,  
 		0,FALSE,FALSE,0,ANSI_CHARSET,  
 		OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,  
-		DEFAULT_QUALITY,FF_SWISS,(LPCTSTR)"Arial");//´´½¨×ÖÌå  
+		DEFAULT_QUALITY,FF_SWISS,(LPCTSTR)"Arial");//åˆ›å»ºå­—ä½“  
 	Edit_All_Move.SetFont(&m_Font);*/
 //	Edit_All_Move.SetSel(1); 
 	CString *Evel_Str;
 	CString Temp_Str;
 	Evel_Str=(CString*)lParam;
-	Temp_Str.Format("²½Êı£º%d\r\n",wParam);
+	Temp_Str.Format("æ­¥æ•°ï¼š%d\r\n",wParam);
 	Edit_Evel.ReplaceSel(Temp_Str);
 	Edit_Evel.ReplaceSel(*Evel_Str);
 	return 0;

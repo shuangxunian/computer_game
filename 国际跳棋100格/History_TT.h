@@ -7,16 +7,16 @@ class CHistory_TT
 public:
 	CHistory_TT(void);
 	~CHistory_TT(void);
-	void InitializeHistoryTable();//Éú³ÉÀúÊ·±í£¬²¢³õÊ¼»¯
-	double LookUpHHTable(MOVE *move);//·µ»ØÖµÓÃÀ´ÅÅÐò
-	void EnterHHTable(MOVE *move,int depth);//´æÈëÀúÊ·±í
-	void qrs(MOVE *a,int depth, int left, int right);//¿ìËÙÅÅÐò
+	void InitializeHistoryTable();//ç”ŸæˆåŽ†å²è¡¨ï¼Œå¹¶åˆå§‹åŒ–
+	double LookUpHHTable(MOVE *move);//è¿”å›žå€¼ç”¨æ¥æŽ’åº
+	void EnterHHTable(MOVE *move,int depth);//å­˜å…¥åŽ†å²è¡¨
+	void qrs(MOVE *a,int depth, int left, int right);//å¿«é€ŸæŽ’åº
 protected:
-	LONGLONG Rand32();//²úÉú64Î»µÄËæ»úÊý//64->32
-	LONG Rand16();	  //²úÉú32Î»µÄËæ»úÊý//32->16
+	LONGLONG Rand32();//äº§ç”Ÿ64ä½çš„éšæœºæ•°//64->32
+	LONG Rand16();	  //äº§ç”Ÿ32ä½çš„éšæœºæ•°//32->16
 private:
-	UINT m_nHashKey16[4][10][10];	   //32Î»Ëæ»úÊý×é£¬ÓÃÒÔÉú³É32Î»¹þÏ£Öµ//32->16
-	ULONGLONG m_ulHashKey32[4][10][10];//64Î»Ëæ»úÊý×é£¬ÓÃÒÔÉú³É64Î»¹þÏ£Öµ//64->32
+	UINT m_nHashKey16[4][10][10];	   //32ä½éšæœºæ•°ç»„ï¼Œç”¨ä»¥ç”Ÿæˆ32ä½å“ˆå¸Œå€¼//32->16
+	ULONGLONG m_ulHashKey32[4][10][10];//64ä½éšæœºæ•°ç»„ï¼Œç”¨ä»¥ç”Ÿæˆ64ä½å“ˆå¸Œå€¼//64->32
 	HH_HASHITEM *m_pHH;
 
 };

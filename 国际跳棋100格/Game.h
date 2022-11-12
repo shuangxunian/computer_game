@@ -6,26 +6,26 @@
 #include"head.h"
 #include"Negascout_HH_TT.h"
 using namespace std;
-class Game//ÒıÇæ
+class Game//å¼•æ“
 {
 public:
 	Game();
 	~Game();
 	CNegascout_HH_TT Computer;
 
-	//¼ÇÂ¼´íÎó
+	//è®°å½•é”™è¯¯
 	int Error;
-	//¸ø³ö×î¼Ñ×Å·¨
+	//ç»™å‡ºæœ€ä½³ç€æ³•
 	MOVE Search_Good_Move(int board[][10],int Color,int Engine,int Step);
-	//¸ø³öËùÓĞ×Å·¨
+	//ç»™å‡ºæ‰€æœ‰ç€æ³•
 	int Search_All_Moves(int board[][10],MOVE *All_Moves,int Color);
-	//°´×Å·¨×ßÆå
+	//æŒ‰ç€æ³•èµ°æ£‹
 	void Go_Move(int board[][10],MOVE The_Move);
-	//»ñÈ¡µ±Ç°¾ÖÃæ¹ÀÖµ
+	//è·å–å½“å‰å±€é¢ä¼°å€¼
 	CString Get_Evel(int board[][10],int Color);
-	//¼ìÑé×Å·¨
+	//æ£€éªŒç€æ³•
 	bool Check_Move(MOVE The_Move,MOVE AllMoves[],int move_num);
-	//¸øËÑË÷Ê±¼ä²ãÊı¸³Öµ
+	//ç»™æœç´¢æ—¶é—´å±‚æ•°èµ‹å€¼
 	void Input_Depth_Time(int Depth,double Time);
 	
 };

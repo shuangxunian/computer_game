@@ -1,8 +1,8 @@
 #pragma once
 
-	const int directions[4][2]={{1,1},{1,-1},{-1,1},{-1,-1},};//Õâ¸öÃ¿¸ö·½ÏòµÄÎ»ÖÃ²»ÄÜ±ä£¬ÏÖÔÚÊÇºÚÆåÔÚÉÏ°×ÆåÔÚÏÂµÄË³Ğò
+	const int directions[4][2]={{1,1},{1,-1},{-1,1},{-1,-1},};//è¿™ä¸ªæ¯ä¸ªæ–¹å‘çš„ä½ç½®ä¸èƒ½å˜ï¼Œç°åœ¨æ˜¯é»‘æ£‹åœ¨ä¸Šç™½æ£‹åœ¨ä¸‹çš„é¡ºåº
 
-	#define File_Path	"d:\\¶ÔÕ½¼ÇÂ¼.txt"
+	#define File_Path	"d:\\å¯¹æˆ˜è®°å½•.txt"
 	#define TIMER		1
 	#define Blocked		1
 	#define Open		2
@@ -59,29 +59,29 @@
 
 	struct MOVE
 	{
-		int Kind;//¼ÇÂ¼ÖÖÀà;
-		int move_star_x;//Æğµã×ø±ê
+		int Kind;//è®°å½•ç§ç±»;
+		int move_star_x;//èµ·ç‚¹åæ ‡
 		int move_star_y;
-		int move_stop_x;//ÖÕµã×ø±ê
+		int move_stop_x;//ç»ˆç‚¹åæ ‡
 		int move_stop_y;
-		int eatHowMany;//³Ô×ÓÊıÁ¿£¬Í¬Ê±Ò²ÊÇeatHowManyµÄ³¤¶È
+		int eatHowMany;//åƒå­æ•°é‡ï¼ŒåŒæ—¶ä¹Ÿæ˜¯eatHowManyçš„é•¿åº¦
 		int eatPoint[20][2];
-		int eatKind[20];//¼ÇÂ¼³ÔµôÆå×ÓµÄÖÖÀà
-		double score;//´ıÓÃ£¬µü´úÉî»¯Ä£ĞÍÓĞ¿ÉÄÜÓĞÓÃÉÏ
+		int eatKind[20];//è®°å½•åƒæ‰æ£‹å­çš„ç§ç±»
+		double score;//å¾…ç”¨ï¼Œè¿­ä»£æ·±åŒ–æ¨¡å‹æœ‰å¯èƒ½æœ‰ç”¨ä¸Š
 	};
 
 	struct MOVE_MESS
 	{
 		MOVE The_Good_Move;
-		int Add_Mess;//¸½¼ÓÏûÏ¢
-	};//ÓÃÓÚÏß³Ì¼ä´«µİÏûÏ¢
+		int Add_Mess;//é™„åŠ æ¶ˆæ¯
+	};//ç”¨äºçº¿ç¨‹é—´ä¼ é€’æ¶ˆæ¯
 
 	struct BOARD_MESS
 	{
 		int Board[10][10];
 		int Color;
-		int Add_Mess;//¸½¼ÓÏûÏ¢Í¨³£ÊÇÒıÇæ
-	};//ÓÃÓÚÏß³Ì¼ä´«µİÏûÏ¢
+		int Add_Mess;//é™„åŠ æ¶ˆæ¯é€šå¸¸æ˜¯å¼•æ“
+	};//ç”¨äºçº¿ç¨‹é—´ä¼ é€’æ¶ˆæ¯
 
 	/*struct MOVE_PT
 	{
@@ -93,19 +93,19 @@
 	
 	};*/
 
-	enum ENTRY_TYPE{ exact, lowerBound, UpperBound };//¹şÏ£±íÖĞ½â¾ö¹şÏ£³åÍ»µÄÒ»¸ö·½·¨	
+	enum ENTRY_TYPE{ exact, lowerBound, UpperBound };//å“ˆå¸Œè¡¨ä¸­è§£å†³å“ˆå¸Œå†²çªçš„ä¸€ä¸ªæ–¹æ³•	
 
 	struct HASHITEM{
 	LONGLONG checksum;
 	double eval;
 	short depth;
 	ENTRY_TYPE enterType;
-};//¹şÏ£ÔªËØ½á¹¹Ìå
+};//å“ˆå¸Œå…ƒç´ ç»“æ„ä½“
 
 	struct HH_HASHITEM{
-	LONGLONG checksum;	  //64Î»Ğ£ÑéÂë
-	double score;		  //ÀúÊ··Ö
+	LONGLONG checksum;	  //64ä½æ ¡éªŒç 
+	double score;		  //å†å²åˆ†
 	short depth;
-};//ÀúÊ·±íÔªËØ½á¹¹Ìå(¹şÏ£)
+};//å†å²è¡¨å…ƒç´ ç»“æ„ä½“(å“ˆå¸Œ)
 	
 

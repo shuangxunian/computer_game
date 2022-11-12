@@ -1,21 +1,21 @@
 #pragma once
 
 
-// CAll_Move_Dialog ¶Ô»°¿ò
+// CAll_Move_Dialog å¯¹è¯æ¡†
 
 class CAll_Move_Dialog : public CDialogEx
 {
 	DECLARE_DYNAMIC(CAll_Move_Dialog)
 
 public:
-	CAll_Move_Dialog(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êı
+	CAll_Move_Dialog(CWnd* pParent = NULL);   // æ ‡å‡†æ„é€ å‡½æ•°
 	virtual ~CAll_Move_Dialog();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_DIALOG_ALL_MOVE };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 private:
 	CEdit Edit_All_Move;
 	BOOL InitFinish;

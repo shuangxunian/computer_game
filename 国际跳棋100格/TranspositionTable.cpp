@@ -12,7 +12,7 @@ CTranspositionTable::~CTranspositionTable(void)
 	delete [] m_pTT;
 }
 
-////Éú³ÉÖÃ»»±í
+////ç”Ÿæˆç½®æ¢è¡¨
 void CTranspositionTable::InitializeHashKey()
 {
 	srand((unsigned int)time(NULL));  	  
@@ -31,10 +31,10 @@ void CTranspositionTable::CalculateInitHashKey(int position[10][10])
 	BYTE nStoneType;
 	m_HashKey32 = 0;
 	m_HashKey64 = 0;
-	for (int i = 0; i < 10; i++)		//¸Ä
+	for (int i = 0; i < 10; i++)		//æ”¹
 		for (int j = 0; j< 10; j++)		//
 	//for (int j = 0; j < 10; j++)
-	//  for (int i = 0; i< 10; i++)//Ô­À´µÄ
+	//  for (int i = 0; i< 10; i++)//åŸæ¥çš„
 	  {
 		  nStoneType = position[i][j];
 		  if (nStoneType != 0) 
@@ -48,20 +48,20 @@ void CTranspositionTable::CalculateInitHashKey(int position[10][10])
 void CTranspositionTable::Hash_MakeMove(MOVE *move, int CurPosition[][10])
 {
 	BYTE nFromID,nToID;
-	nFromID = move->Kind;//¸Ä
-	nToID = nFromID;//¸Ä
-	//nToID=nFromID=move->Kind;//Ô­À´µÄ
+	nFromID = move->Kind;//æ”¹
+	nToID = nFromID;//æ”¹
+	//nToID=nFromID=move->Kind;//åŸæ¥çš„
 	if(move->move_stop_y==0&&move->Kind==WHITE)
 		nToID=move->Kind+2;
 	if(move->move_stop_y==9&&move->Kind==BLACK)
-		nToID = move->Kind + 1;//¸Ä 
-		//nToID=move->Kind+2;//Ô­À´µÄ
+		nToID = move->Kind + 1;//æ”¹ 
+		//nToID=move->Kind+2;//åŸæ¥çš„
 
-	//ÒªÒÆ¶¯µÄÆå×Ó
+	//è¦ç§»åŠ¨çš„æ£‹å­
 	m_HashKey32=m_HashKey32^m_nHashKey32[nFromID-1][move->move_star_x][move->move_star_y];
 	m_HashKey64=m_HashKey64^m_ulHashKey64[nFromID-1][move->move_star_x][move->move_star_y];
 
-	if(move->eatHowMany!=0)//ÓĞÆå×Ó±»³Ô
+	if(move->eatHowMany!=0)//æœ‰æ£‹å­è¢«åƒ
 	{
 		for(int k=0;k<move->eatHowMany;k++)
 		{
@@ -70,7 +70,7 @@ void CTranspositionTable::Hash_MakeMove(MOVE *move, int CurPosition[][10])
 		}
 	}
 	
-	//½«Æå×ÓÔÚÄ¿±êÎ»ÖÃÉÏµÄËæ»úÊıÌîÈë
+	//å°†æ£‹å­åœ¨ç›®æ ‡ä½ç½®ä¸Šçš„éšæœºæ•°å¡«å…¥
 	m_HashKey32=m_HashKey32^m_nHashKey32[nToID-1][move->move_stop_x][move->move_stop_y];
 	m_HashKey64=m_HashKey64^m_ulHashKey64[nToID-1][move->move_stop_x][move->move_stop_y];
 }
@@ -78,21 +78,21 @@ void CTranspositionTable::Hash_MakeMove(MOVE *move, int CurPosition[][10])
 void CTranspositionTable::Hash_UnMakeMove(MOVE *move,int CurPosition[][10])
 {
 	BYTE nFromID,nToID;
-	nFromID = move->Kind;//¸Ä
-	nToID = nFromID;//¸Ä
+	nFromID = move->Kind;//æ”¹
+	nToID = nFromID;//æ”¹
 				
-	//nToID=nFromID=move->Kind;//Ô­À´µÄ
+	//nToID=nFromID=move->Kind;//åŸæ¥çš„
 	if(move->move_stop_y==0&&move->Kind==WHITE)
 		nToID=move->Kind+2;
 	if(move->move_stop_y==9&&move->Kind==BLACK)
-		nToID = move->Kind + 1;//¸Ä
-		//nToID=move->Kind+2;//Ô­À´µÄ
+		nToID = move->Kind + 1;//æ”¹
+		//nToID=move->Kind+2;//åŸæ¥çš„
 	
-	//½«ÒÆ¶¯Æå×ÓÔÚÒÆ¶¯Ç°Î»ÖÃÉÏµÄËæ»úÊıÌíÈë
+	//å°†ç§»åŠ¨æ£‹å­åœ¨ç§»åŠ¨å‰ä½ç½®ä¸Šçš„éšæœºæ•°æ·»å…¥
 	m_HashKey32=m_HashKey32^m_nHashKey32[nToID-1][move->move_stop_x][move->move_stop_y];
 	m_HashKey64=m_HashKey64^m_ulHashKey64[nToID-1][move->move_stop_x][move->move_stop_y];
 
-	if(move->eatHowMany!=0)//ÓĞÆå×Ó±»³Ô£¬Ò²ÒªÌîÈë
+	if(move->eatHowMany!=0)//æœ‰æ£‹å­è¢«åƒï¼Œä¹Ÿè¦å¡«å…¥
 	{
 		for(int k=0;k< move->eatHowMany;k++)
 		{
@@ -111,15 +111,15 @@ void CTranspositionTable::Hash_UnMakeMove(MOVE *move,int CurPosition[][10])
 double CTranspositionTable::LookUpHashTable(double alpha, double beta, double depth)
 {
 	__int32 x;
-	HASHITEM *pht;///////////////ÖÃ»»±íÖ¸Õë
-	x = m_HashKey32 & 0x3FFFFF;///////21Î»¹şÏ£µØÖ·
+	HASHITEM *pht;///////////////ç½®æ¢è¡¨æŒ‡é’ˆ
+	x = m_HashKey32 & 0x3FFFFF;///////21ä½å“ˆå¸Œåœ°å€
 	pht = &m_pTT[x];
 	if(pht->checksum != m_HashKey64 )
 	{
-		return 66666;///Ã»ÓĞÕÒµ½ÏàÍ¬¾ÖÃæ
+		return 66666;///æ²¡æœ‰æ‰¾åˆ°ç›¸åŒå±€é¢
 	}		
 //    hash_move=pht->hashmove;
-	if(pht->depth >= depth)//Éî¶ÈÓÅÏÈ¸²¸Ç
+	if(pht->depth >= depth)//æ·±åº¦ä¼˜å…ˆè¦†ç›–
 	{  
 		switch (pht->enterType)
 	  {
@@ -137,14 +137,14 @@ double CTranspositionTable::LookUpHashTable(double alpha, double beta, double de
 			  break;
 	  }
 	}
-	return 66666;///Ã»ÓĞÕÒµ½ÏàÍ¬¾ÖÃæ
+	return 66666;///æ²¡æœ‰æ‰¾åˆ°ç›¸åŒå±€é¢
 }
 
 void CTranspositionTable::EnterHashTable(ENTRY_TYPE entry_type,double eval,short depth)
 {
 	__int32 x;
 	HASHITEM *pht;
-	x=m_HashKey32 & 0x3FFFFF;////È¡¶şÊ®Ò»Î»¶ş½øÖÆÊı
+	x=m_HashKey32 & 0x3FFFFF;////å–äºŒåä¸€ä½äºŒè¿›åˆ¶æ•°
 	pht = &m_pTT[x];
 	if(pht->depth >= depth)
 		return;
@@ -155,14 +155,14 @@ void CTranspositionTable::EnterHashTable(ENTRY_TYPE entry_type,double eval,short
 //	pht->hashmove=mv;
 }
 
-//Éú³É64Î»Ëæ»úÊı
+//ç”Ÿæˆ64ä½éšæœºæ•°
 LONGLONG CTranspositionTable::Rand64()
 {
     return rand()^((LONGLONG)rand()<<15)^((LONGLONG)rand()<<30)^
 		((LONGLONG)rand()<<45)^((LONGLONG)rand()<<60);
 }
 
-//Éú³É32Î»Ëæ»úÊı
+//ç”Ÿæˆ32ä½éšæœºæ•°
 LONG CTranspositionTable::Rand32()
 {
     return rand()^((LONG)rand()<<15)^((LONG)rand()<<30);

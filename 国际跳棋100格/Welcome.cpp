@@ -1,4 +1,4 @@
-// WzdSplash.cpp : ÊµÏÖÎÄ¼ş
+// WzdSplash.cpp : å®ç°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -27,7 +27,7 @@ END_MESSAGE_MAP()
 
 
 
-// CWzdSplash ÏûÏ¢´¦Àí³ÌĞò  
+// CWzdSplash æ¶ˆæ¯å¤„ç†ç¨‹åº  
 void CWelcome::Create(UINT nBitmapID)  
 {  
     BOOL hBitmap = m_bitmap.LoadBitmap(nBitmapID);  
@@ -43,7 +43,7 @@ void CWelcome::Create(UINT nBitmapID)
 
 void CWelcome::OnPaint()
 {
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂë  
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç   
     CPaintDC dc(this); // device context forpainting  
     BITMAP bitmap;  
     m_bitmap.GetBitmap(&bitmap);  
@@ -59,7 +59,7 @@ void CWelcome::OnPaint()
 
 void CWelcome::OnTimer(UINT_PTR nIDEvent)
 {
-    // TODO: ÔÚ´ËÌí¼ÓÏûÏ¢´¦Àí³ÌĞò´úÂëºÍ/»òµ÷ÓÃÄ¬ÈÏÖµ  
+    // TODO: åœ¨æ­¤æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç å’Œ/æˆ–è°ƒç”¨é»˜è®¤å€¼  
     //CWnd::OnTimer(nIDEvent);  
-    DestroyWindow(); //Ïú»Ù³õÊ¼»­Ãæ´°¿Ú 
+    DestroyWindow(); //é”€æ¯åˆå§‹ç”»é¢çª—å£ 
 }

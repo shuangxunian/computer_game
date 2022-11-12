@@ -8,18 +8,18 @@ CEvelation::CEvelation()
 CEvelation::~CEvelation()
 {
 }
-/////////////////////////////////ĞÂ¹ÀÖµ////////////////////////////////////////////
+/////////////////////////////////æ–°ä¼°å€¼////////////////////////////////////////////
 
-//ÓÃÓÚ´¢´æ±øÎ»ÖÃ¸½¼ÓÖµµÄ³£Á¿¾ØÕó
+//ç”¨äºå‚¨å­˜å…µä½ç½®é™„åŠ å€¼çš„å¸¸é‡çŸ©é˜µ
 /*
 const int White_Pawn_Pre_Value_A[10][10] =
 {
 	{ 0, 400, 0, 400, 0, 400, 0, 400, 0, 400 },
 	{ 200, 0, 200, 0, 200, 0, 200, 0, 200, 0 },
-	{ 0, 180, 0, 180, 0, 180, 0, 180, 0, 210 },//»ı¼«µÄ±ß±ø15¸³Öµ½Ï¸ß
+	{ 0, 180, 0, 180, 0, 180, 0, 180, 0, 210 },//ç§¯æçš„è¾¹å…µ15èµ‹å€¼è¾ƒé«˜
 	{ 160, 0, 160, 0, 160, 0, 160, 0, 160, 0 },
 	{ 0, 150, 0, 150, 0, 150, 0, 150, 0, 150 },
-	{ 120, 0, 140, 0, 140, 0, 140, 0, 140, 0 },//Âäºó±ø26¡¢36¡¢46¡¢35¡¢45  Value-20
+	{ 120, 0, 140, 0, 140, 0, 140, 0, 140, 0 },//è½åå…µ26ã€36ã€46ã€35ã€45  Value-20
 	{ 0, 130, 0, 130, 0, 130, 0, 130, 0, 110 },
 	{ 100, 0, 120, 0, 120, 0, 120, 0, 120, 0 },
 	{ 0, 110, 0, 110, 0, 110, 0, 110, 0, 90 },
@@ -28,13 +28,13 @@ const int White_Pawn_Pre_Value_A[10][10] =
 const int Black_Pawn_Pre_Value_A[10][10] =
 {
 	{ 0, 100, 0, 100, 0, 100, 0, 100, 0, 80 },
-	{ 90, 0, 110, 0, 110, 0, 110, 0, 110, 0 },//Âäºó±ø5¡¢15¡¢25¡¢6¡¢16   Value-20
+	{ 90, 0, 110, 0, 110, 0, 110, 0, 110, 0 },//è½åå…µ5ã€15ã€25ã€6ã€16   Value-20
 	{ 0, 120, 0, 120, 0, 120, 0, 120, 0, 100 },
 	{ 110, 0, 130, 0, 130, 0, 130, 0, 130, 0 },
 	{ 0, 140, 0, 140, 0, 140, 0, 140, 0, 120 },
 	{ 150, 0, 150, 0, 150, 0, 150, 0, 150, 0 },
 	{ 0, 160, 0, 160, 0, 160, 0, 160, 0, 160 },
-	{ 210, 0, 180, 0, 180, 0, 180, 0, 180, 0 },//»ı¼«µÄ±ß±ø36¸³Öµ½Ï¸ß
+	{ 210, 0, 180, 0, 180, 0, 180, 0, 180, 0 },//ç§¯æçš„è¾¹å…µ36èµ‹å€¼è¾ƒé«˜
 	{ 0, 190, 0, 190, 0, 190, 0, 190, 0, 190 },
 	{ 400, 0, 400, 0, 400, 0, 400, 0, 400, 0 },
 };
@@ -44,10 +44,10 @@ const int White_Pawn_Pre_Value_B[10][10] =
 	//1   2   3   4   5   6    7   8   9   10
 	{ 0, 400, 0, 400, 0, 400, 0, 400, 0, 400 },//1
 	{ 200, 0, 200, 0, 200, 0, 200, 0, 200, 0 },//2
-	{ 0, 180, 0, 190, 0, 190, 0, 190, 0, 210 },//3   //»ı¼«µÄ±ß±ø15¸³Öµ½Ï¸ß
+	{ 0, 180, 0, 190, 0, 190, 0, 190, 0, 210 },//3   //ç§¯æçš„è¾¹å…µ15èµ‹å€¼è¾ƒé«˜
 	{ 160, 0, 180, 0, 180, 0, 180, 0, 160, 0 },//4
 	{ 0, 150, 0, 175, 0, 175, 0, 175, 0, 150 },//5
-	{ 120, 0, 170, 0, 170, 0, 170, 0, 140, 0 },//6      //Âäºó±ø26¡¢36¡¢46¡¢35¡¢45  Value-20
+	{ 120, 0, 170, 0, 170, 0, 170, 0, 140, 0 },//6      //è½åå…µ26ã€36ã€46ã€35ã€45  Value-20
 	{ 0, 130, 0, 160, 0, 160, 0, 130, 0, 110 },//7
 	{ 100, 0, 140, 0, 140, 0, 140, 0, 120, 0 },//8
 	{ 0, 110, 0, 110, 0, 110, 0, 110, 0, 90 }, //9
@@ -57,18 +57,18 @@ const int Black_Pawn_Pre_Value_B[10][10] =
 {
 	// 1   2   3   4   5   6    7   8   9   10
 	{ 0, 100, 0, 100, 0, 100, 0, 100, 0, 70 }, //1
-	{ 90, 0, 110, 0, 110, 0, 110, 0, 110, 0 }, //2   //Âäºó±ø5¡¢15¡¢25¡¢6¡¢16   Value-20
+	{ 90, 0, 110, 0, 110, 0, 110, 0, 110, 0 }, //2   //è½åå…µ5ã€15ã€25ã€6ã€16   Value-20
 	{ 0, 120, 0, 140, 0, 140, 0, 140, 0, 100 },//3
 	{ 110, 0, 160, 0, 160, 0, 160, 0, 130, 0 },//4
 	{ 0, 140, 0, 170, 0, 170, 0, 170, 0, 120 },//5
 	{ 150, 0, 175, 0, 175, 0, 175, 0, 150, 0 },//6
 	{ 0, 160, 0, 180, 0, 180, 0, 180, 0, 160 },//7
-	{ 210, 0, 190, 0, 190, 0, 190, 0, 180, 0 },//8       //»ı¼«µÄ±ß±ø36¸³Öµ½Ï¸ß
+	{ 210, 0, 190, 0, 190, 0, 190, 0, 180, 0 },//8       //ç§¯æçš„è¾¹å…µ36èµ‹å€¼è¾ƒé«˜
 	{ 0, 200, 0, 200, 0, 200, 0, 200, 0, 200 },//9
 	{ 400, 0, 400, 0, 400, 0, 400, 0, 400, 0 },//10
 };
 
-//¼ÆËãµ±Ç°¾ÖÃæÉÏÃ¿¸ö±øµÄ¸½¼ÓÖµ
+//è®¡ç®—å½“å‰å±€é¢ä¸Šæ¯ä¸ªå…µçš„é™„åŠ å€¼
 int CEvelation::Get_Pawn_Pre_Value(int x, int y, int position[10][10])
 {
 	/*int Count_W=0;
@@ -104,7 +104,7 @@ int CEvelation::Get_Pawn_Pre_Value(int x, int y, int position[10][10])
 	return 0;
 }
 
-//ÓÃÓÚÅĞ¶Ïµ±Ç°Æå×ÓÊÇ·ñ´¦ÓÚ±»±£»¤µÄ×´Ì¬
+//ç”¨äºåˆ¤æ–­å½“å‰æ£‹å­æ˜¯å¦å¤„äºè¢«ä¿æŠ¤çš„çŠ¶æ€
 int CEvelation::Is_Guard_Pos(int x, int y, int position[10][10])
 {
 	switch (position[x][y])
@@ -114,7 +114,7 @@ int CEvelation::Is_Guard_Pos(int x, int y, int position[10][10])
 		if (x == 1 || x == 8)
 		{
 			if ((x == 1) && (position[x - 1][y + 1] == WHITE) && (position[x + 1][y + 1] == WHITE) && 
-				(position[x + 2][y + 2] == WHITE))//±ß½çÎ»ÖÃĞÎ³ÉË«±ø±øÁ´ĞÎ³É·ÀÓù
+				(position[x + 2][y + 2] == WHITE))//è¾¹ç•Œä½ç½®å½¢æˆåŒå…µå…µé“¾å½¢æˆé˜²å¾¡
 				return 1;
 			if ((x == 8) && (position[x - 1][y + 1] == WHITE) && (position[x - 2][y + 2] == WHITE) &&
 				(position[x + 1][y + 1] == WHITE))
@@ -122,7 +122,7 @@ int CEvelation::Is_Guard_Pos(int x, int y, int position[10][10])
 		}
 		else
 			if (((position[x - 1][y + 1] == WHITE) && (position[x - 2][y + 2] == WHITE)) &&
-				((position[x + 1][y + 1] == WHITE) && (position[x + 2][y + 2] == WHITE)))//ÖĞ¼äÎ»ÖÃĞÎ³ÉÈı±ø±øÁ´¹¹³É·ÀÓù
+				((position[x + 1][y + 1] == WHITE) && (position[x + 2][y + 2] == WHITE)))//ä¸­é—´ä½ç½®å½¢æˆä¸‰å…µå…µé“¾æ„æˆé˜²å¾¡
 				return 1;
 		return 0;
 	}
@@ -131,7 +131,7 @@ int CEvelation::Is_Guard_Pos(int x, int y, int position[10][10])
 		if (x == 1 || x == 8)
 		{
 			if ((x == 1) && (position[x - 1][y - 1] == BLACK) && (position[x + 1][y - 1] == BLACK) && 
-				(position[x + 2][y - 2] == BLACK))//±ß½çÎ»ÖÃĞÎ³ÉË«±ø±øÁ´ĞÎ³É·ÀÓù
+				(position[x + 2][y - 2] == BLACK))//è¾¹ç•Œä½ç½®å½¢æˆåŒå…µå…µé“¾å½¢æˆé˜²å¾¡
 				return 1;
 			if ((x == 8) && (position[x - 1][y - 1] == BLACK) && (position[x - 2][y - 2] == BLACK) &&
 				(position[x + 1][y - 1] == BLACK))
@@ -139,24 +139,24 @@ int CEvelation::Is_Guard_Pos(int x, int y, int position[10][10])
 		}
 		else
 			if (((position[x - 1][y - 1] == BLACK) && (position[x - 2][y - 2] == BLACK)) &&
-				((position[x + 1][y - 1] == BLACK) && (position[x + 2][y - 2] == BLACK)))//ÖĞ¼äÎ»ÖÃĞÎ³ÉÈı±ø±øÁ´¹¹³É·ÀÓù
+				((position[x + 1][y - 1] == BLACK) && (position[x + 2][y - 2] == BLACK)))//ä¸­é—´ä½ç½®å½¢æˆä¸‰å…µå…µé“¾æ„æˆé˜²å¾¡
 				return 1;
 		return 0;
 	}
 	case W_KING:
 	{
-		if (x == 1 || x == 8)//±ß½çÇé¿ö
+		if (x == 1 || x == 8)//è¾¹ç•Œæƒ…å†µ
 		{
 			if ((x == 1) && (position[x - 1][y + 1] == W_KING) && (position[x + 1][y + 1] == WHITE) && 
 				(position[x + 2][y + 2] == WHITE))
-				return 1;//×óÏÂÎªÍõ¡¢ÓÒÏÂÎªË«±ø
+				return 1;//å·¦ä¸‹ä¸ºç‹ã€å³ä¸‹ä¸ºåŒå…µ
 			if ((x == 8) && (position[x - 1][y + 1] == WHITE) && (position[x - 2][y + 2] == WHITE) && 
 				(position[x + 1][y + 1] == W_KING))
-				return 1;//ÓÒÏÂÎªÍõ¡¢×óÏÂÎªË«±ø
+				return 1;//å³ä¸‹ä¸ºç‹ã€å·¦ä¸‹ä¸ºåŒå…µ
 		}
 		else
 			if (((position[x - 1][y + 1] == W_KING) && (position[x - 2][y + 2] == WHITE)) &&
-				((position[x + 1][y + 1] == W_KING) && (position[x + 2][y + 2] == WHITE)))//×óÏÂ¡¢ÓÒÏÂ¾ùÎªÍõ±ø×éºÏ±øÁ´
+				((position[x + 1][y + 1] == W_KING) && (position[x + 2][y + 2] == WHITE)))//å·¦ä¸‹ã€å³ä¸‹å‡ä¸ºç‹å…µç»„åˆå…µé“¾
 				return 1;
 		return 0;
 	}
@@ -166,14 +166,14 @@ int CEvelation::Is_Guard_Pos(int x, int y, int position[10][10])
 		{
 			if ((x == 1) && (position[x - 1][y - 1] == B_KING) && (position[x + 1][y + 1] == BLACK) &&
 				(position[x + 2][y + 2] == BLACK))
-				return 1;//×óÉÏÎªÍõ¡¢ÓÒÉÏÎªË«±ø
+				return 1;//å·¦ä¸Šä¸ºç‹ã€å³ä¸Šä¸ºåŒå…µ
 			if ((x == 8) && (position[x + 1][y - 1] == B_KING) && (position[x - 1][y - 1] == BLACK) &&
 				(position[x - 2][y - 2] == BLACK))
-				return 1;//ÓÒÉÏÎªÍõ¡¢×óÉÏÎªË«±ø
+				return 1;//å³ä¸Šä¸ºç‹ã€å·¦ä¸Šä¸ºåŒå…µ
 		}
 		else
 			if (((position[x - 1][y - 1] == B_KING) && (position[x - 2][y - 2] == WHITE)) &&
-				((position[x + 1][y - 1] == B_KING) && (position[x + 2][y - 2] == WHITE)))//×óÉÏ¡¢ÓÒÉÏÎªÍõ±ø×éºÏ
+				((position[x + 1][y - 1] == B_KING) && (position[x + 2][y - 2] == WHITE)))//å·¦ä¸Šã€å³ä¸Šä¸ºç‹å…µç»„åˆ
 
 				return 1;
 		return 0;
@@ -182,7 +182,7 @@ int CEvelation::Is_Guard_Pos(int x, int y, int position[10][10])
 	return 0;
 }
 
-//ÅĞ¶Ïµ±Ç°Æå×ÓÊÇ·ñ±»¶Ô·½Æå×ÓÍşĞ²
+//åˆ¤æ–­å½“å‰æ£‹å­æ˜¯å¦è¢«å¯¹æ–¹æ£‹å­å¨èƒ
 int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 {
 	int i = 2;
@@ -196,30 +196,30 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 		case WHITE:
 		{
 			if ((position[x - 1][y - 1] == BLACK|| (position[x - 1][y - 1] == B_KING)) &&
-				(position[x + 1][y + 1] == EMPTY) && Type == 1)//ÓÒÉÏ±»±øÍşĞ²
+				(position[x + 1][y + 1] == EMPTY) && Type == 1)//å³ä¸Šè¢«å…µå¨èƒ
 				return 1;
 			if ((position[x - 1][y + 1] == BLACK || (position[x - 1][y + 1] == B_KING)) && (position[x + 1][y - 1] == EMPTY)
-				&& Type == 1)//×óÉÏ±»±øÍşĞ²
+				&& Type == 1)//å·¦ä¸Šè¢«å…µå¨èƒ
 				return 1;
-			if ((position[x + 1][y - 1] == BLACK || (position[x + 1][y - 1] == B_KING)) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//×óÏÂ±»±øÍşĞ²
+			if ((position[x + 1][y - 1] == BLACK || (position[x + 1][y - 1] == B_KING)) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//å·¦ä¸‹è¢«å…µå¨èƒ
 				return 1;
-			if ((position[x + 1][y + 1] == BLACK || (position[x + 1][y + 1] == B_KING)) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//ÓÒÏÂ±»±øÍşĞ²
+			if ((position[x + 1][y + 1] == BLACK || (position[x + 1][y + 1] == B_KING)) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//å³ä¸‹è¢«å…µå¨èƒ
 				return 1;
 			/*while((x - i >= 0) && (y - j >= 0))*/
 			if((position[x - i][y - j] == B_KING) && position[x - 1][y - 1] == 0 &&(position[x + 1][y + 1] == EMPTY) && 
-				Type == 1)//±»×óÉÏÏàÁÚµÄÍõÍşĞ²
+				Type == 1)//è¢«å·¦ä¸Šç›¸é‚»çš„ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x - 1][y - 1] == EMPTY)//Èç¹ûÏàÁÚÎ»ÖÃÎª¿Õ
+				if(position[x - 1][y - 1] == EMPTY)//å¦‚æœç›¸é‚»ä½ç½®ä¸ºç©º
 				{
-					while ((x - i >= 0) && (y - j >= 0))//±éÀú×óÉÏ·½µÄÏà¹ØÎ»ÖÃ
+					while ((x - i >= 0) && (y - j >= 0))//éå†å·¦ä¸Šæ–¹çš„ç›¸å…³ä½ç½®
 					{
-						if ((position[x - i][y - j] == B_KING) && (position[x + 1][y + 1] == EMPTY) && Type == 1)//×óÉÏ±»ÍõÍşĞ²
+						if ((position[x - i][y - j] == B_KING) && (position[x + 1][y + 1] == EMPTY) && Type == 1)//å·¦ä¸Šè¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x - i][y - j] == BLACK)//Èç¹û×óÉÏ·½Í¨µÀ´æÔÚ¶Ô·½µÄ±ø
+							if(position[x - i][y - j] == BLACK)//å¦‚æœå·¦ä¸Šæ–¹é€šé“å­˜åœ¨å¯¹æ–¹çš„å…µ
 								break;
-							else//¼ÌĞøÑØ¸Ã·½Ïò±éÀúÆäÓàÎ»ÖÃ
+							else//ç»§ç»­æ²¿è¯¥æ–¹å‘éå†å…¶ä½™ä½ç½®
 							{
 								i++;
 								j++;
@@ -228,19 +228,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x - 1][y + 1] == B_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//±»×óÏÂ·½ÏàÁÚÍõÍşĞ²
+			if((position[x - 1][y + 1] == B_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//è¢«å·¦ä¸‹æ–¹ç›¸é‚»ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x - 1][y + 1] == EMPTY)//Èç¹ûÏàÁÚÎ»ÖÃÎª¿Õ
+				if(position[x - 1][y + 1] == EMPTY)//å¦‚æœç›¸é‚»ä½ç½®ä¸ºç©º
 				{
-					while ((x - i >= 0) && (y + j <= 9))//±éÀú¸Ã·½ÏòÉÏÏà¹ØÎ»ÖÃ
+					while ((x - i >= 0) && (y + j <= 9))//éå†è¯¥æ–¹å‘ä¸Šç›¸å…³ä½ç½®
 					{
-						if ((position[x - i][y + j] == B_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//×óÏÂ±»ÍõÍşĞ²
+						if ((position[x - i][y + j] == B_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//å·¦ä¸‹è¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x - i][y + j] == BLACK)//µ±×óÏÂ·½´æÔÚ¶Ô·½±ø
+							if(position[x - i][y + j] == BLACK)//å½“å·¦ä¸‹æ–¹å­˜åœ¨å¯¹æ–¹å…µ
 								break;
-							else//¼ÌĞø±éÀú¸Ã·½ÏòÉÏÆäÓàÏà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†è¯¥æ–¹å‘ä¸Šå…¶ä½™ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -249,19 +249,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x + 1][y - 1] == B_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//ÓÒÉÏ·½±»ÏàÁÚÎ»ÖÃÍõÍşĞ²
+			if((position[x + 1][y - 1] == B_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//å³ä¸Šæ–¹è¢«ç›¸é‚»ä½ç½®ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x + 1][y - 1] == EMPTY)//ÓÒÉÏ·½ÏàÁÚÎ»ÖÃÎª¿Õ¸ñ
+				if(position[x + 1][y - 1] == EMPTY)//å³ä¸Šæ–¹ç›¸é‚»ä½ç½®ä¸ºç©ºæ ¼
 				{
-					while ((x + i <= 9) && (y - j >= 0))//±éÀúÓÒÉÏ·½ËùÓĞÏà¹ØÎ»ÖÃ
+					while ((x + i <= 9) && (y - j >= 0))//éå†å³ä¸Šæ–¹æ‰€æœ‰ç›¸å…³ä½ç½®
 					{
-						if ((position[x + i][y - j] == B_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//ÓÒÉÏ±»ÍõÍşĞ²
+						if ((position[x + i][y - j] == B_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//å³ä¸Šè¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x + i][y - j] == BLACK)//µ±ÓÒÉÏ·½²»ÏàÁÚÎ»ÖÃ³öÏÖ¶Ô·½±øÊ±
+							if(position[x + i][y - j] == BLACK)//å½“å³ä¸Šæ–¹ä¸ç›¸é‚»ä½ç½®å‡ºç°å¯¹æ–¹å…µæ—¶
 								break;
-							else//¼ÌĞø±éÀúÓÒÉÏ·½Ïà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†å³ä¸Šæ–¹ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -270,19 +270,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x + 1][y + 1] == B_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//ÓÒÏÂ·½±»ÏàÁÚÍõÍşĞ²
+			if((position[x + 1][y + 1] == B_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//å³ä¸‹æ–¹è¢«ç›¸é‚»ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x + 1][y + 1] == EMPTY)//ÓÒÏÂ·½ÏàÁÚÎ»ÖÃÊÇ¿Õ¸ñ
+				if(position[x + 1][y + 1] == EMPTY)//å³ä¸‹æ–¹ç›¸é‚»ä½ç½®æ˜¯ç©ºæ ¼
 				{
-					while ((x + i <= 9) && (y + j <= 9))//±éÀú¿Õ¸ñºó¸Ã·½ÏòÉÏËùÓĞÏàÁÚÎ»ÖÃ
+					while ((x + i <= 9) && (y + j <= 9))//éå†ç©ºæ ¼åè¯¥æ–¹å‘ä¸Šæ‰€æœ‰ç›¸é‚»ä½ç½®
 					{
-						if ((position[x + i][y + j] == B_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//ÓÒÏÂ±»ÍõÍşĞ²
+						if ((position[x + i][y + j] == B_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//å³ä¸‹è¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x + i][y + j] == BLACK)//ÔÚ¸Ã·½ÏòÉÏ´æÔÚ²»ÏàÁÚµÄ¶Ô·½±ø
+							if(position[x + i][y + j] == BLACK)//åœ¨è¯¥æ–¹å‘ä¸Šå­˜åœ¨ä¸ç›¸é‚»çš„å¯¹æ–¹å…µ
 								break;
-							else//¼ÌĞø±éÀú¸Ã·½ÏòÏà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†è¯¥æ–¹å‘ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -293,27 +293,27 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 		}
 		case BLACK:
 		{
-			if ((position[x - 1][y - 1] == WHITE||(position[x - 1][y - 1] == W_KING)) && (position[x + 1][y + 1] == EMPTY) && Type == 2)//ÓÒÉÏ±»±øÍşĞ²
+			if ((position[x - 1][y - 1] == WHITE||(position[x - 1][y - 1] == W_KING)) && (position[x + 1][y + 1] == EMPTY) && Type == 2)//å³ä¸Šè¢«å…µå¨èƒ
 				return 1;
-			if ((position[x - 1][y + 1] == WHITE || (position[x - 1][y + 1] == W_KING)) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//×óÉÏ±»±øÍşĞ²
+			if ((position[x - 1][y + 1] == WHITE || (position[x - 1][y + 1] == W_KING)) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//å·¦ä¸Šè¢«å…µå¨èƒ
 				return 1;
-			if ((position[x + 1][y - 1] == WHITE || (position[x + 1][y - 1] == W_KING)) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//×óÏÂ±»±øÍşĞ²
+			if ((position[x + 1][y - 1] == WHITE || (position[x + 1][y - 1] == W_KING)) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//å·¦ä¸‹è¢«å…µå¨èƒ
 				return 1;
-			if ((position[x + 1][y + 1] == WHITE || (position[x + 1][y + 1] == W_KING)) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//ÓÒÏÂ±»±øÍşĞ²
+			if ((position[x + 1][y + 1] == WHITE || (position[x + 1][y + 1] == W_KING)) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//å³ä¸‹è¢«å…µå¨èƒ
 				return 1;
-			if((position[x - i][y - j] == W_KING) && position[x - 1][y - 1] == 0 &&(position[x + 1][y + 1] == EMPTY) && Type == 2)//±»×óÉÏÏàÁÚµÄÍõÍşĞ²
+			if((position[x - i][y - j] == W_KING) && position[x - 1][y - 1] == 0 &&(position[x + 1][y + 1] == EMPTY) && Type == 2)//è¢«å·¦ä¸Šç›¸é‚»çš„ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x - 1][y - 1] == EMPTY)//Èç¹ûÏàÁÚÎ»ÖÃÎª¿Õ
+				if(position[x - 1][y - 1] == EMPTY)//å¦‚æœç›¸é‚»ä½ç½®ä¸ºç©º
 				{
-					while ((x - i >= 0) && (y - j >= 0))//±éÀú×óÉÏ·½µÄÏà¹ØÎ»ÖÃ
+					while ((x - i >= 0) && (y - j >= 0))//éå†å·¦ä¸Šæ–¹çš„ç›¸å…³ä½ç½®
 					{
-						if ((position[x - i][y - j] == W_KING) && (position[x + 1][y + 1] == EMPTY) && Type == 2)//×óÉÏ±»ÍõÍşĞ²
+						if ((position[x - i][y - j] == W_KING) && (position[x + 1][y + 1] == EMPTY) && Type == 2)//å·¦ä¸Šè¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x - i][y - j] == WHITE)//Èç¹û×óÉÏ·½Í¨µÀ´æÔÚ¶Ô·½µÄ±ø
+							if(position[x - i][y - j] == WHITE)//å¦‚æœå·¦ä¸Šæ–¹é€šé“å­˜åœ¨å¯¹æ–¹çš„å…µ
 								break;
-							else//¼ÌĞøÑØ¸Ã·½Ïò±éÀúÆäÓàÎ»ÖÃ
+							else//ç»§ç»­æ²¿è¯¥æ–¹å‘éå†å…¶ä½™ä½ç½®
 							{
 								i++;
 								j++;
@@ -322,19 +322,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x - 1][y + 1] == W_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//±»×óÏÂ·½ÏàÁÚÍõÍşĞ²
+			if((position[x - 1][y + 1] == W_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//è¢«å·¦ä¸‹æ–¹ç›¸é‚»ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x - 1][y + 1] == EMPTY)//Èç¹ûÏàÁÚÎ»ÖÃÎª¿Õ
+				if(position[x - 1][y + 1] == EMPTY)//å¦‚æœç›¸é‚»ä½ç½®ä¸ºç©º
 				{
-					while ((x - i >= 0) && (y + j <= 9))//±éÀú¸Ã·½ÏòÉÏÏà¹ØÎ»ÖÃ
+					while ((x - i >= 0) && (y + j <= 9))//éå†è¯¥æ–¹å‘ä¸Šç›¸å…³ä½ç½®
 					{
-						if ((position[x - i][y + j] == W_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//×óÏÂ±»ÍõÍşĞ²
+						if ((position[x - i][y + j] == W_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//å·¦ä¸‹è¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x - i][y + j] == WHITE)//µ±×óÏÂ·½´æÔÚ¶Ô·½±ø
+							if(position[x - i][y + j] == WHITE)//å½“å·¦ä¸‹æ–¹å­˜åœ¨å¯¹æ–¹å…µ
 								break;
-							else//¼ÌĞø±éÀú¸Ã·½ÏòÉÏÆäÓàÏà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†è¯¥æ–¹å‘ä¸Šå…¶ä½™ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -343,19 +343,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x + 1][y - 1] == W_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//ÓÒÉÏ·½±»ÏàÁÚÎ»ÖÃÍõÍşĞ²
+			if((position[x + 1][y - 1] == W_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//å³ä¸Šæ–¹è¢«ç›¸é‚»ä½ç½®ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x + 1][y - 1] == EMPTY)//ÓÒÉÏ·½ÏàÁÚÎ»ÖÃÎª¿Õ¸ñ
+				if(position[x + 1][y - 1] == EMPTY)//å³ä¸Šæ–¹ç›¸é‚»ä½ç½®ä¸ºç©ºæ ¼
 				{
-					while ((x + i <= 9) && (y - j >= 0))//±éÀúÓÒÉÏ·½ËùÓĞÏà¹ØÎ»ÖÃ
+					while ((x + i <= 9) && (y - j >= 0))//éå†å³ä¸Šæ–¹æ‰€æœ‰ç›¸å…³ä½ç½®
 					{
-						if ((position[x + i][y - j] == W_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//ÓÒÉÏ±»ÍõÍşĞ²
+						if ((position[x + i][y - j] == W_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//å³ä¸Šè¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x + i][y - j] == WHITE)//µ±ÓÒÉÏ·½²»ÏàÁÚÎ»ÖÃ³öÏÖ¶Ô·½±øÊ±
+							if(position[x + i][y - j] == WHITE)//å½“å³ä¸Šæ–¹ä¸ç›¸é‚»ä½ç½®å‡ºç°å¯¹æ–¹å…µæ—¶
 								break;
-							else//¼ÌĞø±éÀúÓÒÉÏ·½Ïà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†å³ä¸Šæ–¹ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -364,19 +364,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x + 1][y + 1] == W_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//ÓÒÏÂ·½±»ÏàÁÚÍõÍşĞ²
+			if((position[x + 1][y + 1] == W_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//å³ä¸‹æ–¹è¢«ç›¸é‚»ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x + 1][y + 1] == EMPTY)//ÓÒÏÂ·½ÏàÁÚÎ»ÖÃÊÇ¿Õ¸ñ
+				if(position[x + 1][y + 1] == EMPTY)//å³ä¸‹æ–¹ç›¸é‚»ä½ç½®æ˜¯ç©ºæ ¼
 				{
-					while ((x + i <= 9) && (y + j <= 9))//±éÀú¿Õ¸ñºó¸Ã·½ÏòÉÏËùÓĞÏàÁÚÎ»ÖÃ
+					while ((x + i <= 9) && (y + j <= 9))//éå†ç©ºæ ¼åè¯¥æ–¹å‘ä¸Šæ‰€æœ‰ç›¸é‚»ä½ç½®
 					{
-						if ((position[x + i][y + j] == W_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//ÓÒÏÂ±»ÍõÍşĞ²
+						if ((position[x + i][y + j] == W_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//å³ä¸‹è¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x + i][y + j] == WHITE)//ÔÚ¸Ã·½ÏòÉÏ´æÔÚ²»ÏàÁÚµÄ¶Ô·½±ø
+							if(position[x + i][y + j] == WHITE)//åœ¨è¯¥æ–¹å‘ä¸Šå­˜åœ¨ä¸ç›¸é‚»çš„å¯¹æ–¹å…µ
 								break;
-							else//¼ÌĞø±éÀú¸Ã·½ÏòÏà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†è¯¥æ–¹å‘ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -387,27 +387,27 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 		}
 		case W_KING:
 		{
-			if ((position[x - 1][y - 1] == BLACK||(position[x - 1][y - 1] == B_KING)) && (position[x + 1][y + 1] == EMPTY) && Type == 1)//ÓÒÉÏ±»±øÍşĞ²
+			if ((position[x - 1][y - 1] == BLACK||(position[x - 1][y - 1] == B_KING)) && (position[x + 1][y + 1] == EMPTY) && Type == 1)//å³ä¸Šè¢«å…µå¨èƒ
 				return 1;
-			if ((position[x - 1][y + 1] == BLACK || (position[x - 1][y + 1] == B_KING)) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//×óÉÏ±»±øÍşĞ²
+			if ((position[x - 1][y + 1] == BLACK || (position[x - 1][y + 1] == B_KING)) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//å·¦ä¸Šè¢«å…µå¨èƒ
 				return 1;
-			if ((position[x + 1][y - 1] == BLACK || (position[x + 1][y - 1] == B_KING)) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//×óÏÂ±»±øÍşĞ²
+			if ((position[x + 1][y - 1] == BLACK || (position[x + 1][y - 1] == B_KING)) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//å·¦ä¸‹è¢«å…µå¨èƒ
 				return 1;
-			if ((position[x + 1][y + 1] == BLACK || (position[x + 1][y + 1] == B_KING)) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//ÓÒÏÂ±»±øÍşĞ²
+			if ((position[x + 1][y + 1] == BLACK || (position[x + 1][y + 1] == B_KING)) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//å³ä¸‹è¢«å…µå¨èƒ
 				return 1;
-			if((position[x - i][y - j] == B_KING) && position[x - 1][y - 1] == EMPTY &&(position[x + 1][y + 1] == EMPTY) && Type == 1)//±»×óÉÏÏàÁÚµÄÍõÍşĞ²
+			if((position[x - i][y - j] == B_KING) && position[x - 1][y - 1] == EMPTY &&(position[x + 1][y + 1] == EMPTY) && Type == 1)//è¢«å·¦ä¸Šç›¸é‚»çš„ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x - 1][y - 1] == EMPTY)//Èç¹ûÏàÁÚÎ»ÖÃÎª¿Õ
+				if(position[x - 1][y - 1] == EMPTY)//å¦‚æœç›¸é‚»ä½ç½®ä¸ºç©º
 				{
-					while ((x - i >= 0) && (y - j >= 0))//±éÀú×óÉÏ·½µÄÏà¹ØÎ»ÖÃ
+					while ((x - i >= 0) && (y - j >= 0))//éå†å·¦ä¸Šæ–¹çš„ç›¸å…³ä½ç½®
 					{
-						if ((position[x - i][y - j] == B_KING) && (position[x + 1][y + 1] == EMPTY) && Type == 1)//×óÉÏ±»ÍõÍşĞ²
+						if ((position[x - i][y - j] == B_KING) && (position[x + 1][y + 1] == EMPTY) && Type == 1)//å·¦ä¸Šè¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x - i][y - j] == BLACK)//Èç¹û×óÉÏ·½Í¨µÀ´æÔÚ¶Ô·½µÄ±ø
+							if(position[x - i][y - j] == BLACK)//å¦‚æœå·¦ä¸Šæ–¹é€šé“å­˜åœ¨å¯¹æ–¹çš„å…µ
 								break;
-							else//¼ÌĞøÑØ¸Ã·½Ïò±éÀúÆäÓàÎ»ÖÃ
+							else//ç»§ç»­æ²¿è¯¥æ–¹å‘éå†å…¶ä½™ä½ç½®
 							{
 								i++;
 								j++;
@@ -416,19 +416,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x - 1][y + 1] == B_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//±»×óÏÂ·½ÏàÁÚÍõÍşĞ²
+			if((position[x - 1][y + 1] == B_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//è¢«å·¦ä¸‹æ–¹ç›¸é‚»ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x - 1][y + 1] == EMPTY)//Èç¹ûÏàÁÚÎ»ÖÃÎª¿Õ
+				if(position[x - 1][y + 1] == EMPTY)//å¦‚æœç›¸é‚»ä½ç½®ä¸ºç©º
 				{
-					while ((x - i >= 0) && (y + j <= 9))//±éÀú¸Ã·½ÏòÉÏÏà¹ØÎ»ÖÃ
+					while ((x - i >= 0) && (y + j <= 9))//éå†è¯¥æ–¹å‘ä¸Šç›¸å…³ä½ç½®
 					{
-						if ((position[x - i][y + j] == B_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//×óÏÂ±»ÍõÍşĞ²
+						if ((position[x - i][y + j] == B_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 1)//å·¦ä¸‹è¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x - i][y + j] == BLACK)//µ±×óÏÂ·½´æÔÚ¶Ô·½±ø
+							if(position[x - i][y + j] == BLACK)//å½“å·¦ä¸‹æ–¹å­˜åœ¨å¯¹æ–¹å…µ
 								break;
-							else//¼ÌĞø±éÀú¸Ã·½ÏòÉÏÆäÓàÏà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†è¯¥æ–¹å‘ä¸Šå…¶ä½™ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -437,19 +437,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x + 1][y - 1] == B_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//ÓÒÉÏ·½±»ÏàÁÚÎ»ÖÃÍõÍşĞ²
+			if((position[x + 1][y - 1] == B_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//å³ä¸Šæ–¹è¢«ç›¸é‚»ä½ç½®ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x + 1][y - 1] == EMPTY)//ÓÒÉÏ·½ÏàÁÚÎ»ÖÃÎª¿Õ¸ñ
+				if(position[x + 1][y - 1] == EMPTY)//å³ä¸Šæ–¹ç›¸é‚»ä½ç½®ä¸ºç©ºæ ¼
 				{
-					while ((x + i <= 9) && (y - j >= 0))//±éÀúÓÒÉÏ·½ËùÓĞÏà¹ØÎ»ÖÃ
+					while ((x + i <= 9) && (y - j >= 0))//éå†å³ä¸Šæ–¹æ‰€æœ‰ç›¸å…³ä½ç½®
 					{
-						if ((position[x + i][y - j] == B_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//ÓÒÉÏ±»ÍõÍşĞ²
+						if ((position[x + i][y - j] == B_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 1)//å³ä¸Šè¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x + i][y - j] == BLACK)//µ±ÓÒÉÏ·½²»ÏàÁÚÎ»ÖÃ³öÏÖ¶Ô·½±øÊ±
+							if(position[x + i][y - j] == BLACK)//å½“å³ä¸Šæ–¹ä¸ç›¸é‚»ä½ç½®å‡ºç°å¯¹æ–¹å…µæ—¶
 								break;
-							else//¼ÌĞø±éÀúÓÒÉÏ·½Ïà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†å³ä¸Šæ–¹ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -458,19 +458,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x + 1][y + 1] == B_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//ÓÒÏÂ·½±»ÏàÁÚÍõÍşĞ²
+			if((position[x + 1][y + 1] == B_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//å³ä¸‹æ–¹è¢«ç›¸é‚»ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x + 1][y + 1] == EMPTY)//ÓÒÏÂ·½ÏàÁÚÎ»ÖÃÊÇ¿Õ¸ñ
+				if(position[x + 1][y + 1] == EMPTY)//å³ä¸‹æ–¹ç›¸é‚»ä½ç½®æ˜¯ç©ºæ ¼
 				{
-					while ((x + i <= 9) && (y + j <= 9))//±éÀú¿Õ¸ñºó¸Ã·½ÏòÉÏËùÓĞÏàÁÚÎ»ÖÃ
+					while ((x + i <= 9) && (y + j <= 9))//éå†ç©ºæ ¼åè¯¥æ–¹å‘ä¸Šæ‰€æœ‰ç›¸é‚»ä½ç½®
 					{
-						if ((position[x + i][y + j] == B_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//ÓÒÏÂ±»ÍõÍşĞ²
+						if ((position[x + i][y + j] == B_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 1)//å³ä¸‹è¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x + i][y + j] == BLACK)//ÔÚ¸Ã·½ÏòÉÏ´æÔÚ²»ÏàÁÚµÄ¶Ô·½±ø
+							if(position[x + i][y + j] == BLACK)//åœ¨è¯¥æ–¹å‘ä¸Šå­˜åœ¨ä¸ç›¸é‚»çš„å¯¹æ–¹å…µ
 								break;
-							else//¼ÌĞø±éÀú¸Ã·½ÏòÏà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†è¯¥æ–¹å‘ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -481,27 +481,27 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 		}
 		case B_KING:
 		{
-			if ((position[x - 1][y - 1] == WHITE||(position[x - 1][y - 1] == W_KING)) && (position[x + 1][y + 1] == EMPTY) && Type == 2)//ÓÒÉÏ±»±øÍşĞ²
+			if ((position[x - 1][y - 1] == WHITE||(position[x - 1][y - 1] == W_KING)) && (position[x + 1][y + 1] == EMPTY) && Type == 2)//å³ä¸Šè¢«å…µå¨èƒ
 				return 1;
-			if ((position[x - 1][y + 1] == WHITE || (position[x - 1][y + 1] == W_KING)) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//×óÉÏ±»±øÍşĞ²
+			if ((position[x - 1][y + 1] == WHITE || (position[x - 1][y + 1] == W_KING)) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//å·¦ä¸Šè¢«å…µå¨èƒ
 				return 1;
-			if ((position[x + 1][y - 1] == WHITE || (position[x + 1][y - 1] == W_KING)) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//×óÏÂ±»±øÍşĞ²
+			if ((position[x + 1][y - 1] == WHITE || (position[x + 1][y - 1] == W_KING)) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//å·¦ä¸‹è¢«å…µå¨èƒ
 				return 1;
-			if ((position[x + 1][y + 1] == WHITE || (position[x + 1][y + 1] == W_KING)) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//ÓÒÏÂ±»±øÍşĞ²
+			if ((position[x + 1][y + 1] == WHITE || (position[x + 1][y + 1] == W_KING)) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//å³ä¸‹è¢«å…µå¨èƒ
 				return 1;
-			if((position[x - i][y - j] == W_KING) && (position[x - 1][y - 1] == EMPTY )&& (position[x + 1][y + 1] == EMPTY) && Type == 2)//±»×óÉÏÏàÁÚµÄÍõÍşĞ²
+			if((position[x - i][y - j] == W_KING) && (position[x - 1][y - 1] == EMPTY )&& (position[x + 1][y + 1] == EMPTY) && Type == 2)//è¢«å·¦ä¸Šç›¸é‚»çš„ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x - 1][y - 1] == EMPTY)//Èç¹ûÏàÁÚÎ»ÖÃÎª¿Õ
+				if(position[x - 1][y - 1] == EMPTY)//å¦‚æœç›¸é‚»ä½ç½®ä¸ºç©º
 				{
-					while ((x - i >= 0) && (y - j >= 0))//±éÀú×óÉÏ·½µÄÏà¹ØÎ»ÖÃ
+					while ((x - i >= 0) && (y - j >= 0))//éå†å·¦ä¸Šæ–¹çš„ç›¸å…³ä½ç½®
 					{
-						if ((position[x - i][y - j] == W_KING) && (position[x + 1][y + 1] == EMPTY) && Type == 2)//×óÉÏ±»ÍõÍşĞ²
+						if ((position[x - i][y - j] == W_KING) && (position[x + 1][y + 1] == EMPTY) && Type == 2)//å·¦ä¸Šè¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x - i][y - j] == WHITE)//Èç¹û×óÉÏ·½Í¨µÀ´æÔÚ¶Ô·½µÄ±ø
+							if(position[x - i][y - j] == WHITE)//å¦‚æœå·¦ä¸Šæ–¹é€šé“å­˜åœ¨å¯¹æ–¹çš„å…µ
 								break;
-							else//¼ÌĞøÑØ¸Ã·½Ïò±éÀúÆäÓàÎ»ÖÃ
+							else//ç»§ç»­æ²¿è¯¥æ–¹å‘éå†å…¶ä½™ä½ç½®
 							{
 								i++;
 								j++;
@@ -510,19 +510,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x - 1][y + 1] == W_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//±»×óÏÂ·½ÏàÁÚÍõÍşĞ²
+			if((position[x - 1][y + 1] == W_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//è¢«å·¦ä¸‹æ–¹ç›¸é‚»ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x - 1][y + 1] == EMPTY)//Èç¹ûÏàÁÚÎ»ÖÃÎª¿Õ
+				if(position[x - 1][y + 1] == EMPTY)//å¦‚æœç›¸é‚»ä½ç½®ä¸ºç©º
 				{
-					while ((x - i >= 0) && (y + j <= 9))//±éÀú¸Ã·½ÏòÉÏÏà¹ØÎ»ÖÃ
+					while ((x - i >= 0) && (y + j <= 9))//éå†è¯¥æ–¹å‘ä¸Šç›¸å…³ä½ç½®
 					{
-						if ((position[x - i][y + j] == W_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//×óÏÂ±»ÍõÍşĞ²
+						if ((position[x - i][y + j] == W_KING) && (position[x + 1][y - 1] == EMPTY) && Type == 2)//å·¦ä¸‹è¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x - i][y + j] == WHITE)//µ±×óÏÂ·½´æÔÚ¶Ô·½±ø
+							if(position[x - i][y + j] == WHITE)//å½“å·¦ä¸‹æ–¹å­˜åœ¨å¯¹æ–¹å…µ
 								break;
-							else//¼ÌĞø±éÀú¸Ã·½ÏòÉÏÆäÓàÏà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†è¯¥æ–¹å‘ä¸Šå…¶ä½™ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -531,19 +531,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x + 1][y - 1] == W_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//ÓÒÉÏ·½±»ÏàÁÚÎ»ÖÃÍõÍşĞ²
+			if((position[x + 1][y - 1] == W_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//å³ä¸Šæ–¹è¢«ç›¸é‚»ä½ç½®ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x + 1][y - 1] == EMPTY)//ÓÒÉÏ·½ÏàÁÚÎ»ÖÃÎª¿Õ¸ñ
+				if(position[x + 1][y - 1] == EMPTY)//å³ä¸Šæ–¹ç›¸é‚»ä½ç½®ä¸ºç©ºæ ¼
 				{
-					while ((x + i <= 9) && (y - j >= 0))//±éÀúÓÒÉÏ·½ËùÓĞÏà¹ØÎ»ÖÃ
+					while ((x + i <= 9) && (y - j >= 0))//éå†å³ä¸Šæ–¹æ‰€æœ‰ç›¸å…³ä½ç½®
 					{
-						if ((position[x + i][y - j] == W_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//ÓÒÉÏ±»ÍõÍşĞ²
+						if ((position[x + i][y - j] == W_KING) && (position[x - 1][y + 1] == EMPTY) && Type == 2)//å³ä¸Šè¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x + i][y - j] == WHITE)//µ±ÓÒÉÏ·½²»ÏàÁÚÎ»ÖÃ³öÏÖ¶Ô·½±øÊ±
+							if(position[x + i][y - j] == WHITE)//å½“å³ä¸Šæ–¹ä¸ç›¸é‚»ä½ç½®å‡ºç°å¯¹æ–¹å…µæ—¶
 								break;
-							else//¼ÌĞø±éÀúÓÒÉÏ·½Ïà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†å³ä¸Šæ–¹ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -552,19 +552,19 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 				}
 				i=2;
 				j=2;
-			if((position[x + 1][y + 1] == W_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//ÓÒÏÂ·½±»ÏàÁÚÍõÍşĞ²
+			if((position[x + 1][y + 1] == W_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//å³ä¸‹æ–¹è¢«ç›¸é‚»ç‹å¨èƒ
 				return 1;
 			else
-				if(position[x + 1][y + 1] == EMPTY)//ÓÒÏÂ·½ÏàÁÚÎ»ÖÃÊÇ¿Õ¸ñ
+				if(position[x + 1][y + 1] == EMPTY)//å³ä¸‹æ–¹ç›¸é‚»ä½ç½®æ˜¯ç©ºæ ¼
 				{
-					while ((x + i <= 9) && (y + j <= 9))//±éÀú¿Õ¸ñºó¸Ã·½ÏòÉÏËùÓĞÏàÁÚÎ»ÖÃ
+					while ((x + i <= 9) && (y + j <= 9))//éå†ç©ºæ ¼åè¯¥æ–¹å‘ä¸Šæ‰€æœ‰ç›¸é‚»ä½ç½®
 					{
-						if ((position[x + i][y + j] == W_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//ÓÒÏÂ±»ÍõÍşĞ²
+						if ((position[x + i][y + j] == W_KING) && (position[x - 1][y - 1] == EMPTY) && Type == 2)//å³ä¸‹è¢«ç‹å¨èƒ
 							return 1;
 						else
-							if(position[x + i][y + j] == WHITE)//ÔÚ¸Ã·½ÏòÉÏ´æÔÚ²»ÏàÁÚµÄ¶Ô·½±ø
+							if(position[x + i][y + j] == WHITE)//åœ¨è¯¥æ–¹å‘ä¸Šå­˜åœ¨ä¸ç›¸é‚»çš„å¯¹æ–¹å…µ
 								break;
-							else//¼ÌĞø±éÀú¸Ã·½ÏòÏà¹ØÎ»ÖÃ
+							else//ç»§ç»­éå†è¯¥æ–¹å‘ç›¸å…³ä½ç½®
 							{
 								i++;
 								j++;
@@ -579,7 +579,7 @@ int CEvelation::Is_Attack_Pos(int x, int y, int position[10][10], int Type)
 	}
 }
 
-//¼ÆËãµ±Ç°Æå×ÓµÄÁé»î¶È
+//è®¡ç®—å½“å‰æ£‹å­çš„çµæ´»åº¦
 int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 {
 	int Fiexible_Num = 0;
@@ -587,27 +587,27 @@ int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 	int j = 1;
 	switch (position[x][y])
 	{
-	case WHITE://°×±ø
+	case WHITE://ç™½å…µ
 	{
-		if (x>0&&position[x - 1][y - 1] == EMPTY)//×óÉÏÁé»î
+		if (x>0&&position[x - 1][y - 1] == EMPTY)//å·¦ä¸Šçµæ´»
 			Fiexible_Num++;
-		if (x<9&&position[x - 1][y + 1] == EMPTY)//ÓÒÉÏÁé»î
+		if (x<9&&position[x - 1][y + 1] == EMPTY)//å³ä¸Šçµæ´»
 			Fiexible_Num++;
 	}
 	break;
-	case BLACK://ºÚ±ø
+	case BLACK://é»‘å…µ
 	{
-		if (x>0&&position[x + 1][y - 1] == EMPTY)//×óÏÂÁé»î
+		if (x>0&&position[x + 1][y - 1] == EMPTY)//å·¦ä¸‹çµæ´»
 			Fiexible_Num++;
-		if (x<9&&position[x + 1][y + 1] == EMPTY)//ÓÒÏÂÁé»î
+		if (x<9&&position[x + 1][y + 1] == EMPTY)//å³ä¸‹çµæ´»
 			Fiexible_Num++;
 	}
 	break;
-	case W_KING://°×Íõ
+	case W_KING://ç™½ç‹
 	{
 		while ((x - i >= 0) && (y - j >= 0))
 		{
-			if ((position[x - i][y - j] == EMPTY))//×óÉÏÁé»î
+			if ((position[x - i][y - j] == EMPTY))//å·¦ä¸Šçµæ´»
 			{
 				Fiexible_Num++;
 				i++;
@@ -620,7 +620,7 @@ int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 		j=1;
 		while ((x - i >= 0) && (y + j <= 9))
 		{
-			if ((position[x - i][y + j] == EMPTY))//×óÏÂÁé»î
+			if ((position[x - i][y + j] == EMPTY))//å·¦ä¸‹çµæ´»
 			{
 				Fiexible_Num++;
 				i++;
@@ -633,7 +633,7 @@ int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 		j=1;
 		while ((x + i <= 9) && (y - j >= 0))
 		{
-			if ((position[x + i][y - j] == EMPTY))//ÓÒÉÏÁé»î
+			if ((position[x + i][y - j] == EMPTY))//å³ä¸Šçµæ´»
 			{
 				Fiexible_Num++;
 				i++;
@@ -646,7 +646,7 @@ int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 		j=1;
 		while ((x + i <= 9) && (y + j <= 9))
 		{
-			if ((position[x + i][y + j] == EMPTY))//ÓÒÏÂÁé»î
+			if ((position[x + i][y + j] == EMPTY))//å³ä¸‹çµæ´»
 			{
 				Fiexible_Num++;
 				i++;
@@ -657,11 +657,11 @@ int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 		}
 	}
 	break;
-	case B_KING://ºÚÍõ
+	case B_KING://é»‘ç‹
 	{
 		while ((x - i >= 0) && (y - j >= 0))
 		{
-			if ((position[x - i][y - j] == EMPTY))//×óÉÏÁé»î
+			if ((position[x - i][y - j] == EMPTY))//å·¦ä¸Šçµæ´»
 			{
 				Fiexible_Num++;
 				i++;
@@ -674,7 +674,7 @@ int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 		j=1;
 		while ((x - i >= 0) && (y + j <= 9))
 		{
-			if ((position[x - i][y + j] == EMPTY))//×óÏÂÁé»î
+			if ((position[x - i][y + j] == EMPTY))//å·¦ä¸‹çµæ´»
 			{
 				Fiexible_Num++;
 				i++;
@@ -687,7 +687,7 @@ int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 		j=1;
 		while ((x + i <= 9) && (y - j >= 0))
 		{
-			if ((position[x + i][y - j] == EMPTY))//ÓÒÉÏÁé»î
+			if ((position[x + i][y - j] == EMPTY))//å³ä¸Šçµæ´»
 			{
 				Fiexible_Num++;
 				i++;
@@ -700,7 +700,7 @@ int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 		j=1;
 		while ((x + i <= 9) && (y + j <= 9))
 		{
-			if ((position[x + i][y + j] == EMPTY))//ÓÒÏÂÁé»î
+			if ((position[x + i][y + j] == EMPTY))//å³ä¸‹çµæ´»
 			{
 				Fiexible_Num++;
 				i++;
@@ -715,8 +715,8 @@ int CEvelation::Fiexiblity_Count(int x, int y, int position[10][10])
 	return Fiexible_Num;
 }
 
-//¼ÆËãµ±Ç°Æå×ÓÊÇ·ñ´¦ÓÚ¾ßÓĞÇ±ÔÚ³ÆÍõÎ»ÖÃ
-int CEvelation::Is_Being_King(int x,int y,int position[10][10],int Type)//Âß¼­Î´¸Ä
+//è®¡ç®—å½“å‰æ£‹å­æ˜¯å¦å¤„äºå…·æœ‰æ½œåœ¨ç§°ç‹ä½ç½®
+int CEvelation::Is_Being_King(int x,int y,int position[10][10],int Type)//é€»è¾‘æœªæ”¹
 {
 	switch (position[x][y])
 	{
@@ -783,92 +783,92 @@ double CEvelation::Eval(int position[10][10], int Type)
 
 double CEvelation::Eval(int position[10][10], int Type,int Step)
 {
-	//Éè¶¨×ÓÁ¦µÄ»ù±¾¼ÛÖµ
+	//è®¾å®šå­åŠ›çš„åŸºæœ¬ä»·å€¼
 	int WHITE_Basic_Value = 100;
 	int BLACK_Basic_Value = 100;
 	int W_KING_Basic_Value = 800;
 	int B_KING_Basic_Value = 800;
 	
-	//Éè¶¨ºÚ¡¢°×Ë«·½µÄ×Ü¼ÛÖµµÄ³õÊ¼Öµ
+	//è®¾å®šé»‘ã€ç™½åŒæ–¹çš„æ€»ä»·å€¼çš„åˆå§‹å€¼
 	double n_WHITE_Value = 0;
 	double n_BLACK_Value = 0;
-	//»ù±¾¼ÛÖµÖ¸±ê±äÁ¿µÄ³õÊ¼»¯:
-	double W_Pos_Value=0;//°×·½Î»ÖÃ¸½¼ÓÖµ
-	double W_Fiexiblity_Value=0;//°×·½Áé»î¶È
-	double W_Attack_Value=0;//°×·½ÍşĞ²
-	double W_Guard_Value=0;//°×·½±£»¤
-	double W_Being_King_Value=0;//°×·½Ç±ÔÚ³ÆÍõÎ»ÖÃ½±Àø
-	double B_Pos_Value=0;//°×·½Î»ÖÃ¸½¼ÓÖµ
-	double B_Fiexiblity_Value=0;//°×·½Áé»î¶È
-	double B_Attack_Value=0;//°×·½ÍşĞ²
-	double B_Guard_Value=0;//°×·½±£»¤
-	double B_Being_King_Value=0;//°×·½Ç±ÔÚ³ÆÍõÎ»ÖÃ½±Àø
-	//É¨ÃèÆåÅÌ¶Ôµ±Ç°¾ÖÃæµÄÆå×ÓµÄ¼ÛÖµ½øĞĞ¼ÆËã
+	//åŸºæœ¬ä»·å€¼æŒ‡æ ‡å˜é‡çš„åˆå§‹åŒ–:
+	double W_Pos_Value=0;//ç™½æ–¹ä½ç½®é™„åŠ å€¼
+	double W_Fiexiblity_Value=0;//ç™½æ–¹çµæ´»åº¦
+	double W_Attack_Value=0;//ç™½æ–¹å¨èƒ
+	double W_Guard_Value=0;//ç™½æ–¹ä¿æŠ¤
+	double W_Being_King_Value=0;//ç™½æ–¹æ½œåœ¨ç§°ç‹ä½ç½®å¥–åŠ±
+	double B_Pos_Value=0;//ç™½æ–¹ä½ç½®é™„åŠ å€¼
+	double B_Fiexiblity_Value=0;//ç™½æ–¹çµæ´»åº¦
+	double B_Attack_Value=0;//ç™½æ–¹å¨èƒ
+	double B_Guard_Value=0;//ç™½æ–¹ä¿æŠ¤
+	double B_Being_King_Value=0;//ç™½æ–¹æ½œåœ¨ç§°ç‹ä½ç½®å¥–åŠ±
+	//æ‰«ææ£‹ç›˜å¯¹å½“å‰å±€é¢çš„æ£‹å­çš„ä»·å€¼è¿›è¡Œè®¡ç®—
 	for (int i = 0; i <= 9; i++)
 		for (int j = 0; j <= 9; j++)
 		{
-		if (position[i][j] != EMPTY)//µ±Ç°¾ÖÃæÓĞ×ÓµÄÇé¿öÏÂ
+		if (position[i][j] != EMPTY)//å½“å‰å±€é¢æœ‰å­çš„æƒ…å†µä¸‹
 		{
 			switch (position[i][j])
 			{
 			case WHITE:
 			{
-				//Ò»¡¢½«±øµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+				//ä¸€ã€å°†å…µçš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 				W_Pos_Value += Get_Pawn_Pre_Value(i, j, position);
-				//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+				//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 				W_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*WHITE_Basic_Value);
-				//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+				//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 				if (Is_Guard_Pos(i, j, position))
 					W_Guard_Value += (0.5*WHITE_Basic_Value);
-				//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+				//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 				if (Is_Attack_Pos(i, j, position, Type))
 					W_Attack_Value -= (0.7*WHITE_Basic_Value);
-				//Îå¡¢¾ß±¸¡°³ÆÍõÇ±ÔÚÌõ¼şÎ»ÖÃ¡±µÄ±ø½øĞĞ½±Àø
+				//äº”ã€å…·å¤‡â€œç§°ç‹æ½œåœ¨æ¡ä»¶ä½ç½®â€çš„å…µè¿›è¡Œå¥–åŠ±
 				if(Is_Being_King(i,j,position,Type))
 					W_Being_King_Value +=100;
 				break;
 			}
 			case BLACK:
 			{
-				//Ò»¡¢½«±øµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+				//ä¸€ã€å°†å…µçš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 				B_Pos_Value += Get_Pawn_Pre_Value(i, j, position);
-				//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+				//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 				B_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*BLACK_Basic_Value);
-				//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+				//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 				if (Is_Guard_Pos(i, j, position))
 					B_Guard_Value += (0.5*BLACK_Basic_Value);
-				//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+				//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 				if (Is_Attack_Pos(i, j, position, Type))
 					B_Attack_Value -= (0.7*BLACK_Basic_Value);
-				//Îå¡¢¾ß±¸¡°³ÆÍõÇ±ÔÚÌõ¼şÎ»ÖÃ¡±µÄ±ø½øĞĞ½±Àø
+				//äº”ã€å…·å¤‡â€œç§°ç‹æ½œåœ¨æ¡ä»¶ä½ç½®â€çš„å…µè¿›è¡Œå¥–åŠ±
 				if(Is_Being_King(i,j,position,Type))
 					B_Being_King_Value +=100;
 				break;
 			}
 			case W_KING:
 			{
-				//Ò»¡¢½«ÍõµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+				//ä¸€ã€å°†ç‹çš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 				W_Pos_Value += W_KING_Basic_Value;
-				//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+				//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 				W_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*W_KING_Basic_Value);
-				//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+				//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 				if (Is_Guard_Pos(i, j, position))
 					W_Guard_Value += (0.5*W_KING_Basic_Value);
-				//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+				//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 				if (Is_Attack_Pos(i, j, position, Type))
 					W_Attack_Value -= (0.7*W_KING_Basic_Value);
 				break;
 			}
 			case B_KING:
 			{
-				//Ò»¡¢½«ÍõµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+				//ä¸€ã€å°†ç‹çš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 				B_Pos_Value += B_KING_Basic_Value;
-				//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+				//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 				B_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*W_KING_Basic_Value);
-				//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+				//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 				if (Is_Guard_Pos(i, j, position))
 					B_Guard_Value += (0.5*W_KING_Basic_Value);
-				//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+				//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 				if (Is_Attack_Pos(i,j,position,Type))
 					B_Attack_Value -= (0.7*W_KING_Basic_Value);
 				break;
@@ -876,7 +876,7 @@ double CEvelation::Eval(int position[10][10], int Type,int Step)
 			}
 		}
 		}
-		//³õÊ¼»¯¸÷Ö¸±êµÄÈ¨ÖØ²ÎÊı
+		//åˆå§‹åŒ–å„æŒ‡æ ‡çš„æƒé‡å‚æ•°
 	/////////////////////////////////////////////////////////////////////////////////////////////////////////
 	int parameter[5];
 	if (Step > 40)
@@ -896,11 +896,11 @@ double CEvelation::Eval(int position[10][10], int Type,int Step)
 		parameter[4] = 3;
 	}
 		//int parameter[5] = { 4,1,5,5,3 };
-	//×ÛºÏ¼ÆËã³öºÚ¡¢°×Ë«·½µÄ×Ü¼ÛÖµ
-		//            µÚÒ»¸ö£º       Î»ÖÃ¸½¼ÓÖµ  µÚ¶ş¸ö£º       Áé»î¶È         µÚÈı¸ö£º       ÍşĞ²           µÚËÄ¸ö£º       ±£»¤          µÚÎå¸ö£º       Ç±ÔÚ³ÆÍõ½±Àø
+	//ç»¼åˆè®¡ç®—å‡ºé»‘ã€ç™½åŒæ–¹çš„æ€»ä»·å€¼
+		//            ç¬¬ä¸€ä¸ªï¼š       ä½ç½®é™„åŠ å€¼  ç¬¬äºŒä¸ªï¼š       çµæ´»åº¦         ç¬¬ä¸‰ä¸ªï¼š       å¨èƒ           ç¬¬å››ä¸ªï¼š       ä¿æŠ¤          ç¬¬äº”ä¸ªï¼š       æ½œåœ¨ç§°ç‹å¥–åŠ±
 		n_WHITE_Value=parameter[0]*W_Pos_Value+parameter[1]*W_Fiexiblity_Value+parameter[2]*W_Attack_Value+parameter[3]*W_Guard_Value+parameter[4]*W_Being_King_Value;
 		n_BLACK_Value=parameter[0]*B_Pos_Value+parameter[1]*B_Fiexiblity_Value+parameter[2]*B_Attack_Value+parameter[3]*B_Guard_Value+parameter[4]*B_Being_King_Value;
-	//ÉèÖÃ¹ÀÖµºËĞÄµÄ³õÊ¼¼ÛÖµ
+	//è®¾ç½®ä¼°å€¼æ ¸å¿ƒçš„åˆå§‹ä»·å€¼
 		Tree++;
 		if(Tree%1000==0)
 			::PostMessage(AfxGetMainWnd()->m_hWnd,UPDATE_TREE,0,Tree);
@@ -909,95 +909,95 @@ double CEvelation::Eval(int position[10][10], int Type,int Step)
 	else
 		return n_WHITE_Value - n_BLACK_Value;
 }
-//double CEvelation::Eval(int position[10][10], int Type)//Ô­Ê¼¹ÀÖµÏµÍ³
+//double CEvelation::Eval(int position[10][10], int Type)//åŸå§‹ä¼°å€¼ç³»ç»Ÿ
 //{
-//	//Éè¶¨×ÓÁ¦µÄ»ù±¾¼ÛÖµ
+//	//è®¾å®šå­åŠ›çš„åŸºæœ¬ä»·å€¼
 //	int WHITE_Basic_Value = 100;
 //	int BLACK_Basic_Value = 100;
 //	int W_KING_Basic_Value = 800;
 //	int B_KING_Basic_Value = 800;
 //
 //
-//	//Éè¶¨ºÚ¡¢°×Ë«·½µÄ×Ü¼ÛÖµµÄ³õÊ¼Öµ
+//	//è®¾å®šé»‘ã€ç™½åŒæ–¹çš„æ€»ä»·å€¼çš„åˆå§‹å€¼
 //	double n_WHITE_Value = 0;
 //	double n_BLACK_Value = 0;
-//	//»ù±¾¼ÛÖµÖ¸±ê±äÁ¿µÄ³õÊ¼»¯:
-//	double W_Pos_Value = 0;//°×·½Î»ÖÃ¸½¼ÓÖµ
-//	double W_Fiexiblity_Value = 0;//°×·½Áé»î¶È
-//	double W_Attack_Value = 0;//°×·½ÍşĞ²
-//	double W_Guard_Value = 0;//°×·½±£»¤
-//	double W_Being_King_Value = 0;//°×·½Ç±ÔÚ³ÆÍõÎ»ÖÃ½±Àø
-//	double B_Pos_Value = 0;//°×·½Î»ÖÃ¸½¼ÓÖµ
-//	double B_Fiexiblity_Value = 0;//°×·½Áé»î¶È
-//	double B_Attack_Value = 0;//°×·½ÍşĞ²
-//	double B_Guard_Value = 0;//°×·½±£»¤
-//	double B_Being_King_Value = 0;//°×·½Ç±ÔÚ³ÆÍõÎ»ÖÃ½±Àø
-//								  //É¨ÃèÆåÅÌ¶Ôµ±Ç°¾ÖÃæµÄÆå×ÓµÄ¼ÛÖµ½øĞĞ¼ÆËã
+//	//åŸºæœ¬ä»·å€¼æŒ‡æ ‡å˜é‡çš„åˆå§‹åŒ–:
+//	double W_Pos_Value = 0;//ç™½æ–¹ä½ç½®é™„åŠ å€¼
+//	double W_Fiexiblity_Value = 0;//ç™½æ–¹çµæ´»åº¦
+//	double W_Attack_Value = 0;//ç™½æ–¹å¨èƒ
+//	double W_Guard_Value = 0;//ç™½æ–¹ä¿æŠ¤
+//	double W_Being_King_Value = 0;//ç™½æ–¹æ½œåœ¨ç§°ç‹ä½ç½®å¥–åŠ±
+//	double B_Pos_Value = 0;//ç™½æ–¹ä½ç½®é™„åŠ å€¼
+//	double B_Fiexiblity_Value = 0;//ç™½æ–¹çµæ´»åº¦
+//	double B_Attack_Value = 0;//ç™½æ–¹å¨èƒ
+//	double B_Guard_Value = 0;//ç™½æ–¹ä¿æŠ¤
+//	double B_Being_King_Value = 0;//ç™½æ–¹æ½œåœ¨ç§°ç‹ä½ç½®å¥–åŠ±
+//								  //æ‰«ææ£‹ç›˜å¯¹å½“å‰å±€é¢çš„æ£‹å­çš„ä»·å€¼è¿›è¡Œè®¡ç®—
 //	for (int i = 0; i <= 9; i++)
 //		for (int j = 0; j <= 9; j++)
 //		{
-//			if (position[i][j] != EMPTY)//µ±Ç°¾ÖÃæÓĞ×ÓµÄÇé¿öÏÂ
+//			if (position[i][j] != EMPTY)//å½“å‰å±€é¢æœ‰å­çš„æƒ…å†µä¸‹
 //			{
 //				switch (position[i][j])
 //				{
 //				case WHITE:
 //				{
-//					//Ò»¡¢½«±øµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+//					//ä¸€ã€å°†å…µçš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 //					W_Pos_Value += Get_Pawn_Pre_Value(i, j, position);
-//					//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+//					//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 //					W_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*WHITE_Basic_Value);
-//					//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+//					//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 //					if (Is_Guard_Pos(i, j, position))
 //						W_Guard_Value += (0.5*WHITE_Basic_Value);
-//					//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+//					//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 //					if (Is_Attack_Pos(i, j, position, Type))
 //						W_Attack_Value -= (0.6*WHITE_Basic_Value);
-//					//Îå¡¢¾ß±¸¡°³ÆÍõÇ±ÔÚÌõ¼şÎ»ÖÃ¡±µÄ±ø½øĞĞ½±Àø
+//					//äº”ã€å…·å¤‡â€œç§°ç‹æ½œåœ¨æ¡ä»¶ä½ç½®â€çš„å…µè¿›è¡Œå¥–åŠ±
 //					if (Is_Being_King(i, j, position, Type))
 //						W_Being_King_Value += 100;
 //					break;
 //				}
 //				case BLACK:
 //				{
-//					//Ò»¡¢½«±øµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+//					//ä¸€ã€å°†å…µçš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 //					B_Pos_Value += Get_Pawn_Pre_Value(i, j, position);
-//					//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+//					//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 //					B_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*BLACK_Basic_Value);
-//					//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+//					//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 //					if (Is_Guard_Pos(i, j, position))
 //						B_Guard_Value += (0.5*BLACK_Basic_Value);
-//					//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+//					//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 //					if (Is_Attack_Pos(i, j, position, Type))
 //						B_Attack_Value -= (0.6*BLACK_Basic_Value);
-//					//Îå¡¢¾ß±¸¡°³ÆÍõÇ±ÔÚÌõ¼şÎ»ÖÃ¡±µÄ±ø½øĞĞ½±Àø
+//					//äº”ã€å…·å¤‡â€œç§°ç‹æ½œåœ¨æ¡ä»¶ä½ç½®â€çš„å…µè¿›è¡Œå¥–åŠ±
 //					if (Is_Being_King(i, j, position, Type))
 //						B_Being_King_Value += 100;
 //					break;
 //				}
 //				case W_KING:
 //				{
-//					//Ò»¡¢½«ÍõµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+//					//ä¸€ã€å°†ç‹çš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 //					W_Pos_Value += W_KING_Basic_Value;
-//					//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+//					//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 //					W_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*W_KING_Basic_Value);
-//					//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+//					//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 //					if (Is_Guard_Pos(i, j, position))
 //						W_Guard_Value += (0.5*W_KING_Basic_Value);
-//					//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+//					//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 //					if (Is_Attack_Pos(i, j, position, Type))
 //						W_Attack_Value -= (0.6*W_KING_Basic_Value);
 //					break;
 //				}
 //				case B_KING:
 //				{
-//					//Ò»¡¢½«ÍõµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+//					//ä¸€ã€å°†ç‹çš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 //					B_Pos_Value += B_KING_Basic_Value;
-//					//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+//					//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 //					B_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*W_KING_Basic_Value);
-//					//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+//					//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 //					if (Is_Guard_Pos(i, j, position))
 //						B_Guard_Value += (0.5*W_KING_Basic_Value);
-//					//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+//					//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 //					if (Is_Attack_Pos(i, j, position, Type))
 //						B_Attack_Value -= (0.6*W_KING_Basic_Value);
 //					break;
@@ -1005,13 +1005,13 @@ double CEvelation::Eval(int position[10][10], int Type,int Step)
 //				}
 //			}
 //		}
-//	//³õÊ¼»¯¸÷Ö¸±êµÄÈ¨ÖØ²ÎÊı
+//	//åˆå§‹åŒ–å„æŒ‡æ ‡çš„æƒé‡å‚æ•°
 //	int parameter[5] = { 4,1,5,5,3 };
-//	//×ÛºÏ¼ÆËã³öºÚ¡¢°×Ë«·½µÄ×Ü¼ÛÖµ
-//	//            µÚÒ»¸ö£º       Î»ÖÃ¸½¼ÓÖµ  µÚ¶ş¸ö£º       Áé»î¶È         µÚÈı¸ö£º       ÍşĞ²           µÚËÄ¸ö£º       ±£»¤          µÚÎå¸ö£º       Ç±ÔÚ³ÆÍõ½±Àø
+//	//ç»¼åˆè®¡ç®—å‡ºé»‘ã€ç™½åŒæ–¹çš„æ€»ä»·å€¼
+//	//            ç¬¬ä¸€ä¸ªï¼š       ä½ç½®é™„åŠ å€¼  ç¬¬äºŒä¸ªï¼š       çµæ´»åº¦         ç¬¬ä¸‰ä¸ªï¼š       å¨èƒ           ç¬¬å››ä¸ªï¼š       ä¿æŠ¤          ç¬¬äº”ä¸ªï¼š       æ½œåœ¨ç§°ç‹å¥–åŠ±
 //	n_WHITE_Value = parameter[0] * W_Pos_Value + parameter[1] * W_Fiexiblity_Value + parameter[2] * W_Attack_Value + parameter[3] * W_Guard_Value + parameter[4] * W_Being_King_Value;
 //	n_BLACK_Value = parameter[0] * B_Pos_Value + parameter[1] * B_Fiexiblity_Value + parameter[2] * B_Attack_Value + parameter[3] * B_Guard_Value + parameter[4] * B_Being_King_Value;
-//	//ÉèÖÃ¹ÀÖµºËĞÄµÄ³õÊ¼¼ÛÖµ
+//	//è®¾ç½®ä¼°å€¼æ ¸å¿ƒçš„åˆå§‹ä»·å€¼
 //	Tree++;
 //	if (Tree % 1000 == 0)
 //		::PostMessage(AfxGetMainWnd()->m_hWnd, UPDATE_TREE, 0, Tree);
@@ -1024,92 +1024,92 @@ double CEvelation::Eval(int position[10][10], int Type,int Step)
 CString CEvelation::MFC_Eval(int position[10][10], int Type)
 {
 	Tree=0;
-	//Éè¶¨×ÓÁ¦µÄ»ù±¾¼ÛÖµ
+	//è®¾å®šå­åŠ›çš„åŸºæœ¬ä»·å€¼
 	int WHITE_Basic_Value = 100;
 	int BLACK_Basic_Value = 100;
 	int W_KING_Basic_Value = 800;
 	int B_KING_Basic_Value = 800;
 	
-	//Éè¶¨ºÚ¡¢°×Ë«·½µÄ×Ü¼ÛÖµµÄ³õÊ¼Öµ
+	//è®¾å®šé»‘ã€ç™½åŒæ–¹çš„æ€»ä»·å€¼çš„åˆå§‹å€¼
 	double n_WHITE_Value = 0;
 	double n_BLACK_Value = 0;
-	//»ù±¾¼ÛÖµÖ¸±ê±äÁ¿µÄ³õÊ¼»¯:
-	double W_Pos_Value=0;//°×·½Î»ÖÃ¸½¼ÓÖµ
-	double W_Fiexiblity_Value=0;//°×·½Áé»î¶È
-	double W_Attack_Value=0;//°×·½ÍşĞ²
-	double W_Guard_Value=0;//°×·½±£»¤
-	double W_Being_King_Value=0;//°×·½Ç±ÔÚ³ÆÍõÎ»ÖÃ½±Àø
-	double B_Pos_Value=0;//°×·½Î»ÖÃ¸½¼ÓÖµ
-	double B_Fiexiblity_Value=0;//°×·½Áé»î¶È
-	double B_Attack_Value=0;//°×·½ÍşĞ²
-	double B_Guard_Value=0;//°×·½±£»¤
-	double B_Being_King_Value=0;//°×·½Ç±ÔÚ³ÆÍõÎ»ÖÃ½±Àø
-	//É¨ÃèÆåÅÌ¶Ôµ±Ç°¾ÖÃæµÄÆå×ÓµÄ¼ÛÖµ½øĞĞ¼ÆËã
+	//åŸºæœ¬ä»·å€¼æŒ‡æ ‡å˜é‡çš„åˆå§‹åŒ–:
+	double W_Pos_Value=0;//ç™½æ–¹ä½ç½®é™„åŠ å€¼
+	double W_Fiexiblity_Value=0;//ç™½æ–¹çµæ´»åº¦
+	double W_Attack_Value=0;//ç™½æ–¹å¨èƒ
+	double W_Guard_Value=0;//ç™½æ–¹ä¿æŠ¤
+	double W_Being_King_Value=0;//ç™½æ–¹æ½œåœ¨ç§°ç‹ä½ç½®å¥–åŠ±
+	double B_Pos_Value=0;//ç™½æ–¹ä½ç½®é™„åŠ å€¼
+	double B_Fiexiblity_Value=0;//ç™½æ–¹çµæ´»åº¦
+	double B_Attack_Value=0;//ç™½æ–¹å¨èƒ
+	double B_Guard_Value=0;//ç™½æ–¹ä¿æŠ¤
+	double B_Being_King_Value=0;//ç™½æ–¹æ½œåœ¨ç§°ç‹ä½ç½®å¥–åŠ±
+	//æ‰«ææ£‹ç›˜å¯¹å½“å‰å±€é¢çš„æ£‹å­çš„ä»·å€¼è¿›è¡Œè®¡ç®—
 	for (int i = 0; i <= 9; i++)
 		for (int j = 0; j <= 9; j++)
 		{
-		if (position[i][j] != EMPTY)//µ±Ç°¾ÖÃæÓĞ×ÓµÄÇé¿öÏÂ
+		if (position[i][j] != EMPTY)//å½“å‰å±€é¢æœ‰å­çš„æƒ…å†µä¸‹
 		{
 			switch (position[i][j])
 			{
 			case WHITE:
 			{
-				//Ò»¡¢½«±øµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+				//ä¸€ã€å°†å…µçš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 				W_Pos_Value += Get_Pawn_Pre_Value(i, j, position);
-				//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+				//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 				W_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*WHITE_Basic_Value);
-				//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+				//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 				if (Is_Guard_Pos(i, j, position))
 					W_Guard_Value += (0.5*WHITE_Basic_Value);
-				//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+				//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 				if (Is_Attack_Pos(i, j, position, Type))
 					W_Attack_Value -= (0.6*WHITE_Basic_Value);
-				//Îå¡¢¾ß±¸¡°³ÆÍõÇ±ÔÚÌõ¼şÎ»ÖÃ¡±µÄ±ø½øĞĞ½±Àø
+				//äº”ã€å…·å¤‡â€œç§°ç‹æ½œåœ¨æ¡ä»¶ä½ç½®â€çš„å…µè¿›è¡Œå¥–åŠ±
 				if(Is_Being_King(i,j,position,Type))
 					W_Being_King_Value +=100;
 				break;
 			}
 			case BLACK:
 			{
-				//Ò»¡¢½«±øµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+				//ä¸€ã€å°†å…µçš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 				B_Pos_Value += Get_Pawn_Pre_Value(i, j, position);
-				//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+				//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 				B_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*BLACK_Basic_Value);
-				//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+				//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 				if (Is_Guard_Pos(i, j, position))
 					B_Guard_Value += (0.5*BLACK_Basic_Value);
-				//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+				//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 				if (Is_Attack_Pos(i, j, position, Type))
 					B_Attack_Value -= (0.6*BLACK_Basic_Value);
-				//Îå¡¢¾ß±¸¡°³ÆÍõÇ±ÔÚÌõ¼şÎ»ÖÃ¡±µÄ±ø½øĞĞ½±Àø
+				//äº”ã€å…·å¤‡â€œç§°ç‹æ½œåœ¨æ¡ä»¶ä½ç½®â€çš„å…µè¿›è¡Œå¥–åŠ±
 				if(Is_Being_King(i,j,position,Type))
 					B_Being_King_Value +=100;
 				break;
 			}
 			case W_KING:
 			{
-				//Ò»¡¢½«ÍõµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+				//ä¸€ã€å°†ç‹çš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 				W_Pos_Value += W_KING_Basic_Value;
-				//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+				//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 				W_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*W_KING_Basic_Value);
-				//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+				//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 				if (Is_Guard_Pos(i, j, position))
 					W_Guard_Value += (0.5*W_KING_Basic_Value);
-				//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+				//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 				if (Is_Attack_Pos(i, j, position, Type))
 					W_Attack_Value -= (0.6*W_KING_Basic_Value);
 				break;
 			}
 			case B_KING:
 			{
-				//Ò»¡¢½«ÍõµÄ¡°Î»ÖÃ¸½¼ÓÖµ¡±¼ÆÈë×Ü¼ÛÖµ
+				//ä¸€ã€å°†ç‹çš„â€œä½ç½®é™„åŠ å€¼â€è®¡å…¥æ€»ä»·å€¼
 				B_Pos_Value += B_KING_Basic_Value;
-				//¶ş¡¢½«Æå×ÓµÄ¡°Áé»î¶È¡±¼ÆÈë×Ü¼ÛÖµ
+				//äºŒã€å°†æ£‹å­çš„â€œçµæ´»åº¦â€è®¡å…¥æ€»ä»·å€¼
 				B_Fiexiblity_Value += (Fiexiblity_Count(i, j, position)*0.1*W_KING_Basic_Value);
-				//Èı¡¢Èç¹û±»×Ô¼º·½Æå×Ó¡°±£»¤¡±£º¼ÛÖµ¼ÓÉÏ»ù±¾¼ÛÖµµÄ0.1
+				//ä¸‰ã€å¦‚æœè¢«è‡ªå·±æ–¹æ£‹å­â€œä¿æŠ¤â€ï¼šä»·å€¼åŠ ä¸ŠåŸºæœ¬ä»·å€¼çš„0.1
 				if (Is_Guard_Pos(i, j, position))
 					B_Guard_Value += (0.5*W_KING_Basic_Value);
-				//ËÄ¡¢Èç¹û±»¶Ô·½¡°ÍşĞ²¡±£º¼ÛÖµ¼õÈ¥×ÔÉí»ù±¾¼ÛÖµµÄÒ»°ë
+				//å››ã€å¦‚æœè¢«å¯¹æ–¹â€œå¨èƒâ€ï¼šä»·å€¼å‡å»è‡ªèº«åŸºæœ¬ä»·å€¼çš„ä¸€åŠ
 				if (Is_Attack_Pos(i,j,position,Type))
 					B_Attack_Value -= (0.6*W_KING_Basic_Value);
 				break;
@@ -1117,7 +1117,7 @@ CString CEvelation::MFC_Eval(int position[10][10], int Type)
 			}
 		}
 		}
-		//³õÊ¼»¯¸÷Ö¸±êµÄÈ¨ÖØ²ÎÊı
+		//åˆå§‹åŒ–å„æŒ‡æ ‡çš„æƒé‡å‚æ•°
 		float parameter[5]={4.0,1.0,5.0,5.0,3.0};
 		n_WHITE_Value=parameter[0]*W_Pos_Value+parameter[1]*W_Fiexiblity_Value+parameter[2]*W_Attack_Value+parameter[3]*W_Guard_Value+parameter[4]*W_Being_King_Value;
 		n_BLACK_Value=parameter[0]*B_Pos_Value+parameter[1]*B_Fiexiblity_Value+parameter[2]*B_Attack_Value+parameter[3]*B_Guard_Value+parameter[4]*B_Being_King_Value;
@@ -1125,7 +1125,7 @@ CString CEvelation::MFC_Eval(int position[10][10], int Type)
 		if(W_Attack_Value!=0)W_Attack_Value=-W_Attack_Value;
 		if(B_Attack_Value!=0)B_Attack_Value=-B_Attack_Value;
 		Eval_Mess.Format(
-			"°×·½×Ü·Ö:%05.f  Î»ÖÃ:%05.f  Áé»î:%05.f  ÍşĞ²:-%06.f  ±£»¤:%05.f  ³ÆÍõ:%.0f\r\nºÚ·½×Ü·Ö:%05.f  Î»ÖÃ:%05.f  Áé»î:%05.f  ÍşĞ²:-%05.f  ±£»¤:%05.f  ³ÆÍõ:%.0f\r\n",
+			"ç™½æ–¹æ€»åˆ†:%05.f  ä½ç½®:%05.f  çµæ´»:%05.f  å¨èƒ:-%06.f  ä¿æŠ¤:%05.f  ç§°ç‹:%.0f\r\né»‘æ–¹æ€»åˆ†:%05.f  ä½ç½®:%05.f  çµæ´»:%05.f  å¨èƒ:-%05.f  ä¿æŠ¤:%05.f  ç§°ç‹:%.0f\r\n",
 			n_WHITE_Value,
 			parameter[0]*W_Pos_Value,
 			parameter[1]*W_Fiexiblity_Value,

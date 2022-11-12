@@ -6,21 +6,21 @@ public:
 	CTranspositionTable();
 	~CTranspositionTable();
 	void EnterHashTable(ENTRY_TYPE entry_type, double eval, short depth);
-	//½«µ±Ç°½ÚµãµÄÖµ´æÈë¹şÏ£±í
-	double LookUpHashTable(double alpha, double beta, double depth);			//²éÑ¯¹şÏ£±íÖĞµ±Ç°½ÚµãÊı¾İ
+	//å°†å½“å‰èŠ‚ç‚¹çš„å€¼å­˜å…¥å“ˆå¸Œè¡¨
+	double LookUpHashTable(double alpha, double beta, double depth);			//æŸ¥è¯¢å“ˆå¸Œè¡¨ä¸­å½“å‰èŠ‚ç‚¹æ•°æ®
 	void Hash_UnMakeMove(MOVE* move, int CurPosition[10][10]);
-	//³·ÏúËù¸ø×ß·¨µÄ¹şÏ£Öµ£¬»¹Ô­³É×ß¹ıÖ®Ç°µÄ
-	void Hash_MakeMove(MOVE* move, int CurPosition[10][10]);		//¸ù¾İËù¸ø×ß·¨£¬ÔöÁ¿Éú³ÉĞÂµÄ¹şÏ£Öµ
-	void CalculateInitHashKey(int CurPosition[10][10]);				//¼ÆËã¸ø¶¨ÆåÅÌµÄ¹şÏ£Öµ
-	void InitializeHashKey();										//³õÊ¼»¯Ëæ»úÊı×é£¬´´½¨¹şÏ£±í
+	//æ’¤é”€æ‰€ç»™èµ°æ³•çš„å“ˆå¸Œå€¼ï¼Œè¿˜åŸæˆèµ°è¿‡ä¹‹å‰çš„
+	void Hash_MakeMove(MOVE* move, int CurPosition[10][10]);		//æ ¹æ®æ‰€ç»™èµ°æ³•ï¼Œå¢é‡ç”Ÿæˆæ–°çš„å“ˆå¸Œå€¼
+	void CalculateInitHashKey(int CurPosition[10][10]);				//è®¡ç®—ç»™å®šæ£‹ç›˜çš„å“ˆå¸Œå€¼
+	void InitializeHashKey();										//åˆå§‹åŒ–éšæœºæ•°ç»„ï¼Œåˆ›å»ºå“ˆå¸Œè¡¨
 public:
-	LONGLONG Rand64();												//²úÉú64Î»µÄËæ»úÊı
-	LONG Rand32();													//²úÉú32Î»µÄËæ»úÊı
+	LONGLONG Rand64();												//äº§ç”Ÿ64ä½çš„éšæœºæ•°
+	LONG Rand32();													//äº§ç”Ÿ32ä½çš„éšæœºæ•°
 private:
-	UINT m_nHashKey32[4][10][10];		 //32Î»Ëæ»úÊı×é£¬ÓÃÒÔÉú³É32Î»¹şÏ£Öµ
-	ULONGLONG m_ulHashKey64[4][10][10];	 //64Î»Ëæ»úÊı×é£¬ÓÃÒÔÉú³É64Î»¹şÏ£Öµ
-	HASHITEM *m_pTT;					 //ÖÃ»»±íÍ·Ö¸Õë
-	UINT m_HashKey32;				     //32Î»¹şÏ£Öµ
-	LONGLONG m_HashKey64;			     //64Î»¹şÏ£Öµ
+	UINT m_nHashKey32[4][10][10];		 //32ä½éšæœºæ•°ç»„ï¼Œç”¨ä»¥ç”Ÿæˆ32ä½å“ˆå¸Œå€¼
+	ULONGLONG m_ulHashKey64[4][10][10];	 //64ä½éšæœºæ•°ç»„ï¼Œç”¨ä»¥ç”Ÿæˆ64ä½å“ˆå¸Œå€¼
+	HASHITEM *m_pTT;					 //ç½®æ¢è¡¨å¤´æŒ‡é’ˆ
+	UINT m_HashKey32;				     //32ä½å“ˆå¸Œå€¼
+	LONGLONG m_HashKey64;			     //64ä½å“ˆå¸Œå€¼
 };
 

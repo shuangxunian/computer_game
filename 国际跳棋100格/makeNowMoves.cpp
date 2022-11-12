@@ -23,7 +23,7 @@ bool makeNowMoves::BING_FOUR_DIRECTION_CAN_EAT(int nowX,int nowY)
 		return false;
 }
 
-makeNowMoves::makeNowMoves(void)//³õÊ¼»¯ÆåÅÌ
+makeNowMoves::makeNowMoves(void)//åˆå§‹åŒ–æ£‹ç›˜
 {
 	int i,j;
 	for(j=0;j<10;j++)
@@ -45,8 +45,8 @@ makeNowMoves::~makeNowMoves(void)
 }
 
 
-void makeNowMoves::copy(int Color,int Board[][10])//»ñÈ¡µ±Ç°µÄÆåÅÌĞÅÏ¢£¬ºÍµ±Ç°µÄ×ß×Ó·½£¬Ã¿´ÎÉú³ÉÕĞ·¨
-{													//¶¼ĞèÒª³õÊ¼»¯theBestEatNum£¬nowTheNumberOfMove
+void makeNowMoves::copy(int Color,int Board[][10])//è·å–å½“å‰çš„æ£‹ç›˜ä¿¡æ¯ï¼Œå’Œå½“å‰çš„èµ°å­æ–¹ï¼Œæ¯æ¬¡ç”Ÿæˆæ‹›æ³•
+{													//éƒ½éœ€è¦åˆå§‹åŒ–theBestEatNumï¼ŒnowTheNumberOfMove
 	for(int j=0;j<10;j++)
 		for(int i=0;i<10;i++)
 		board[i][j]=Board[i][j];
@@ -67,20 +67,20 @@ int makeNowMoves::allMove(int board[][10],MOVE movesCoutainer[200],int Color)
 			int nowY=j;
 			
 			
-			//±øµÄ×ß·¨Éú³É
-			if(board[i][j]==nowColor)//Èç¹ûµ±Ç°Æå×ÓÊÇ±ø
+			//å…µçš„èµ°æ³•ç”Ÿæˆ
+			if(board[i][j]==nowColor)//å¦‚æœå½“å‰æ£‹å­æ˜¯å…µ
 			{
 				nowTheMove.Kind=nowColor;
 				if(BING_FOUR_DIRECTION_CAN_EAT(nowX,nowY))
 				{
 					nowTheMove.move_star_x=nowX;
 					nowTheMove.move_star_y=nowY;
-					makeNowBingMove(i,j,0,movesCoutainer);//Éú³Éµ±Ç°±øÄÜ³ÔµÄÕĞ·¨
+					makeNowBingMove(i,j,0,movesCoutainer);//ç”Ÿæˆå½“å‰å…µèƒ½åƒçš„æ‹›æ³•
 				}
-				else//Èç¹û±ø²»ÄÜ³ÔÔÚ¿´Õâ¸ö
+				else//å¦‚æœå…µä¸èƒ½åƒåœ¨çœ‹è¿™ä¸ª
 				{
-					if(theBestEatNum==0&&board[nowX+directions[nowColor-1][0]][nowY+directions[nowColor-1][1]]==EMPTY&&(nowX+directions[nowColor-1][0])<10&&(nowX+directions[nowColor-1][0])>=0&&(nowY+directions[nowColor-1][1])<10&&(nowY+directions[nowColor-1][1])>=0)//°×ÆåµÄÇ°·½ÊÇÖ¸
-					{																								  //ÏòÏÂ£¬¶øºÚÆåµÄÇ°·½ÊÇÏòÉÏ
+					if(theBestEatNum==0&&board[nowX+directions[nowColor-1][0]][nowY+directions[nowColor-1][1]]==EMPTY&&(nowX+directions[nowColor-1][0])<10&&(nowX+directions[nowColor-1][0])>=0&&(nowY+directions[nowColor-1][1])<10&&(nowY+directions[nowColor-1][1])>=0)//ç™½æ£‹çš„å‰æ–¹æ˜¯æŒ‡
+					{																								  //å‘ä¸‹ï¼Œè€Œé»‘æ£‹çš„å‰æ–¹æ˜¯å‘ä¸Š
 						nowTheMove.move_star_x=nowX;
 						nowTheMove.move_star_y=nowY;
 						nowTheMove.move_stop_x=nowX+directions[nowColor-1][0];
@@ -90,7 +90,7 @@ int makeNowMoves::allMove(int board[][10],MOVE movesCoutainer[200],int Color)
 						//cout<<nowTheNumberOfMove<<endl;
 						//if(nowTheNumberOfMove>=50)
 						//{
-						//	cout<<"Òç³ö£¬A´¦"<<nowTheNumberOfMove<<endl;
+						//	cout<<"æº¢å‡ºï¼ŒAå¤„"<<nowTheNumberOfMove<<endl;
 						//	system("pause");
 						//}
 
@@ -109,7 +109,7 @@ int makeNowMoves::allMove(int board[][10],MOVE movesCoutainer[200],int Color)
 						////cout<<nowTheNumberOfMove<<endl;
 						//if(nowTheNumberOfMove>=50)
 						//{
-						//	cout<<"Òç³ö£¬B´¦"<<nowTheNumberOfMove<<endl;
+						//	cout<<"æº¢å‡ºï¼ŒBå¤„"<<nowTheNumberOfMove<<endl;
 						//	system("pause");
 						//}
 
@@ -119,22 +119,22 @@ int makeNowMoves::allMove(int board[][10],MOVE movesCoutainer[200],int Color)
 					}
 				}
 			}
-		//ÍõÆåµÄ×ß·¨Éú³É
-		if(board[i][j]==nowColor+2)//Èç¹ûµ±Ç°Æå×ÓÊÇÍõÆå
+		//ç‹æ£‹çš„èµ°æ³•ç”Ÿæˆ
+		if(board[i][j]==nowColor+2)//å¦‚æœå½“å‰æ£‹å­æ˜¯ç‹æ£‹
 				{
 					nowTheMove.Kind=nowColor+2;
 					nowTheMove.move_star_x=nowX;
 					nowTheMove.move_star_y=nowY;
 					if(KING_FOUR_DIRECTION_CAN_EAT(nowX,nowY))
 					{
-						makeNowKingMove(i,j,0,movesCoutainer);//Éú³Éµ±Ç°ÍõµÄÕĞ·¨
+						makeNowKingMove(i,j,0,movesCoutainer);//ç”Ÿæˆå½“å‰ç‹çš„æ‹›æ³•
 					}
 					else
 					{	
 						int recordTheX=nowTheMove.move_star_x=nowX;
 						int recordTheY=nowTheMove.move_star_y=nowY;
 						int howLong=0;
-						//ÏÈÅĞ¶ÏÕâ¸ö·½ÏòÄÜ²»ÄÜ×ß£¬ifºóÃæÄÇÃ´³¤¾ÍÊÇÕâ¸öÒâË¼						
+						//å…ˆåˆ¤æ–­è¿™ä¸ªæ–¹å‘èƒ½ä¸èƒ½èµ°ï¼Œifåé¢é‚£ä¹ˆé•¿å°±æ˜¯è¿™ä¸ªæ„æ€						
 						for(int k=0;k<4;k++)
 						{
 							if(theBestEatNum==0&&board[nowX+directions[k][0]][nowY+directions[k][1]]==EMPTY&&nowX+directions[k][0]>=0&&nowX+directions[k][0]<10&&nowY+directions[k][1]>=0&&nowY+directions[k][1]<10)
@@ -150,13 +150,13 @@ int makeNowMoves::allMove(int board[][10],MOVE movesCoutainer[200],int Color)
 
 									//if(nowTheNumberOfMove>=50)
 									//{
-									//	cout<<"Òç³ö£¬C´¦"<<nowTheNumberOfMove<<endl;
+									//	cout<<"æº¢å‡ºï¼ŒCå¤„"<<nowTheNumberOfMove<<endl;
 									//	system("pause");
 									//}
 
 
 									movesCoutainer[nowTheNumberOfMove]=nowTheMove;
-									nowTheNumberOfMove++;//ÔÚÕâ¸öÎ»ÖÃ¼ÓÒ»£¬ÒÆ¶¯µ½ÏÂÒ»¸öÎ»ÖÃ£»
+									nowTheNumberOfMove++;//åœ¨è¿™ä¸ªä½ç½®åŠ ä¸€ï¼Œç§»åŠ¨åˆ°ä¸‹ä¸€ä¸ªä½ç½®ï¼›
 								}
 								nowX=i;
 								nowY=j;
@@ -166,15 +166,15 @@ int makeNowMoves::allMove(int board[][10],MOVE movesCoutainer[200],int Color)
 				}
 			
 			}
-	//¹ıÂËÕĞ·¨µÄº¯Êı·ÅÔÚÕâÀï
+	//è¿‡æ»¤æ‹›æ³•çš„å‡½æ•°æ”¾åœ¨è¿™é‡Œ
 	return nowTheNumberOfMove;
 }
 
 
-void makeNowMoves::makeNowBingMove(int nowX,int nowY,int eatHowMany,MOVE movesCoutainer[200])//Õâ¸öÆäÊµÊÇÖ»Éú³ÉÁË±øÄÜ³ÔµÄÕĞ·¨
+void makeNowMoves::makeNowBingMove(int nowX,int nowY,int eatHowMany,MOVE movesCoutainer[200])//è¿™ä¸ªå…¶å®æ˜¯åªç”Ÿæˆäº†å…µèƒ½åƒçš„æ‹›æ³•
 {
 //	eatHowMany=0;
-//	nowTheMove.Kind=nowColor;//Ç°ÃæÕâ¸ö¹¤×÷×ö¹ıÁË£¬µ«×Ü¸Ğ¾õÈç¹ûÕâÑù×öµÄ»°¸Ğ¾õÕâ¸öº¯ÊıµÄ¹¦ÄÜºÍÃû×Ö²»·ûºÏ
+//	nowTheMove.Kind=nowColor;//å‰é¢è¿™ä¸ªå·¥ä½œåšè¿‡äº†ï¼Œä½†æ€»æ„Ÿè§‰å¦‚æœè¿™æ ·åšçš„è¯æ„Ÿè§‰è¿™ä¸ªå‡½æ•°çš„åŠŸèƒ½å’Œåå­—ä¸ç¬¦åˆ
 //	nowTheMove.move_star_x=nowX;
 //	nowTheMove.move_star_y=nowY;
 	int flagX=nowX;
@@ -186,8 +186,8 @@ void makeNowMoves::makeNowBingMove(int nowX,int nowY,int eatHowMany,MOVE movesCo
 			[nowY+directions[i][1]]==3-nowColor+2)&&board[nowX+2*directions[i][0]][nowY+2*directions[i][1]]==EMPTY&&
 			nowX+2*directions[i][0]>=0&&nowX+2*directions[i][0]<10&&nowY+2*directions[i][1]>=0&&nowY+2*directions[i][1]<10)
 		{
-			int record=board[nowX+directions[i][0]][nowY+directions[i][1]];//Õâ¸öÎ»ÖÃµÄ×´Ì¬ĞèÒª¼ÇÂ¼
-			board[nowX+directions[i][0]][nowY+directions[i][1]]=BAR;//½«¼ÇÂ¼¹ıµÄ×´Ì¬¸üĞÂÎªÆÁÕÏ£¬²»ÄÜÍ¨¹ı¸Ã´¦ĞĞÆå£¬»ò´îÇÅ
+			int record=board[nowX+directions[i][0]][nowY+directions[i][1]];//è¿™ä¸ªä½ç½®çš„çŠ¶æ€éœ€è¦è®°å½•
+			board[nowX+directions[i][0]][nowY+directions[i][1]]=BAR;//å°†è®°å½•è¿‡çš„çŠ¶æ€æ›´æ–°ä¸ºå±éšœï¼Œä¸èƒ½é€šè¿‡è¯¥å¤„è¡Œæ£‹ï¼Œæˆ–æ­æ¡¥
 			nowTheMove.eatKind[eatHowMany]=record;
 			recordX=nowTheMove.eatPoint[eatHowMany][0]=nowX+directions[i][0];
 			recordY=nowTheMove.eatPoint[eatHowMany][1]=nowY+directions[i][1];
@@ -202,11 +202,11 @@ void makeNowMoves::makeNowBingMove(int nowX,int nowY,int eatHowMany,MOVE movesCo
 			}
 			else
 			{
-				if(eatHowMany+1>theBestEatNum)//eatHowManyÊµ¼ÊÉÏ±ÈÕæÕıµÄµ±Ç°³Ô×ÓÊıÒªÉÙ1ÕâÑù×öÒ²Ğí²¢²»ºÃÀí½â£¬µ«ÊÇÄØ·½±ã¸ø½á¹¹ÌåÀïµÄÊı×é¶¨Î»
+				if(eatHowMany+1>theBestEatNum)//eatHowManyå®é™…ä¸Šæ¯”çœŸæ­£çš„å½“å‰åƒå­æ•°è¦å°‘1è¿™æ ·åšä¹Ÿè®¸å¹¶ä¸å¥½ç†è§£ï¼Œä½†æ˜¯å‘¢æ–¹ä¾¿ç»™ç»“æ„ä½“é‡Œçš„æ•°ç»„å®šä½
 				{
-					nowTheNumberOfMove=0;//ÓĞÕâ¸ö¸Ğ¾õÖ®Ç°¾Í²»ÓÃ³õÊ¼»¯ÁË£¬µ«ÊÇÄØ£¬ÎªÁË±£ÏÕ°Ñ³õÊ¼»¯µÄÄÇ¸öÁô×Å°É
+					nowTheNumberOfMove=0;//æœ‰è¿™ä¸ªæ„Ÿè§‰ä¹‹å‰å°±ä¸ç”¨åˆå§‹åŒ–äº†ï¼Œä½†æ˜¯å‘¢ï¼Œä¸ºäº†ä¿é™©æŠŠåˆå§‹åŒ–çš„é‚£ä¸ªç•™ç€å§
 					movesCoutainer[nowTheNumberOfMove]=nowTheMove;
-					nowTheNumberOfMove++;//ÔÚÕâ¸öÎ»ÖÃ¼ÓÒ»£¬ÒÆ¶¯µ½ÏÂÒ»¸öÎ»ÖÃ£»
+					nowTheNumberOfMove++;//åœ¨è¿™ä¸ªä½ç½®åŠ ä¸€ï¼Œç§»åŠ¨åˆ°ä¸‹ä¸€ä¸ªä½ç½®ï¼›
 					theBestEatNum=eatHowMany+1;
 				}
 				else if(eatHowMany+1==theBestEatNum)
@@ -215,18 +215,18 @@ void makeNowMoves::makeNowBingMove(int nowX,int nowY,int eatHowMany,MOVE movesCo
 					
 					//if(nowTheNumberOfMove>=50)
 					//{
-					//	cout<<"Òç³ö£¬D´¦"<<nowTheNumberOfMove<<endl;
+					//	cout<<"æº¢å‡ºï¼ŒDå¤„"<<nowTheNumberOfMove<<endl;
 					//	system("pause");
 					//}
 
 
 					movesCoutainer[nowTheNumberOfMove]=nowTheMove;
-					nowTheNumberOfMove++;//ÔÚÕâ¸öÎ»ÖÃ¼ÓÒ»£¬ÒÆ¶¯µ½ÏÂÒ»¸öÎ»ÖÃ£»
+					nowTheNumberOfMove++;//åœ¨è¿™ä¸ªä½ç½®åŠ ä¸€ï¼Œç§»åŠ¨åˆ°ä¸‹ä¸€ä¸ªä½ç½®ï¼›
 				}
 			}
-			board[recordX][recordY]=record;//½«±ä³ÉÆÁÕÏµÄµØ·½»¹Ô­ÎªÔ­À´µÄ×´Ì¬
+			board[recordX][recordY]=record;//å°†å˜æˆå±éšœçš„åœ°æ–¹è¿˜åŸä¸ºåŸæ¥çš„çŠ¶æ€
 		}
-		nowX=flagX;//½«×ø±ê»¹Ô­ÎªÕâ¸öÆå×ÓµÄÔ­Ê¼Î»ÖÃ
+		nowX=flagX;//å°†åæ ‡è¿˜åŸä¸ºè¿™ä¸ªæ£‹å­çš„åŸå§‹ä½ç½®
 		nowY=flagY;//
 	}
 }
@@ -266,21 +266,21 @@ void makeNowMoves::makeNowKingMove(int nowX,int nowY,int eatHowMany,MOVE movesCo
 	int recordY;
 	int howLong;
 	int record;
-	for(int i=0;i<4;i++)//4¸ö·½ÏòÖğ¸öÈ·ÈÏ£»
+	for(int i=0;i<4;i++)//4ä¸ªæ–¹å‘é€ä¸ªç¡®è®¤ï¼›
 	{
 		howLong=0;
-		//½øÈëÕâ¸öº¯ÊıµÄÌõ¼şÊÇ4¸ö·½ÏòÖÁÉÙÒ»¸ö·½ÏòÄÜ³Ô£¬ËùÒÔ´Ë´¦²»±ØÒª×ö¶àÓàµÄÅĞ¶Ï
-		//Õâ¸öwhileÊÇÅĞ¶ÏÔÚÓöµ½ÕÏ°­Ö®Ç°£¨Ìø³ÔÍêµÄÆå×Ó£¬±ß½ç£¬×Ô¼ºµÄÆå×Ó£¬¶Ô·½µÄÆå×Ó£©ÓĞ¼¸¸ö¿Õ£¬¼ÇÂ¼µ±Ç°³¤¶È¸øhowLong
+		//è¿›å…¥è¿™ä¸ªå‡½æ•°çš„æ¡ä»¶æ˜¯4ä¸ªæ–¹å‘è‡³å°‘ä¸€ä¸ªæ–¹å‘èƒ½åƒï¼Œæ‰€ä»¥æ­¤å¤„ä¸å¿…è¦åšå¤šä½™çš„åˆ¤æ–­
+		//è¿™ä¸ªwhileæ˜¯åˆ¤æ–­åœ¨é‡åˆ°éšœç¢ä¹‹å‰ï¼ˆè·³åƒå®Œçš„æ£‹å­ï¼Œè¾¹ç•Œï¼Œè‡ªå·±çš„æ£‹å­ï¼Œå¯¹æ–¹çš„æ£‹å­ï¼‰æœ‰å‡ ä¸ªç©ºï¼Œè®°å½•å½“å‰é•¿åº¦ç»™howLong
 		while(board[nowX+directions[i][0]][nowY+directions[i][1]]==EMPTY&&nowX+directions[i][0]>=0&&nowX+directions[i][0]<10&&nowY+directions[i][1]>=0&&nowY+directions[i][1]<10)
 		{
 			nowX+=directions[i][0];
 			nowY+=directions[i][1];
 			howLong++;
 		}
-		//Èç¹ûÕâ¸ö·½ÏòÂú×ãÌø³ÔµÄÌõ¼ş
+		//å¦‚æœè¿™ä¸ªæ–¹å‘æ»¡è¶³è·³åƒçš„æ¡ä»¶
 		if((board[nowX+directions[i][0]][nowY+directions[i][1]]==3-nowColor||board[nowX+directions[i][0]][nowY+directions[i][1]]==3-nowColor+2)&&board[nowX+2*directions[i][0]][nowY+2*directions[i][1]]==EMPTY&&nowX+2*directions[i][0]>=0&&nowX+2*directions[i][0]<10&&nowY+2*directions[i][1]>=0&&nowY+2*directions[i][1]<10)
 		{
-			//ÏÈ½«³ÔµôµÄµØ·½¼ÇÂ¼£¬²¢ÇÒË¢ĞÂ³ÉÆÁÕÏBAR£¬ÕĞ·¨½áÊøµÄĞèÒª»¹Ô­
+			//å…ˆå°†åƒæ‰çš„åœ°æ–¹è®°å½•ï¼Œå¹¶ä¸”åˆ·æ–°æˆå±éšœBARï¼Œæ‹›æ³•ç»“æŸçš„éœ€è¦è¿˜åŸ
 			record=board[nowX+directions[i][0]][nowY+directions[i][1]];
 			board[nowX+directions[i][0]][nowY+directions[i][1]]=BAR;
 			nowTheMove.eatKind[eatHowMany]=record;
@@ -293,45 +293,45 @@ void makeNowMoves::makeNowKingMove(int nowX,int nowY,int eatHowMany,MOVE movesCo
 			howLong++;
 			while(board[nowX+directions[i][0]][nowY+directions[i][1]]==EMPTY&&nowX+directions[i][0]>=0&&nowX+directions[i][0]<10&&nowY+directions[i][1]>=0&&nowY+directions[i][1]<10)
 			{
-				nowX+=directions[i][0];//Ë¢ĞÂµ±Ç°×ø±ê
+				nowX+=directions[i][0];//åˆ·æ–°å½“å‰åæ ‡
 				nowY+=directions[i][1];
-				howLong++;//¼ÇÂ¼¸Ã´ÎÕâ¸öÎ»ÖÃÌø³Ô³¤¶È£¬
-				nowTheMove.move_stop_x=nowX;//¼ÇÂ¼µ±Ç°×ø±êµ±×öÄ¿Ç°ÕĞ·¨ÖÕµã
+				howLong++;//è®°å½•è¯¥æ¬¡è¿™ä¸ªä½ç½®è·³åƒé•¿åº¦ï¼Œ
+				nowTheMove.move_stop_x=nowX;//è®°å½•å½“å‰åæ ‡å½“åšç›®å‰æ‹›æ³•ç»ˆç‚¹
 				nowTheMove.move_stop_y=nowY;
-				nowTheMove.eatHowMany=eatHowMany+1;//¼ÇÂ¼µ±Ç°³Ô×ÓÊıÁ¿£»
+				nowTheMove.eatHowMany=eatHowMany+1;//è®°å½•å½“å‰åƒå­æ•°é‡ï¼›
 				if(KING_FOUR_DIRECTION_CAN_EAT(nowX,nowY))
 				{
-					makeNowKingMove(nowX,nowY,eatHowMany+1,movesCoutainer);//Õâ¸öÎ»ÖÃÈç¹ûÄÜ³ÔµÄ»°µİ¹éÒ»ÏÂµ½ÏÂÒ»¸öÎ»ÖÃ£»
+					makeNowKingMove(nowX,nowY,eatHowMany+1,movesCoutainer);//è¿™ä¸ªä½ç½®å¦‚æœèƒ½åƒçš„è¯é€’å½’ä¸€ä¸‹åˆ°ä¸‹ä¸€ä¸ªä½ç½®ï¼›
 				}
 				else
 				{
-					if(eatHowMany+1>theBestEatNum)//Éú³ÉµÄ³Ô×ÓÊıÁ¿´óÓÚµ±½ñ×î´ó³Ô×ÓÊıÁ¿
+					if(eatHowMany+1>theBestEatNum)//ç”Ÿæˆçš„åƒå­æ•°é‡å¤§äºå½“ä»Šæœ€å¤§åƒå­æ•°é‡
 					{
 						theBestEatNum=eatHowMany+1;
-						nowTheNumberOfMove=0;//´æÈëÕĞ·¨ÈİÆ÷µÄÊ×Î»£»
+						nowTheNumberOfMove=0;//å­˜å…¥æ‹›æ³•å®¹å™¨çš„é¦–ä½ï¼›
 						movesCoutainer[nowTheNumberOfMove]=nowTheMove;
-						nowTheNumberOfMove++;//ÒÆ¶¯µ½ÏÂÒ»Î»£»
+						nowTheNumberOfMove++;//ç§»åŠ¨åˆ°ä¸‹ä¸€ä½ï¼›
 					}
-					else if(eatHowMany+1==theBestEatNum)//Éú³ÉÁËºÍµ±Ç°Ò»ÑùµÄ³Ô×ÓÊıÁ¿
+					else if(eatHowMany+1==theBestEatNum)//ç”Ÿæˆäº†å’Œå½“å‰ä¸€æ ·çš„åƒå­æ•°é‡
 					{
 						
 						
 /*						if(nowTheNumberOfMove>=50)
 						{
-							cout<<"Òç³ö£¬E´¦"<<nowTheNumberOfMove<<endl;
+							cout<<"æº¢å‡ºï¼ŒEå¤„"<<nowTheNumberOfMove<<endl;
 							system("pause");
 						}
 						
 					*/	
 						movesCoutainer[nowTheNumberOfMove]=nowTheMove;
-						nowTheNumberOfMove++;//ÒÆ¶¯µ½ÏÂÒ»Î»£»
+						nowTheNumberOfMove++;//ç§»åŠ¨åˆ°ä¸‹ä¸€ä½ï¼›
 					}
 				}
-				//board[recordX][recordY]=record;//»¹Ô­ÕÏ°­ÎªÔ­Îï
+				//board[recordX][recordY]=record;//è¿˜åŸéšœç¢ä¸ºåŸç‰©
 			}
-			board[recordX][recordY]=record;//»¹Ô­ÕÏ°­ÎªÔ­Îï
+			board[recordX][recordY]=record;//è¿˜åŸéšœç¢ä¸ºåŸç‰©
 		}
-		nowX=flagX;//½«×ø±ê»¹Ô­ÎªÕâ¸öÆå×ÓµÄÔ­Ê¼Î»ÖÃ
+		nowX=flagX;//å°†åæ ‡è¿˜åŸä¸ºè¿™ä¸ªæ£‹å­çš„åŸå§‹ä½ç½®
 		nowY=flagY;
 	}
 }

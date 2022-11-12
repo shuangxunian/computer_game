@@ -117,7 +117,7 @@ int CSearchengine::IsGameOver()
 		if(unColorWin ==0)
 			return 99999;
 	if (ColorWin > 0 && unColorWin > 0)
-		return 3;  //û���վ�
+		return 3;  //Ã»ÓÐÖÕ¾Ö
 	return 4;
 	
 }

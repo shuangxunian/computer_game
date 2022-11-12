@@ -1,21 +1,21 @@
 #pragma once
 
 
-// CEvel_Dialog ¶Ô»°¿ò
+// CEvel_Dialog å¯¹è¯æ¡†
 
 class CEvel_Dialog : public CDialogEx
 {
 	DECLARE_DYNAMIC(CEvel_Dialog)
 
 public:
-	CEvel_Dialog(CWnd* pParent = NULL);   // ±ê×¼¹¹Ôìº¯Êı
+	CEvel_Dialog(CWnd* pParent = NULL);   // æ ‡å‡†æ„é€ å‡½æ•°
 	virtual ~CEvel_Dialog();
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_DIALOG_EVEL };
 
 protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV Ö§³Ö
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV æ”¯æŒ
 	CEdit Edit_Evel;
 	BOOL InitFinish;
 	afx_msg void OnSize(UINT nType, int cx, int cy);

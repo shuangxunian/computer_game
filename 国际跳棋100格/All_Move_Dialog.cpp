@@ -1,4 +1,4 @@
-// All_Move_Dialog.cpp : ÊµÏÖÎÄ¼þ
+// All_Move_Dialog.cpp : å®žçŽ°æ–‡ä»¶
 //
 
 #include "stdafx.h"
@@ -7,7 +7,7 @@
 #include "afxdialogex.h"
 
 
-// CAll_Move_Dialog ¶Ô»°¿ò
+// CAll_Move_Dialog å¯¹è¯æ¡†
 
 IMPLEMENT_DYNAMIC(CAll_Move_Dialog, CDialogEx)
 
@@ -34,7 +34,7 @@ BEGIN_MESSAGE_MAP(CAll_Move_Dialog, CDialogEx)
 	ON_MESSAGE(UpdateMoveDataMess, &CAll_Move_Dialog::OnUpdateMoveData)
 END_MESSAGE_MAP()
 
-// CAll_Move_Dialog ÏûÏ¢´¦Àí³ÌÐò
+// CAll_Move_Dialog æ¶ˆæ¯å¤„ç†ç¨‹åº
 
 void CAll_Move_Dialog::OnSize(UINT nType, int cx, int cy)
 {
@@ -43,9 +43,9 @@ void CAll_Move_Dialog::OnSize(UINT nType, int cx, int cy)
 	pWnd = GetDlgItem(IDC_EDIT_All_Move);
 	if(pWnd!=NULL)
 	{	
-		pWnd->SetWindowPos(0,0,0,cx-21,cy-23,SWP_NOZORDER | SWP_NOMOVE ); //°Ñ±à¼­¿Ø¼þµÄ´óÐ¡ÉèÎª(100,80)£¬Î»ÖÃ²»±ä
+		pWnd->SetWindowPos(0,0,0,cx-21,cy-23,SWP_NOZORDER | SWP_NOMOVE ); //æŠŠç¼–è¾‘æŽ§ä»¶çš„å¤§å°è®¾ä¸º(100,80)ï¼Œä½ç½®ä¸å˜
 	}
-	// TODO: ÔÚ´Ë´¦Ìí¼ÓÏûÏ¢´¦Àí³ÌÐò´úÂë
+	// TODO: åœ¨æ­¤å¤„æ·»åŠ æ¶ˆæ¯å¤„ç†ç¨‹åºä»£ç 
 }
 
 afx_msg LRESULT CAll_Move_Dialog::OnUpdateMoveData(WPARAM wParam, LPARAM lParam)
@@ -54,10 +54,10 @@ afx_msg LRESULT CAll_Move_Dialog::OnUpdateMoveData(WPARAM wParam, LPARAM lParam)
 	m_Font.CreateFont(0,0,0,0,  
 		0,FALSE,FALSE,0,ANSI_CHARSET,  
 		OUT_DEFAULT_PRECIS,CLIP_DEFAULT_PRECIS,  
-		DEFAULT_QUALITY,FF_SWISS,(LPCTSTR)"Arial");//´´½¨×ÖÌå  
+		DEFAULT_QUALITY,FF_SWISS,(LPCTSTR)"Arial");//åˆ›å»ºå­—ä½“  
 	Edit_All_Move.SetFont(&m_Font);*/
 //	Edit_All_Move.SetSel(1); 
-	Edit_All_Move.SetWindowText(_T("ÊýÁ¿	Æðµã	Âäµã	³Ô×ÓÊý	³Ô×Ó\r\n"));
+	Edit_All_Move.SetWindowText(_T("æ•°é‡	èµ·ç‚¹	è½ç‚¹	åƒå­æ•°	åƒå­\r\n"));
 	MOVE *All_Move;
 	All_Move=(MOVE*)lParam;
 	CString All_Move_str;

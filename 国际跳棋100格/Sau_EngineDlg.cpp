@@ -21,24 +21,24 @@
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
-int turn = 3;////////////ԭ�������ļ����turn����������
+int turn = 3;////////////原本保存文件里的turn定义在这里
 
 int StepCount = 0;
 
-// ����Ӧ�ó��򡰹��ڡ��˵���� CAboutDlg �Ի���
+// 用于应用程序“关于”菜单项的 CAboutDlg 对话框
 
 class CAboutDlg : public CDialogEx
 {
 public:
 	CAboutDlg();
 
-// �Ի�������
+// 对话框数据
 	enum { IDD = IDD_ABOUTBOX };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV ֧��
+	virtual void DoDataExchange(CDataExchange* pDX);    // DDX/DDV 支持
 
-// ʵ��
+// 实现
 protected:
 	DECLARE_MESSAGE_MAP()
 public:
@@ -58,7 +58,7 @@ BEGIN_MESSAGE_MAP(CAboutDlg, CDialogEx)
 END_MESSAGE_MAP()
 
 
-// CSau_EngineDlg �Ի���
+// CSau_EngineDlg 对话框
 
 
 CSau_EngineDlg::CSau_EngineDlg(CWnd* pParent /*=NULL*/)
@@ -147,16 +147,16 @@ HCURSOR CSau_EngineDlg::OnQueryDragIcon()
 
 int CSau_EngineDlg::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	CWelcome Welcome;                 //���������������ʵ��  
+	CWelcome Welcome;                 //创建启动窗口类的实例  
 	Welcome.Create(IDB_BITMAP_Welcome);  
 	Welcome.CenterWindow();  
 	Welcome.UpdateWindow();          //send WM_PAINT  
 	Sleep(1500);  
-	Welcome.DestroyWindow();//���ٳ�ʼ���洰��  
+	Welcome.DestroyWindow();//销毁初始画面窗口  
 	if (CDialogEx::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	// TODO:  �ڴ�������ר�õĴ�������
+	// TODO:  在此添加您专用的创建代码
 
 	return 0;
 }
@@ -166,9 +166,9 @@ BOOL CSau_EngineDlg::OnInitDialog()
 {
 	CDialogEx::OnInitDialog();
 
-	// ��������...���˵������ӵ�ϵͳ�˵��С�
+	// 将“关于...”菜单项添加到系统菜单中。
 
-	// IDM_ABOUTBOX ������ϵͳ���Χ�ڡ�
+	// IDM_ABOUTBOX 必须在系统命令范围内。
 	ASSERT((IDM_ABOUTBOX & 0xFFF0) == IDM_ABOUTBOX);
 	ASSERT(IDM_ABOUTBOX < 0xF000);
 
@@ -186,38 +186,38 @@ BOOL CSau_EngineDlg::OnInitDialog()
 		}
 	}
 	 
-	// ���ô˶Ի����ͼ�ꡣ��Ӧ�ó��������ڲ��ǶԻ���ʱ����ܽ��Զ�
-	//  ִ�д˲���
-	SetIcon(m_hIcon, TRUE);			// ���ô�ͼ��
-	SetIcon(m_hIcon, FALSE);		// ����Сͼ��
+	// 设置此对话框的图标。当应用程序主窗口不是对话框时，框架将自动
+	//  执行此操作
+	SetIcon(m_hIcon, TRUE);			// 设置大图标
+	SetIcon(m_hIcon, FALSE);		// 设置小图标
 	ShowWindow(SW_HIDE);
 	m_Menu.LoadMenu(IDR_MENU1); 
 	SetMenu(&m_Menu);
 
-	// TODO: �ڴ����Ӷ���ĳ�ʼ������
+	// TODO: 在此添加额外的初始化代码
 	
-	//��ȡ���ڴ�С�Ե�������
+	//获取窗口大小以调整棋盘
 	RECT rt;
 	GetClientRect(&rt);
 	SetBoard(rt);
 	
-	//һЩĬ��ѡ�ģʽ������ ���棺Negascout+AlphaBeta��
+	//一些默认选项（模式：人人 引擎：Negascout+AlphaBeta）
 	Mode= HvsH;
 	Engine= Negascout|AlphaBeta	;
 	Is_Board_Inverse= Normal;
-	//�����Ϣ�Ĵ��ڿ�����ֵ���ŷ�����ʷ��
+	//输出信息的窗口开（估值，着发，历史）
 	OnAllMove();
 	OnMoveHistory();
 	OnEvel();
 	congli=0;
-	//�����̺߳��� ������
+	//声明线程函数 并创建
 	UINT AI_Thread(LPVOID pParam) ;
  	theApp.Handle_AI_Thread=AfxBeginThread(AI_Thread, NULL,NULL,NULL,CREATE_SUSPENDED); 
 	ShowWindow(SW_MAXIMIZE);
-	//״̬��
+	//状态栏
 	if(!m_Bar.Create(this))
 	{
-	  MessageBox("״̬����������", _T("����" ), MB_OK);
+	  MessageBox("状态栏创建错误！", _T("错误" ), MB_OK);
 	} 
 	m_Bar.SetIndicators(indicators,sizeof(indicators)/sizeof(UINT));
 	RECT rect;  
@@ -232,10 +232,10 @@ BOOL CSau_EngineDlg::OnInitDialog()
 	
 	if (!m_Pro.Create(WS_CHILD | WS_VISIBLE | PBS_SMOOTH,CRect(1,3,126,19),&m_Bar,1))
 	{
-		MessageBox("��������������", _T("����" ), MB_OK);
+		MessageBox("进度条创建错误！", _T("错误" ), MB_OK);
 	}
 	m_Pro.SetStep(4);
-	return TRUE;  // ���ǽ��������õ��ؼ������򷵻� TRUE
+	return TRUE;  // 除非将焦点设置到控件，否则返回 TRUE
 }
 
 void CSau_EngineDlg::OnPaint()
@@ -243,18 +243,18 @@ void CSau_EngineDlg::OnPaint()
 	
 	if (IsIconic())
 	{
-		CPaintDC dc(this); // ���ڻ��Ƶ��豸������
+		CPaintDC dc(this); // 用于绘制的设备上下文
 
 		SendMessage(WM_ICONERASEBKGND, reinterpret_cast<WPARAM>(dc.GetSafeHdc()), 0);
 
-		// ʹͼ���ڹ����������о���
+		// 使图标在工作区矩形中居中
 		int cxIcon = GetSystemMetrics(SM_CXICON);
 		int cyIcon = GetSystemMetrics(SM_CYICON);
 		CRect rect;
 		GetClientRect(&rect);
 		int x = (rect.Width() - cxIcon + 1) / 2;
 		int y = (rect.Height() - cyIcon + 1) / 2;
-		// ����ͼ��
+		// 绘制图标
 		dc.DrawIcon(x, y, m_hIcon);
 	}
 	else
@@ -284,20 +284,20 @@ void CSau_EngineDlg::PlayMySound(int i)
 
 	switch (i)
 	{
-	case 0://ѡ����Ч
-		strcpy_s(filename, "C:\\Users\\����\\Desktop\\Sau_Engine\\SOUND\\ѡ��.wav");
+	case 0://选子音效
+		strcpy_s(filename, "C:\\Users\\凯凯\\Desktop\\Sau_Engine\\SOUND\\选子.wav");
 		break;
-	case 1://������Ч
-		strcpy_s(filename, "C:\\Users\\����\\Desktop\\Sau_Engine\\SOUND\\����.wav");
+	case 1://落子音效
+		strcpy_s(filename, "C:\\Users\\凯凯\\Desktop\\Sau_Engine\\SOUND\\落子.wav");
 		break;
-	case 2://������Ч
-		strcpy_s(filename, "C:\\Users\\����\\Desktop\\Sau_Engine\\SOUND\\����.wav");
+	case 2://吃子音效
+		strcpy_s(filename, "C:\\Users\\凯凯\\Desktop\\Sau_Engine\\SOUND\\吃子.wav");
 		break;
 	default:
 		break;
 	}
 
-	//������Ч
+	//播放音效
 	PlaySound(filename, NULL, SND_NOWAIT | SND_FILENAME);
 
 }
@@ -383,11 +383,11 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 	CBitmap bitmap;
 	bitmap.LoadBitmap(IDB_BITMAP_Prompt);
 	PiecesDC.CreateCompatibleDC(dc);
-	CBitmap *OldBitmap = PiecesDC.SelectObject(&bitmap);//int i=Prompt_Move[0].move_star_x*d+d//int i=��10-Prompt_Move[0].move_star_x��*d+d//���̷�ת
+	CBitmap *OldBitmap = PiecesDC.SelectObject(&bitmap);//int i=Prompt_Move[0].move_star_x*d+d//int i=（10-Prompt_Move[0].move_star_x）*d+d//棋盘反转
 
 	POINT Prompt_Pt_Star,Prompt_Pt_Stop,Prompt_Pt_Eat[20];
 
-	if(SpareInput==-2)//���뷽ʽһ 
+	if(SpareInput==-2)//输入方式一 
 	{
 		if(Progress==Chose)
 		{
@@ -419,7 +419,7 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 					Prompt_Pt_Eat[i].y=(9-Prompt_Move[Mouse_Move].eatPoint[i][1])*d+d+d/12;
 				}
 			}
-			//������
+			//标记起点
 			switch(Board[Prompt_Move[0].move_star_x][Prompt_Move[0].move_star_y])
 			{
 				case 1:
@@ -431,10 +431,10 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 			case 4:
 				dc->StretchBlt(Prompt_Pt_Star.x,Prompt_Pt_Star.y,Size_Prompt,Size_Prompt,&PiecesDC,100,50,50,50,SRCCOPY);break;
 			}
-			//��ǿ������
+			//标记可行落点
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,50,50,50,50,SRCAND);
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,0,50,50,50,SRCPAINT);
-			//��ǳ���
+			//标记吃子
 			for(int i=0;i<Prompt_Move[0].eatHowMany;i++)
 			{
 				dc->StretchBlt(Prompt_Pt_Eat[i].x,Prompt_Pt_Eat[i].y,Size_Prompt,Size_Prompt,&PiecesDC,50,0,50,50,SRCAND);
@@ -483,10 +483,10 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 			case 4:
 				dc->StretchBlt(Prompt_Pt_Star.x,Prompt_Pt_Star.y,Size_Prompt,Size_Prompt,&PiecesDC,100,50,50,50,SRCCOPY);break;
 			}
-			//��ǵ�
+			//标记点
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,50,50,50,50,SRCAND);
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,0,50,50,50,SRCPAINT);
-			//��ǳ���
+			//标记吃子
 			for(int i=0;i<Prompt_Move[0].eatHowMany;i++)
 			{
 				dc->StretchBlt(Prompt_Pt_Eat[i].x,Prompt_Pt_Eat[i].y,Size_Prompt,Size_Prompt,&PiecesDC,50,0,50,50,SRCAND);
@@ -494,7 +494,7 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 			}
 		}
 	}
-	else //���뷽ʽ��
+	else //输入方式二
 	{
 		if(Is_Board_Inverse==Normal)
 		{ 
@@ -588,10 +588,10 @@ void CSau_EngineDlg::DrawPrompt(CClientDC *dc)
 			case 4:
 				dc->StretchBlt(Prompt_Pt_Star.x,Prompt_Pt_Star.y,Size_Prompt,Size_Prompt,&PiecesDC,100,50,50,50,SRCCOPY);break;
 			}
-			//��ǿ������
+			//标记可行落点
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,50,50,50,50,SRCAND);
 			dc->StretchBlt(Prompt_Pt_Stop.x,Prompt_Pt_Stop.y,Size_Prompt,Size_Prompt,&PiecesDC,0,50,50,50,SRCPAINT);
-			//��ǳ���
+			//标记吃子
 			for(int i=0;i<Prompt_Move[0].eatHowMany;i++)
 			{
 				dc->StretchBlt(Prompt_Pt_Eat[i].x,Prompt_Pt_Eat[i].y,Size_Prompt,Size_Prompt,&PiecesDC,50,0,50,50,SRCAND);
@@ -616,19 +616,19 @@ void CSau_EngineDlg::OnSize(UINT nType, int cx, int cy)
 	Board_Rect.top=d;
 	Board_Rect.right=d+d*10;
 	Board_Rect.bottom=d+d*10;
-	Invalidate(1);//�ػ�����
+	Invalidate(1);//重绘棋盘
 	UpdateWindow();
 	
 
-	// TODO: �ڴ˴�������Ϣ�����������
+	// TODO: 在此处添加消息处理程序代码
 }
 
 
 void CSau_EngineDlg::OnLButtonDown(UINT nFlags, CPoint point)
 {
-	// TODO: �ڴ�������Ϣ������������/�����Ĭ��ֵ
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
 
-	//����ѭ���� bug//////////////////////
+	//跳出循环体 bug//////////////////////
 	CPoint pt;
 	CRect Mouse_Rect;
 	if(Progress!=Blocked)
@@ -664,7 +664,7 @@ void CSau_EngineDlg::OnLButtonDown(UINT nFlags, CPoint point)
 								if(SToS(pt)==2)
 								{
 									::PostMessage(m_hWnd, WM_MY_MESSAGE, 0,0);
-									//����ѭ��
+									//跳出循环
 									i=10;j=10;
 								}
 							}
@@ -673,7 +673,7 @@ void CSau_EngineDlg::OnLButtonDown(UINT nFlags, CPoint point)
 								if(Spare_SToS(pt)==2)
 								{
 									::PostMessage(m_hWnd, WM_MY_MESSAGE, 0, 0);
-									//����ѭ��
+									//跳出循环
 									i=10;j=10;
 								}
 							}
@@ -694,12 +694,12 @@ void CSau_EngineDlg::OnEngine_N()
 {
  if (Engine&Negascout)
  {
-  GetMenu()->CheckMenuItem(ID_ENGINE_N,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+  GetMenu()->CheckMenuItem(ID_ENGINE_N,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
   Engine= Engine&~Negascout;
  }
  else
  {
-   GetMenu()->CheckMenuItem(ID_ENGINE_N,MF_BYCOMMAND|MF_CHECKED);//���
+   GetMenu()->CheckMenuItem(ID_ENGINE_N,MF_BYCOMMAND|MF_CHECKED);//标记
    Engine= Engine|Negascout;
  }
 
@@ -708,15 +708,15 @@ void CSau_EngineDlg::OnEngine_N()
 
 void CSau_EngineDlg::OnEngine_AB()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	if (Engine&AlphaBeta)
 	 {
-	  GetMenu()->CheckMenuItem(ID_ENGINE_AB,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+	  GetMenu()->CheckMenuItem(ID_ENGINE_AB,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
 	  Engine= Engine&~AlphaBeta;
 	 }
 	 else
 	 {
-	   GetMenu()->CheckMenuItem(ID_ENGINE_AB,MF_BYCOMMAND|MF_CHECKED);//���
+	   GetMenu()->CheckMenuItem(ID_ENGINE_AB,MF_BYCOMMAND|MF_CHECKED);//标记
 	   Engine= Engine|AlphaBeta;
 	 }
 }
@@ -724,15 +724,15 @@ void CSau_EngineDlg::OnEngine_AB()
 
 void CSau_EngineDlg::OnEngine_M()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	if (Engine&Minimax)
 	 {
-	  GetMenu()->CheckMenuItem(ID_ENGINE_M,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+	  GetMenu()->CheckMenuItem(ID_ENGINE_M,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
 	  Engine= Engine&~Minimax;
 	 }
 	 else
 	 {
-	   GetMenu()->CheckMenuItem(ID_ENGINE_M,MF_BYCOMMAND|MF_CHECKED);//���
+	   GetMenu()->CheckMenuItem(ID_ENGINE_M,MF_BYCOMMAND|MF_CHECKED);//标记
 	   Engine= Engine|Minimax;
 	 }
 }
@@ -740,31 +740,31 @@ void CSau_EngineDlg::OnEngine_M()
 
 void CSau_EngineDlg::OnMode_HvsAI()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	
-	   GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_CHECKED);//���
-	   GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	   GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+	   GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_CHECKED);//标记
+	   GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	   GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
 	   Mode=HvsAI;
 }
 
 
 void CSau_EngineDlg::OnMode_AIvsH()
 {
-	// TODO: �ڴ�����������������
-	GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_CHECKED);//���
-	GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+	// TODO: 在此添加命令处理程序代码
+	GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_CHECKED);//标记
+	GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
 	Mode=AIvsH;
 }
 
 
 void CSau_EngineDlg::OnMode_HvsH()
 {
-	// TODO: �ڴ�����������������
-	   GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_CHECKED);//���
-	   GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	   GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+	// TODO: 在此添加命令处理程序代码
+	   GetMenu()->CheckMenuItem(ID_MODE_HvsH,MF_BYCOMMAND|MF_CHECKED);//标记
+	   GetMenu()->CheckMenuItem(ID_MODE_HvsAI,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	   GetMenu()->CheckMenuItem(ID_MODE_AIvsH,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
 	   Mode=HvsH;
 }
 
@@ -780,17 +780,17 @@ void CSau_EngineDlg::OnNew_Game()
 	DrawChess(D_Pieces|D_Board);
 	if(Mode==HvsH)
 	{
-		Progress=Open;//����������
+		Progress=Open;//解除鼠标屏蔽
 	}
 	else if(Mode==HvsAI)
 	{
 		Human_Color=BLACK;
 		Computer_Color=WHITE;
-		Progress=Open;//����������
+		Progress=Open;//解除鼠标屏蔽
 	}
 	else if(Mode==AIvsH)
 	{
-		Progress=Blocked;//�������
+		Progress=Blocked;//屏蔽鼠标
 		Computer_Color=BLACK;
 		Human_Color=WHITE;
 	}
@@ -803,9 +803,9 @@ afx_msg LRESULT CSau_EngineDlg::The_Move_Finish(WPARAM wParam, LPARAM lParam)
 	if(wParam!=0)
 	{
 		if(wParam==BLACK)
-			MessageBox("�ף�������ʤ","�վ�", MB_OK);
+			MessageBox("白（蓝）方胜","终局", MB_OK);
 		else
-			MessageBox("�ڣ��죩��ʤ","�վ�", MB_OK);
+			MessageBox("黑（红）方胜","终局", MB_OK);
 		Save_File(Color);
 	}
 	else
@@ -826,14 +826,14 @@ afx_msg LRESULT CSau_EngineDlg::The_Move_Finish(WPARAM wParam, LPARAM lParam)
 					Show_All_Move();
 					Show_Evel();
 					ProgressStar();
-					AI_Star(Board, Color);//AI��ʼ ˼��
+					AI_Star(Board, Color);//AI开始 思考
 					return 0;
 				}
 				else if(Color==Human_Color)
 				{
 					Show_All_Move();
 					Show_Evel();
-					//�ָ��˵�
+					//恢复菜单
 					CMenu *pMenu = GetMenu();
 					if(pMenu)
 					{
@@ -889,7 +889,7 @@ afx_msg LRESULT CSau_EngineDlg::The_Move_Finish(WPARAM wParam, LPARAM lParam)
 					Show_The_Move(Prompt_Move);
 				}
 			}
-			if(SpareInput!=-2)SpareInput=-2;//�ָ����뷽ʽһ
+			if(SpareInput!=-2)SpareInput=-2;//恢复输入方式一
 			Get_All_Move();
 		}
 	}
@@ -897,21 +897,21 @@ afx_msg LRESULT CSau_EngineDlg::The_Move_Finish(WPARAM wParam, LPARAM lParam)
 }
 
 
-void CSau_EngineDlg::OnClose()//�� ����
+void CSau_EngineDlg::OnClose()//加 保存
 {
 	/*int i;
-	//MessageBox("���ڵȴ�AI�߳̽�����","AI Thread Message", MB_OK);
+	//MessageBox("正在等待AI线程结束！","AI Thread Message", MB_OK);
 	while(theApp.Thread_Sign==1);
 	theApp.Board_Mess.Add_Mess=Dele;
 	i=theApp.Handle_AI_Thread->ResumeThread();
 	//i=theApp.Handle_AI_Thread->ResumeThread();
 	Sleep(0);
 	while(theApp.Thread_Sign);
-	MessageBox("AI�߳��ѽ�����","AI Thread Message", MB_OK);
+	MessageBox("AI线程已结束！","AI Thread Message", MB_OK);
 
 
 	Sleep(1000);*/
-	// TODO: �ڴ�������Ϣ������������/�����Ĭ��ֵ
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	CDialogEx::OnClose();
 }
 
@@ -921,19 +921,19 @@ void CSau_EngineDlg::Get_Computer_Move()
 	Prompt_Move[0]=theApp.Move_Mess.The_Good_Move;
 	Mouse_Move=0;
 	if(theApp.Move_Mess.Add_Mess&Err_Engine_AB)
-		m_Bar.SetPaneText(2,"AlphaBeta����������������ѡ���ŷ���",1); 
+		m_Bar.SetPaneText(2,"AlphaBeta引擎引起出错！随机选择着法！",1); 
 	else if(theApp.Move_Mess.Add_Mess&Err_Engine_Check)
-		m_Bar.SetPaneText(2,"��������������������ѡ���ŷ���",1); 
+		m_Bar.SetPaneText(2,"备用引擎引起出错！随机选择着法！",1); 
 	else
 		m_Bar.SetPaneText(2,"AI_Thread_Suspend",1);
-	if(SpareInput!=-2)SpareInput=-2;//�ָ����뷽ʽһ
+	if(SpareInput!=-2)SpareInput=-2;//恢复输入方式一
 
 }
 
 
 void CSau_EngineDlg::AI_Star(int Board[][10], int Color)
 {
-	//����һЩ�˵�
+	//屏蔽一些菜单
 	CMenu *pMenu = GetMenu();
 	if(pMenu)
 	{
@@ -955,7 +955,7 @@ void CSau_EngineDlg::AI_Star(int Board[][10], int Color)
 		pMenu->EnableMenuItem(ID_ENGINE_AB, MF_DISABLED|MF_GRAYED);
 	}
 
-	//��ֵBoard_Mess
+	//赋值Board_Mess
 	for(int i=0;i<10;i++)
 		for(int j=0;j<10;j++)
 		{
@@ -963,7 +963,7 @@ void CSau_EngineDlg::AI_Star(int Board[][10], int Color)
 		}
 	theApp.Board_Mess.Add_Mess=Engine;
 	theApp.Board_Mess.Color=Color;
-	//�ָ��߳�
+	//恢复线程
 	theApp.Handle_AI_Thread->ResumeThread();
 }
 
@@ -992,12 +992,12 @@ void CSau_EngineDlg::Init_Board(int Board[10][10])
 int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 {
 	
-	if (Progress==Open)//ѡ������
+	if (Progress==Open)//选中棋子
 	{
 		Prompt_Move_Num=0;
 		for(int i=0;i< Move_Num;i++)
 		{			
-			if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//�����Ƿ�ƥ�䵽������� �����
+			if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//鼠标点是否匹配到棋子起点 并标记
 			{
 				Prompt_Move[Prompt_Move_Num]=All_Moves[i];
 				Prompt_Move_Num++;
@@ -1008,19 +1008,19 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 		{
 			Mouse_Move=-1;
 			DrawChess(D_Board|D_Pieces|D_Prompt);
-			return 0;//�ŷ�����
+			return 0;//着法进行
 		}
 		
 	}
-	else if (Progress==Chose)//����
+	else if (Progress==Chose)//走子
 	{
 	
-		if (Board[Mouse_Pt.x][Mouse_Pt.y]%2!=Color-1&&Board[Mouse_Pt.x][Mouse_Pt.y]!=0)//ѡ�б�������
+		if (Board[Mouse_Pt.x][Mouse_Pt.y]%2!=Color-1&&Board[Mouse_Pt.x][Mouse_Pt.y]!=0)//选中本方棋子
 		{	
 			int temp=0;
 			for(int i=0;i< Move_Num;i++)
 			{		
-				if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//�����Ƿ�ƥ�䵽������� �����
+				if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//鼠标点是否匹配到棋子起点 并标记
 				{
 					if(temp==0){Prompt_Move_Num=0;temp=1;}
 					Prompt_Move[Prompt_Move_Num]=All_Moves[i];
@@ -1030,7 +1030,7 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 			}	
 			Mouse_Move=-1;
 			DrawChess(D_Board|D_Pieces|D_Prompt);
-			return 0;//�ŷ�����
+			return 0;//着法进行
 		}
 		else
 		{
@@ -1043,7 +1043,7 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 						Prompt_Move[0]=Prompt_Move[i];
 						Progress=Blocked;
 						DrawChess(D_Board|D_Pieces|D_Prompt);
-						return 2;//�ŷ��غϽ���
+						return 2;//着法回合结束
 					}
 					else if(Prompt_Move[i].eatHowMany)
 					{
@@ -1053,7 +1053,7 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 								Prompt_Move[0]=Prompt_Move[i];
 								Progress=Blocked;
 								DrawChess(D_Board|D_Pieces|D_Prompt);
-								return 2;//�ŷ��غϽ���
+								return 2;//着法回合结束
 							}
 					}
 				}	
@@ -1066,7 +1066,7 @@ int CSau_EngineDlg::SToS(CPoint Mouse_Pt)
 
 void CSau_EngineDlg::OnMouseMove(UINT nFlags, CPoint point)
 {
-	// TODO: �ڴ�������Ϣ������������/�����Ĭ��ֵ
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	
 	for(int i=0;i<10;i++)
 	{
@@ -1155,13 +1155,13 @@ void CSau_EngineDlg::OnMouseMove(UINT nFlags, CPoint point)
 		{
 			Mouse_Move=Temp_Mouse_Move;
 			//PlayMySound(1);
-			DrawChess(D_Board|D_Pieces|D_Prompt);//�ػ�����
+			DrawChess(D_Board|D_Pieces|D_Prompt);//重绘棋盘
 		}
 
 		else if(ii==0&&Mouse_Move!=-1)
 		{
 			Mouse_Move=-1;
-			DrawChess(D_Board|D_Pieces|D_Prompt);//�ػ�����
+			DrawChess(D_Board|D_Pieces|D_Prompt);//重绘棋盘
 		}
 		if(ii==0)
 			Mouse_Move=-1;
@@ -1177,13 +1177,13 @@ int CSau_EngineDlg::Spare_SToS(CPoint Mouse_Pt)
 		
 		for(int i=0;i< Move_Num;i++)
 		{			
-			if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//�����Ƿ�ƥ�䵽������� �����
+			if(Mouse_Pt.x==All_Moves[i].move_star_x&&Mouse_Pt.y==All_Moves[i].move_star_y)//鼠标点是否匹配到棋子起点 并标记
 			{
 				Prompt_Move[0].move_star_x=Mouse_Pt.x;
 				Prompt_Move[0].move_star_y=Mouse_Pt.y;
 				DrawChess(D_Board|D_Pieces|D_Prompt);
 				SpareInput++;
-				if(SpareInput-1==All_Moves[i].eatHowMany)//ʵ��һ������Ϊ��
+				if(SpareInput-1==All_Moves[i].eatHowMany)//实际一定不会为真
 				{
 					SpareInput=-1;
 				}
@@ -1248,8 +1248,8 @@ int CSau_EngineDlg::Spare_SToS(CPoint Mouse_Pt)
 
 void CSau_EngineDlg::OnSpareInput()
 {
-	Progress=Open;//�������״̬
-	//�����ʱ�ŷ�
+	Progress=Open;//重置鼠标状态
+	//清空临时着法
 	Prompt_Move[0].move_star_x=0;
 	Prompt_Move[0].move_star_y=0;
 	Prompt_Move[0].move_stop_x=0;
@@ -1260,9 +1260,9 @@ void CSau_EngineDlg::OnSpareInput()
 		Prompt_Move[0].eatPoint[i][1]=0;
 	}
 	Prompt_Move[0].eatHowMany=0;
-	Invalidate(FALSE);//�ػ�����
+	Invalidate(FALSE);//重绘棋盘
 	SpareInput=0;
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 }
 
 
@@ -1270,23 +1270,23 @@ void CSau_EngineDlg::OnBoardInverse()
 {
 	if(Is_Board_Inverse==0)
 	{ 
-		GetMenu()->CheckMenuItem(ID_Board_Inverse,MF_BYCOMMAND|MF_CHECKED);//���
-		Invalidate(FALSE);//�ػ�����
+		GetMenu()->CheckMenuItem(ID_Board_Inverse,MF_BYCOMMAND|MF_CHECKED);//标记
+		Invalidate(FALSE);//重绘棋盘
 		Is_Board_Inverse=1;
 	}
 	else if(Is_Board_Inverse==1)
 	{
-		 GetMenu()->CheckMenuItem(ID_Board_Inverse,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-		 Invalidate(FALSE);//�ػ�����
+		 GetMenu()->CheckMenuItem(ID_Board_Inverse,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+		 Invalidate(FALSE);//重绘棋盘
 		 Is_Board_Inverse=0;
 	}  
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 }
 
 
 void CSau_EngineDlg::OnTime1s()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	int ID;
 	if(Time==1)ID=ID_Time_1s;
 	else if(Time==2)ID=ID_Time_2s;
@@ -1294,8 +1294,8 @@ void CSau_EngineDlg::OnTime1s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Time_1s,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Time_1s,MF_BYCOMMAND|MF_CHECKED);//标记
 	Time=1;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1303,7 +1303,7 @@ void CSau_EngineDlg::OnTime1s()
 
 void CSau_EngineDlg::OnTime2s()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	int ID;
 	if(Time==1)ID=ID_Time_1s;
 	else if(Time==2)ID=ID_Time_2s;
@@ -1311,8 +1311,8 @@ void CSau_EngineDlg::OnTime2s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Time_2s,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Time_2s,MF_BYCOMMAND|MF_CHECKED);//标记
 	Time=2;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1328,8 +1328,8 @@ void CSau_EngineDlg::OnTime5s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Time_5s,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Time_5s,MF_BYCOMMAND|MF_CHECKED);//标记
 	Time=5;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1345,8 +1345,8 @@ void CSau_EngineDlg::OnTime10s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Time_10s,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Time_10s,MF_BYCOMMAND|MF_CHECKED);//标记
 	Time=10;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1354,7 +1354,7 @@ void CSau_EngineDlg::OnTime10s()
 
 void CSau_EngineDlg::OnTime15s()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	int ID;
 	if(Time==1)ID=ID_Time_1s;
 	else if(Time==2)ID=ID_Time_2s;
@@ -1362,8 +1362,8 @@ void CSau_EngineDlg::OnTime15s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Time_15s,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Time_15s,MF_BYCOMMAND|MF_CHECKED);//标记
 	Time=15;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1371,7 +1371,7 @@ void CSau_EngineDlg::OnTime15s()
 
 void CSau_EngineDlg::OnTime20s()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	
 	int ID;
 	if(Time==1)ID=ID_Time_1s;
@@ -1380,8 +1380,8 @@ void CSau_EngineDlg::OnTime20s()
 	else if(Time==10)ID=ID_Time_10s;
 	else if(Time==15)ID=ID_Time_15s;
 	else if(Time==20)ID=ID_Time_20s;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Time_20s,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Time_20s,MF_BYCOMMAND|MF_CHECKED);//标记
 	Time=20;
 	Input_Depth_Time(Floor,Time);
 }
@@ -1392,7 +1392,7 @@ void CSau_EngineDlg::OnAllMove()
 	if(Is_All_Move_Show==0)
 	{
 		Is_All_Move_Show=1;
-		GetMenu()->CheckMenuItem(ID_All_Move,MF_BYCOMMAND|MF_CHECKED);//ȡ�����
+		GetMenu()->CheckMenuItem(ID_All_Move,MF_BYCOMMAND|MF_CHECKED);//取消标记
 		CAll_Move_Dialog *dg=new CAll_Move_Dialog;
 		dg->Create(IDD_DIALOG_ALL_MOVE);
 		dg->ShowWindow(SW_SHOW);
@@ -1401,16 +1401,16 @@ void CSau_EngineDlg::OnAllMove()
 	else if(Is_All_Move_Show==1)
 	{
 		Is_All_Move_Show=0;
-		GetMenu()->CheckMenuItem(ID_All_Move,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+		GetMenu()->CheckMenuItem(ID_All_Move,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
 		::PostMessage(All_Move_dghWnd,WM_CLOSE, 0, 0);
 	}
-	// TODO: �ڴ�����������������CDialogDemo *dlg=new CDialogDemo(this); 
+	// TODO: 在此添加命令处理程序代码CDialogDemo *dlg=new CDialogDemo(this); 
 }
 
 void CSau_EngineDlg::OnAbout()
 {
 	OnSysCommand(IDM_ABOUTBOX,0);
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 }
 
 void CSau_EngineDlg::OnLoadSave()
@@ -1439,7 +1439,7 @@ void CSau_EngineDlg::OnLoadSave()
 	CFile::GetStatus( pathName, status );
 
 	}*/
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 }
 
 void CSau_EngineDlg::OnEvel()
@@ -1448,7 +1448,7 @@ void CSau_EngineDlg::OnEvel()
 	{
 		
 		Is_Evel_Show=1;
-		GetMenu()->CheckMenuItem(ID_Evel,MF_BYCOMMAND|MF_CHECKED);//���
+		GetMenu()->CheckMenuItem(ID_Evel,MF_BYCOMMAND|MF_CHECKED);//标记
 		CEvel_Dialog *dg=new CEvel_Dialog;
 		dg->Create(IDD_DIALOG_EVEL);
 		dg->ShowWindow(SW_SHOW);
@@ -1457,17 +1457,17 @@ void CSau_EngineDlg::OnEvel()
 	else if(Is_Evel_Show==1)
 	{
 		Is_Evel_Show=0;
-		GetMenu()->CheckMenuItem(ID_Evel,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+		GetMenu()->CheckMenuItem(ID_Evel,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
 		::PostMessage(Evel_dghWnd,WM_CLOSE, 0, 0);
 	}
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 }
 
 void CSau_EngineDlg::OnMoveHistory()
 {
 	if(Is_Move_History_Show==0)
 	{
-		GetMenu()->CheckMenuItem(ID_Move_History,MF_BYCOMMAND|MF_CHECKED);//���
+		GetMenu()->CheckMenuItem(ID_Move_History,MF_BYCOMMAND|MF_CHECKED);//标记
 		Is_Move_History_Show=1;
 		if( Move_His_dghWnd != NULL && ::IsWindow(Move_His_dghWnd) )
 		{
@@ -1490,11 +1490,11 @@ void CSau_EngineDlg::OnMoveHistory()
 	else if(Is_Move_History_Show==1)
 	{
 		Is_Move_History_Show=0;
-		GetMenu()->CheckMenuItem(ID_Move_History,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+		GetMenu()->CheckMenuItem(ID_Move_History,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
 		//::PostMessage(Move_His_dghWnd,WM_CLOSE, 0, 0);
 		::ShowWindow(Move_His_dghWnd,SW_HIDE);
 	}
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 }
 
 void CSau_EngineDlg::Show_The_Move(MOVE* TheMove)
@@ -1570,13 +1570,13 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 		if (Step == 1)
 		{
 			CTime Now_time = CTime::GetCurrentTime();
-			sWrite = Now_time.Format(_T("\r\nʱ��%Y.%m.%d"));
+			sWrite = Now_time.Format(_T("\r\n时间%Y.%m.%d"));
 			sWrite += Temp_str;
-			if (Mode == AIvsH) { sWrite += "\r\n����: "; }
-			else { sWrite += "\r\n���֣�"; }
-			sWrite += "\r\n���ַ���";
-			sWrite += "\r\n���ַ���";
-			sWrite += "\r\n�����";
+			if (Mode == AIvsH) { sWrite += "\r\n先手: "; }
+			else { sWrite += "\r\n先手："; }
+			sWrite += "\r\n先手方：";
+			sWrite += "\r\n后手方：";
+			sWrite += "\r\n结果：";
 			sWrite += "\r\n";
 		}
 		if (turn % 2 != 0)
@@ -1879,13 +1879,13 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 	if (Step == 1)
 	{
 		CTime Now_time = CTime::GetCurrentTime();
-		sWrite = Now_time.Format(_T("\r\n\r\nʱ�䣺%Y.%m.%d"));
+		sWrite = Now_time.Format(_T("\r\n\r\n时间：%Y.%m.%d"));
 		sWrite += Temp_str;
-		if (Mode == AIvsH) { sWrite += "\r\n���֣�1"; }
-		else { sWrite += "\r\n���֣�2"; }
-		sWrite += "\r\n���ַ���";
-		sWrite += "\r\n���ַ���";
-		sWrite += "\r\n�����";
+		if (Mode == AIvsH) { sWrite += "\r\n先手：1"; }
+		else { sWrite += "\r\n先手：2"; }
+		sWrite += "\r\n先手方：";
+		sWrite += "\r\n后手方：";
+		sWrite += "\r\n结果：";
 		sWrite += "\r\n";
 	}
 	if (turn % 2 != 0)
@@ -2109,7 +2109,7 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 	mFile.Close();*/
 }
 ///////////////////////////////////////////////
-/////////////////////////////��ֵ���룿
+/////////////////////////////估值存入？
 //void CSau_EngineDlg::Save_File(MOVE Move,int Step, int Round)
 //{
 //	CString sWrite;
@@ -2117,28 +2117,28 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 //	if(Step==1)
 //	{
 //		CTime Now_time=CTime::GetCurrentTime();
-//		sWrite=Now_time.Format(_T("\r\n\r\n\r\n%Y��%m��%d�� %Hʱ%M��%S��"));
-//		if (Mode == AIvsH) { sWrite += "\r\n����: 1"; }
-//		else { sWrite += "\r\n����: 2"; }
-//		//Temp_str.Format(_T("\r\n��%d��\r\n"),Round);
+//		sWrite=Now_time.Format(_T("\r\n\r\n\r\n%Y年%m月%d日 %H时%M分%S秒"));
+//		if (Mode == AIvsH) { sWrite += "\r\n先手: 1"; }
+//		else { sWrite += "\r\n先手: 2"; }
+//		//Temp_str.Format(_T("\r\n第%d场\r\n"),Round);
 //		//sWrite+=Temp_str;
-//		//if(Mode==HvsH){sWrite+="ģʽ:����";}
-//		//else if(Mode==HvsAI){sWrite+="ģʽ:�˻�";}
-//		//else if(Mode==AIvsH){sWrite+="ģʽ:����";}
-//		//if(Engine&Negascout){sWrite+="  ����:Negascout";}
+//		//if(Mode==HvsH){sWrite+="模式:人人";}
+//		//else if(Mode==HvsAI){sWrite+="模式:人机";}
+//		//else if(Mode==AIvsH){sWrite+="模式:机人";}
+//		//if(Engine&Negascout){sWrite+="  引擎:Negascout";}
 //		//if(Engine&AlphaBeta){sWrite+="|AlphaBeta";}
-//		//Temp_str.Format(_T("\r\nAlphaBeta����%d��Negascoutʱ��%d\r\n"),Floor,Time);
+//		//Temp_str.Format(_T("\r\nAlphaBeta层数%d，Negascout时间%d\r\n"),Floor,Time);
 //		//sWrite+=Temp_str;
-//		//sWrite+=("\r\n����	���	���	������	����\r\n");
-//		sWrite += ("\r\n���ַ���\r\n���ַ���\r\n���:\r\n");
-//		//if(Mode==HvsH){sWrite+="ģʽ:����";}
+//		//sWrite+=("\r\n步数	起点	落点	吃子数	吃子\r\n");
+//		sWrite += ("\r\n先手方：\r\n后手方：\r\n结果:\r\n");
+//		//if(Mode==HvsH){sWrite+="模式:人人";}
 //	}
 //	//int sss = 2 * Step;
-//	Temp_str.Format(_T("\r\n%2d"),Step);//����
-//	//Temp_str.Format(_T("\r\n%2d"), sss);//�غ�
+//	Temp_str.Format(_T("\r\n%2d"),Step);//步数
+//	//Temp_str.Format(_T("\r\n%2d"), sss);//回合
 //	sWrite+=Temp_str;
 //	//if((Move.move_star_x + Move.move_star_y * 10) / 2 + 1)<=9|| Move.move_star_y<=9|| Temp_str.Format(_T("%2d"),(Move.move_stop_x+Move.move_stop_y*10)/2+1)<=9)
-//	//Temp_str.Format(_T(". 0%2d-"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//���
+//	//Temp_str.Format(_T(". 0%2d-"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//起点
 //	if ((Move.move_star_x + 1 == Move.move_stop_x) || (Move.move_star_x - 1 == Move.move_stop_x))
 //	{
 //		/*if ((Move.move_star_x + Move.move_star_y * 10) / 2 + 1)<=9)
@@ -2147,16 +2147,16 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 //		}
 //		else
 //		{*/
-//			Temp_str.Format(_T(". %2d-"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//���
+//			Temp_str.Format(_T(". %2d-"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//起点
 //		//}
 //		sWrite += Temp_str;
 //	}
 //	else
 //	{
-//		Temp_str.Format(_T(". %2dx"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//���
+//		Temp_str.Format(_T(". %2dx"), (Move.move_star_x + Move.move_star_y * 10) / 2 + 1);//起点
 //		sWrite += Temp_str;
 //	}
-//	Temp_str.Format(_T("%2d"),(Move.move_stop_x+Move.move_stop_y*10)/2+1);//�յ�
+//	Temp_str.Format(_T("%2d"),(Move.move_stop_x+Move.move_stop_y*10)/2+1);//终点
 //	sWrite+=Temp_str;
 //	//Temp_str.Format(_T("	%2d "),Move.eatHowMany);
 //	//sWrite+=Temp_str;
@@ -2179,7 +2179,7 @@ int CSau_EngineDlg::newxy(int star_x, int star_y)
 void CSau_EngineDlg::Save_File(int Depth,double Time)
 {
 	CString Temp_str;
-	Temp_str.Format(_T("\r\n��������Ѹ��ģ�\r\nAlphaBeta����%d��Negascoutʱ��%.2f"),Depth,Time);
+	Temp_str.Format(_T("\r\n搜索深度已更改！\r\nAlphaBeta层数%d，Negascout时间%.2f"),Depth,Time);
 	CFile mFile(_T(File_Path), CFile::modeWrite|CFile::modeNoTruncate|CFile::modeCreate);
 	mFile.SeekToEnd();
 	mFile.Write(Temp_str,Temp_str.GetLength());
@@ -2191,9 +2191,9 @@ void CSau_EngineDlg::Save_File(int Color)
 {
 	CString Temp_str;
 	if( Color==BLACK)
-		Temp_str=_T("\r\n�վ֣��׷�ʤ��");
+		Temp_str=_T("\r\n终局！白方胜！");
 	else if(Color==WHITE)
-		Temp_str=_T("\r\n�վ֣��ڷ�ʤ��");
+		Temp_str=_T("\r\n终局！黑方胜！");
 	CFile mFile(_T(File_Path), CFile::modeWrite|CFile::modeNoTruncate|CFile::modeCreate);
 	mFile.SeekToEnd();
 	mFile.Write(Temp_str,Temp_str.GetLength());
@@ -2203,7 +2203,7 @@ void CSau_EngineDlg::Save_File(int Color)
 
 void CSau_EngineDlg::OnFloor1()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2211,15 +2211,15 @@ void CSau_EngineDlg::OnFloor1()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Floor_1,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Floor_1,MF_BYCOMMAND|MF_CHECKED);//标记
 	Floor=1;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor3()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2227,15 +2227,15 @@ void CSau_EngineDlg::OnFloor3()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Floor_3,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Floor_3,MF_BYCOMMAND|MF_CHECKED);//标记
 	Floor=3;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor5()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2243,15 +2243,15 @@ void CSau_EngineDlg::OnFloor5()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Floor_5,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Floor_5,MF_BYCOMMAND|MF_CHECKED);//标记
 	Floor=5;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor7()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2259,15 +2259,15 @@ void CSau_EngineDlg::OnFloor7()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Floor_7,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Floor_7,MF_BYCOMMAND|MF_CHECKED);//标记
 	Floor=7;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor9()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2275,15 +2275,15 @@ void CSau_EngineDlg::OnFloor9()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Floor_9,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Floor_9,MF_BYCOMMAND|MF_CHECKED);//标记
 	Floor=9;
 	Input_Depth_Time(Floor,Time);
 }
 
 void CSau_EngineDlg::OnFloor11()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	int ID;
 	if(Floor==1)ID=ID_Floor_1;
 	else if(Floor==3)ID=ID_Floor_3;
@@ -2291,8 +2291,8 @@ void CSau_EngineDlg::OnFloor11()
 	else if(Floor==7)ID=ID_Floor_7;
 	else if(Floor==9)ID=ID_Floor_9;
 	else if(Floor==11)ID=ID_Floor_11;
-	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
-	GetMenu()->CheckMenuItem(ID_Floor_11,MF_BYCOMMAND|MF_CHECKED);//���
+	GetMenu()->CheckMenuItem(ID,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
+	GetMenu()->CheckMenuItem(ID_Floor_11,MF_BYCOMMAND|MF_CHECKED);//标记
 	Floor=11;
 	Input_Depth_Time(Floor,Time);
 }
@@ -2302,7 +2302,7 @@ void CSau_EngineDlg::Input_Depth_Time(int Depth,double Time)
 	theApp.Board_Mess.Add_Mess=Input;
 	theApp.Floor=Depth;
 	theApp.Time=Time;
-	//�ָ��߳�
+	//恢复线程
 	Save_File(Depth,Time);
 	theApp.Handle_AI_Thread->ResumeThread();
 }
@@ -2327,14 +2327,14 @@ UINT AI_Thread(LPVOID pParam)
 	while(1)
 	{
 		theApp.Thread_Sign=1;
-		M_Game.Error=0;//�����������
+		M_Game.Error=0;//错误代码清零
 		
-		if(theApp.Board_Mess.Add_Mess==Dele)//-1ʱ�Ծֽ����ͷ��߳�
+		if(theApp.Board_Mess.Add_Mess==Dele)//-1时对局结束释放线程
 		{ 
 			theApp.Thread_Sign=0;
 			AfxEndThread(TRUE);
 		}
-		else if(theApp.Board_Mess.Add_Mess==Input)//-//������ʱ�������ֵ
+		else if(theApp.Board_Mess.Add_Mess==Input)//-//给搜索时间层数赋值
 		{
 			M_Game.Input_Depth_Time(theApp.Floor,theApp.Time);
 			::PostMessage(pMainWnd->m_hWnd, Input_Depth_Time_Finish,0,0);
@@ -2363,20 +2363,20 @@ UINT AI_Thread(LPVOID pParam)
 				::PostMessage(pMainWnd->m_hWnd,WM_MY_MESSAGE,0,All_Move_Finish);
 			theApp.Handle_AI_Thread->SuspendThread();
 		}
-		else if( (theApp.Board_Mess.Add_Mess&Negascout||theApp.Board_Mess.Add_Mess&AlphaBeta ||theApp.Board_Mess.Add_Mess&Minimax)&&(theApp.Board_Mess.Color==BLACK||theApp.Board_Mess.Color==WHITE) )//���巽&&������ϢУ��
+		else if( (theApp.Board_Mess.Add_Mess&Negascout||theApp.Board_Mess.Add_Mess&AlphaBeta ||theApp.Board_Mess.Add_Mess&Minimax)&&(theApp.Board_Mess.Color==BLACK||theApp.Board_Mess.Color==WHITE) )//下棋方&&引擎信息校验
 		{
-			//AI�����ŷ�
+			//AI给出着法
 			theApp.Move_Mess.The_Good_Move=M_Game.Search_Good_Move(theApp.Board_Mess.Board, theApp.Board_Mess.Color,theApp.Board_Mess.Add_Mess, StepCount);
 			theApp.Move_Mess.Add_Mess=M_Game.Error;
-			//��ɺ����ŷ������Ϣ
+			//完成后发送着法完成消息
 			::PostMessage(pMainWnd->m_hWnd, WM_MY_MESSAGE, 0,0);//::PostThreadMessage(theApp.m_nThreadID,WM_MY_MESSAGE, 0, 0);
-			//�����̵߳ȴ��´ε���
+			//挂起线程等待下次调用
 			theApp.Thread_Sign=2;
 			theApp.Handle_AI_Thread->SuspendThread();
 		}
 		else
 		{
-			::MessageBox(pMainWnd->m_hWnd, "AI��ȡ��Ϣ����", _T("AI Thread Message" ), MB_OK);
+			::MessageBox(pMainWnd->m_hWnd, "AI获取信息错误！", _T("AI Thread Message" ), MB_OK);
 			theApp.Thread_Sign=2;
 			theApp.Handle_AI_Thread->SuspendThread();
 		}
@@ -2387,7 +2387,7 @@ UINT AI_Thread(LPVOID pParam)
 
 void CSau_EngineDlg::OnTimer(UINT_PTR nIDEvent)
 {
-	// TODO: �ڴ�������Ϣ������������/�����Ĭ��ֵ
+	// TODO: 在此添加消息处理程序代码和/或调用默认值
 	m_Pro.StepIt();
 	if(m_Pro.GetPos()==100)
 		KillTimer(TIMER);
@@ -2406,20 +2406,20 @@ afx_msg LRESULT CSau_EngineDlg::OnUpdateTree(WPARAM wParam, LPARAM lParam)
 	
 	if( wParam==-1&&Engine&Negascout)
 	{
-		m_Bar.SetPaneText(2,"Negascout�������������ʹ��AlphaBeta���档����",1);
-		Temp_Str.Format("�ڵ�����%dK",lParam/1000);
+		m_Bar.SetPaneText(2,"Negascout引擎出错！正在使用AlphaBeta引擎。。。",1);
+		Temp_Str.Format("节点数：%dK",lParam/1000);
 		m_Bar.SetPaneText(3,Temp_Str,1);
 	}
 	else if( wParam==-1)
 	{
-		m_Bar.SetPaneText(2,"����ʹ��AlphaBeta���档����",1); 
-		Temp_Str.Format("�ڵ�����%dK",lParam/1000);
+		m_Bar.SetPaneText(2,"正在使用AlphaBeta引擎。。。",1); 
+		Temp_Str.Format("节点数：%dK",lParam/1000);
 		m_Bar.SetPaneText(3,Temp_Str,1); 
 	}
 	else
 	{
-		m_Bar.SetPaneText(2,"����ʹ��Negascout���档����",1); 
-		Temp_Str.Format("������%d���ڵ�����%dK",wParam,lParam/1000);
+		m_Bar.SetPaneText(2,"正在使用Negascout引擎。。。",1); 
+		Temp_Str.Format("层数：%d，节点数：%dK",wParam,lParam/1000);
 		m_Bar.SetPaneText(3,Temp_Str,1); 
 	}
 	return 0;
@@ -2467,15 +2467,15 @@ void CSau_EngineDlg::Go_The_Move(MOVE The_Move)
 
 void CSau_EngineDlg::OnBoardUserDefined()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	if(Is_Set_Board==0)
 	{
-		GetMenu()->CheckMenuItem(ID_Board_User_Defined,MF_BYCOMMAND|MF_CHECKED);//���
+		GetMenu()->CheckMenuItem(ID_Board_User_Defined,MF_BYCOMMAND|MF_CHECKED);//标记
 		Is_Set_Board=1;
 	}
 	else
 	{
-		GetMenu()->CheckMenuItem(ID_Board_User_Defined,MF_BYCOMMAND|MF_UNCHECKED);//ȡ�����
+		GetMenu()->CheckMenuItem(ID_Board_User_Defined,MF_BYCOMMAND|MF_UNCHECKED);//取消标记
 		Is_Set_Board=0;
 		Get_All_Move();
 	}
@@ -2494,7 +2494,7 @@ void CSau_EngineDlg::Set_Board(CPoint pt)
 
 void CSau_EngineDlg::On32847()
 {
-	// TODO: �ڴ�����������������
+	// TODO: 在此添加命令处理程序代码
 	
 	if(congli==0)
 		congli=999;

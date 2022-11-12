@@ -3,22 +3,22 @@
 class makeNowMoves
 {
 public:
-	makeNowMoves();//³õÊ¼»¯µ±Ç°ÕĞ·¨£¬¼°ÆåÅÌ£»
-	~makeNowMoves();//²»ÖªµÀÊ²Ã´ÓÃ£¬Ï°¹ßµÄ¸ø¶¨Òå³ÉĞéº¯ÊıÁË
-	//Óë±øÏà¹ØµÄ³ÉÔ±º¯Êı
+	makeNowMoves();//åˆå§‹åŒ–å½“å‰æ‹›æ³•ï¼ŒåŠæ£‹ç›˜ï¼›
+	~makeNowMoves();//ä¸çŸ¥é“ä»€ä¹ˆç”¨ï¼Œä¹ æƒ¯çš„ç»™å®šä¹‰æˆè™šå‡½æ•°äº†
+	//ä¸å…µç›¸å…³çš„æˆå‘˜å‡½æ•°
 private:
-	void copy(int Color,int board[10][10]);//»ñÈ¡µ±Ç°×ß×Ó·½£¬¼°µ±Ç°¾ÖÃæ
-	void makeNowBingMove(int starX,int starY,int eatHowMany,MOVE movesCoutainer[200]);//Éú³Éµ±Ç°Æå×Ó(±ø)µÄÕĞ·¨
-	//ÓëÍõÏà¹ØµÄ³ÉÔ±º¯Êı
-	void makeNowKingMove(int starX,int starY,int eatHowMany,MOVE movesCoutainer[200]);//Éú³Éµ±Ç°Æå×Ó(Íõ)µÄÕĞ·¨
-	bool KING_FOUR_DIRECTION_CAN_EAT(int X,int Y);//Õâ¸öÊÇÅĞ¶ÏÍõµÄÄÜ²»ÄÜ³Ô
+	void copy(int Color,int board[10][10]);//è·å–å½“å‰èµ°å­æ–¹ï¼ŒåŠå½“å‰å±€é¢
+	void makeNowBingMove(int starX,int starY,int eatHowMany,MOVE movesCoutainer[200]);//ç”Ÿæˆå½“å‰æ£‹å­(å…µ)çš„æ‹›æ³•
+	//ä¸ç‹ç›¸å…³çš„æˆå‘˜å‡½æ•°
+	void makeNowKingMove(int starX,int starY,int eatHowMany,MOVE movesCoutainer[200]);//ç”Ÿæˆå½“å‰æ£‹å­(ç‹)çš„æ‹›æ³•
+	bool KING_FOUR_DIRECTION_CAN_EAT(int X,int Y);//è¿™ä¸ªæ˜¯åˆ¤æ–­ç‹çš„èƒ½ä¸èƒ½åƒ
 	bool BING_FOUR_DIRECTION_CAN_EAT(int X,int Y);
-	MOVE nowTheMove;//ÕıÔÚÉú³ÉµÄ½á¹¹Ìå£¬Èç¹ûÂú×ãÌõ¼ş¼ÓÈëµ½ÕĞ·¨¼ÇÂ¼µÄÊı×éÖĞ
-	int board[10][10];//ĞèÒª¶Ô¸Ã¾ÖÃæÉú³ÉÕĞ·¨
-	int nowColor;//¶Ô¸ÃÖÖÆå×ÓÉú³ÉÕĞ·¨
-	int theBestEatNum;//¼ÇÂ¼Éú³ÉÊ±µ±Ç°µÄ×î´ó³Ô×ÓÊıÁ¿£¨Õâ¸ö³ÉÔ±ÕæµÄºÜ¿Ó°¡£¬²î¸ö1¾Í»á³öÎÊÌâ£©
-	int nowTheNumberOfMove;//ÕĞ·¨µÄ¼ÇÂ¼µ½µÚ¼¸µÄÎ»ÖÃÁË£¬×îºóÔÚ½Ó¿Úº¯Êı·µ»ØÕâ¸öÖµ£¬×÷ÎªÕĞ·¨×ÜÊı£»
+	MOVE nowTheMove;//æ­£åœ¨ç”Ÿæˆçš„ç»“æ„ä½“ï¼Œå¦‚æœæ»¡è¶³æ¡ä»¶åŠ å…¥åˆ°æ‹›æ³•è®°å½•çš„æ•°ç»„ä¸­
+	int board[10][10];//éœ€è¦å¯¹è¯¥å±€é¢ç”Ÿæˆæ‹›æ³•
+	int nowColor;//å¯¹è¯¥ç§æ£‹å­ç”Ÿæˆæ‹›æ³•
+	int theBestEatNum;//è®°å½•ç”Ÿæˆæ—¶å½“å‰çš„æœ€å¤§åƒå­æ•°é‡ï¼ˆè¿™ä¸ªæˆå‘˜çœŸçš„å¾ˆå‘å•Šï¼Œå·®ä¸ª1å°±ä¼šå‡ºé—®é¢˜ï¼‰
+	int nowTheNumberOfMove;//æ‹›æ³•çš„è®°å½•åˆ°ç¬¬å‡ çš„ä½ç½®äº†ï¼Œæœ€ååœ¨æ¥å£å‡½æ•°è¿”å›è¿™ä¸ªå€¼ï¼Œä½œä¸ºæ‹›æ³•æ€»æ•°ï¼›
 public:
-	int allMove(int board[10][10],MOVE movesCoutainer[200],int Color);//½Ó¿Úº¯Êı
+	int allMove(int board[10][10],MOVE movesCoutainer[200],int Color);//æ¥å£å‡½æ•°
 };
 

@@ -1,5 +1,5 @@
 
-// Sau_EngineDlg.h : Í·ÎÄ¼ş
+// Sau_EngineDlg.h : å¤´æ–‡ä»¶
 //
 
 #pragma once
@@ -16,35 +16,35 @@ static UINT /*BASED_CODE*/ indicators[]=
 	IDS_STRING_POINT
 };  
 
-// CSau_EngineDlg ¶Ô»°¿ò
+// CSau_EngineDlg å¯¹è¯æ¡†
 class CSau_EngineDlg : public CDialogEx
 {
-// ¹¹Ôì
+// æ„é€ 
 public:
-	CSau_EngineDlg(CWnd* pParent = NULL);	// ±ê×¼¹¹Ôìº¯Êı
+	CSau_EngineDlg(CWnd* pParent = NULL);	// æ ‡å‡†æ„é€ å‡½æ•°
 
-// ¶Ô»°¿òÊı¾İ
+// å¯¹è¯æ¡†æ•°æ®
 	enum { IDD = IDD_SAU_ENGINE_DIALOG };
 
 	protected:
-	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV Ö§³Ö
-// ÊµÏÖ
+	virtual void DoDataExchange(CDataExchange* pDX);	// DDX/DDV æ”¯æŒ
+// å®ç°
 protected:
 	HICON m_hIcon;
-	// Éú³ÉµÄÏûÏ¢Ó³Éäº¯Êı
-	//Ò»Ğ©³õÊ¼»¯
+	// ç”Ÿæˆçš„æ¶ˆæ¯æ˜ å°„å‡½æ•°
+	//ä¸€äº›åˆå§‹åŒ–
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	virtual BOOL OnInitDialog();
-	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);//²»ÖªµÀ
-	afx_msg HCURSOR OnQueryDragIcon();//²»ÖªµÀ
+	afx_msg void OnSysCommand(UINT nID, LPARAM lParam);//ä¸çŸ¥é“
+	afx_msg HCURSOR OnQueryDragIcon();//ä¸çŸ¥é“
 
-	//´°¿ÚÖØ»æ
+	//çª—å£é‡ç»˜
 	afx_msg void OnPaint();
 
 	//
 	afx_msg void OnMouseMove(UINT nFlags, CPoint point);
 
-	//»ØºÏ½áÊøÊ±´¥·¢´Ëº¯Êı
+	//å›åˆç»“æŸæ—¶è§¦å‘æ­¤å‡½æ•°
 	afx_msg LRESULT The_Move_Finish(WPARAM wParam, LPARAM lParam);
 
 	afx_msg LRESULT OnInputDepthTimeFinish(WPARAM wParam, LPARAM lParam);
@@ -52,38 +52,38 @@ protected:
 	afx_msg LRESULT OnGetAllMoveFinish(WPARAM wParam, LPARAM lParam);
 	afx_msg void OnBoardUserDefined();
 	afx_msg LRESULT OnUpdateTree(WPARAM wParam, LPARAM lParam);
-	//¸Ä±ä´°¿ÚÊ±´¥·¢´Ëº¯Êı
+	//æ”¹å˜çª—å£æ—¶è§¦å‘æ­¤å‡½æ•°
 	afx_msg void OnSize(UINT nType, int cx, int cy);
 
-	//¹ØÓÚ
+	//å…³äº
 	afx_msg void OnAbout();
 
-	//µ¥»÷×ó¼üÊ±´¥·¢´Ëº¯Êı
+	//å•å‡»å·¦é”®æ—¶è§¦å‘æ­¤å‡½æ•°
 	afx_msg void OnLButtonDown(UINT nFlags, CPoint point);
 
-	//Ñ¡ÔñÒıÇæÊ±´¥·¢´Ëº¯Êı
+	//é€‰æ‹©å¼•æ“æ—¶è§¦å‘æ­¤å‡½æ•°
 	afx_msg void OnEngine_N();
 	afx_msg void OnEngine_AB();
 	afx_msg void OnEngine_M();
 
-	//Ñ¡ÔñÄ£Ê½Ê±´¥·¢´Ëº¯Êı
+	//é€‰æ‹©æ¨¡å¼æ—¶è§¦å‘æ­¤å‡½æ•°
 	afx_msg void OnMode_HvsAI();
 	afx_msg void OnMode_AIvsH();
 	afx_msg void OnMode_HvsH();
 
-	//Ñ¡ÔñĞÂÓÎÏ·Ê±´¥·¢´Ëº¯Êı
+	//é€‰æ‹©æ–°æ¸¸æˆæ—¶è§¦å‘æ­¤å‡½æ•°
 	afx_msg void OnNew_Game();
 
-	//±¸ÓÃÊäÈë
+	//å¤‡ç”¨è¾“å…¥
 	afx_msg void OnSpareInput();
 
-	//¹Ø±Õ³ÌĞòÊ±´¥·¢´Ëº¯Êı
+	//å…³é—­ç¨‹åºæ—¶è§¦å‘æ­¤å‡½æ•°
 	afx_msg void OnClose();
 
-	//ÆåÅÌ·´×ª
+	//æ£‹ç›˜åè½¬
 	afx_msg void OnBoardInverse();
 
-	//Ñ¡ÔñNegascout Ê±¼ä
+	//é€‰æ‹©Negascout æ—¶é—´
 	afx_msg void OnTime1s();
 	afx_msg void OnTime2s();
 	afx_msg void OnTime5s();
@@ -91,7 +91,7 @@ protected:
 	afx_msg void OnTime15s();
 	afx_msg void OnTime20s();
 
-	//Ñ¡ÔñAlphaBeta²ãÊı
+	//é€‰æ‹©AlphaBetaå±‚æ•°
 	afx_msg void OnFloor1();
 	afx_msg void OnFloor3();
 	afx_msg void OnFloor5();
@@ -99,51 +99,51 @@ protected:
 	afx_msg void OnFloor9();
 	afx_msg void OnFloor11();
 
-	//Êä³ö¿ò
+	//è¾“å‡ºæ¡†
 	afx_msg void OnAllMove();
 	afx_msg void OnMoveHistory();
 	afx_msg void OnEvel();
 
-	//ÎÄ¼ş
+	//æ–‡ä»¶
 	afx_msg void OnLoadSave();
 	afx_msg void OnTimer(UINT_PTR nIDEvent);
 	
 	DECLARE_MESSAGE_MAP()
 private:
-	int d;//¼ÇÂ¼ÆåÅÌ¸÷´óĞ¡
-	int Size_Prompt;//Æå×Ó±ê¼ÇµÄ´óĞ¡
-	int Size_Pieces;//Æå×ÓµÄ´óĞ¡
-	int Engine;//¼ÇÂ¼ÒıÇæ
-	int Mode;//¼ÇÂ¼Ä£Ê½
-	int Progress;//½ø¶È:¿ª·ÅÊó±ê->Ñ¡ÖĞÆå×Ó->Íê³ÉÊäÈë
-	int SpareInput;//ÊÇ·ñÊ¹ÓÃ±¸ÓÃÊäÈë  0£ºÊÇ£¬ -2£º·ñ £¬ -1£ºÊäÈëÍê³É
-	int Color;//Ö´Æå·½
-	int Step;//²½Êı
-	int Round;//³¡Êı
-	int Board[10][10];//ÆåÅÌÊı×é
-	int Time;//Negascout Ê±¼ä
-	int Floor;//AlphaBeta²ãÊı
+	int d;//è®°å½•æ£‹ç›˜å„å¤§å°
+	int Size_Prompt;//æ£‹å­æ ‡è®°çš„å¤§å°
+	int Size_Pieces;//æ£‹å­çš„å¤§å°
+	int Engine;//è®°å½•å¼•æ“
+	int Mode;//è®°å½•æ¨¡å¼
+	int Progress;//è¿›åº¦:å¼€æ”¾é¼ æ ‡->é€‰ä¸­æ£‹å­->å®Œæˆè¾“å…¥
+	int SpareInput;//æ˜¯å¦ä½¿ç”¨å¤‡ç”¨è¾“å…¥  0ï¼šæ˜¯ï¼Œ -2ï¼šå¦ ï¼Œ -1ï¼šè¾“å…¥å®Œæˆ
+	int Color;//æ‰§æ£‹æ–¹
+	int Step;//æ­¥æ•°
+	int Round;//åœºæ•°
+	int Board[10][10];//æ£‹ç›˜æ•°ç»„
+	int Time;//Negascout æ—¶é—´
+	int Floor;//AlphaBetaå±‚æ•°
 	int Computer_Color;
 	int Human_Color;
-	//´¢´æÑ¡ÖĞÆå×ÓµÄËùÓĞ×Å·¨ÊıÁ¿
+	//å‚¨å­˜é€‰ä¸­æ£‹å­çš„æ‰€æœ‰ç€æ³•æ•°é‡
 	int Prompt_Move_Num;
-	//¿ÉĞĞ×Å·¨ÊıÁ¿
+	//å¯è¡Œç€æ³•æ•°é‡
 	int Move_Num;
-	//Êó±êĞüÍ£µÄ³Ô×ÓÂ·Ïß 0Îª¡£¡£
+	//é¼ æ ‡æ‚¬åœçš„åƒå­è·¯çº¿ 0ä¸ºã€‚ã€‚
 	int Mouse_Move;
-	//1ÆåÅÌ·´×ª0Îª²»·­
+	//1æ£‹ç›˜åè½¬0ä¸ºä¸ç¿»
 	int Is_Board_Inverse;
-	//1×Å·¨ÀúÊ·ÏÔÊ¾0Îª×Å·¨ÀúÊ·
+	//1ç€æ³•å†å²æ˜¾ç¤º0ä¸ºç€æ³•å†å²
 	int Is_Move_History_Show;
-	//1ËùÓĞ×Å·¨ÏÔÊ¾0ÎªËùÓĞ×Å·¨
+	//1æ‰€æœ‰ç€æ³•æ˜¾ç¤º0ä¸ºæ‰€æœ‰ç€æ³•
 	int Is_All_Move_Show;
-	//1¹ÀÖµÏÔÊ¾0¹ÀÖµ²»ÏÔÊ¾
+	//1ä¼°å€¼æ˜¾ç¤º0ä¼°å€¼ä¸æ˜¾ç¤º
 	int Is_Evel_Show;
 	//
 	int Is_Set_Board;
-	//´¢´æËùÓĞ×Å·¨
+	//å‚¨å­˜æ‰€æœ‰ç€æ³•
 	MOVE All_Moves[200];
-	//´¢´æÑ¡ÖĞÆå×ÓµÄËùÓĞ×Å·¨£¨»­±ê¼ÇÓÃ£©
+	//å‚¨å­˜é€‰ä¸­æ£‹å­çš„æ‰€æœ‰ç€æ³•ï¼ˆç”»æ ‡è®°ç”¨ï¼‰
 	MOVE Prompt_Move[20];
 
 	CProgressCtrl m_Pro;
@@ -159,33 +159,33 @@ private:
 	HWND Move_His_dghWnd;
 	HWND All_Move_dghWnd;
 	HWND Evel_dghWnd;
-	//¸ù¾İ´°¿Ú¼ÆËãÆåÅÌ´óĞ¡
+	//æ ¹æ®çª—å£è®¡ç®—æ£‹ç›˜å¤§å°
 	void SetBoard(RECT rtBoard);
-	//²¥·ÅÒôĞ§
+	//æ’­æ”¾éŸ³æ•ˆ
 	void PlayMySound(int i);
-	//ÖØ»æ
+	//é‡ç»˜
 	void DrawChess(int type);
-	//»­Æå×Ó
+	//ç”»æ£‹å­
 	void DrawPieces(CClientDC *dc);
-	//»­ÆåÅÌ
+	//ç”»æ£‹ç›˜
 	void DrawBoard(CClientDC *dc);
-	//»­±ê¼Ç
+	//ç”»æ ‡è®°
 	void DrawPrompt(CClientDC *dc);
-	//³õÊ¼»¯ÆåÅÌ
+	//åˆå§‹åŒ–æ£‹ç›˜
 	void Init_Board(int Board[][10]);
-	//»ñÈ¡AI×Å·¨
+	//è·å–AIç€æ³•
 	void Get_Computer_Move();
-	//AI¿ªÊ¼Ë¼¿¼
+	//AIå¼€å§‹æ€è€ƒ
 	void AI_Star(int Board[][10], int Color);
-	//Êó±êÊäÈëÂß¼­
+	//é¼ æ ‡è¾“å…¥é€»è¾‘
 	int SToS(CPoint Mouse_Pt);
-	//±¸ÓÃÊó±êÊäÈë
+	//å¤‡ç”¨é¼ æ ‡è¾“å…¥
 	int Spare_SToS(CPoint Mouse_Pt);
-	//ÏÔÊ¾
+	//æ˜¾ç¤º
 	void Show_The_Move(MOVE* TheMove);
 	void Show_Evel();
 	void Show_All_Move();
-	//ÎÄ¼ş
+	//æ–‡ä»¶
 	MOVE Load_File(int Step, int Round);
 	void Save_File(MOVE Move,int Step,int Round);
 	void Input_Depth_Time(int Depth,double Time);
