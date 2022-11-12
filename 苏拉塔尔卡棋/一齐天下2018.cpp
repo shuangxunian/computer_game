@@ -21,24 +21,24 @@ int main()
     int x,y,c,d,i;
 	int BBQ;
     print(b);
-	puts("ÊäÈë1Ñ¡ÔñÉÏ·½£¬ÊäÈë2Ñ¡ÔñÏÂ·½ ");
+	puts("è¾“å…¥1é€‰æ‹©ä¸Šæ–¹ï¼Œè¾“å…¥2é€‰æ‹©ä¸‹æ–¹ ");
 	scanf("%d", &BBQ);
-	printf("  * ¿ªÊ¼ÓÎÏ· *\n");
-	printf("  1 ÈËÀàÏÈÊÖ\n");
-	printf("  2 µçÄÔÏÈÊÖ\n");
+	printf("  * å¼€å§‹æ¸¸æˆ *\n");
+	printf("  1 äººç±»å…ˆæ‰‹\n");
+	printf("  2 ç”µè„‘å…ˆæ‰‹\n");
 	////////////////////////////////////////////////////
 	
 	
 	if (BBQ == 1)
 	{
 		T = 1;
-	printf("ÇëÊäÈë¡°1¡±»ò¡°2¡±À´Ñ¡ÔñÏÈÊÖ£º\n");
+	printf("è¯·è¾“å…¥â€œ1â€æˆ–â€œ2â€æ¥é€‰æ‹©å…ˆæ‰‹ï¼š\n");
 	scanf("%d",&s);
 	if(s==1)
 	{
-		printf("ÇëÊäÈëÄãÏë×ßµÄÆå×ÓµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+		printf("è¯·è¾“å…¥ä½ æƒ³èµ°çš„æ£‹å­çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 		scanf("%d,%d",&x,&y);
-		printf("ÇëÊäÈëÄãÒª×ßµÄÆå×Óµ½´ïµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+		printf("è¯·è¾“å…¥ä½ è¦èµ°çš„æ£‹å­åˆ°è¾¾çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 		scanf("%d,%d",&c,&d);
 		zouchizi(x,y,c,d,b);
 		print(b);
@@ -46,9 +46,9 @@ int main()
 		{
 			zong(b);
 		    print(b);
-			printf("ÇëÊäÈëÄãÏë×ßµÄÆå×ÓµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+			printf("è¯·è¾“å…¥ä½ æƒ³èµ°çš„æ£‹å­çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 	     	scanf("%d,%d",&x,&y);
-	    	printf("ÇëÊäÈëÄãÒª×ßµÄÆå×Óµ½´ïµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+	    	printf("è¯·è¾“å…¥ä½ è¦èµ°çš„æ£‹å­åˆ°è¾¾çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 	    	scanf("%d,%d",&c,&d);
 	    	zouchizi(x,y,c,d,b);
 	    	print(b);
@@ -62,9 +62,9 @@ int main()
 		print(b);
         for(i=0;i<=100;i++)
 		{
-			printf("ÇëÊäÈëÄãÏë×ßµÄÆå×ÓµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+			printf("è¯·è¾“å…¥ä½ æƒ³èµ°çš„æ£‹å­çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 	     	scanf("%d,%d",&x,&y);
-	    	printf("ÇëÊäÈëÄãÒª×ßµÄÆå×Óµ½´ïµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+	    	printf("è¯·è¾“å…¥ä½ è¦èµ°çš„æ£‹å­åˆ°è¾¾çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 	    	scanf("%d,%d",&c,&d);
 	    	zouchizi(x,y,c,d,b);
 	    	print(b);
@@ -76,13 +76,13 @@ int main()
 	else if (BBQ == 2)
 	{
 		T = -1;
-		printf("ÇëÊäÈë¡°1¡±»ò¡°2¡±À´Ñ¡ÔñÏÈÊÖ£º\n");
+		printf("è¯·è¾“å…¥â€œ1â€æˆ–â€œ2â€æ¥é€‰æ‹©å…ˆæ‰‹ï¼š\n");
 		scanf("%d", &s);
 		if (s == 1)
 		{
-			printf("ÇëÊäÈëÄãÏë×ßµÄÆå×ÓµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+			printf("è¯·è¾“å…¥ä½ æƒ³èµ°çš„æ£‹å­çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 			scanf("%d,%d", &x, &y);
-			printf("ÇëÊäÈëÄãÒª×ßµÄÆå×Óµ½´ïµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+			printf("è¯·è¾“å…¥ä½ è¦èµ°çš„æ£‹å­åˆ°è¾¾çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 			scanf("%d,%d", &c, &d);
 			zouchizi(x, y, c, d, b);
 			print(b);
@@ -90,9 +90,9 @@ int main()
 			{
 				zong(b);
 				print(b);
-				printf("ÇëÊäÈëÄãÏë×ßµÄÆå×ÓµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+				printf("è¯·è¾“å…¥ä½ æƒ³èµ°çš„æ£‹å­çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 				scanf("%d,%d", &x, &y);
-				printf("ÇëÊäÈëÄãÒª×ßµÄÆå×Óµ½´ïµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+				printf("è¯·è¾“å…¥ä½ è¦èµ°çš„æ£‹å­åˆ°è¾¾çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 				scanf("%d,%d", &c, &d);
 				zouchizi(x, y, c, d, b);
 				print(b);
@@ -106,9 +106,9 @@ int main()
 			print(b);
 			for (i = 0; i <= 100; i++)
 			{
-				printf("ÇëÊäÈëÄãÏë×ßµÄÆå×ÓµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+				printf("è¯·è¾“å…¥ä½ æƒ³èµ°çš„æ£‹å­çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 				scanf("%d,%d", &x, &y);
-				printf("ÇëÊäÈëÄãÒª×ßµÄÆå×Óµ½´ïµÄ×ø±ê(ÓÃ¶ººÅ¸ô¿ª):\n");
+				printf("è¯·è¾“å…¥ä½ è¦èµ°çš„æ£‹å­åˆ°è¾¾çš„åæ ‡(ç”¨é€—å·éš”å¼€):\n");
 				scanf("%d,%d", &c, &d);
 				zouchizi(x, y, c, d, b);
 				print(b);
@@ -131,7 +131,7 @@ void zong(int a[6][6])
 	void pinggu000(int a[6][6]);
 	void pinggu111(int a[6][6]);
 	void pinggu1(int a[6][6]);
-	int i,j,jifang=0,difang=0;                      //·Ö±ğ±íÊ¾¼º·½¡¢µĞ·½Æå×Ó¸öÊı
+	int i,j,jifang=0,difang=0;                      //åˆ†åˆ«è¡¨ç¤ºå·±æ–¹ã€æ•Œæ–¹æ£‹å­ä¸ªæ•°
 	int t=T;
 	for(i=0;i<6;i++)
 	{
@@ -149,7 +149,7 @@ void zong(int a[6][6])
 	}
 	if((jifang==2)&&(difang>2))
 	{
-		pinggu11(a);                             //ËÄ²ã
+		pinggu11(a);                             //å››å±‚
 	}
 	else if((difang==2)&&(jifang>2))
 	{
@@ -164,7 +164,7 @@ void zong(int a[6][6])
 		pinggu1(a);
 	}
 }
-void pinggu111(int a[6][6])              //µÚÒ»²ã
+void pinggu111(int a[6][6])              //ç¬¬ä¸€å±‚
 {
     int max(int a[12]);
     int pinggu222(int a[6][6],int H[1]);
@@ -277,8 +277,8 @@ void pinggu111(int a[6][6])              //µÚÒ»²ã
 
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -317,14 +317,14 @@ void pinggu111(int a[6][6])              //µÚÒ»²ã
                     H[0]=0;
 				}
 
-                d[h]=max(c);           //¼ÇÂ¼Ä³¸öÆå×ÓµÄ×î´óÖµ
-                f[h]=max11(c);         //¼ÇÂ¼¸ÃÆå×Ó×ßÄÄÒ»²½
-                y[h]=j;x[h]=i;          //¼ÇÂ¼Õâ¸öÆå×ÓµÄ×ø±ê
+                d[h]=max(c);           //è®°å½•æŸä¸ªæ£‹å­çš„æœ€å¤§å€¼
+                f[h]=max11(c);         //è®°å½•è¯¥æ£‹å­èµ°å“ªä¸€æ­¥
+                y[h]=j;x[h]=i;          //è®°å½•è¿™ä¸ªæ£‹å­çš„åæ ‡
 				h++;
 			}
 		}
 	}
-    z=max11(d); //¼ÇÂ¼Õ¹ÏÖ×î´óÖµµÄÊÇµÚ¼¸¸öÆå×Ó
+    z=max11(d); //è®°å½•å±•ç°æœ€å¤§å€¼çš„æ˜¯ç¬¬å‡ ä¸ªæ£‹å­
 	i=x[z];
 	j=y[z];
 	if(p[i][j]==t)
@@ -388,7 +388,7 @@ void pinggu111(int a[6][6])              //µÚÒ»²ã
 	}
     zhuanhuan(p,a);
 }
-int pinggu222(int a[6][6],int H[1])                          //µÚ¶ş²ã
+int pinggu222(int a[6][6],int H[1])                          //ç¬¬äºŒå±‚
 {
     int min(int a[12]);
     int pinggu333(int a[6][6],int H[1]);
@@ -489,8 +489,8 @@ int pinggu222(int a[6][6],int H[1])                          //µÚ¶ş²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -535,7 +535,7 @@ int pinggu222(int a[6][6],int H[1])                          //µÚ¶ş²ã
     z=min(d);
 	return z;
 }
-int pinggu333(int a[6][6],int H[1])                        //µÚÈı²ã
+int pinggu333(int a[6][6],int H[1])                        //ç¬¬ä¸‰å±‚
 {
     int pinggu0(int a[6][6],int H[1]);
     void zhuanhuan(int a[6][6],int b[6][6]);
@@ -636,8 +636,8 @@ int pinggu333(int a[6][6],int H[1])                        //µÚÈı²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -682,7 +682,7 @@ int pinggu333(int a[6][6],int H[1])                        //µÚÈı²ã
 	z=max(d);
 	return z;
 }
-void pinggu000(int a[6][6])              //µÚÒ»²ã
+void pinggu000(int a[6][6])              //ç¬¬ä¸€å±‚
 {
     void pinggu001(int a[6][6]);
     int chizi1(int a[6][6],int x,int y);
@@ -704,7 +704,7 @@ void pinggu000(int a[6][6])              //µÚÒ»²ã
 		{
 			if(a[i][j]==t)
 			{
-				Q=chizi1(a,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				Q=chizi1(a,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(a,i,j);
@@ -745,7 +745,7 @@ void pinggu000(int a[6][6])              //µÚÒ»²ã
 	    flag=1;
 	}
 }
-void pinggu001(int a[6][6])              //µÚÒ»²ã
+void pinggu001(int a[6][6])              //ç¬¬ä¸€å±‚
 {
     int max(int a[12]);
     int pinggu002(int a[6][6],int H[1]);
@@ -858,8 +858,8 @@ void pinggu001(int a[6][6])              //µÚÒ»²ã
 
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -898,14 +898,14 @@ void pinggu001(int a[6][6])              //µÚÒ»²ã
                     H[0]=0;
 				}
 
-                d[h]=max(c);           //¼ÇÂ¼Ä³¸öÆå×ÓµÄ×î´óÖµ
-                f[h]=max11(c);         //¼ÇÂ¼¸ÃÆå×Ó×ßÄÄÒ»²½
-                y[h]=j;x[h]=i;          //¼ÇÂ¼Õâ¸öÆå×ÓµÄ×ø±ê
+                d[h]=max(c);           //è®°å½•æŸä¸ªæ£‹å­çš„æœ€å¤§å€¼
+                f[h]=max11(c);         //è®°å½•è¯¥æ£‹å­èµ°å“ªä¸€æ­¥
+                y[h]=j;x[h]=i;          //è®°å½•è¿™ä¸ªæ£‹å­çš„åæ ‡
 				h++;
 			}
 		}
 	}
-    z=max11(d); //¼ÇÂ¼Õ¹ÏÖ×î´óÖµµÄÊÇµÚ¼¸¸öÆå×Ó
+    z=max11(d); //è®°å½•å±•ç°æœ€å¤§å€¼çš„æ˜¯ç¬¬å‡ ä¸ªæ£‹å­
 	i=x[z];
 	j=y[z];
 	if(p[i][j]==t)
@@ -969,7 +969,7 @@ void pinggu001(int a[6][6])              //µÚÒ»²ã
 	}
     zhuanhuan(p,a);
 }
-int pinggu002(int a[6][6],int H[1])                          //µÚ¶ş²ã
+int pinggu002(int a[6][6],int H[1])                          //ç¬¬äºŒå±‚
 {
     int min(int a[12]);
     int pinggu0(int a[6][6],int H[1]);
@@ -1070,8 +1070,8 @@ int pinggu002(int a[6][6],int H[1])                          //µÚ¶ş²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -1116,7 +1116,7 @@ int pinggu002(int a[6][6],int H[1])                          //µÚ¶ş²ã
     z=min(d);
 	return z;
 }
-void pinggu11(int a[6][6])              //µÚÒ»²ã
+void pinggu11(int a[6][6])              //ç¬¬ä¸€å±‚
 {
     int max(int a[12]);
     int pinggu22(int a[6][6],int H[1]);
@@ -1229,8 +1229,8 @@ void pinggu11(int a[6][6])              //µÚÒ»²ã
 
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -1269,14 +1269,14 @@ void pinggu11(int a[6][6])              //µÚÒ»²ã
                     H[0]=0;
 				}
 
-                d[h]=max(c);           //¼ÇÂ¼Ä³¸öÆå×ÓµÄ×î´óÖµ
-                f[h]=max11(c);         //¼ÇÂ¼¸ÃÆå×Ó×ßÄÄÒ»²½
-                y[h]=j;x[h]=i;          //¼ÇÂ¼Õâ¸öÆå×ÓµÄ×ø±ê
+                d[h]=max(c);           //è®°å½•æŸä¸ªæ£‹å­çš„æœ€å¤§å€¼
+                f[h]=max11(c);         //è®°å½•è¯¥æ£‹å­èµ°å“ªä¸€æ­¥
+                y[h]=j;x[h]=i;          //è®°å½•è¿™ä¸ªæ£‹å­çš„åæ ‡
 				h++;
 			}
 		}
 	}
-    z=max11(d); //¼ÇÂ¼Õ¹ÏÖ×î´óÖµµÄÊÇµÚ¼¸¸öÆå×Ó
+    z=max11(d); //è®°å½•å±•ç°æœ€å¤§å€¼çš„æ˜¯ç¬¬å‡ ä¸ªæ£‹å­
 	i=x[z];
 	j=y[z];
 	if(p[i][j]==t)
@@ -1340,7 +1340,7 @@ void pinggu11(int a[6][6])              //µÚÒ»²ã
 	}
     zhuanhuan(p,a);
 }
-int pinggu22(int a[6][6],int H[1])                          //µÚ¶ş²ã
+int pinggu22(int a[6][6],int H[1])                          //ç¬¬äºŒå±‚
 {
     int min(int a[12]);
     int pinggu33(int a[6][6],int H[1]);
@@ -1441,8 +1441,8 @@ int pinggu22(int a[6][6],int H[1])                          //µÚ¶ş²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -1487,7 +1487,7 @@ int pinggu22(int a[6][6],int H[1])                          //µÚ¶ş²ã
     z=min(d);
 	return z;
 }
-int pinggu33(int a[6][6],int H[1])                        //µÚÈı²ã
+int pinggu33(int a[6][6],int H[1])                        //ç¬¬ä¸‰å±‚
 {
     int pinggu44(int a[6][6],int H[1]);
     void zhuanhuan(int a[6][6],int b[6][6]);
@@ -1588,8 +1588,8 @@ int pinggu33(int a[6][6],int H[1])                        //µÚÈı²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -1634,7 +1634,7 @@ int pinggu33(int a[6][6],int H[1])                        //µÚÈı²ã
 	z=max(d);
 	return z;
 }
-int pinggu44(int a[6][6],int H[1])                          //µÚ4²ã
+int pinggu44(int a[6][6],int H[1])                          //ç¬¬4å±‚
 {
     int min(int a[12]);
     int pinggu0(int a[6][6],int H[1]);
@@ -1735,8 +1735,8 @@ int pinggu44(int a[6][6],int H[1])                          //µÚ4²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -1781,7 +1781,7 @@ int pinggu44(int a[6][6],int H[1])                          //µÚ4²ã
     z=min(d);
 	return z;
 }
-void pinggu1(int a[6][6])              //µÚÒ»²ã
+void pinggu1(int a[6][6])              //ç¬¬ä¸€å±‚
 {
     int max(int a[8]);
     int pinggu2(int a[6][6],int H[1]);
@@ -1894,8 +1894,8 @@ void pinggu1(int a[6][6])              //µÚÒ»²ã
 
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					chizi01(p,i,j);
@@ -1934,14 +1934,14 @@ void pinggu1(int a[6][6])              //µÚÒ»²ã
                     H[0]=0;
 				}
 
-                d[h]=max(c);           //¼ÇÂ¼Ä³¸öÆå×ÓµÄ×î´óÖµ
-                f[h]=max11(c);         //¼ÇÂ¼¸ÃÆå×Ó×ßÄÄÒ»²½
-                y[h]=j;x[h]=i;          //¼ÇÂ¼Õâ¸öÆå×ÓµÄ×ø±ê
+                d[h]=max(c);           //è®°å½•æŸä¸ªæ£‹å­çš„æœ€å¤§å€¼
+                f[h]=max11(c);         //è®°å½•è¯¥æ£‹å­èµ°å“ªä¸€æ­¥
+                y[h]=j;x[h]=i;          //è®°å½•è¿™ä¸ªæ£‹å­çš„åæ ‡
 				h++;
 			}
 		}
 	}
-    z=max11(d); //¼ÇÂ¼Õ¹ÏÖ×î´óÖµµÄÊÇµÚ¼¸¸öÆå×Ó
+    z=max11(d); //è®°å½•å±•ç°æœ€å¤§å€¼çš„æ˜¯ç¬¬å‡ ä¸ªæ£‹å­
 	i=x[z];
 	j=y[z];
 	if(p[i][j]==t)
@@ -2005,7 +2005,7 @@ void pinggu1(int a[6][6])              //µÚÒ»²ã
 	}
     zhuanhuan(p,a);
 }
-int pinggu2(int a[6][6],int H[1])                          //µÚ2²ã
+int pinggu2(int a[6][6],int H[1])                          //ç¬¬2å±‚
 {
     int min(int a[12]);
     int pinggu3(int a[6][6],int H[1]);
@@ -2188,8 +2188,8 @@ int pinggu2(int a[6][6],int H[1])                          //µÚ2²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					A++;
@@ -2273,7 +2273,7 @@ int pinggu2(int a[6][6],int H[1])                          //µÚ2²ã
     z=min(d);
 	return z;
 }
-int pinggu3(int a[6][6],int H[1])                        //µÚ3²ã
+int pinggu3(int a[6][6],int H[1])                        //ç¬¬3å±‚
 {
     int pinggu4(int a[6][6],int H[1]);
 	int pinggu04(int a[6][6],int H[1],int C[1]);
@@ -2456,8 +2456,8 @@ int pinggu3(int a[6][6],int H[1])                        //µÚ3²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					A++;
@@ -2541,7 +2541,7 @@ int pinggu3(int a[6][6],int H[1])                        //µÚ3²ã
 	z=max(d);
 	return z;
 }
-int pinggu03(int a[6][6],int H[1],int C[1])                          //µÚ3²ã
+int pinggu03(int a[6][6],int H[1],int C[1])                          //ç¬¬3å±‚
 {
 	int max2(int a[120]);
     int pinggu4(int a[6][6],int H[1]);
@@ -2603,7 +2603,7 @@ int pinggu03(int a[6][6],int H[1],int C[1])                          //µÚ3²ã
 					}
 					else
 					{
-						return C[0];                                                                               //·µ»ØC¡¾0¡¿
+						return C[0];                                                                               //è¿”å›Cã€0ã€‘
 					}
 				}
 				if(((i-1)>=0)&&p[i-1][j]==0)
@@ -2789,8 +2789,8 @@ int pinggu03(int a[6][6],int H[1],int C[1])                          //µÚ3²ã
 					}
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					A++;
@@ -2905,7 +2905,7 @@ int pinggu03(int a[6][6],int H[1],int C[1])                          //µÚ3²ã
 	K=max2(MAX);
 	return K;
 }
-int pinggu4(int a[6][6],int H[1])                          //µÚ4²ã
+int pinggu4(int a[6][6],int H[1])                          //ç¬¬4å±‚
 {
     int min(int a[12]);
     int pinggu5(int a[6][6],int H[1]);
@@ -3088,8 +3088,8 @@ int pinggu4(int a[6][6],int H[1])                          //µÚ4²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					A++;
@@ -3172,7 +3172,7 @@ int pinggu4(int a[6][6],int H[1])                          //µÚ4²ã
     z=B[0];
 	return z;
 }
-int pinggu04(int a[6][6],int H[1],int C[1])                          //µÚ4²ã
+int pinggu04(int a[6][6],int H[1],int C[1])                          //ç¬¬4å±‚
 {
 	int min2(int a[120]);
     int pinggu5(int a[6][6],int H[1]);
@@ -3423,8 +3423,8 @@ int pinggu04(int a[6][6],int H[1],int C[1])                          //µÚ4²ã
 
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					A++;
@@ -3539,7 +3539,7 @@ int pinggu04(int a[6][6],int H[1],int C[1])                          //µÚ4²ã
     K=min2(MAX);
 	return K;
 }
-int pinggu5(int a[6][6],int H[1])                        //µÚ5²ã
+int pinggu5(int a[6][6],int H[1])                        //ç¬¬5å±‚
 {
     int pinggu0(int a[6][6],int H[1]);
     void zhuanhuan(int a[6][6],int b[6][6]);
@@ -3649,8 +3649,8 @@ int pinggu5(int a[6][6],int H[1])                        //µÚ5²ã
 					p[i][j]=t;
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					A++;
@@ -3698,7 +3698,7 @@ int pinggu5(int a[6][6],int H[1])                        //µÚ5²ã
 	z=max(d);
 	return z;
 }
-int pinggu05(int a[6][6],int H[1],int C[1])                          //µÚ5²ã
+int pinggu05(int a[6][6],int H[1],int C[1])                          //ç¬¬5å±‚
 {
 	int max2(int a[120]);
     int pinggu0(int a[6][6],int H[1]);
@@ -3750,7 +3750,7 @@ int pinggu05(int a[6][6],int H[1],int C[1])                          //µÚ5²ã
 					}
 					else
 					{
-						return C[0];                                                                               //·µ»ØC¡¾0¡¿
+						return C[0];                                                                               //è¿”å›Cã€0ã€‘
 					}
 				}
 				if(((i-1)>=0)&&p[i-1][j]==0)
@@ -3873,8 +3873,8 @@ int pinggu05(int a[6][6],int H[1],int C[1])                          //µÚ5²ã
 					}
 				}
 
-				zhuanhuan(p,P);                              //´¢´æ
-				Q=chizi1(p,i,j);                            //ÅĞ¶Ï³Ô×Ó*4
+				zhuanhuan(p,P);                              //å‚¨å­˜
+				Q=chizi1(p,i,j);                            //åˆ¤æ–­åƒå­*4
 				if(Q==30)
 				{
 					A++;
@@ -3953,7 +3953,7 @@ int pinggu05(int a[6][6],int H[1],int C[1])                          //µÚ5²ã
 	K=max2(MAX);
 	return K;
 }
-int max(int a[12])                     //ÅĞ¶ÏÆÀ¹À×î´óÖµ                                //ÕıÈ·
+int max(int a[12])                     //åˆ¤æ–­è¯„ä¼°æœ€å¤§å€¼                                //æ­£ç¡®
 {
     int max,i;
 	for(i=0;i<=11;i++)
@@ -4003,7 +4003,7 @@ int max2(int a[60])
 	}
 	return max;
 }
-int min(int a[12])                     //ÅĞ¶ÏÆÀ¹À×îĞ¡Öµ                                //ÕıÈ·
+int min(int a[12])                     //åˆ¤æ–­è¯„ä¼°æœ€å°å€¼                                //æ­£ç¡®
 {
     int min,i;
 	for(i=0;i<=11;i++)
@@ -4028,7 +4028,7 @@ int min(int a[12])                     //ÅĞ¶ÏÆÀ¹À×îĞ¡Öµ                         
 	}
 	return min;
 }
-int max11(int a[12])                   //·µ»Ø×î´óÖµ¶ÔÓ¦µÄÊı×é                            //ÕıÈ·
+int max11(int a[12])                   //è¿”å›æœ€å¤§å€¼å¯¹åº”çš„æ•°ç»„                            //æ­£ç¡®
 {
     int max,i,t=0;
 	for(i=0;i<=11;i++)
@@ -4082,19 +4082,19 @@ int min2(int a[120])
 	}
 	return min;
 }
-int pinggu0(int a[6][6],int H[1])          //ÆÀ¹Àº¯Êı    7.19
+int pinggu0(int a[6][6],int H[1])          //è¯„ä¼°å‡½æ•°    7.19
 {
-	//Í³¼ÆµĞ·½ºÍ¼º·½Æå×ÓÊı
-    int i,j,jifang=0,difang=0;                      //·Ö±ğ±íÊ¾¼º·½¡¢µĞ·½Æå×Ó¸öÊı
-	int t=T;                                        //TÎª³õÊ¼ÉèÖÃµÄ¼º·½Æå×Ó£¬ÊÇÈ«¾Ö±äÁ¿
-	int z=0,h=0;                                    //ÒÆ¶¯·¶Î§¡£ z±íÊ¾¼º·½£¬h±íÊ¾µĞ·½
+	//ç»Ÿè®¡æ•Œæ–¹å’Œå·±æ–¹æ£‹å­æ•°
+    int i,j,jifang=0,difang=0;                      //åˆ†åˆ«è¡¨ç¤ºå·±æ–¹ã€æ•Œæ–¹æ£‹å­ä¸ªæ•°
+	int t=T;                                        //Tä¸ºåˆå§‹è®¾ç½®çš„å·±æ–¹æ£‹å­ï¼Œæ˜¯å…¨å±€å˜é‡
+	int z=0,h=0;                                    //ç§»åŠ¨èŒƒå›´ã€‚ zè¡¨ç¤ºå·±æ–¹ï¼Œhè¡¨ç¤ºæ•Œæ–¹
     int b[6][6]={{25,35,35,35,35,25},{35,70,50,50,70,35},{35,50,60,60,50,35},{35,50,60,60,50,35},{35,70,50,50,70,35},{25,35,35,35,35,25}};
-	                                                //Ç°ÆÚÆåÅÌÅÌÃæ¼ÛÖµ
+	                                                //å‰æœŸæ£‹ç›˜ç›˜é¢ä»·å€¼
 	int c[6][6]={{15,35,35,35,35,15},{35,60,50,50,60,35},{35,50,60,60,50,35},{35,50,60,60,50,35},{35,60,50,50,60,35},{15,35,35,35,35,15}};
-	                                                //ÖĞÆÚÆåÅÌÅÌÃæ¼ÛÖµ
+	                                                //ä¸­æœŸæ£‹ç›˜ç›˜é¢ä»·å€¼
     int d[6][6]={{8,35,35,35,35,8},{35,50,70,70,50,35},{35,70,60,60,70,35},{35,70,60,60,70,35},{35,50,70,70,50,35},{8,35,35,35,35,8}};
-                                                    //ºóÆÚÆåÅÌÅÌÃæ¼ÛÖµ
-	int v=0,u=0;                                    //ÅÌÃæ¼ÛÖµ¹À·Ö,v±íÊ¾¼º·½£¬u±íÊ¾µĞ·½
+                                                    //åæœŸæ£‹ç›˜ç›˜é¢ä»·å€¼
+	int v=0,u=0;                                    //ç›˜é¢ä»·å€¼ä¼°åˆ†,vè¡¨ç¤ºå·±æ–¹ï¼Œuè¡¨ç¤ºæ•Œæ–¹
 	int k;
 	for(i=0;i<6;i++)
 	{
@@ -4171,8 +4171,8 @@ int pinggu0(int a[6][6],int H[1])          //ÆÀ¹Àº¯Êı    7.19
 					{
 						z++;
 					}
-				}                                       //¼º·½ÒÆ¶¯·¶Î§
-				if(jifang>8)                            //¼º·½ÅÌÃæ¼ÛÖµ
+				}                                       //å·±æ–¹ç§»åŠ¨èŒƒå›´
+				if(jifang>8)                            //å·±æ–¹ç›˜é¢ä»·å€¼
 				{
 					v=v+b[i][j];
 				}
@@ -4272,7 +4272,7 @@ int pinggu0(int a[6][6],int H[1])          //ÆÀ¹Àº¯Êı    7.19
 	}
 	return k;
 }
-void zhuanhuan(int a[6][6],int b[6][6])           //°Ña¸³Öµµ½b£¨×ªÒÆÆåÅÌ£©
+void zhuanhuan(int a[6][6],int b[6][6])           //æŠŠaèµ‹å€¼åˆ°bï¼ˆè½¬ç§»æ£‹ç›˜ï¼‰
 {
 	int i,j;
 	for(i=0;i<=5;i++)
