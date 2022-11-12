@@ -1,4 +1,4 @@
-// tree.cpp: Ö÷ÏîÄ¿ÎÄ¼þ¡£
+// tree.cpp: ä¸»é¡¹ç›®æ–‡ä»¶ã€‚
 
 #include <stdlib.h>
 #include <stdio.h>
@@ -48,7 +48,7 @@ struct card_hand
 };
 */
 
-int output_card(int *p)                          //¶ÁÈ¡ÊÖÅÆ²¢´æµ½ÎÄ¼þ
+int output_card(int *p)                          //è¯»å–æ‰‹ç‰Œå¹¶å­˜åˆ°æ–‡ä»¶
 {
 	FILE *fp;
 
@@ -75,7 +75,7 @@ int output_card(int *p)                          //¶ÁÈ¡ÊÖÅÆ²¢´æµ½ÎÄ¼þ
 
 		fclose(fp);
 
-		FILE *f = fopen("D:\\myfile.txt", "r");     //¶ÁÈ¡ÊÖÅÆ
+		FILE *f = fopen("D:\\myfile.txt", "r");     //è¯»å–æ‰‹ç‰Œ
 	if (!f) {
 		/*printf("open myfile.txt failed!\n");
 		goto err;*/
@@ -83,7 +83,7 @@ int output_card(int *p)                          //¶ÁÈ¡ÊÖÅÆ²¢´æµ½ÎÄ¼þ
 	}
 	int num = 1;
 	int flag=0;
-	fscanf(f, "%d", &array[0]);                       //½«ÊÖÅÆ´òÓ¡
+	fscanf(f, "%d", &array[0]);                       //å°†æ‰‹ç‰Œæ‰“å°
 	while (fscanf(f, " %d", &array[num]) > 0) {
 		num++;
 	}
@@ -835,16 +835,16 @@ void fini_category()
 
 char *usage = 
 	"\n"\
-	"³ÌÐòÃû³Æ£º¡¶¶·µØÖ÷AI¸¨Öú×é¼þ¡·\n"\
-	"³ÌÐò°æ±¾£º1.0\n"\
-	"³ÌÐò¹¦ÄÜ£º¸ù¾ÝÏÖÓÐµÄÅÆ£¨17¡«20ÕÅ²»µÈ£©£¬Çî¾Ù³öËùÓÐºÏ·¨µÄÊÖÅÆ×éºÏ\n"\
-	"³ÌÐòÊ¹ÓÃ£º³ÌÐòÄ¬ÈÏ¶ÁÈ¡µ±Ç°Ä¿Â¼ÏÂmyfile.txtÎÄ¼þ£¬ÒÔ»ñÈ¡ËùÓÐµÄÅÆ\n"\
-	"          ÎÄ¼þ¸ñÊ½Îªxx xx xx xx xx ...\n"\
-	"          ÀýÈç2 3 4 4 8 12 13 13 14 4 5 6 7 7 7 7 15\n"\
-	"          3¡«10µÄÅÆÄ¬ÈÏÎªÊý×Ö3¡«10\n"\
-	"          J¡«2µÄÅÆÄ¬ÈÏÎªÊý×Ö11¡«14\n"\
-	"          ´óÍõÐ¡ÍõÎªÊý×Ö15ºÍ16\n"\
-	"          ³ÌÐòÔËÐÐ½á¹û×îºó»áÊä³öµ½result.txtÎÄ¼þÖÐ\n"\
+	"ç¨‹åºåç§°ï¼šã€Šæ–—åœ°ä¸»AIè¾…åŠ©ç»„ä»¶ã€‹\n"\
+	"ç¨‹åºç‰ˆæœ¬ï¼š1.0\n"\
+	"ç¨‹åºåŠŸèƒ½ï¼šæ ¹æ®çŽ°æœ‰çš„ç‰Œï¼ˆ17ï½ž20å¼ ä¸ç­‰ï¼‰ï¼Œç©·ä¸¾å‡ºæ‰€æœ‰åˆæ³•çš„æ‰‹ç‰Œç»„åˆ\n"\
+	"ç¨‹åºä½¿ç”¨ï¼šç¨‹åºé»˜è®¤è¯»å–å½“å‰ç›®å½•ä¸‹myfile.txtæ–‡ä»¶ï¼Œä»¥èŽ·å–æ‰€æœ‰çš„ç‰Œ\n"\
+	"          æ–‡ä»¶æ ¼å¼ä¸ºxx xx xx xx xx ...\n"\
+	"          ä¾‹å¦‚2 3 4 4 8 12 13 13 14 4 5 6 7 7 7 7 15\n"\
+	"          3ï½ž10çš„ç‰Œé»˜è®¤ä¸ºæ•°å­—3ï½ž10\n"\
+	"          Jï½ž2çš„ç‰Œé»˜è®¤ä¸ºæ•°å­—11ï½ž14\n"\
+	"          å¤§çŽ‹å°çŽ‹ä¸ºæ•°å­—15å’Œ16\n"\
+	"          ç¨‹åºè¿è¡Œç»“æžœæœ€åŽä¼šè¾“å‡ºåˆ°result.txtæ–‡ä»¶ä¸­\n"\
 	"\n"\
 ;
 
@@ -871,7 +871,7 @@ char *usage =
 //		num++;
 //	}
 //
-//	//printf("\n¾­ÅÅÐòºóÅÆÈçÏÂ£º\n");
+//	//printf("\nç»æŽ’åºåŽç‰Œå¦‚ä¸‹ï¼š\n");
 //	sort_card(array, num);
 //	/*for (j = 0; j < num; j++) {
 //		printf("%d ", array[j]);
@@ -883,14 +883,14 @@ char *usage =
 //	use_stack_or_queue = 1;
 //	start = time(0);
 //	root = gen_category(array, num);
-//	//printf("\nÉ¨Ãè½á¹ûÈçÏÂ£º\n");
+//	//printf("\næ‰«æç»“æžœå¦‚ä¸‹ï¼š\n");
 //	while (root) {
 //		choice_node_print(stdout, root);
 //		//printf("\n");
 //		root = root->list;
 //		count++;
 //	}
-//	//printf("\n¹²ÓÐ%dÖÖ½á¹û£¬ÓÃÊ±%dÃë\n\n", count, time(0) - start);
+//	//printf("\nå…±æœ‰%dç§ç»“æžœï¼Œç”¨æ—¶%dç§’\n\n", count, time(0) - start);
 //
 //	fini_category();
 ////err:
@@ -899,19 +899,19 @@ char *usage =
 //}
 
 
-//·µ»ØÊÖÖÐÅÆËùÓÐ³ö·¨¼¯ºÏ
+//è¿”å›žæ‰‹ä¸­ç‰Œæ‰€æœ‰å‡ºæ³•é›†åˆ
 struct Category_Info* calHandCount(int *array, int num)
 {
 	return NULL;
 }
 
-//·µ»ØÒÔ×îÉÙÊÖ³öÍêÎªÒÀ¾ÝµÄÊÖÅÆ·ÖÀà
+//è¿”å›žä»¥æœ€å°‘æ‰‹å‡ºå®Œä¸ºä¾æ®çš„æ‰‹ç‰Œåˆ†ç±»
 struct Category_Info* calminHandCount(int *array, int num)
 {
 	return NULL;
 }
 
-//·µ»Ø×îÉÙ¶àÉÙÊÖÄÜ³öÍê
+//è¿”å›žæœ€å°‘å¤šå°‘æ‰‹èƒ½å‡ºå®Œ
 int minHandCount(int *array, int num)
 {
 	int count=0,min=num;
@@ -919,7 +919,7 @@ int minHandCount(int *array, int num)
 
 	sort_card(array, num);
 	init_category();
-	check("×îÉÙ¶àÉÙÊÖÄÜ³öÍê³ÌÐò");
+	check("æœ€å°‘å¤šå°‘æ‰‹èƒ½å‡ºå®Œç¨‹åº");
 	root = gen_category(array, num);	
 	while (root) {
 		struct card_hand *h = root->hand;

@@ -33,7 +33,7 @@ struct card_hand
 	int type;
 	int state;
 	int card_num;
-	int card[MAX_CARD_ONE_HAND];//enum hand_type ÎªÏÂ±ê
+	int card[MAX_CARD_ONE_HAND];//enum hand_type ä¸ºä¸‹æ ‡
 	struct card_hand *next;
 };
 
@@ -44,12 +44,12 @@ struct Category_Info
 	struct Category_Info *next;
 };
 
-//·µ»ØÊÖÖĞÅÆËùÓĞ³ö·¨¼¯ºÏ
+//è¿”å›æ‰‹ä¸­ç‰Œæ‰€æœ‰å‡ºæ³•é›†åˆ
 struct Category_Info* calHandCount(int *array, int num);
 
-//·µ»ØÒÔ×îÉÙÊÖ³öÍêÎªÒÀ¾İµÄÊÖÅÆ·ÖÀà
+//è¿”å›ä»¥æœ€å°‘æ‰‹å‡ºå®Œä¸ºä¾æ®çš„æ‰‹ç‰Œåˆ†ç±»
 struct Category_Info* calminHandCount(int *array, int num);
 
-//·µ»Ø×îÉÙ¶àÉÙÊÖÄÜ³öÍê
+//è¿”å›æœ€å°‘å¤šå°‘æ‰‹èƒ½å‡ºå®Œ
 int minHandCount(int *array, int num);
 #endif

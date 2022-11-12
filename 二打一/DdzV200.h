@@ -1,58 +1,58 @@
-//´úÂë°æ±¾		2017Äê¹úÈü 
-//±¾´úÂëÓÉÉòÑôº½¿Õº½Ìì´óÑ§¼ÆËã»ú²©ÞÄÐ­»á×Ü¸ºÔðÈËÍõÔ¾ÁØÍ³Ò»µ÷¿Ø
-//¶þ´òÒ»×é¸ºÔðÈË³Â¼ÑÓê£¬´÷ÅôËù´ø²©ÞÄ×é¿ª·¢Î¬»¤
-//´úÂëÀ´×Ô¹þ¹¤´ó¿ªÔ´´úÂë,ÓÉÒÔÉÏ³ÉÔ±Î¬»¤ 
-//±¾´úÂëÊÊÓÃÓÚÖÐ¹ú´óÑ§Éú¼ÆËã»ú²©ÞÄ´óÈü¶·µØÖ÷²©ÞÄÏîÄ¿2014°æ½»»¥Ð­Òé
-//±¾´úÂë½öÌá¹©½»»¥Ð­ÒéµÄÓÃ·¨Ê¾·¶ºÍ¼òµ¥AI²©ÞÄË¼Â·£¬¿ª·¢ÕßÐè×ÔÐÐ¸Ä½øÍêÉÆ´úÂë²ÎÈü
-//ÈçÓÐÒâ¼ûºÍ½¨ÒéÇëÓëÎÒÃÇ¾¡ÔçÁªÏµ
-//ÍõÔ¾ÁØ	QQ£º836473734
-//³Â¼ÑÓê	QQ£º1274162928
-//´÷Åô		QQ£º1219095374 
+//ä»£ç ç‰ˆæœ¬		2017å¹´å›½èµ› 
+//æœ¬ä»£ç ç”±æ²ˆé˜³èˆªç©ºèˆªå¤©å¤§å­¦è®¡ç®—æœºåšå¼ˆåä¼šæ€»è´Ÿè´£äººçŽ‹è·ƒéœ–ç»Ÿä¸€è°ƒæŽ§
+//äºŒæ‰“ä¸€ç»„è´Ÿè´£äººé™ˆä½³é›¨ï¼Œæˆ´é¹æ‰€å¸¦åšå¼ˆç»„å¼€å‘ç»´æŠ¤
+//ä»£ç æ¥è‡ªå“ˆå·¥å¤§å¼€æºä»£ç ,ç”±ä»¥ä¸Šæˆå‘˜ç»´æŠ¤ 
+//æœ¬ä»£ç é€‚ç”¨äºŽä¸­å›½å¤§å­¦ç”Ÿè®¡ç®—æœºåšå¼ˆå¤§èµ›æ–—åœ°ä¸»åšå¼ˆé¡¹ç›®2014ç‰ˆäº¤äº’åè®®
+//æœ¬ä»£ç ä»…æä¾›äº¤äº’åè®®çš„ç”¨æ³•ç¤ºèŒƒå’Œç®€å•AIåšå¼ˆæ€è·¯ï¼Œå¼€å‘è€…éœ€è‡ªè¡Œæ”¹è¿›å®Œå–„ä»£ç å‚èµ›
+//å¦‚æœ‰æ„è§å’Œå»ºè®®è¯·ä¸Žæˆ‘ä»¬å°½æ—©è”ç³»
+//çŽ‹è·ƒéœ–	QQï¼š836473734
+//é™ˆä½³é›¨	QQï¼š1274162928
+//æˆ´é¹		QQï¼š1219095374 
 #include <stdio.h>
 #include <string.h>
 #include <iostream>
 #include "CardsCategory.h"
 using namespace std;
-//A01-STARTÀàÐÍ¶¨Òå
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08
+//A01-STARTç±»åž‹å®šä¹‰
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08
 struct Ddz
 {
-	int  iStatus;			//ÒýÇæ×´Ì¬-1´íÎó,0½áÊø,1¿ªÊ¼
-	char sCommandIn[80];	//Í¨ÐÅÊäÈëÄÚÈÝ
-	char sCommandOut[80];	//Í¨ÐÅÊä³öÄÚÈÝ
-	int iOnHand[21];		//ÊÖÖÐÅÆ£¨ËùÓÐÖµ³õÊ¼»¯Îª-1£©
-	int minOutCount;		//³öÍêÊÖÖÐÅÆµÄ×îÉÙÊÖÊý-------------------------
-	int iOnTable[162][21];	//ÒÔ³öÅÆÊý×é£¨ËùÓÐÖµ³õÊ¼»¯Îª-2£©Ã¿ÐÐÊÇÒ»ÊÖÅÆ£¬ÒÔ-1½áÎ²£¬Pass¼ÇÎª-1
-	int iToTable[21];		//Òª³öµÄÅÆ
-	char sVer[80];			//Ð­Òé°æ±¾ºÅ
-	char sName[80];			//²ÎÈüÑ¡ÊÖ³Æºô
-	char cDir;				//Íæ¼Ò·½Î»±àºÅ
-	char cLandlord;			//µØÖ÷Íæ¼Ò·½Î»±àºÅ
-	char cWinner;			//Ê¤ÀûÕß·½Î»±àºÅ
-	int iBid[3];			//½ÐÅÆ¹ý³Ì
-	int iBmax;				//µ±Ç°½ÐÅÆÊý£¬ÖµÓò{0,1,2,3}
-	int iOTmax;				//µ±Ç°³öÅÆÊÖÊý
-	int iRoundNow;			//µ±Ç°¾Ö´Î
-	int iRoundTotal;		//ºÍ×Ü¾ÖÊý
-	int iTurnNow;			//µ±Ç°ÂÖ´Î
-	int iTurnTotal;			//×ÜÂÖÊý
-	int iLevelUp;			//½ú¼¶Ñ¡ÊÖÊý
-	int iScoreMax;			//×ª»»µÃ·Ö½çÏÞ
-	int iVoid;				//ÏÐÏ¾²¢ÐÐ¼ÆËã²ÎÊý
-	int iLef[3];			//±¾¾Öµ×ÅÆ
-	int iLastCount[3];		//µ±Ç°¸÷Íæ¼ÒÊÖÖÐÅÆÊý
-	int iLastPointArray[14];//Í³¼ÆÒÑÖªÅÆ£¬°´µãÊý¼ÆÊý--------------------------
-	int iLastPassCount;		//µ±Ç°×ÀÃæÁ¬ÐøPASSÊý£¨ÖµÓò[0,2],³õÖµ2£¬Õý³£³öÅÆÈ¡0£¬Ò»¼ÒPASSÈ¡1£¬Á½¼ÒPASSÈ¡2£©
-	int iLastTypeCount;		//µ±Ç°×ÀÃæÅÆÐÍÕÅÊý£¨ÖµÓò[0,1108],³õÖµ0£¬iLastPassCount=0Ê±¸üÐÂÖµ£¬=1Ê±±£ÁôÔ­Öµ£¬=2Ê±ÖµÎª0£©
-	int iLastMainPoint;		//µ±Ç°×ÀÃæÖ÷ÅÆµãÊý£¨ÖµÓò[0,15],³õÖµ-1£¬iLastPassCount=0Ê±¸üÐÂÖµ£¬=1Ê±±£ÁôÔ­Öµ£¬=2Ê±ÖµÎª-1£©
-	int iPlaArr[kPlaMax][21];		//¼º·½¶àÖÖ³öÅÆ¿ÉÐÐ½â¼¯£¨¸÷³öÅÆ½âÓÉÅÆ±àºÅÉýÐò×é³É-1¼ä¸ô,-2ÊÕÎ²£©
-	int iPlaCount;			//¼º·½¶àÖÖ³öÅÆ¿ÉÐÐ½âÊýÁ¿£¨ÖµÓò[0£¬kPlaMax-1]£©
-	int iPlaOnHand[21];		//¼º·½Ä£Äâ³öÅÆºóÊÖÅÆ±àÂë
+	int  iStatus;			//å¼•æ“ŽçŠ¶æ€-1é”™è¯¯,0ç»“æŸ,1å¼€å§‹
+	char sCommandIn[80];	//é€šä¿¡è¾“å…¥å†…å®¹
+	char sCommandOut[80];	//é€šä¿¡è¾“å‡ºå†…å®¹
+	int iOnHand[21];		//æ‰‹ä¸­ç‰Œï¼ˆæ‰€æœ‰å€¼åˆå§‹åŒ–ä¸º-1ï¼‰
+	int minOutCount;		//å‡ºå®Œæ‰‹ä¸­ç‰Œçš„æœ€å°‘æ‰‹æ•°-------------------------
+	int iOnTable[162][21];	//ä»¥å‡ºç‰Œæ•°ç»„ï¼ˆæ‰€æœ‰å€¼åˆå§‹åŒ–ä¸º-2ï¼‰æ¯è¡Œæ˜¯ä¸€æ‰‹ç‰Œï¼Œä»¥-1ç»“å°¾ï¼ŒPassè®°ä¸º-1
+	int iToTable[21];		//è¦å‡ºçš„ç‰Œ
+	char sVer[80];			//åè®®ç‰ˆæœ¬å·
+	char sName[80];			//å‚èµ›é€‰æ‰‹ç§°å‘¼
+	char cDir;				//çŽ©å®¶æ–¹ä½ç¼–å·
+	char cLandlord;			//åœ°ä¸»çŽ©å®¶æ–¹ä½ç¼–å·
+	char cWinner;			//èƒœåˆ©è€…æ–¹ä½ç¼–å·
+	int iBid[3];			//å«ç‰Œè¿‡ç¨‹
+	int iBmax;				//å½“å‰å«ç‰Œæ•°ï¼Œå€¼åŸŸ{0,1,2,3}
+	int iOTmax;				//å½“å‰å‡ºç‰Œæ‰‹æ•°
+	int iRoundNow;			//å½“å‰å±€æ¬¡
+	int iRoundTotal;		//å’Œæ€»å±€æ•°
+	int iTurnNow;			//å½“å‰è½®æ¬¡
+	int iTurnTotal;			//æ€»è½®æ•°
+	int iLevelUp;			//æ™‹çº§é€‰æ‰‹æ•°
+	int iScoreMax;			//è½¬æ¢å¾—åˆ†ç•Œé™
+	int iVoid;				//é—²æš‡å¹¶è¡Œè®¡ç®—å‚æ•°
+	int iLef[3];			//æœ¬å±€åº•ç‰Œ
+	int iLastCount[3];		//å½“å‰å„çŽ©å®¶æ‰‹ä¸­ç‰Œæ•°
+	int iLastPointArray[14];//ç»Ÿè®¡å·²çŸ¥ç‰Œï¼ŒæŒ‰ç‚¹æ•°è®¡æ•°--------------------------
+	int iLastPassCount;		//å½“å‰æ¡Œé¢è¿žç»­PASSæ•°ï¼ˆå€¼åŸŸ[0,2],åˆå€¼2ï¼Œæ­£å¸¸å‡ºç‰Œå–0ï¼Œä¸€å®¶PASSå–1ï¼Œä¸¤å®¶PASSå–2ï¼‰
+	int iLastTypeCount;		//å½“å‰æ¡Œé¢ç‰Œåž‹å¼ æ•°ï¼ˆå€¼åŸŸ[0,1108],åˆå€¼0ï¼ŒiLastPassCount=0æ—¶æ›´æ–°å€¼ï¼Œ=1æ—¶ä¿ç•™åŽŸå€¼ï¼Œ=2æ—¶å€¼ä¸º0ï¼‰
+	int iLastMainPoint;		//å½“å‰æ¡Œé¢ä¸»ç‰Œç‚¹æ•°ï¼ˆå€¼åŸŸ[0,15],åˆå€¼-1ï¼ŒiLastPassCount=0æ—¶æ›´æ–°å€¼ï¼Œ=1æ—¶ä¿ç•™åŽŸå€¼ï¼Œ=2æ—¶å€¼ä¸º-1ï¼‰
+	int iPlaArr[kPlaMax][21];		//å·±æ–¹å¤šç§å‡ºç‰Œå¯è¡Œè§£é›†ï¼ˆå„å‡ºç‰Œè§£ç”±ç‰Œç¼–å·å‡åºç»„æˆ-1é—´éš”,-2æ”¶å°¾ï¼‰
+	int iPlaCount;			//å·±æ–¹å¤šç§å‡ºç‰Œå¯è¡Œè§£æ•°é‡ï¼ˆå€¼åŸŸ[0ï¼ŒkPlaMax-1]ï¼‰
+	int iPlaOnHand[21];		//å·±æ–¹æ¨¡æ‹Ÿå‡ºç‰ŒåŽæ‰‹ç‰Œç¼–ç 
 };
 //A01-END
 int array[MAX_CARD_ONE_HAND];
 
-//²¿·Öº¯ÊýÉùÃ÷
+//éƒ¨åˆ†å‡½æ•°å£°æ˜Ž
 int IsType0Pass(int iCs[]);						//B00
 int IsType1Rocket(int iCs[]);					//B01
 int IsType2Bomb(int iCs[]);						//B02
@@ -114,7 +114,7 @@ void OutputMsg(struct Ddz * pDdz);				//P04
 void CalOthers(struct Ddz * pDdz);				//P05
 int IsPartner(struct Ddz * pDdz);
 int LastPlayerLeft(struct Ddz * pDdz);
-int output_card(int *p);                          //¶ÁÈ¡ÊÖÅÆ²¢´æµ½ÎÄ¼þ
+int output_card(int *p);                          //è¯»å–æ‰‹ç‰Œå¹¶å­˜åˆ°æ–‡ä»¶
 
 
 int check(char a[])
@@ -142,7 +142,7 @@ void check_card(char a[],int *p)
 		printf("cannot open this file\n");
 		exit(0);
 	}
-	fprintf(fp,"%s£º",a);
+	fprintf(fp,"%sï¼š",a);
 	 while(*p!=-1)
 	 {
 		 fprintf(fp,"%d,",*p/4+3);
@@ -174,8 +174,8 @@ void check_card_1(char b[],int a)
 int IsPartner(struct Ddz * pDdz)
 {
 	if(pDdz->cDir==pDdz->cLandlord 
-		|| (pDdz->cDir-pDdz->cLandlord+3)%3==2 && pDdz->iLastPassCount==1//µØÖ÷ÔÚÓÒÊÖ±ß
-		|| (pDdz->cDir-pDdz->cLandlord+3)%3==1 && pDdz->iLastPassCount==0)//µØÖ÷ÔÚ×óÊÖ±ß
+		|| (pDdz->cDir-pDdz->cLandlord+3)%3==2 && pDdz->iLastPassCount==1//åœ°ä¸»åœ¨å³æ‰‹è¾¹
+		|| (pDdz->cDir-pDdz->cLandlord+3)%3==1 && pDdz->iLastPassCount==0)//åœ°ä¸»åœ¨å·¦æ‰‹è¾¹
 		return 0;
 	return 1;
 }
@@ -183,13 +183,13 @@ int IsPartner(struct Ddz * pDdz)
 int LastPlayerLeft(struct Ddz * pDdz)
 {
 	if(pDdz->iLastPassCount)
-		return pDdz->iLastCount[(pDdz->cDir-'A'+1-3)%3];//ÓÒÊÖ±ßplayer
+		return pDdz->iLastCount[(pDdz->cDir-'A'+1-3)%3];//å³æ‰‹è¾¹player
 	else
-		return pDdz->iLastCount[(pDdz->cDir-'A'-1+3)%3];//×óÊÖ±ßplayer
+		return pDdz->iLastCount[(pDdz->cDir-'A'-1+3)%3];//å·¦æ‰‹è¾¹player
 }
 
-//B00-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªÆúÈ¨
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-10
+//B00-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºå¼ƒæƒ
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-10
 int IsType0Pass(int iCs[])
 {
 	int iCount;
@@ -200,8 +200,8 @@ int IsType0Pass(int iCs[])
 }
 //B00-END
 
-//B01-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎª»ð¼ý
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-10
+//B01-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºç«ç®­
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°&æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-10
 int IsType1Rocket(int iCs[])
 {
 	if((iCs[2]==-1) && (iCs[0] + iCs[1]== 52 + 53))
@@ -210,9 +210,9 @@ int IsType1Rocket(int iCs[])
 }
 //B01-END
 
-//B02-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªÕ¨µ¯
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-03-10
-//ÐÞ¶©ÄÚÈÝ¼°Ä¿µÄ:·ÀÖ¹ÅÆÊÇ¿ÕµÄ
+//B02-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºç‚¸å¼¹
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°&æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-03-10
+//ä¿®è®¢å†…å®¹åŠç›®çš„:é˜²æ­¢ç‰Œæ˜¯ç©ºçš„
 int IsType2Bomb(int iCs[])
 {
 	if(4 != CountCards(iCs))
@@ -223,9 +223,9 @@ int IsType2Bomb(int iCs[])
 }
 //B02-END
 
-//B03-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªµ¥ÅÆ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-03-10
-//ÐÞ¶©ÄÚÈÝ¼°Ä¿µÄ:ifÅÐ¶ÏÌõ¼þ´íÎó
+//B03-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºå•ç‰Œ
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-03-10
+//ä¿®è®¢å†…å®¹åŠç›®çš„:ifåˆ¤æ–­æ¡ä»¶é”™è¯¯
 int	IsType3Single(int iCs[])
 {
 	if(iCs[0] != -1 && iCs[1] == -1)
@@ -234,8 +234,8 @@ int	IsType3Single(int iCs[])
 }
 //B03-END
 
-//B04-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎª¶ÔÅÆ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-02-13
+//B04-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºå¯¹ç‰Œ
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-02-13
 int	IsType4Double(int iCs[])
 {
 	if(IsType1Rocket(iCs))
@@ -246,8 +246,8 @@ int	IsType4Double(int iCs[])
 }
 //B04-END
 
-//B05-ÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªÈýÌõ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-02-13
+//B05-åˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºä¸‰æ¡
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-02-13
 int	IsType5Three(int iCs[])
 {
 	if(iCs[0] != -1 && iCs[0]/4 == iCs[1]/4 && iCs[0]/4 == iCs[2]/4 && iCs[3] == -1)
@@ -256,8 +256,8 @@ int	IsType5Three(int iCs[])
 }
 //B05-END
 
-//B0601-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªÈý´øÒ»µ¥
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-02-12
+//B0601-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºä¸‰å¸¦ä¸€å•
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-02-12
 int IsType6ThreeOne(int iCs[])
 {
 	if(IsType2Bomb(iCs) || 4 != CountCards(iCs))
@@ -269,8 +269,8 @@ int IsType6ThreeOne(int iCs[])
 }
 //B0601-END
 
-//B0602-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªÈý´øÒ»¶Ô
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-02-12
+//B0602-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºä¸‰å¸¦ä¸€å¯¹
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-02-12
 int IsType6ThreeDouble(int iCs[])
 {
 	if(5 != CountCards(iCs) )
@@ -283,8 +283,8 @@ int IsType6ThreeDouble(int iCs[])
 }
 //B0602-END
 
-//B07-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªµ¥Ë³
-//×îºóÐÞ¶©Õß:Ð»ÎÄ,×îºóÐÞ¶©Ê±¼ä:15-02-12
+//B07-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºå•é¡º
+//æœ€åŽä¿®è®¢è€…:è°¢æ–‡,æœ€åŽä¿®è®¢æ—¶é—´:15-02-12
 int IsType7LinkSingle(int iCs[])
 {
 	int iCount;
@@ -302,27 +302,27 @@ int IsType7LinkSingle(int iCs[])
 }
 //B07-END
 
-//B08-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªÁ¬¶Ô
-//×îºóÐÞ¶©Õß:Ð»ÎÄ&ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-03-10
+//B08-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºè¿žå¯¹
+//æœ€åŽä¿®è®¢è€…:è°¢æ–‡&å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-03-10
 int IsType8LinkDouble(int iCs[])
 {   
 	int iCount = CountCards(iCs);
 	int i; 
 	if(iCount < 6 || iCount % 2 != 0)
 		return 0;
-	SortById(iCs);   //°ÑiCsÅÆÅÅÐò
+	SortById(iCs);   //æŠŠiCsç‰ŒæŽ’åº
 	for(i = 1 ; i < iCount ; i++)
 	{
-		//ÅÐ¶ÏiÊÇµ¥Êý»¹ÊÇË«Êý
+		//åˆ¤æ–­iæ˜¯å•æ•°è¿˜æ˜¯åŒæ•°
 		if(i%2)
 		{
-			//Èç¹ûiÊÇµ¥Êý£¬ÔòµÚiÕÅÅÆµÄ±àÂë±àÂë»áµÈÓÚÉÏÒ»ÕÅÅÆ±àÂë+1  
+			//å¦‚æžœiæ˜¯å•æ•°ï¼Œåˆ™ç¬¬iå¼ ç‰Œçš„ç¼–ç ç¼–ç ä¼šç­‰äºŽä¸Šä¸€å¼ ç‰Œç¼–ç +1  
 			if(iCs[i]/4 != iCs[i-1]/4)
 				return 0;
 		}
 		else
 		{
-			//Èç¹ûiÊÇË«Êý£¬ÔòµÚiÕÅÅÆµÄ±àÂë±àÂë»áµÈÓÚÉÏÒ»ÕÅÅÆ±àÂë
+			//å¦‚æžœiæ˜¯åŒæ•°ï¼Œåˆ™ç¬¬iå¼ ç‰Œçš„ç¼–ç ç¼–ç ä¼šç­‰äºŽä¸Šä¸€å¼ ç‰Œç¼–ç 
 			if(iCs[i]/4 != iCs[i-1]/4 + 1)
 				return 0;
 		}
@@ -331,21 +331,21 @@ int IsType8LinkDouble(int iCs[])
 }
 //B08-END
 
-//B09-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªÈýË³
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-02-13
+//B09-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºä¸‰é¡º
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-02-13
 int	IsType9LinkThree(int iCs[])
 {
-	int iTempArr[11] = {0};   //³õÊ¼»¯Êý×éiTempArrÓÃÀ´¼ÇÂ¼ 3 - A Ã¿¸öµãÊýµÄÕÅÊý
+	int iTempArr[11] = {0};   //åˆå§‹åŒ–æ•°ç»„iTempArrç”¨æ¥è®°å½• 3 - A æ¯ä¸ªç‚¹æ•°çš„å¼ æ•°
 	int iCount = CountCards(iCs);
-	int i, iMinNum , iMaxNum;   //iMinNum Îª iCs ×îÐ¡µãÊý,iMaxNum Îª iCs ×î´óµãÊý
+	int i, iMinNum , iMaxNum;   //iMinNum ä¸º iCs æœ€å°ç‚¹æ•°,iMaxNum ä¸º iCs æœ€å¤§ç‚¹æ•°
 	if(iCount < 6 || iCount % 3 != 0)
 		return 0;
-	SortById(iCs);   //°ÑiCsÅÆÅÅÐò
+	SortById(iCs);   //æŠŠiCsç‰ŒæŽ’åº
 	iMinNum = iCs[0]/4;
 	iMaxNum = iMinNum + iCount/3 -1;
 	for(i = 0 ; i < iCount ; i++)
 	{
-		//ÅÐ¶ÏiCs[i]ÊÇ·ñÔÚÓÐÐ§µãÊý·¶Î§ÄÚ
+		//åˆ¤æ–­iCs[i]æ˜¯å¦åœ¨æœ‰æ•ˆç‚¹æ•°èŒƒå›´å†…
 		if (iCs[i] > 47 || iCs[i]/4 < iMinNum || iCs[i]/4 > iMaxNum) 
 		{
 			return 0;
@@ -355,7 +355,7 @@ int	IsType9LinkThree(int iCs[])
 
 	for (i = iMinNum ;i <= iMaxNum;i++)
 	{
-		//ÅÐ¶ÏÊÇ·ñÃ¿¸öÓÐÐ§µãÊý¶¼Îª3ÕÅÅÆ
+		//åˆ¤æ–­æ˜¯å¦æ¯ä¸ªæœ‰æ•ˆç‚¹æ•°éƒ½ä¸º3å¼ ç‰Œ
 		if(iTempArr[i] != 3)
 			return 0;
 	}
@@ -364,34 +364,34 @@ int	IsType9LinkThree(int iCs[])
 }
 //B09-END
 
-//B1001-STARTÅÐ¶ÏÈýË³´øµ¥£¬·µ»Ø1ÊÇ£¬0²»ÊÇ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-03-10
-//ÐÞ¶©ÄÚÈÝ¼°Ä¿µÄ:·ÀÖ¹44455556µÄ³öÏÖÊ±ÅÅÐòºóË³ÐòÂÒ
+//B1001-STARTåˆ¤æ–­ä¸‰é¡ºå¸¦å•ï¼Œè¿”å›ž1æ˜¯ï¼Œ0ä¸æ˜¯
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-03-10
+//ä¿®è®¢å†…å®¹åŠç›®çš„:é˜²æ­¢44455556çš„å‡ºçŽ°æ—¶æŽ’åºåŽé¡ºåºä¹±
 int	IsType10LinkThreeSingle(int iCs[])
 {
 	int iCount = CountCards(iCs);
 	int iTempArr[18];
-	int i,n ,m , j , iNum , iTemp ; //iNum¼ÇÂ¼ÓÐ¶àÉÙ¸ö 3+1
+	int i,n ,m , j , iNum , iTemp ; //iNumè®°å½•æœ‰å¤šå°‘ä¸ª 3+1
 	if(iCount < 8 || iCount % 4 != 0)
 		return 0;
-	memset(iTempArr,-1,18*4);   //³õÊ¼»¯iTempArr£¬Öµ¶¼Îª-1
+	memset(iTempArr,-1,18*4);   //åˆå§‹åŒ–iTempArrï¼Œå€¼éƒ½ä¸º-1
 	iNum = iCount/4;  
-	SortByMuch(iCs);   //ÅÅÐò
-	//ÅÐ¶ÏÊÇ²»ÊÇÓÐÕ¨µ¯
+	SortByMuch(iCs);   //æŽ’åº
+	//åˆ¤æ–­æ˜¯ä¸æ˜¯æœ‰ç‚¸å¼¹
 	n = 1,m = 0;
 	while (n)
 	{
 		for(i = m ; i < m+4;i++)
 			iTempArr[i] = iCs[i];
 
-		//ÅÐ¶ÏiTempArrÊÇ²»ÊÇÕ¨µ¯£¬²»ÊÇÔòÌø³ö
+		//åˆ¤æ–­iTempArræ˜¯ä¸æ˜¯ç‚¸å¼¹ï¼Œä¸æ˜¯åˆ™è·³å‡º
 		if(0 == IsType2Bomb(iTempArr))
 		{	
 			n = 0;
 		}
 		else
 		{
-			//Èç¹ûÊÇµÄ»°,ÄÇÃ´Õâ¸öÕ¨µ¯Ó¦¸ÃÊÇÒ»¸öË³×Ó¼ÓÒ»¸öµ¥ÅÆ£¬µ¥ÅÅ¾ÍÓ¦¸Ã·ÅÔÚiCsµÄºóÃæ
+			//å¦‚æžœæ˜¯çš„è¯,é‚£ä¹ˆè¿™ä¸ªç‚¸å¼¹åº”è¯¥æ˜¯ä¸€ä¸ªé¡ºå­åŠ ä¸€ä¸ªå•ç‰Œï¼Œå•æŽ’å°±åº”è¯¥æ”¾åœ¨iCsçš„åŽé¢
 			iTemp = iCs[m];
 			for(j = m+1 ; j < iCount ;j++)
 			{
@@ -404,16 +404,16 @@ int	IsType10LinkThreeSingle(int iCs[])
 		memset(iTempArr,-1,18*4);
 	}
 
-	//½«ÈýË³¸³Öµ¸øiTempArr
+	//å°†ä¸‰é¡ºèµ‹å€¼ç»™iTempArr
 	for(i = 0 ; i < 3*iNum;i++)
 	{
 		iTempArr[i] = iCs[i];   
 	}
 
-	//ÅÐ¶ÏiTempArrÊÇ²»ÊÇÈýË³
+	//åˆ¤æ–­iTempArræ˜¯ä¸æ˜¯ä¸‰é¡º
 	if(1 == IsType9LinkThree(iTempArr))
 	{
-		//½«iTempArr´«»ØiCs   ·ÀÖ¹55544465ÕâÑùµÄÅÆÐÍ³öÏÖ
+		//å°†iTempArrä¼ å›žiCs   é˜²æ­¢55544465è¿™æ ·çš„ç‰Œåž‹å‡ºçŽ°
 		for(i = 0 ; i < 3*iNum;i++)
 		{
 			iCs[i] = iTempArr[i];
@@ -426,19 +426,19 @@ int	IsType10LinkThreeSingle(int iCs[])
 //B1001-END
 
 
-//B1002-START   ÅÐ¶ÏÈýË³´ø¶Ô£¬·µ»Ø1ÊÇ£¬0²»ÊÇ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-02-13
+//B1002-START   åˆ¤æ–­ä¸‰é¡ºå¸¦å¯¹ï¼Œè¿”å›ž1æ˜¯ï¼Œ0ä¸æ˜¯
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-02-13
 int	IsType10LinkThreeDouble(int	iCs[])
 {
 	int iCount = CountCards(iCs);
 	int iTempArr[18];
-	int i,n , j ,k, iNum , iTemp ; //iNum¼ÇÂ¼ÓÐ¶àÉÙ¸ö 3+2 
+	int i,n , j ,k, iNum , iTemp ; //iNumè®°å½•æœ‰å¤šå°‘ä¸ª 3+2 
 	if(iCount < 10 || iCount % 5 != 0)
 		return 0;
-	memset(iTempArr,-1,18*4);   //³õÊ¼»¯iTempArr£¬Öµ¶¼Îª-1
+	memset(iTempArr,-1,18*4);   //åˆå§‹åŒ–iTempArrï¼Œå€¼éƒ½ä¸º-1
 	iNum = iCount/5;
-	SortByMuch(iCs);   //ÅÅÐò
-	//ÅÐ¶ÏÊÇ²»ÊÇÓÐÕ¨µ¯
+	SortByMuch(iCs);   //æŽ’åº
+	//åˆ¤æ–­æ˜¯ä¸æ˜¯æœ‰ç‚¸å¼¹
 	n = 1;
 	while (n)
 	{
@@ -447,14 +447,14 @@ int	IsType10LinkThreeDouble(int	iCs[])
 			iTempArr[i] = iCs[i];
 		}
 
-		//ÅÐ¶ÏiTempArrÊÇ²»ÊÇÕ¨µ¯£¬²»ÊÇÔòÌø³ö
+		//åˆ¤æ–­iTempArræ˜¯ä¸æ˜¯ç‚¸å¼¹ï¼Œä¸æ˜¯åˆ™è·³å‡º
 		if(0 == IsType2Bomb(iTempArr))
 		{	
 			n = 0;
 		}
 		else
 		{
-			//Èç¹ûÊÇµÄ»°,ÄÇÃ´Õâ¸öÕ¨µ¯Ó¦¸ÃÊÇÊôÓÚ2¸ö¶Ô×Ó£¬¾ÍÓ¦¸Ã·ÅÔÚiCsµÄºóÃæ
+			//å¦‚æžœæ˜¯çš„è¯,é‚£ä¹ˆè¿™ä¸ªç‚¸å¼¹åº”è¯¥æ˜¯å±žäºŽ2ä¸ªå¯¹å­ï¼Œå°±åº”è¯¥æ”¾åœ¨iCsçš„åŽé¢
 			for(k = 0 ; k < 4 ; k ++)
 			{
 				iTemp = iCs[0];
@@ -469,17 +469,17 @@ int	IsType10LinkThreeDouble(int	iCs[])
 		memset(iTempArr,-1,18*4);
 	}
 
-	//½«ÈýË³¸³Öµ¸øiTempArr
+	//å°†ä¸‰é¡ºèµ‹å€¼ç»™iTempArr
 	for(i = 0 ; i < 3*iNum;i++)
 	{
 		iTempArr[i] = iCs[i];   
 	}
 
-	//ÅÐ¶ÏiTempArrÊÇ²»ÊÇÈýË³
+	//åˆ¤æ–­iTempArræ˜¯ä¸æ˜¯ä¸‰é¡º
 	if(0 == IsType9LinkThree(iTempArr))
 		return 0;
 
-	//ÖØÖÃiTempArr
+	//é‡ç½®iTempArr
 	memset(iTempArr,-1,18*4);
 
 	j = 0;
@@ -489,7 +489,7 @@ int	IsType10LinkThreeDouble(int	iCs[])
 		iTempArr[j] = iCs[i];
 		if(j == 1)
 		{
-			//ÅÐ¶ÏÊÇ²»ÊÇ¶Ô×Ó
+			//åˆ¤æ–­æ˜¯ä¸æ˜¯å¯¹å­
 			if(0 == IsType4Double(iTempArr))
 				return 0;
 			memset(iTempArr,-1,18*4);
@@ -505,29 +505,29 @@ int	IsType10LinkThreeDouble(int	iCs[])
 }
 //B1002-END
 
-//B1101-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªËÄ´ø¶þµ¥
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-10
+//B1101-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºå››å¸¦äºŒå•
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-10
 int IsType11FourSingle(int iCs[])
 {
 	int iCount;
 	iCount=CountCards(iCs);
-	SortByMuch(iCs);  //Í¬µãÊý¶àÅÆµÄÅÅÔÚÇ°Ãæ
+	SortByMuch(iCs);  //åŒç‚¹æ•°å¤šç‰Œçš„æŽ’åœ¨å‰é¢
 	if(iCount==6)  //6=4+1+1
-		if(iCs[0]/4==iCs[1]/4 && iCs[0]/4==iCs[2]/4  && iCs[0]/4==iCs[3]/4 )  //ÓÐËÄ
+		if(iCs[0]/4==iCs[1]/4 && iCs[0]/4==iCs[2]/4  && iCs[0]/4==iCs[3]/4 )  //æœ‰å››
 			return 1;
 	return 0;
 }
 //B1101-END
 
-//B1102-STARTÅÐ¶Ï³öÅÆÀàÐÍÊÇ·ñÎªËÄ´ø¶þ¶Ô
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-10
+//B1102-STARTåˆ¤æ–­å‡ºç‰Œç±»åž‹æ˜¯å¦ä¸ºå››å¸¦äºŒå¯¹
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-10
 int IsType11FourDouble(int iCs[])
 {
 	int iCount;
 	iCount=CountCards(iCs);
-	SortByMuch(iCs);  //Í¬µãÊý¶àÅÆµÄÅÅÔÚÇ°Ãæ
+	SortByMuch(iCs);  //åŒç‚¹æ•°å¤šç‰Œçš„æŽ’åœ¨å‰é¢
 	if(iCount==8)
-		if(iCs[0]/4==iCs[1]/4 && iCs[0]/4==iCs[2]/4  && iCs[0]/4==iCs[3]/4 )  //ÓÐËÄ
+		if(iCs[0]/4==iCs[1]/4 && iCs[0]/4==iCs[2]/4  && iCs[0]/4==iCs[3]/4 )  //æœ‰å››
 			if(iCs[4]/4==iCs[5]/4 && iCs[6]/4==iCs[7]/4)  //8=4+2+2
 				return 1;
 	return 0;
@@ -535,8 +535,8 @@ int IsType11FourDouble(int iCs[])
 //B1102-END
 
 
-//I01-START¼ÆËãÅÆÊý
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-11
+//I01-STARTè®¡ç®—ç‰Œæ•°
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-11
 int CountCards(int iCards[])
 {
 	int iCount=0;
@@ -546,8 +546,8 @@ int CountCards(int iCards[])
 }
 //I01-END
 
-//I03-START·ÖÎöÅÆÐÍºÍÕÅÊý
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-03-01
+//I03-STARTåˆ†æžç‰Œåž‹å’Œå¼ æ•°
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-03-01
 int	AnalyzeTypeCount(int iCards[])	
 {
 	int iCount=0;
@@ -587,8 +587,8 @@ int	AnalyzeTypeCount(int iCards[])
 }
 //I03-END
 
-//I04-START¼ÆËãÖ÷ÅÆ×îÐ¡µãÊý
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-03-01
+//I04-STARTè®¡ç®—ä¸»ç‰Œæœ€å°ç‚¹æ•°
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-03-01
 int	AnalyzeMainPoint(int iCards[])	
 {
 	if(IsType0Pass(iCards))
@@ -598,8 +598,8 @@ int	AnalyzeMainPoint(int iCards[])
 }
 //I04-END
 
-//H00-START´ÓiOnHandÖÐ²éÑ¯×÷µØÖ÷Ê±Ê×´Î³öÅÆµÄºòÑ¡£¬Ä¿Ç°Ë«Ë³µ½ÈýË³´øÅÆ²»ÄÜÊ×³ö
-//×îºóÐÞ¶©Õß:¹ùÄÈ,×îºóÐÞ¶©Ê±¼ä:15-05-27 16:00 
+//H00-STARTä»ŽiOnHandä¸­æŸ¥è¯¢ä½œåœ°ä¸»æ—¶é¦–æ¬¡å‡ºç‰Œçš„å€™é€‰ï¼Œç›®å‰åŒé¡ºåˆ°ä¸‰é¡ºå¸¦ç‰Œä¸èƒ½é¦–å‡º
+//æœ€åŽä¿®è®¢è€…:éƒ­å¨œ,æœ€åŽä¿®è®¢æ—¶é—´:15-05-27 16:00 
 void HelpfirstPass(struct Ddz * pDdz)
 {
 //		Help1Rocket(pDdz);
@@ -619,8 +619,8 @@ void HelpfirstPass(struct Ddz * pDdz)
 }
 //H00-END
 
-//H00-START´ÓiOnHandÖÐ²éÑ¯ÆúÈ¨ÅÆÐÍµ½iPlaArr,Ä¿Ç°Ë«Ë³µ½ÈýË³´øÅÆ²»ÄÜÊ×³ö
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-17 12:00 
+//H00-STARTä»ŽiOnHandä¸­æŸ¥è¯¢å¼ƒæƒç‰Œåž‹åˆ°iPlaArr,ç›®å‰åŒé¡ºåˆ°ä¸‰é¡ºå¸¦ç‰Œä¸èƒ½é¦–å‡º
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-17 12:00 
 void Help0Pass(struct Ddz * pDdz)
 {			
 		Help8LinkDouble(pDdz);
@@ -654,8 +654,8 @@ void Help0Passpass(struct Ddz * pDdz)
 		}
 	}
 }
-//H01-START´ÓiOnHandÖÐ²éÑ¯×éºÏ»ð¼ýÅÆÐÍµ½iPlaArr
-//×îºóÐÞ¶©Õß:ÑîÑó&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-17 12:00 
+//H01-STARTä»ŽiOnHandä¸­æŸ¥è¯¢ç»„åˆç«ç®­ç‰Œåž‹åˆ°iPlaArr
+//æœ€åŽä¿®è®¢è€…:æ¨æ´‹&æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-17 12:00 
 void Help1Rocket(struct Ddz * pDdz)
 {
 	int iCount;
@@ -674,8 +674,8 @@ void Help1Rocket(struct Ddz * pDdz)
 }
 //H01-END
 
-//H02-STARTÍÆ¼ö³öÅÆÓ¦¶ÔÕ¨µ¯
-//×îºóÐÞ¶©Õß: Ð»ÎÄ£¬×îºóÐÞ¶©Ê±¼ä: 2015-03-10
+//H02-STARTæŽ¨èå‡ºç‰Œåº”å¯¹ç‚¸å¼¹
+//æœ€åŽä¿®è®¢è€…: è°¢æ–‡ï¼Œæœ€åŽä¿®è®¢æ—¶é—´: 2015-03-10
 void Help2Bomb(struct Ddz * pDdz)
 {
 	int i,iCount;
@@ -717,9 +717,9 @@ void Help2Bomb(struct Ddz * pDdz)
 }
 //H02-END
 
-//H03-START´ÓiOnHandÖÐ²éÑ¯µ¥ÕÅÅÆÐÍµ½iPlaArr
-//×îºóÐÞ¶©Õß:Ã·ÏÕ&ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-03-22
-//ÐÞ¶©ÄÚÈÝ¼°Ä¿µÄ:´óÍõÄÜ¹ÜÐ¡Íõ
+//H03-STARTä»ŽiOnHandä¸­æŸ¥è¯¢å•å¼ ç‰Œåž‹åˆ°iPlaArr
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©&å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-03-22
+//ä¿®è®¢å†…å®¹åŠç›®çš„:å¤§çŽ‹èƒ½ç®¡å°çŽ‹
 void Help3Single(struct Ddz * pDdz)
 {
 	int i;
@@ -737,8 +737,8 @@ void Help3Single(struct Ddz * pDdz)
 }
 //H03-END
 
-//H04-STARTÍÆ¼ö³öÅÆÓ¦¶Ô¶ÔÅÆ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:15-03-10 12:00 
+//H04-STARTæŽ¨èå‡ºç‰Œåº”å¯¹å¯¹ç‰Œ
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-03-10 12:00 
 void Help4Double(struct Ddz * pDdz)
 {
 	int i;
@@ -758,8 +758,8 @@ void Help4Double(struct Ddz * pDdz)
 }
 //H04-END
 
-//H05-STARTÍÆ¼ö³öÅÆÓ¦¶ÔÈýÌõ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:15-03-10 12:00 
+//H05-STARTæŽ¨èå‡ºç‰Œåº”å¯¹ä¸‰æ¡
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-03-10 12:00 
 void Help5Three(struct Ddz * pDdz)
 {
 	int i;
@@ -782,8 +782,8 @@ void Help5Three(struct Ddz * pDdz)
 }
 //H05-END
 
-//H0601-STARTÍÆ¼ö³öÅÆÓ¦¶ÔÈý´øÒ»µ¥
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:15-03-10 12:00 
+//H0601-STARTæŽ¨èå‡ºç‰Œåº”å¯¹ä¸‰å¸¦ä¸€å•
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-03-10 12:00 
 void Help6ThreeOne(struct Ddz * pDdz)
 {
 	int i,iTemp,j;
@@ -798,7 +798,7 @@ void Help6ThreeOne(struct Ddz * pDdz)
 			iTemp = i;
 			for(j = 0 ;pDdz->iOnHand[j]>=0 ;j++)
 			{
-				//¸Ãµ¥ÅÆ²»ÄÜÊÇÈýÌõÖÐµÄÊý²¢ÇÒ½«Õ¨µ¯ÅÅ³ý
+				//è¯¥å•ç‰Œä¸èƒ½æ˜¯ä¸‰æ¡ä¸­çš„æ•°å¹¶ä¸”å°†ç‚¸å¼¹æŽ’é™¤
 				if(j == iTemp || j == iTemp+1 || j == iTemp+2 || pDdz->iOnHand[j]/4 == pDdz->iOnHand[i]/4)
 					continue;
 
@@ -815,8 +815,8 @@ void Help6ThreeOne(struct Ddz * pDdz)
 }
 //H0601-END
 
-//H0602-STARTÍÆ¼ö³öÅÆÓ¦¶ÔÈý´øÒ»¶Ô
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:15-03-10 12:00 
+//H0602-STARTæŽ¨èå‡ºç‰Œåº”å¯¹ä¸‰å¸¦ä¸€å¯¹
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-03-10 12:00 
 void Help6ThreeDouble(struct Ddz * pDdz)
 {
 	int i,iTemp,j;
@@ -832,7 +832,7 @@ void Help6ThreeDouble(struct Ddz * pDdz)
 			iTemp = i;
 			for(j = 0 ;pDdz->iOnHand[j+1]>=0 ;j++)
 			{
-				//½«¶Ô×ÓÔÚÈýÌõÖÐµÄÊýÅÅ³ý
+				//å°†å¯¹å­åœ¨ä¸‰æ¡ä¸­çš„æ•°æŽ’é™¤
 				if(j >= iTemp-1 && j <= iTemp+2 )
 					continue;
 				if(pDdz->iOnHand[j]/4 == pDdz->iOnHand[j+1]/4)
@@ -851,8 +851,8 @@ void Help6ThreeDouble(struct Ddz * pDdz)
 }
 //H0602-END
 
-//H07-STARTÍÆ¼ö³öÅÆÓ¦¶Ôµ¥Ë³
-//×îºóÐÞ¶©Õß:Ð»ÎÄ&ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:15-03-20: 11:00
+//H07-STARTæŽ¨èå‡ºç‰Œåº”å¯¹å•é¡º
+//æœ€åŽä¿®è®¢è€…:è°¢æ–‡&å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-03-20: 11:00
 void Help7LinkSingle(struct Ddz * pDdz)
 {   int i,j,k,iLength,iTemp,iCount,iBiaoji,iFlag;
 	int iCopyCards[21];
@@ -883,7 +883,7 @@ void Help7LinkSingle(struct Ddz * pDdz)
 				iCopyCards[i]=iCopyCards[j];
 				iCopyCards[j]=iTemp;
 			}
-			//È¥³ýÖØ¸´µÄÅÆ²¢´ÓÐ¡µ½´óÅÅÐò
+			//åŽ»é™¤é‡å¤çš„ç‰Œå¹¶ä»Žå°åˆ°å¤§æŽ’åº
 	if(pDdz->iLastTypeCount==0)
 	{
 		for(iLength=5;iLength<=12;iLength++)
@@ -956,8 +956,8 @@ void Help7LinkSingle(struct Ddz * pDdz)
 }
 //H07-END
 
-//H08-STARTÍÆ¼ö³öÅÆÓ¦¶ÔË«Ë³
-//×îºóÐÞ¶©Õß:Ð»ÎÄ£¬×îºóÐÞ¶©Ê±¼ä:2015-03-26
+//H08-STARTæŽ¨èå‡ºç‰Œåº”å¯¹åŒé¡º
+//æœ€åŽä¿®è®¢è€…:è°¢æ–‡ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:2015-03-26
 void Help8LinkDouble(struct Ddz * pDdz)
 {
 	int i,j,k,iLength;
@@ -982,7 +982,7 @@ void Help8LinkDouble(struct Ddz * pDdz)
 			i--;
 		}
 
-	}//ËÄÁ¬±äÈýÁ¬ ÈýÁ¬±ä¶Ô×Ó ¶Ô×Ó±äµ¥ÅÅ µ¥ÅÅ±äÃ»ÓÐ
+	}//å››è¿žå˜ä¸‰è¿ž ä¸‰è¿žå˜å¯¹å­ å¯¹å­å˜å•æŽ’ å•æŽ’å˜æ²¡æœ‰
 	for(i=0;i<CountCards(iCopyCards);i++)
 	{
 		if(iCopyCards[i]/4==iCopyCards[i+1]/4)
@@ -992,8 +992,8 @@ void Help8LinkDouble(struct Ddz * pDdz)
 			i--;
 		}
 	}
-	//ÈýÁ¬ºÍ¶Ô×Ó±ä³Éµ¥ÅÆ
-	//ÒÔÉÏ½«Êý×éiCopyCards[21]´¦Àí³ÉÄÜ×é³É¶Ô×ÓµÄµ¥ÅÅÊý×éÇÒ×î´óÎªA
+	//ä¸‰è¿žå’Œå¯¹å­å˜æˆå•ç‰Œ
+	//ä»¥ä¸Šå°†æ•°ç»„iCopyCards[21]å¤„ç†æˆèƒ½ç»„æˆå¯¹å­çš„å•æŽ’æ•°ç»„ä¸”æœ€å¤§ä¸ºA
 
 	for(i=0;iCopyCards[i]>=0;i++)
 	{
@@ -1035,8 +1035,8 @@ void Help8LinkDouble(struct Ddz * pDdz)
 }
 //H08-END
 
-//H09-STARTÍÆ¼ö³öÅÆÓ¦¶ÔÈýË³
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:2015-03-22
+//H09-STARTæŽ¨èå‡ºç‰Œåº”å¯¹ä¸‰é¡º
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:2015-03-22
 void Help9LinkThree(struct Ddz * pDdz)
 {
 	int i,iTemp,j,k,iLength = pDdz->iLastTypeCount-900;
@@ -1044,23 +1044,23 @@ void Help9LinkThree(struct Ddz * pDdz)
 	if(CountCards(pDdz->iOnHand)<6)
 		return ;
 
-	// iTempArr[i][0]ÓÃÀ´×°µãÊýÎª i ÓÐ¶àÉÙÕÅÅÆ£¬
-	// iTempArr[i][1],iTempArr[i][2],iTempArr[i][3],iTempArr[i][4]ÓÃÀ´×°µãÊýÎª i µÄÅÆµÄ±àÂë£¬
+	// iTempArr[i][0]ç”¨æ¥è£…ç‚¹æ•°ä¸º i æœ‰å¤šå°‘å¼ ç‰Œï¼Œ
+	// iTempArr[i][1],iTempArr[i][2],iTempArr[i][3],iTempArr[i][4]ç”¨æ¥è£…ç‚¹æ•°ä¸º i çš„ç‰Œçš„ç¼–ç ï¼Œ
 	memset(iTempArr,-1,12*5*4);
-	SortById(pDdz->iOnHand);    //ÏÈ½«Êý×é½øÐÐÅÅÐò
+	SortById(pDdz->iOnHand);    //å…ˆå°†æ•°ç»„è¿›è¡ŒæŽ’åº
 	for(i = 0 ; pDdz->iOnHand[i] > -1 ; i++)
 	{
 		if(pDdz->iOnHand[i] < 48)
 		{
-			//³öµãÊýÎª iCards[i]/4 µÄÅÆÓÐ¶àÉÙÕÅ£¬ÓÃ j À´±íÊ¾
+			//å‡ºç‚¹æ•°ä¸º iCards[i]/4 çš„ç‰Œæœ‰å¤šå°‘å¼ ï¼Œç”¨ j æ¥è¡¨ç¤º
 			j = 1;
 			while(-1 != iTempArr[pDdz->iOnHand[i]/4][j])
 				j++;
 
-			//½«±àÂë·ÅÈëiTempArr[iCards[i]/4][j]ÀïÃæ£¬ÒòÎª¸Ã±àÂëµÄµãÊýÎªiCards[i]/4
+			//å°†ç¼–ç æ”¾å…¥iTempArr[iCards[i]/4][j]é‡Œé¢ï¼Œå› ä¸ºè¯¥ç¼–ç çš„ç‚¹æ•°ä¸ºiCards[i]/4
 			iTempArr[pDdz->iOnHand[i]/4][j] = pDdz->iOnHand[i];
 
-			//½«µãÊýÎª iCards[i]/4 µÄÅÆµÄÕÅÊý ¸ÄÎª j £»
+			//å°†ç‚¹æ•°ä¸º iCards[i]/4 çš„ç‰Œçš„å¼ æ•° æ”¹ä¸º j ï¼›
 			iTempArr[pDdz->iOnHand[i]/4][0] = j;
 		}
 	}
@@ -1100,30 +1100,30 @@ void Help9LinkThree(struct Ddz * pDdz)
 }
 //H09-END
 
-//H1001-STARTÍÆ¼ö³öÅÆÓ¦¶ÔÈýË³´øµ¥
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:15-03-31
+//H1001-STARTæŽ¨èå‡ºç‰Œåº”å¯¹ä¸‰é¡ºå¸¦å•
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-03-31
 void Help10LinkThreeSingle(struct Ddz * pDdz)
 {
 	int i,iTemp,j,k,m,iLength = (pDdz->iLastTypeCount-1000);
 	int iTempArr[12][5];
 	int nFlag = 0;
-	// iTempArr[i][0]ÓÃÀ´×°µãÊýÎª i ÓÐ¶àÉÙÕÅÅÆ£¬
-	// iTempArr[i][1],iTempArr[i][2],iTempArr[i][3],iTempArr[i][4]ÓÃÀ´×°µãÊýÎª i µÄÅÆµÄ±àÂë£¬
+	// iTempArr[i][0]ç”¨æ¥è£…ç‚¹æ•°ä¸º i æœ‰å¤šå°‘å¼ ç‰Œï¼Œ
+	// iTempArr[i][1],iTempArr[i][2],iTempArr[i][3],iTempArr[i][4]ç”¨æ¥è£…ç‚¹æ•°ä¸º i çš„ç‰Œçš„ç¼–ç ï¼Œ
 	memset(iTempArr,-1,12*5*4);
-	SortById(pDdz->iOnHand);    //ÏÈ½«Êý×é½øÐÐÅÅÐò
+	SortById(pDdz->iOnHand);    //å…ˆå°†æ•°ç»„è¿›è¡ŒæŽ’åº
 	for(i = 0 ; pDdz->iOnHand[i] > -1 ; i++)
 	{
 		if(pDdz->iOnHand[i] < 48)
 		{
-			//³öµãÊýÎª iCards[i]/4 µÄÅÆÓÐ¶àÉÙÕÅ£¬ÓÃ j À´±íÊ¾
+			//å‡ºç‚¹æ•°ä¸º iCards[i]/4 çš„ç‰Œæœ‰å¤šå°‘å¼ ï¼Œç”¨ j æ¥è¡¨ç¤º
 			j = 1;
 			while(-1 != iTempArr[pDdz->iOnHand[i]/4][j])
 				j++;
 
-			//½«±àÂë·ÅÈëiTempArr[iCards[i]/4][j]ÀïÃæ£¬ÒòÎª¸Ã±àÂëµÄµãÊýÎªiCards[i]/4
+			//å°†ç¼–ç æ”¾å…¥iTempArr[iCards[i]/4][j]é‡Œé¢ï¼Œå› ä¸ºè¯¥ç¼–ç çš„ç‚¹æ•°ä¸ºiCards[i]/4
 			iTempArr[pDdz->iOnHand[i]/4][j] = pDdz->iOnHand[i];
 
-			//½«µãÊýÎª iCards[i]/4 µÄÅÆµÄÕÅÊý ¸ÄÎª j £»
+			//å°†ç‚¹æ•°ä¸º iCards[i]/4 çš„ç‰Œçš„å¼ æ•° æ”¹ä¸º j ï¼›
 			iTempArr[pDdz->iOnHand[i]/4][0] = j;
 		}
 	}
@@ -1187,31 +1187,31 @@ void Help10LinkThreeSingle(struct Ddz * pDdz)
 }
 //H1001-END
 
-//H1002-STARTÍÆ¼ö³öÅÆÓ¦¶ÔÈýË³´øË«
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:15-03-31
+//H1002-STARTæŽ¨èå‡ºç‰Œåº”å¯¹ä¸‰é¡ºå¸¦åŒ
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-03-31
 void Help10LinkThreeDouble(struct Ddz * pDdz)
 {
 	int i,iTemp,j,k,m,iLength = (pDdz->iLastTypeCount-1000);
 	int iTempArr[12][5];
 	int nFlag = 0;
 
-	// iTempArr[i][0]ÓÃÀ´×°µãÊýÎª i ÓÐ¶àÉÙÕÅÅÆ£¬
-	// iTempArr[i][1],iTempArr[i][2],iTempArr[i][3],iTempArr[i][4]ÓÃÀ´×°µãÊýÎª i µÄÅÆµÄ±àÂë£¬
+	// iTempArr[i][0]ç”¨æ¥è£…ç‚¹æ•°ä¸º i æœ‰å¤šå°‘å¼ ç‰Œï¼Œ
+	// iTempArr[i][1],iTempArr[i][2],iTempArr[i][3],iTempArr[i][4]ç”¨æ¥è£…ç‚¹æ•°ä¸º i çš„ç‰Œçš„ç¼–ç ï¼Œ
 	memset(iTempArr,-1,12*5*4);
-	SortById(pDdz->iOnHand);    //ÏÈ½«Êý×é½øÐÐÅÅÐò
+	SortById(pDdz->iOnHand);    //å…ˆå°†æ•°ç»„è¿›è¡ŒæŽ’åº
 	for(i = 0 ; pDdz->iOnHand[i] > -1 ; i++)
 	{
 		if(pDdz->iOnHand[i] < 48)
 		{
-			//³öµãÊýÎª iCards[i]/4 µÄÅÆÓÐ¶àÉÙÕÅ£¬ÓÃ j À´±íÊ¾
+			//å‡ºç‚¹æ•°ä¸º iCards[i]/4 çš„ç‰Œæœ‰å¤šå°‘å¼ ï¼Œç”¨ j æ¥è¡¨ç¤º
 			j = 1;
 			while(-1 != iTempArr[pDdz->iOnHand[i]/4][j])
 				j++;
 
-			//½«±àÂë·ÅÈëiTempArr[iCards[i]/4][j]ÀïÃæ£¬ÒòÎª¸Ã±àÂëµÄµãÊýÎªiCards[i]/4
+			//å°†ç¼–ç æ”¾å…¥iTempArr[iCards[i]/4][j]é‡Œé¢ï¼Œå› ä¸ºè¯¥ç¼–ç çš„ç‚¹æ•°ä¸ºiCards[i]/4
 			iTempArr[pDdz->iOnHand[i]/4][j] = pDdz->iOnHand[i];
 
-			//½«µãÊýÎª iCards[i]/4 µÄÅÆµÄÕÅÊý ¸ÄÎª j £»
+			//å°†ç‚¹æ•°ä¸º iCards[i]/4 çš„ç‰Œçš„å¼ æ•° æ”¹ä¸º j ï¼›
 			iTempArr[pDdz->iOnHand[i]/4][0] = j;
 		}
 	}
@@ -1279,8 +1279,8 @@ void Help10LinkThreeDouble(struct Ddz * pDdz)
 }
 //H1002-END
 
-//H1101-STARTÍÆ¼ö³öÅÆÓ¦¶ÔËÄ´ø¶þµ¥
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:15-03-10 12:00 
+//H1101-STARTæŽ¨èå‡ºç‰Œåº”å¯¹å››å¸¦äºŒå•
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-03-10 12:00 
 void Help11FourSingle(struct Ddz * pDdz)
 {
 	int i,iTempI,j,k;
@@ -1297,12 +1297,12 @@ void Help11FourSingle(struct Ddz * pDdz)
 			iTempI = i;
 			for(j = 0 ;pDdz->iOnHand[j]>=0 ;j++)
 			{
-				//¸Ãµ¥ÅÆ²»ÄÜÊÇ4ÌõÖÐµÄÊý
+				//è¯¥å•ç‰Œä¸èƒ½æ˜¯4æ¡ä¸­çš„æ•°
 				if(j == iTempI || j == iTempI+1 || j == iTempI+2 || j == iTempI+3)
 					continue;
 				for(k = j+1 ; pDdz->iOnHand[k]>=0 ;k++)
 				{
-					//¸Ãµ¥ÅÆ²»ÄÜÊÇ4ÌõÖÐµÄÊý
+					//è¯¥å•ç‰Œä¸èƒ½æ˜¯4æ¡ä¸­çš„æ•°
 					if(k == iTempI || k == iTempI+1 || k == iTempI+2 || k == iTempI+3)
 						continue;
 					if(pDdz->iPlaCount+1<kPlaMax)
@@ -1323,8 +1323,8 @@ void Help11FourSingle(struct Ddz * pDdz)
 }
 //H1101-END
 
-//H1102-STARTÍÆ¼ö³öÅÆÓ¦¶ÔËÄ´ø¶þ¶Ô
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü£¬×îºóÐÞ¶©Ê±¼ä:15-03-23 12:00 
+//H1102-STARTæŽ¨èå‡ºç‰Œåº”å¯¹å››å¸¦äºŒå¯¹
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°ï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-03-23 12:00 
 void Help11FourDouble(struct Ddz * pDdz)
 {
 	int i,iTempI,j,k;
@@ -1346,7 +1346,7 @@ void Help11FourDouble(struct Ddz * pDdz)
 					continue;
 				for(k = j+2 ; pDdz->iOnHand[k]>=0 ;k++)
 				{
-					//¸Ãµ¥ÅÆ²»ÄÜÊÇ4ÌõÖÐµÄÊýÇÒ°Ñ´óÐ¡ÍõÅÅ³ýÁË
+					//è¯¥å•ç‰Œä¸èƒ½æ˜¯4æ¡ä¸­çš„æ•°ä¸”æŠŠå¤§å°çŽ‹æŽ’é™¤äº†
 					if(k == iTempI || k == iTempI+1 || k == iTempI+2 || k == iTempI+3||pDdz->iOnHand[j] >=52 || pDdz->iOnHand[k]/4 != pDdz->iOnHand[k+1]/4)
 						continue;
 					if(pDdz->iPlaCount+1<kPlaMax)
@@ -1369,8 +1369,8 @@ void Help11FourDouble(struct Ddz * pDdz)
 }
 //H1102-END
 
-//MO1-START°´ÅÆ±àÂëÉýÐòÅÅÁÐ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-09
+//MO1-STARTæŒ‰ç‰Œç¼–ç å‡åºæŽ’åˆ—
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°&æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-09
 void SortById(int iCards[])
 {
 	int i, j;
@@ -1388,38 +1388,38 @@ void SortById(int iCards[])
 }
 //MO1-END
 
-//M02-START°´Ö÷ÅÆ(Í¬µãÊýÅÆ)±àÂëÉýÐòÅÅÁÐ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:2015-03-01
+//M02-STARTæŒ‰ä¸»ç‰Œ(åŒç‚¹æ•°ç‰Œ)ç¼–ç å‡åºæŽ’åˆ—
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:2015-03-01
 void SortByMuch(int iCards[])
 {
 	int i,j,k,n;
-	// iTempArr[i][0]ÓÃÀ´×°µãÊýÎª i ÓÐ¶àÉÙÕÅÅÆ£¬
-	// iTempArr[i][1],iTempArr[i][2],iTempArr[i][3],iTempArr[i][4]ÓÃÀ´×°µãÊýÎª i µÄÅÆµÄ±àÂë£¬
+	// iTempArr[i][0]ç”¨æ¥è£…ç‚¹æ•°ä¸º i æœ‰å¤šå°‘å¼ ç‰Œï¼Œ
+	// iTempArr[i][1],iTempArr[i][2],iTempArr[i][3],iTempArr[i][4]ç”¨æ¥è£…ç‚¹æ•°ä¸º i çš„ç‰Œçš„ç¼–ç ï¼Œ
 	int iTempArr[13][5];
 	memset(iTempArr,-1,13*5*4);
-	SortById(iCards);    //ÏÈ½«iCardsÊý×é½øÐÐÅÅÐò
+	SortById(iCards);    //å…ˆå°†iCardsæ•°ç»„è¿›è¡ŒæŽ’åº
 	for(i = 0 ; iCards[i] > -1 ; i++)
 	{
 		if(iCards[i] < 52)
 		{
-			//³öµãÊýÎª iCards[i]/4 µÄÅÆÓÐ¶àÉÙÕÅ£¬ÓÃ j À´±íÊ¾
+			//å‡ºç‚¹æ•°ä¸º iCards[i]/4 çš„ç‰Œæœ‰å¤šå°‘å¼ ï¼Œç”¨ j æ¥è¡¨ç¤º
 			j = 1;
 			while(-1 != iTempArr[iCards[i]/4][j])
 				j++;
-			//½«±àÂë·ÅÈëiTempArr[iCards[i]/4][j]ÀïÃæ£¬ÒòÎª¸Ã±àÂëµÄµãÊýÎªiCards[i]/4
+			//å°†ç¼–ç æ”¾å…¥iTempArr[iCards[i]/4][j]é‡Œé¢ï¼Œå› ä¸ºè¯¥ç¼–ç çš„ç‚¹æ•°ä¸ºiCards[i]/4
 			iTempArr[iCards[i]/4][j] = iCards[i];
-			//½«µãÊýÎª iCards[i]/4 µÄÅÆµÄÕÅÊý ¸ÄÎª j £»
+			//å°†ç‚¹æ•°ä¸º iCards[i]/4 çš„ç‰Œçš„å¼ æ•° æ”¹ä¸º j ï¼›
 			iTempArr[iCards[i]/4][0] = j;
 		}
 	}
-	n = 0;   //nÎªiCardsµÄÏÂ±ê£¬ÖØÐÂ½«iTempArrÖÐµÄÊý·ÅÈëiCardsÖÐ
-	for(i = 4 ; i > 0 ;i--) //ÏÈÕÒ³öiTempArrÒ»ÑùµÄËÄÕÅÅÆ£¬ÈôÓÐÔòÐ´ÈëÔ­Êý×éiCards¡¾¡¿ÖÐ£¬È»ºóÔÙÑ°ÕÒÈýÕÅµÄ£¬Ò»´ÎÀàÍÆ	
+	n = 0;   //nä¸ºiCardsçš„ä¸‹æ ‡ï¼Œé‡æ–°å°†iTempArrä¸­çš„æ•°æ”¾å…¥iCardsä¸­
+	for(i = 4 ; i > 0 ;i--) //å…ˆæ‰¾å‡ºiTempArrä¸€æ ·çš„å››å¼ ç‰Œï¼Œè‹¥æœ‰åˆ™å†™å…¥åŽŸæ•°ç»„iCardsã€ã€‘ä¸­ï¼Œç„¶åŽå†å¯»æ‰¾ä¸‰å¼ çš„ï¼Œä¸€æ¬¡ç±»æŽ¨	
 	{
 		for(j = 0 ;j < 13 ; j++)
 		{
-			if(iTempArr[j][0] == i)    //ÅÐ¶Ï¸ÃµãÊýµÄÅÆÊÇ²»ÊÇÓÐ i ÕÅ
+			if(iTempArr[j][0] == i)    //åˆ¤æ–­è¯¥ç‚¹æ•°çš„ç‰Œæ˜¯ä¸æ˜¯æœ‰ i å¼ 
 			{
-				for(k = 1;k <= i ; k++)    // ÓÐµÄ»°£¬¾Í°ÑÅÆ¶¼·Å½øiCards[ n ]ÖÐ£¬È»ºó n++
+				for(k = 1;k <= i ; k++)    // æœ‰çš„è¯ï¼Œå°±æŠŠç‰Œéƒ½æ”¾è¿›iCards[ n ]ä¸­ï¼Œç„¶åŽ n++
 				{
 					iCards[n] = iTempArr[j][k];
 					n++;
@@ -1430,8 +1430,8 @@ void SortByMuch(int iCards[])
 }
 //MO2-END
 
-//M03-START°´¹ÜÅÆÖ÷ÒªÒòËØÉýÐòÅÅÁÐ
-//×îºóÐÞ¶©Õß:ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-03-08 18:00 
+//M03-STARTæŒ‰ç®¡ç‰Œä¸»è¦å› ç´ å‡åºæŽ’åˆ—
+//æœ€åŽä¿®è®¢è€…:å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-03-08 18:00 
 void SortByMain(int iCards[])
 {
 	if(IsType0Pass(iCards))
@@ -1496,45 +1496,45 @@ void PrintPointArray(struct Ddz * pDdz)
 }
 
 
-//M04-STARTÖØÖÃ±¾¾ÖÊý¾Ý³õÊ¼Öµ
-//×îºóÐÞ¶©Õß:Ã·ÏÕ&ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-04-05
-//ÐÞ¸ÄÄ¿µÄ:iLastPasCount,iLastTypeCount,iLastMainPoint³õÊ¼»¯
+//M04-STARTé‡ç½®æœ¬å±€æ•°æ®åˆå§‹å€¼
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©&å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-04-05
+//ä¿®æ”¹ç›®çš„:iLastPasCount,iLastTypeCount,iLastMainPointåˆå§‹åŒ–
 void InitRound(struct Ddz * pDdz)	
 {
 	int i, j;
-	pDdz->iStatus = 1;					//³õÊ¼»¯±¾¾ÖÒýÇæ×´Ì¬
-	strcpy(pDdz->sCommandIn,"");		//³õÊ¼»¯±¾¾ÖÍ¨ÐÅÊäÈëÄÚÈÝ
-	strcpy(pDdz->sCommandOut,"");		//³õÊ¼»¯±¾¾ÖÍ¨ÐÅÊä³öÄÚÈÝ
-	for (i = 0; i < 21; i++)			//³õÊ¼»¯±¾¾ÖÊÖÅÆ
+	pDdz->iStatus = 1;					//åˆå§‹åŒ–æœ¬å±€å¼•æ“ŽçŠ¶æ€
+	strcpy(pDdz->sCommandIn,"");		//åˆå§‹åŒ–æœ¬å±€é€šä¿¡è¾“å…¥å†…å®¹
+	strcpy(pDdz->sCommandOut,"");		//åˆå§‹åŒ–æœ¬å±€é€šä¿¡è¾“å‡ºå†…å®¹
+	for (i = 0; i < 21; i++)			//åˆå§‹åŒ–æœ¬å±€æ‰‹ç‰Œ
 		pDdz->iOnHand[i] = -1;
 	pDdz->minOutCount=20;
-	for (i = 0; i<162; i++)				//³õÊ¼»¯±¾¾Ö×ÀÃæÅÆ
+	for (i = 0; i<162; i++)				//åˆå§‹åŒ–æœ¬å±€æ¡Œé¢ç‰Œ
 		for (j = 0; j<21; j++)
 			pDdz->iOnTable[i][j] = -2;
-	for (i = 0; i < 21; i++)			//³õÊ¼»¯±¾¾Ö³öÅÆ
+	for (i = 0; i < 21; i++)			//åˆå§‹åŒ–æœ¬å±€å‡ºç‰Œ
 		pDdz->iToTable[i] = -1;
-	strcpy(pDdz->sVer,"");				//³õÊ¼»¯±¾¾ÖÐ­Òé°æ±¾ºÅ
-	strcpy(pDdz->sVer,kPlayerName);		//³õÊ¼»¯±¾¾Ö²ÎÈüÑ¡ÊÖ³Æºô
-	pDdz->cDir='B';						//³õÊ¼»¯±¾¾ÖÍæ¼Ò·½Î»±àºÅ
-	pDdz->cLandlord='B';				//³õÊ¼»¯±¾¾ÖµØÖ÷·½Î»±àºÅ
-	pDdz->cWinner='B';					//³õÊ¼»¯±¾¾ÖÊ¤Õß·½Î»±àºÅ
-	for (i = 0; i < 3; i++)				//³õÊ¼»¯±¾¾Ö½ÐÅÆ
+	strcpy(pDdz->sVer,"");				//åˆå§‹åŒ–æœ¬å±€åè®®ç‰ˆæœ¬å·
+	strcpy(pDdz->sVer,kPlayerName);		//åˆå§‹åŒ–æœ¬å±€å‚èµ›é€‰æ‰‹ç§°å‘¼
+	pDdz->cDir='B';						//åˆå§‹åŒ–æœ¬å±€çŽ©å®¶æ–¹ä½ç¼–å·
+	pDdz->cLandlord='B';				//åˆå§‹åŒ–æœ¬å±€åœ°ä¸»æ–¹ä½ç¼–å·
+	pDdz->cWinner='B';					//åˆå§‹åŒ–æœ¬å±€èƒœè€…æ–¹ä½ç¼–å·
+	for (i = 0; i < 3; i++)				//åˆå§‹åŒ–æœ¬å±€å«ç‰Œ
 		pDdz->iBid[i] = -1;
-	for (i = 0; i < 3; i++)				//³õÊ¼»¯¸÷Íæ¼ÒÊÖÖÐÅÆÊý
+	for (i = 0; i < 3; i++)				//åˆå§‹åŒ–å„çŽ©å®¶æ‰‹ä¸­ç‰Œæ•°
 		pDdz->iLastCount[i] = 17;
-	for (i = 0; i < 14; i++)			//³õÊ¼»¯ÒÑÖªÅÆµãÊýÍ³¼ÆÊýÁ¿ 
+	for (i = 0; i < 14; i++)			//åˆå§‹åŒ–å·²çŸ¥ç‰Œç‚¹æ•°ç»Ÿè®¡æ•°é‡ 
 		pDdz->iLastPointArray[i] = 0;
 	pDdz->iLastPassCount=2;
-	pDdz->iLastPassCount=2;		//µ±Ç°×ÀÃæÁ¬ÐøPASSÊý£¨ÖµÓò[0,2],³õÖµ2£¬Õý³£³öÅÆÈ¡0£¬Ò»¼ÒPASSÈ¡1£¬Á½¼ÒPASSÈ¡2£©
-	pDdz->iLastTypeCount=0;		//µ±Ç°×ÀÃæÅÆÐÍÕÅÊý£¨ÖµÓò[0,1108],³õÖµ0£¬iLastPassCount=0Ê±¸üÐÂÖµ£¬=1Ê±±£ÁôÔ­Öµ£¬=2Ê±ÖµÎª0£©
-	pDdz->iLastMainPoint=-1;		//µ±Ç°×ÀÃæÖ÷ÅÆµãÊý£¨ÖµÓò[0,15],³õÖµ-1£¬iLastPassCount=0Ê±¸üÐÂÖµ£¬£¬=1Ê±±£ÁôÔ­Öµ£¬=2Ê±ÖµÎª-1£©
-	pDdz->iBmax = 0;					//³õÊ¼»¯±¾¾Ö½ÐÅÆ·ÖÊý
-	pDdz->iOTmax = 0;					//³õÊ¼»¯±¾¾Ö×ÀÃæÅÆÊÖÊý
+	pDdz->iLastPassCount=2;		//å½“å‰æ¡Œé¢è¿žç»­PASSæ•°ï¼ˆå€¼åŸŸ[0,2],åˆå€¼2ï¼Œæ­£å¸¸å‡ºç‰Œå–0ï¼Œä¸€å®¶PASSå–1ï¼Œä¸¤å®¶PASSå–2ï¼‰
+	pDdz->iLastTypeCount=0;		//å½“å‰æ¡Œé¢ç‰Œåž‹å¼ æ•°ï¼ˆå€¼åŸŸ[0,1108],åˆå€¼0ï¼ŒiLastPassCount=0æ—¶æ›´æ–°å€¼ï¼Œ=1æ—¶ä¿ç•™åŽŸå€¼ï¼Œ=2æ—¶å€¼ä¸º0ï¼‰
+	pDdz->iLastMainPoint=-1;		//å½“å‰æ¡Œé¢ä¸»ç‰Œç‚¹æ•°ï¼ˆå€¼åŸŸ[0,15],åˆå€¼-1ï¼ŒiLastPassCount=0æ—¶æ›´æ–°å€¼ï¼Œï¼Œ=1æ—¶ä¿ç•™åŽŸå€¼ï¼Œ=2æ—¶å€¼ä¸º-1ï¼‰
+	pDdz->iBmax = 0;					//åˆå§‹åŒ–æœ¬å±€å«ç‰Œåˆ†æ•°
+	pDdz->iOTmax = 0;					//åˆå§‹åŒ–æœ¬å±€æ¡Œé¢ç‰Œæ‰‹æ•°
 }
 //MO4-END
 
-//M05-START½«ÅÆÂëÊý×é×ª»»Îª×Ö·û´®×·¼Ó(-1»ò)
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-03-01
+//M05-STARTå°†ç‰Œç æ•°ç»„è½¬æ¢ä¸ºå­—ç¬¦ä¸²è¿½åŠ (-1æˆ–)
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-03-01
 void AppendCardsToS(int iCards[],char sMsg[])
 {
 	int i;
@@ -1542,7 +1542,7 @@ void AppendCardsToS(int iCards[],char sMsg[])
 	char sCardString[90]="";
 	if (iCards[0] == -1)	// PASS
 		strcat(sCardString, "-1");
-	else					// ²»ÊÇPASS
+	else					// ä¸æ˜¯PASS
 	{
 		for (i = 0; iCards[i] >= 0; i++)
 		{
@@ -1561,23 +1561,23 @@ void AppendCardsToS(int iCards[],char sMsg[])
 			}
 			strcat(sCardString, sCard);
 		}
-		sCardString[strlen(sCardString) - 1] = '\0';	//È¥µô¶àÓàµÄÎ²²¿¶ººÅ
+		sCardString[strlen(sCardString) - 1] = '\0';	//åŽ»æŽ‰å¤šä½™çš„å°¾éƒ¨é€—å·
 		
 	}
 	strcat(sMsg, sCardString);
 }
 //MO5-END
 
-//M06-START¼ÆËãÍÆ¼ö³öÅÆ
-//×îºóÐÞ¶©Õß:¹ùÄÈ£¬×îºóÐÞ¶©Ê±¼ä:15-05-27
+//M06-STARTè®¡ç®—æŽ¨èå‡ºç‰Œ
+//æœ€åŽä¿®è®¢è€…:éƒ­å¨œï¼Œæœ€åŽä¿®è®¢æ—¶é—´:15-05-27
 void HelpPla(struct Ddz * pDdz)
 {
 	int i,j;
-	for(i=0;i<kPlaMax;i++)		//ÇåÀí
+	for(i=0;i<kPlaMax;i++)		//æ¸…ç†
 		for(j=0;j<21;j++)
 			pDdz->iPlaArr[i][j]=-1;
 	pDdz->iPlaCount=0;
-	if(pDdz->iLastTypeCount==0)	//Á¬Ðø2¼ÒPASS,³öÈÎÒâÅÆÐÍ
+	if(pDdz->iLastTypeCount==0)	//è¿žç»­2å®¶PASS,å‡ºä»»æ„ç‰Œåž‹
 	{
 		if(pDdz->iOTmax==0)
 			HelpfirstPass(pDdz);
@@ -1587,7 +1587,7 @@ void HelpPla(struct Ddz * pDdz)
 	}
 	else
 	{	//Help0Passpass(pDdz);	
-		if(301 == pDdz->iLastTypeCount)//µ¥ÕÅ
+		if(301 == pDdz->iLastTypeCount)//å•å¼ 
 			Help3Single(pDdz);
 		else if(402 == pDdz->iLastTypeCount)
 			Help4Double( pDdz);
@@ -1621,8 +1621,8 @@ void HelpPla(struct Ddz * pDdz)
 }
 //MO6-END
 
-//M07-START´ÓÊÖÅÆÄ£ÄâÒÆ³ýÒ»×éÅÆ
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-03-01
+//M07-STARTä»Žæ‰‹ç‰Œæ¨¡æ‹Ÿç§»é™¤ä¸€ç»„ç‰Œ
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-03-01
 void HelpTakeOff(struct Ddz *  pDdz,int num)
 {
 	int i,j = 0,k,same;
@@ -1647,28 +1647,28 @@ void HelpTakeOff(struct Ddz *  pDdz,int num)
 //MO7-END
 
 
-//P01-STARTÖØÖÃ±¾ÂÖÊý¾Ý³õÊ¼Öµ
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08 00:13 
+//P01-STARTé‡ç½®æœ¬è½®æ•°æ®åˆå§‹å€¼
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08 00:13 
 void InitTurn(struct Ddz * pDdz)	
 {
-	pDdz->iTurnTotal=1;				//³õÊ¼»¯×ÜÂÖÊý
-	pDdz->iTurnNow=1;					//³õÊ¼»¯µ±Ç°ÂÖ´Î
-	pDdz->iRoundTotal=1;				//³õÊ¼»¯×Ü¾ÖÊý
-	pDdz->iRoundNow=1;				//³õÊ¼»¯µ±Ç°¾Ö´Î
-	InitRound(pDdz);					//³õÊ¼»¯±¾¾ÖÊý¾Ý
+	pDdz->iTurnTotal=1;				//åˆå§‹åŒ–æ€»è½®æ•°
+	pDdz->iTurnNow=1;					//åˆå§‹åŒ–å½“å‰è½®æ¬¡
+	pDdz->iRoundTotal=1;				//åˆå§‹åŒ–æ€»å±€æ•°
+	pDdz->iRoundNow=1;				//åˆå§‹åŒ–å½“å‰å±€æ¬¡
+	InitRound(pDdz);					//åˆå§‹åŒ–æœ¬å±€æ•°æ®
 }
 //P01-END
 
-//P02-STARTÊäÈëÐÅÏ¢
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08
+//P02-STARTè¾“å…¥ä¿¡æ¯
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08
 void InputMsg(struct Ddz * pDdz)	
 {
 	cin.getline(pDdz->sCommandIn,80);
 }
 //P02-END
 
-//P03-START·ÖÎö´¦ÀíÐÅÏ¢
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08 00:13 
+//P03-STARTåˆ†æžå¤„ç†ä¿¡æ¯
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08 00:13 
 void AnalyzeMsg(struct Ddz * pDdz)	
 {
 	char sShort[4];
@@ -1676,51 +1676,51 @@ void AnalyzeMsg(struct Ddz * pDdz)
 	for(i=0;i<3;i++)
 		sShort[i]=pDdz->sCommandIn[i];
 	sShort[3]='\0';
-	if(strcmp(sShort,"DOU")==0)					//°æ±¾ÐÅÏ¢
+	if(strcmp(sShort,"DOU")==0)					//ç‰ˆæœ¬ä¿¡æ¯
 	{
 		GetDou(pDdz);
-		check("A°æ±¾ÐÅÏ¢");
+		check("Aç‰ˆæœ¬ä¿¡æ¯");
 		return;
 	}
-	if(strcmp(sShort,"INF")==0)					//ÂÖ¾ÖÐÅÏ¢
+	if(strcmp(sShort,"INF")==0)					//è½®å±€ä¿¡æ¯
 	{
 		GetInf(pDdz);
-		check("BÂÖ¾ÖÐÅÏ¢");
+		check("Bè½®å±€ä¿¡æ¯");
 		return;
 	}
-	if(strcmp(sShort,"DEA")==0)					//ÅÆÌ×ÐÅÏ¢
+	if(strcmp(sShort,"DEA")==0)					//ç‰Œå¥—ä¿¡æ¯
 	{
 		GetDea(pDdz);
-		check("CÅÆÌ×ÐÅÏ¢");
+		check("Cç‰Œå¥—ä¿¡æ¯");
 		return;
 	}
-	if(strcmp(sShort,"BID")==0)					//½ÐÅÆ¹ý³Ì
+	if(strcmp(sShort,"BID")==0)					//å«ç‰Œè¿‡ç¨‹
 	{
 		GetBid(pDdz);
-		check("D½ÐÅÆ¹ý³Ì");
+		check("Då«ç‰Œè¿‡ç¨‹");
 		return;
 	}
-	if(strcmp(sShort,"LEF")==0)					//µ×ÅÆÐÅÏ¢
+	if(strcmp(sShort,"LEF")==0)					//åº•ç‰Œä¿¡æ¯
 	{
 		GetLef(pDdz);
-		check("Eµ×ÅÆÐÅÏ¢");
+		check("Eåº•ç‰Œä¿¡æ¯");
 		return;
 	}
-	if(strcmp(sShort,"PLA")==0)					//³öÅÆ¹ý³Ì
+	if(strcmp(sShort,"PLA")==0)					//å‡ºç‰Œè¿‡ç¨‹
 	{
 		GetPla(pDdz);
-		check("F³öÅÆ¹ý³Ì");
+		check("Få‡ºç‰Œè¿‡ç¨‹");
 		return;
 	}
-	if(strcmp(sShort,"GAM")==0)					//Ê¤¸ºÐÅÏ¢
+	if(strcmp(sShort,"GAM")==0)					//èƒœè´Ÿä¿¡æ¯
 	{
 		GetGam(pDdz);
-		check("GÊ¤¸ºÐÅÏ¢");
+		check("Gèƒœè´Ÿä¿¡æ¯");
 		return;
 	}
-	if(strcmp(sShort,"EXI")==0)					//Ç¿ÖÆÍË³ö
+	if(strcmp(sShort,"EXI")==0)					//å¼ºåˆ¶é€€å‡º
 	{
-		check("HÇ¿ÖÆÍË³ö");
+		check("Hå¼ºåˆ¶é€€å‡º");
 		exit(0);
 	}
 	strcpy(pDdz->sCommandOut,"ERROR at module AnalyzeMsg,sCommandIn without match");
@@ -1728,12 +1728,12 @@ void AnalyzeMsg(struct Ddz * pDdz)
 }
 //P03-END
 
-//P0301-START»ñÈ¡²¢´¦Àí°æ±¾ÐÅÏ¢DOU
-//×îºóÐÞ¶©Õß:ÕÅºéÃñ&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-10 21:04 
-//ÐÞ¶©ÄÚÈÝ¼°Ä¿µÄ:ÐÞ¶©kPlayerNmae
+//P0301-STARTèŽ·å–å¹¶å¤„ç†ç‰ˆæœ¬ä¿¡æ¯DOU
+//æœ€åŽä¿®è®¢è€…:å¼ æ´ªæ°‘&æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-10 21:04 
+//ä¿®è®¢å†…å®¹åŠç›®çš„:ä¿®è®¢kPlayerNmae
 void GetDou(struct Ddz * pDdz)
 {
-	int i;								//¼òµ¥Ñ­»·±äÁ¿
+	int i;								//ç®€å•å¾ªçŽ¯å˜é‡
 	for (i = 0; pDdz->sCommandIn[i] != '\0'; i++)
 		pDdz->sVer[i] = pDdz->sCommandIn[i];
 	pDdz->sVer[i] = '\0';
@@ -1742,85 +1742,85 @@ void GetDou(struct Ddz * pDdz)
 }
 //P0301-END
 
-//P0302-START»ñÈ¡²¢´¦ÀíÂÖ¾ÖÐÅÏ¢INF
-//×îºóÐÞ¶©Õß:ÕÅ³¿&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-10 
-void GetInf(struct Ddz * pDdz)		//ÂÖ´ÎÐÅÏ¢´¦Àíº¯Êý(´¦ÀíÊý×ÖÐÅÏ¢£¬¶ÔÓ¦Ð´Èë¶ÔÏó³ÉÔ±±äÁ¿ÖÐ):ÊäÈëINFO 1/4 1/9 9 2450     Êä³öOK INFO
+//P0302-STARTèŽ·å–å¹¶å¤„ç†è½®å±€ä¿¡æ¯INF
+//æœ€åŽä¿®è®¢è€…:å¼ æ™¨&æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-10 
+void GetInf(struct Ddz * pDdz)		//è½®æ¬¡ä¿¡æ¯å¤„ç†å‡½æ•°(å¤„ç†æ•°å­—ä¿¡æ¯ï¼Œå¯¹åº”å†™å…¥å¯¹è±¡æˆå‘˜å˜é‡ä¸­):è¾“å…¥INFO 1/4 1/9 9 2450     è¾“å‡ºOK INFO
 {
-	char c;					//´æµ±Ç°×Ö½ÚÐÅÏ¢		
-	int iCount=0;			//¼ÇÂ¼Êý¾Ý¸öÊý
-	int iTemp=0;			//ÖÐ¼ä±äÁ¿
-	int iMessage[6]={0};		//¼ÇÂ¼Êý¾ÝÊý×é
+	char c;					//å­˜å½“å‰å­—èŠ‚ä¿¡æ¯		
+	int iCount=0;			//è®°å½•æ•°æ®ä¸ªæ•°
+	int iTemp=0;			//ä¸­é—´å˜é‡
+	int iMessage[6]={0};		//è®°å½•æ•°æ®æ•°ç»„
 	int i;
 	for(i=5;pDdz->sCommandIn[i] != '\0';i++)
 	{
 		c= pDdz->sCommandIn[i];	
-		if(c>='0' && c<='9')											//µ±Ç°×Ö·ûÎª0-9
+		if(c>='0' && c<='9')											//å½“å‰å­—ç¬¦ä¸º0-9
 		{
 			iTemp = iTemp * 10 + c - '0';
-			iMessage[iCount] = iTemp;								//½ú¼¶Ñ¡ÊÖÊý
+			iMessage[iCount] = iTemp;								//æ™‹çº§é€‰æ‰‹æ•°
 		}
-		if(c==',')														//µ±Ç°×Ö·ûÎª¶ººÅ,
+		if(c==',')														//å½“å‰å­—ç¬¦ä¸ºé€—å·,
 		{
 			iCount++;
 			iTemp=0;
 		}
 	}
-	pDdz->iTurnNow = iMessage[0];						//µ±Ç°ÂÖ´Î
-	pDdz->iTurnTotal = iMessage[1];						//×ÜÂÖÊý
-	pDdz->iRoundNow = iMessage[2];						//µ±Ç°¾Ö´Î
-	pDdz->iRoundTotal =iMessage[3];						//×Ü¾ÖÊý
-	pDdz->iLevelUp=iMessage[4];							//½ú¼¶ÊýÁ¿
-	pDdz->iScoreMax =iMessage[5];						//µÃ·Ö½çÏÞ
+	pDdz->iTurnNow = iMessage[0];						//å½“å‰è½®æ¬¡
+	pDdz->iTurnTotal = iMessage[1];						//æ€»è½®æ•°
+	pDdz->iRoundNow = iMessage[2];						//å½“å‰å±€æ¬¡
+	pDdz->iRoundTotal =iMessage[3];						//æ€»å±€æ•°
+	pDdz->iLevelUp=iMessage[4];							//æ™‹çº§æ•°é‡
+	pDdz->iScoreMax =iMessage[5];						//å¾—åˆ†ç•Œé™
 	strcpy(pDdz->sCommandOut, "OK INFO");
 }
 //P0302-END
 
-//P0303-START»ñÈ¡²¢´¦ÀíÅÆÌ×ÐÅÏ¢DEA
-//×îºóÐÞ¶©Õß:ÑîÑó&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-09 22:55 
-//ÐÞ¶©ÄÚÈÝ¼°Ä¿µÄ:ÐÞ¸Ä¶ÁÅÆËã·¨
+//P0303-STARTèŽ·å–å¹¶å¤„ç†ç‰Œå¥—ä¿¡æ¯DEA
+//æœ€åŽä¿®è®¢è€…:æ¨æ´‹&æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-09 22:55 
+//ä¿®è®¢å†…å®¹åŠç›®çš„:ä¿®æ”¹è¯»ç‰Œç®—æ³•
 void GetDea(struct Ddz * pDdz)	
 {
-	int i;			      //¼òµ¥Ñ­»·±äÁ¿
-	int iNow = 0;		  //µ±Ç°´¦ÀíÅÆÐòºÅ
-	int iCardId = 0;	//µ±Ç°´¦ÀíÅÆ±àÂë
-	char c;			      //µ±Ç°Ö¸Áî×Ö·û
-	pDdz->cDir = pDdz->sCommandIn[5];     //»ñÈ¡±¾¼ÒAI·½Î»±àºÅ
-	for(i=0 ; i<21 ; i++)				          //ÇåÀíiOnhand[]
+	int i;			      //ç®€å•å¾ªçŽ¯å˜é‡
+	int iNow = 0;		  //å½“å‰å¤„ç†ç‰Œåºå·
+	int iCardId = 0;	//å½“å‰å¤„ç†ç‰Œç¼–ç 
+	char c;			      //å½“å‰æŒ‡ä»¤å­—ç¬¦
+	pDdz->cDir = pDdz->sCommandIn[5];     //èŽ·å–æœ¬å®¶AIæ–¹ä½ç¼–å·
+	for(i=0 ; i<21 ; i++)				          //æ¸…ç†iOnhand[]
 		pDdz->iOnHand[i] = -1;
-	for(i=6 ; pDdz->sCommandIn[i] != '\0'; i++)	//ÒÀ´Î¶ÁÈ¡ÅÆÂëÖ¸Áî
+	for(i=6 ; pDdz->sCommandIn[i] != '\0'; i++)	//ä¾æ¬¡è¯»å–ç‰Œç æŒ‡ä»¤
 	{
-		c = pDdz->sCommandIn[i];			      //cÎªµ±Ç°Ö¸Áî×Ö·û
-		if(c>='0' && c<='9')				        //µ±Ç°×Ö·ûÎª0-9
+		c = pDdz->sCommandIn[i];			      //cä¸ºå½“å‰æŒ‡ä»¤å­—ç¬¦
+		if(c>='0' && c<='9')				        //å½“å‰å­—ç¬¦ä¸º0-9
 		{
 			iCardId = iCardId * 10 + c - '0';
 			pDdz->iOnHand[iNow] = iCardId;
 		}
-		if(c==',')							            //µ±Ç°×Ö·ûÎª¶ººÅ,
+		if(c==',')							            //å½“å‰å­—ç¬¦ä¸ºé€—å·,
 		{
 			iCardId = 0;
 			iNow++;
 		}
 	}
-	strcpy(pDdz->sCommandOut, "OK DEAL");  //»Ø¸´ÐÅÏ¢
-	SortById(pDdz->iOnHand);  //iOnHand[]´ÓÐ¡µ½´óÅÅÐò
+	strcpy(pDdz->sCommandOut, "OK DEAL");  //å›žå¤ä¿¡æ¯
+	SortById(pDdz->iOnHand);  //iOnHand[]ä»Žå°åˆ°å¤§æŽ’åº
 	CountPoint(pDdz, pDdz->iOnHand);
 }
 //P0303-END
 
-//P0304-START»ñÈ¡²¢´¦Àí½ÐÅÆÐÅÏ¢BID
-//×îºóÐÞ¶©Õß:ÀîË¼º®&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08
+//P0304-STARTèŽ·å–å¹¶å¤„ç†å«ç‰Œä¿¡æ¯BID
+//æœ€åŽä¿®è®¢è€…:æŽæ€å¯’&æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08
 void GetBid(struct Ddz * pDdz)	
 {
-	if(pDdz->sCommandIn[4]=='W')					//Èç¹ûÊäÈëÐÅÏ¢ÎªBID WHAT
+	if(pDdz->sCommandIn[4]=='W')					//å¦‚æžœè¾“å…¥ä¿¡æ¯ä¸ºBID WHAT
 	{
 		strcpy(pDdz->sCommandOut,"BID _0");
 		pDdz->sCommandOut[4]=pDdz->cDir;
 		pDdz->iBid[pDdz->cDir-'A']=CalBid(pDdz);
-		pDdz->sCommandOut[5]=pDdz->iBid[pDdz->cDir-'A']+'0';		//µ÷ÓÃ½ÐÅÆº¯Êý
+		pDdz->sCommandOut[5]=pDdz->iBid[pDdz->cDir-'A']+'0';		//è°ƒç”¨å«ç‰Œå‡½æ•°
 		pDdz->sCommandOut[6]='\0';
 		return ;
 	}
-	if(pDdz->sCommandIn[4]>='A'&&pDdz->sCommandIn[4]<='C')  //ÊäÈëÐÅÏ¢ÎªBID **
+	if(pDdz->sCommandIn[4]>='A'&&pDdz->sCommandIn[4]<='C')  //è¾“å…¥ä¿¡æ¯ä¸ºBID **
 	{
 		pDdz->iBid[pDdz->sCommandIn[4]-'A']=pDdz->sCommandIn[5]-'0';
 		strcpy(pDdz->sCommandOut,"OK BID");
@@ -1829,7 +1829,7 @@ void GetBid(struct Ddz * pDdz)
 }
 //P0304-END
 
-//½«ÊÖÖÐÅÆid×ª»¯³ÉÅÆÃæÊý×Ö
+//å°†æ‰‹ä¸­ç‰Œidè½¬åŒ–æˆç‰Œé¢æ•°å­—
 int idToNum(int *id,int *num) 
 {
 	int i;
@@ -1847,13 +1847,13 @@ int idToNum(int *id,int *num)
 }
 
 
-//P0305-START»ñÈ¡²¢´¦Àíµ×ÅÆÐÅÏ¢LEF
-//×îºóÐÞ¶©Õß:ÑîÑó&Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08
+//P0305-STARTèŽ·å–å¹¶å¤„ç†åº•ç‰Œä¿¡æ¯LEF
+//æœ€åŽä¿®è®¢è€…:æ¨æ´‹&æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08
 void GetLef(struct Ddz * pDdz)	
 {
 	int i, iCount = 0;
 	char c;
-	pDdz->cLandlord = pDdz->sCommandIn[9];    //È·¶¨µØÖ÷·½
+	pDdz->cLandlord = pDdz->sCommandIn[9];    //ç¡®å®šåœ°ä¸»æ–¹
 	pDdz->iLef[0]=0;
 	pDdz->iLef[1]=0;
 	pDdz->iLef[2]=0;
@@ -1872,39 +1872,39 @@ void GetLef(struct Ddz * pDdz)
 		pDdz->iOnHand[19] = pDdz->iLef[2];
 		pDdz->iOnHand[20] = -1;		
 	}
-	CountPoint(pDdz, pDdz->iOnHand+17);//×¢ÒâË³ÐòSortByIdÖ®Ç°  */                                 
+	CountPoint(pDdz, pDdz->iOnHand+17);//æ³¨æ„é¡ºåºSortByIdä¹‹å‰  */                                 
 	strcpy(pDdz->sCommandOut, "OK LEFTOVER");
-	SortById(pDdz->iOnHand);					//iOnHand[]´ÓÐ¡µ½´óÅÅÐò
-//	pDdz->iLastCount[pDdz->sCommandIn[9]-'A']+=3;//¸üÐÂÊÖÖÐÅÆµÄÊýÁ¿                                /************************Ôì³É²»ÄÜÕý³£ÔËÐÐ***************/
+	SortById(pDdz->iOnHand);					//iOnHand[]ä»Žå°åˆ°å¤§æŽ’åº
+//	pDdz->iLastCount[pDdz->sCommandIn[9]-'A']+=3;//æ›´æ–°æ‰‹ä¸­ç‰Œçš„æ•°é‡                                /************************é€ æˆä¸èƒ½æ­£å¸¸è¿è¡Œ***************/
 	pDdz->minOutCount=minHandCount(pDdz->iOnHand,pDdz->iLastCount[pDdz->sCommandIn[9]-'A']);    
 }
 //P0305-END
 
-//P0306-START»ñÈ¡²¢´¦Àí³öÅÆÐÅÏ¢PLA
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08 
+//P0306-STARTèŽ·å–å¹¶å¤„ç†å‡ºç‰Œä¿¡æ¯PLA
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08 
 void GetPla(struct Ddz * pDdz)	
 {
-	if(pDdz->sCommandIn[5]=='W')					//½ÓÊÕÐÅÏ¢ÎªPLAY WHAT£ºÓ¦µ÷ÓÃ³öÅÆ¼ÆËãº¯Êý¼ÆËã³öÅÆ
+	if(pDdz->sCommandIn[5]=='W')					//æŽ¥æ”¶ä¿¡æ¯ä¸ºPLAY WHATï¼šåº”è°ƒç”¨å‡ºç‰Œè®¡ç®—å‡½æ•°è®¡ç®—å‡ºç‰Œ
 	{
-		CalPla(pDdz);					//µ÷ÓÃ³öÅÆ¼ÆËãº¯Êý¼ÆËã³öÅÆ
+		CalPla(pDdz);					//è°ƒç”¨å‡ºç‰Œè®¡ç®—å‡½æ•°è®¡ç®—å‡ºç‰Œ
 		strcpy(pDdz->sCommandOut,"PLAY _");
-		pDdz->sCommandOut[5]=pDdz->cDir;		//Êä³öÃüÁîµÄÔ¤±¸ÐÅÏ¢×¼±¸µ½sCommandOutÊý×é
-		AppendCardsToS(pDdz->iToTable,pDdz->sCommandOut);		//Òª³öÅÆÊý×éiToTable[]ÖÐµÄÊý×Ö×ª»¯Îª×Ö·û²¢Á¬½Óµ½sCommandOutÖÐ
-		UpdateMyPla(pDdz);		//¸ù¾Ý¼º·½³öÅÆ¸üÐÂÊý¾Ý
+		pDdz->sCommandOut[5]=pDdz->cDir;		//è¾“å‡ºå‘½ä»¤çš„é¢„å¤‡ä¿¡æ¯å‡†å¤‡åˆ°sCommandOutæ•°ç»„
+		AppendCardsToS(pDdz->iToTable,pDdz->sCommandOut);		//è¦å‡ºç‰Œæ•°ç»„iToTable[]ä¸­çš„æ•°å­—è½¬åŒ–ä¸ºå­—ç¬¦å¹¶è¿žæŽ¥åˆ°sCommandOutä¸­
+		UpdateMyPla(pDdz);		//æ ¹æ®å·±æ–¹å‡ºç‰Œæ›´æ–°æ•°æ®
 	}
-	else										//·ñÔòÊÕµ½ÐÅÏ¢ÎªÆäËüÍæ¼Ò³öÅÆ
+	else										//å¦åˆ™æ”¶åˆ°ä¿¡æ¯ä¸ºå…¶å®ƒçŽ©å®¶å‡ºç‰Œ
 	{
-		UpdateHisPla(pDdz);		//¸ù¾ÝËûÈË³öÅÆ¸üÐÂÊý¾Ý       
-		strcpy(pDdz->sCommandOut,"OK PLAY");//»Ø¸´ÊÕµ½
+		UpdateHisPla(pDdz);		//æ ¹æ®ä»–äººå‡ºç‰Œæ›´æ–°æ•°æ®       
+		strcpy(pDdz->sCommandOut,"OK PLAY");//å›žå¤æ”¶åˆ°
 	}
-	//µ±Ç°ÊÖÊý¼Ó1
+	//å½“å‰æ‰‹æ•°åŠ 1
 	pDdz->iOTmax++;
 }
 //P0306-END
 
-//P030602-START¸ù¾Ý¼º·½³öÅÆ¸üÐÂÊý¾Ý
-//×îºóÐÞ¶©Õß:Ã·ÏÕ&ÏÄºîÓÐ½Ü,×îºóÐÞ¶©Ê±¼ä:15-03-01
-//ÐÞ¶©ÄÚÈÝ¼°Ä¿µÄ:ÐÞ¸Ä¼õÉÙÊÖÖÐÅÆ
+//P030602-STARTæ ¹æ®å·±æ–¹å‡ºç‰Œæ›´æ–°æ•°æ®
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©&å¤ä¾¯æœ‰æ°,æœ€åŽä¿®è®¢æ—¶é—´:15-03-01
+//ä¿®è®¢å†…å®¹åŠç›®çš„:ä¿®æ”¹å‡å°‘æ‰‹ä¸­ç‰Œ
 void UpdateMyPla(struct Ddz * pDdz)	
 {
 	int i,j,k;
@@ -1912,7 +1912,7 @@ void UpdateMyPla(struct Ddz * pDdz)
 	{
 		pDdz->iOnTable[pDdz->iOTmax][0]=-1;
 		pDdz->iLastPassCount++;
-		if(pDdz->iLastPassCount>=2)	//Á¬ÐøÁ½¼ÒPASS
+		if(pDdz->iLastPassCount>=2)	//è¿žç»­ä¸¤å®¶PASS
 		{
 			pDdz->iLastPassCount=0;
 			pDdz->iLastTypeCount=0;
@@ -1920,14 +1920,14 @@ void UpdateMyPla(struct Ddz * pDdz)
 		}
 		pDdz->iOTmax++;
 	}
-	else						//²»ÊÇPASS
+	else						//ä¸æ˜¯PASS
 	{
-		//Ôö¼Ó×ÀÃæÅÆ
+		//å¢žåŠ æ¡Œé¢ç‰Œ
 		for(i=0;pDdz->iToTable[i]>=0;i++)
 			pDdz->iOnTable[pDdz->iOTmax][i]=pDdz->iToTable[i];
 		pDdz->iOnTable[pDdz->iOTmax][i]=-1;
 		pDdz->iOTmax++;
-		//¼õÉÙÊÖÖÐÅÆ
+		//å‡å°‘æ‰‹ä¸­ç‰Œ
 	
 		for(j=0 ; pDdz->iToTable[j]>=0 ; j++)
 		{	
@@ -1942,13 +1942,13 @@ void UpdateMyPla(struct Ddz * pDdz)
 		pDdz->iLastPassCount=0;
 		pDdz->iLastTypeCount=AnalyzeTypeCount(pDdz->iToTable);
 		pDdz->iLastMainPoint=AnalyzeMainPoint(pDdz->iToTable);
-		pDdz->iLastCount[pDdz->cDir-'A']-=j;//¸üÐÂÊÖÖÐÅÆµÄÊýÁ¿
+		pDdz->iLastCount[pDdz->cDir-'A']-=j;//æ›´æ–°æ‰‹ä¸­ç‰Œçš„æ•°é‡
 	}
 }
 //PO30602-END
 
-//P030603-START¸ù¾ÝËûÈË³öÅÆ¸üÐÂÊý¾Ý
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-03-01
+//P030603-STARTæ ¹æ®ä»–äººå‡ºç‰Œæ›´æ–°æ•°æ®
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-03-01
 void UpdateHisPla(struct Ddz * pDdz)	
 {
 	int i;
@@ -1957,11 +1957,11 @@ void UpdateHisPla(struct Ddz * pDdz)
 	char cDir;
 	char c;
 
-	if(pDdz->sCommandIn[6]=='-')// PLAY ?-1 ¼´PASS
+	if(pDdz->sCommandIn[6]=='-')// PLAY ?-1 å³PASS
 	{
 		pDdz->iOnTable[pDdz->iOTmax][0]=-1;
 		pDdz->iLastPassCount++;
-		if(pDdz->iLastPassCount>=2)	//Á¬ÐøÁ½¼ÒPASS
+		if(pDdz->iLastPassCount>=2)	//è¿žç»­ä¸¤å®¶PASS
 		{
 			pDdz->iLastPassCount=0;
 			pDdz->iLastTypeCount=0;
@@ -1969,28 +1969,28 @@ void UpdateHisPla(struct Ddz * pDdz)
 		}
 		pDdz->iOTmax++;
 	}
-	else						// PLAY ³öÅÆ
+	else						// PLAY å‡ºç‰Œ
 	{
-		for(i=0 ; i<21 ; i++)							//ÇåÀíiToTable[]
+		for(i=0 ; i<21 ; i++)							//æ¸…ç†iToTable[]
 			pDdz->iToTable[i] = -1;
 		iCardId=0;
 		iNow=0;
-		cDir=pDdz->sCommandIn[5];						//»ñÈ¡µ±Ç°³öÅÆÕß·½Î»
-		for(i=6 ; pDdz->sCommandIn[i] != '\0'; i++)		//ÒÀ´Î¶ÁÈ¡ÅÆÂë
+		cDir=pDdz->sCommandIn[5];						//èŽ·å–å½“å‰å‡ºç‰Œè€…æ–¹ä½
+		for(i=6 ; pDdz->sCommandIn[i] != '\0'; i++)		//ä¾æ¬¡è¯»å–ç‰Œç 
 		{
-			c = pDdz->sCommandIn[i];					//cÎªµ±Ç°Ö¸Áî×Ö·û
-			if(c>='0' && c<='9')				        //µ±Ç°×Ö·ûÎª0-9
+			c = pDdz->sCommandIn[i];					//cä¸ºå½“å‰æŒ‡ä»¤å­—ç¬¦
+			if(c>='0' && c<='9')				        //å½“å‰å­—ç¬¦ä¸º0-9
 			{
 				iCardId = iCardId * 10 + c - '0';
 				pDdz->iToTable[iNow] = iCardId;
 			}
-			if(c==',')									//µ±Ç°×Ö·ûÎª¶ººÅ,
+			if(c==',')									//å½“å‰å­—ç¬¦ä¸ºé€—å·,
 			{
 				iCardId = 0;
 				iNow++;
 			}
 		}
-		//Ôö¼Ó×ÀÃæÅÆ
+		//å¢žåŠ æ¡Œé¢ç‰Œ
 		for(i=0;pDdz->iToTable[i]>=0;i++)
 			pDdz->iOnTable[pDdz->iOTmax][i]=pDdz->iToTable[i];
 		pDdz->iOnTable[pDdz->iOTmax][i]=-1;
@@ -1998,41 +1998,41 @@ void UpdateHisPla(struct Ddz * pDdz)
 		pDdz->iLastTypeCount=AnalyzeTypeCount(pDdz->iToTable);
 		pDdz->iLastMainPoint=AnalyzeMainPoint(pDdz->iToTable);
 		pDdz->iOTmax++;
-		pDdz->iLastCount[cDir-'A']-=iNow;//¸üÐÂÊÖÖÐÅÆµÄÊýÁ¿
-		CountPoint(pDdz, pDdz->iOnTable[pDdz->iOTmax]);//¸üÐÂÒÑÖªÅÆµãÊýÊýÁ¿array
+		pDdz->iLastCount[cDir-'A']-=iNow;//æ›´æ–°æ‰‹ä¸­ç‰Œçš„æ•°é‡
+		CountPoint(pDdz, pDdz->iOnTable[pDdz->iOTmax]);//æ›´æ–°å·²çŸ¥ç‰Œç‚¹æ•°æ•°é‡array
 	}
 }
 //PO30603-END
 
 
-//P0307-START»ñÈ¡²¢´¦ÀíÊ¤¸ºÐÅÏ¢GAM
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08 00:13 
+//P0307-STARTèŽ·å–å¹¶å¤„ç†èƒœè´Ÿä¿¡æ¯GAM
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08 00:13 
 void GetGam(struct Ddz * pDdz)	
 {
-	pDdz->cWinner = pDdz->sCommandIn[9];			//Ê¤ÀûÕß·½Î»±àºÅ
-	if(pDdz->iRoundNow == pDdz->iRoundTotal)		//Èç¹ûµ±Ç°¾ÖÊýÓëÃ¿ÂÖ¾ÖÏàµÈÊ±
+	pDdz->cWinner = pDdz->sCommandIn[9];			//èƒœåˆ©è€…æ–¹ä½ç¼–å·
+	if(pDdz->iRoundNow == pDdz->iRoundTotal)		//å¦‚æžœå½“å‰å±€æ•°ä¸Žæ¯è½®å±€ç›¸ç­‰æ—¶
 	{
-		pDdz->iStatus = 0;							//ÒýÇæ×´Ì¬±äÁ¿ÉèÎª½áÊø
+		pDdz->iStatus = 0;							//å¼•æ“ŽçŠ¶æ€å˜é‡è®¾ä¸ºç»“æŸ
 	}
-	else											//·ñÔò
+	else											//å¦åˆ™
 	{
-		pDdz->iRoundNow++;							//µ±Ç°¾Ö´Î¼Ó1
-		InitRound(pDdz);							//ÒýÇæ×´Ì¬±äÁ¿ÉèÎªÖØÐÂ¿ªÊ¼ÏÂÒ»¾Ö
+		pDdz->iRoundNow++;							//å½“å‰å±€æ¬¡åŠ 1
+		InitRound(pDdz);							//å¼•æ“ŽçŠ¶æ€å˜é‡è®¾ä¸ºé‡æ–°å¼€å§‹ä¸‹ä¸€å±€
 	}
 	strcpy(pDdz->sCommandOut, "OK GAMEOVER");
 }
 //PO307-END
 
-//P04-STARTÊä³öÐÅÏ¢
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08 00:13 
+//P04-STARTè¾“å‡ºä¿¡æ¯
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08 00:13 
 void OutputMsg(struct Ddz * pDdz)	
 {
 	cout<<pDdz->sCommandOut<<endl;
 }
 //P04-END
 
-//P05-START¼ÆËãÆäËüÊý¾Ý
-//×îºóÐÞ¶©Õß:Ã·ÏÕ,×îºóÐÞ¶©Ê±¼ä:15-02-08
+//P05-STARTè®¡ç®—å…¶å®ƒæ•°æ®
+//æœ€åŽä¿®è®¢è€…:æ¢…é™©,æœ€åŽä¿®è®¢æ—¶é—´:15-02-08
 void CalOthers(struct Ddz * pDdz)	
 {
 	pDdz->iVoid=0;
