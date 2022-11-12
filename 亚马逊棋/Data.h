@@ -1,32 +1,32 @@
-#pragma once//±£Ö¤Í·ÎÄ¼şÖ»±»±àÒëÒ»´Î
+#pragma once//ä¿è¯å¤´æ–‡ä»¶åªè¢«ç¼–è¯‘ä¸€æ¬¡
 
-//ºê¶¨Òå
+//å®å®šä¹‰
 #define BLACKCHESS 2
 #define WHITECHESS 1
-#define BARRIER -1//ÕÏ°­
+#define BARRIER -1//éšœç¢
 #define EMPTY 0
-#define INFI 9999 //ÎŞÇî´ó
+#define INFI 9999 //æ— ç©·å¤§
 
-extern int Board[12][12];//È«¾Ö±äÁ¿
-extern int bufa[3][2];//´æ´¢Ã¿²½µÄ²½·¨£¬ÓÃÓÚ»ÚÆå
-//extern int mode;//ÓÎÏ·Ä£Ê½Ñ¡Ôñ
+extern int Board[12][12];//å…¨å±€å˜é‡
+extern int bufa[3][2];//å­˜å‚¨æ¯æ­¥çš„æ­¥æ³•ï¼Œç”¨äºæ‚”æ£‹
+//extern int mode;//æ¸¸æˆæ¨¡å¼é€‰æ‹©
 
-typedef struct Pos//Î»ÖÃ×ø±ê½á¹¹Ìå
+typedef struct Pos//ä½ç½®åæ ‡ç»“æ„ä½“
 {
 	int x;
 	int y;
 }CHESSPOS;
 
-typedef struct Move  //²½·¨½á¹¹Ìå
+typedef struct Move  //æ­¥æ³•ç»“æ„ä½“
 {
-	int ChessID;//ĞĞÆå·½
-	double score;//ÆÀ¹ÀµÃ·Ö
+	int ChessID;//è¡Œæ£‹æ–¹
+	double score;//è¯„ä¼°å¾—åˆ†
 	CHESSPOS From;
 	CHESSPOS To;
 	CHESSPOS Bar;
 }CHESSMOVE;
 
-////////////º¯ÊıÉùÃ÷////////////////
+////////////å‡½æ•°å£°æ˜////////////////
 void Show(int Board[12][12]);
 void InitBoard(int Board[12][12]);
 int Move(int firsthand, int Board[12][12], int bufa[3][2]);

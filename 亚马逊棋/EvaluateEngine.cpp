@@ -19,15 +19,15 @@ int Mobility[12][12] = { 0 };
 int aBlack[4] = { 0 };
 int aWhite[4] = { 0 };
 
-///////¼ÆËãKingMove//////
+///////è®¡ç®—KingMove//////
 void SearchKingMove()
 {
-	register int i, j; //¶¨Òå¼Ä´æÆ÷±äÁ¿£¬Ìá¸ßÔËËãĞ§ÂÊ
+	register int i, j; //å®šä¹‰å¯„å­˜å™¨å˜é‡ï¼Œæé«˜è¿ç®—æ•ˆç‡
 	for (i = 0; i < 12; i++)
 	{
 		for (j = 0; j < 12; j++)
 		{
-			KingmoveBlack[i][j] = 0;  //¶ÔÄ£ÄâµÄKingMoveÆåÅÌ³õÊ¼»¯
+			KingmoveBlack[i][j] = 0;  //å¯¹æ¨¡æ‹Ÿçš„KingMoveæ£‹ç›˜åˆå§‹åŒ–
 			KingmoveWhite[i][j] = 0;
 		}
 	}
@@ -35,85 +35,85 @@ void SearchKingMove()
 	{
 		for (j = 0; j < 12; j++)
 		{
-			if (CurPosition[i][j] == BLACKCHESS)//±éÀúÆåÅÌÕÒµ½ºÚÆå£¬ÓÃKingmoveBlackÆåÅÌ´æ´¢KingMove×ß·¨
+			if (CurPosition[i][j] == BLACKCHESS)//éå†æ£‹ç›˜æ‰¾åˆ°é»‘æ£‹ï¼Œç”¨KingmoveBlackæ£‹ç›˜å­˜å‚¨KingMoveèµ°æ³•
 			{
-				if (CurPosition[i][j - 1] == EMPTY)//Õı×ó·½
+				if (CurPosition[i][j - 1] == EMPTY)//æ­£å·¦æ–¹
 				{
 					KingmoveBlack[i][j - 1] = 1;
 				}
-				if (CurPosition[i - 1][j - 1] == EMPTY)//×óÉÏ·½
+				if (CurPosition[i - 1][j - 1] == EMPTY)//å·¦ä¸Šæ–¹
 				{
 					KingmoveBlack[i - 1][j - 1] = 1;
 				}
-				if (CurPosition[i - 1][j] == EMPTY)//ÕıÉÏ·½
+				if (CurPosition[i - 1][j] == EMPTY)//æ­£ä¸Šæ–¹
 				{
 					KingmoveBlack[i - 1][j] = 1;
 				}
-				if (CurPosition[i - 1][j + 1] == EMPTY)//ÓÒÉÏ·½
+				if (CurPosition[i - 1][j + 1] == EMPTY)//å³ä¸Šæ–¹
 				{
 					KingmoveBlack[i - 1][j + 1] = 1;
 				}
-				if (CurPosition[i][j + 1] == EMPTY)//ÕıÓÒ·½
+				if (CurPosition[i][j + 1] == EMPTY)//æ­£å³æ–¹
 				{
 					KingmoveBlack[i][j + 1] = 1;
 				}
-				if (CurPosition[i + 1][j + 1] == EMPTY)//ÓÒÏÂ·½
+				if (CurPosition[i + 1][j + 1] == EMPTY)//å³ä¸‹æ–¹
 				{
 					KingmoveBlack[i + 1][j + 1] = 1;
 				}
-				if (CurPosition[i + 1][j] == EMPTY)//ÕıÏÂ·½
+				if (CurPosition[i + 1][j] == EMPTY)//æ­£ä¸‹æ–¹
 				{
 					KingmoveBlack[i + 1][j] = 1;
 				}
-				if (CurPosition[i + 1][j - 1] == EMPTY)//×óÏÂ·½
+				if (CurPosition[i + 1][j - 1] == EMPTY)//å·¦ä¸‹æ–¹
 				{
 					KingmoveBlack[i + 1][j - 1] = 1;
 				}
 			}
-			if (CurPosition[i][j] == WHITECHESS)//±éÀúÆåÅÌÕÒµ½°×Æå£¬ÓÃKingmoveWhiteÆåÅÌ´æ´¢KingMove×ß·¨
+			if (CurPosition[i][j] == WHITECHESS)//éå†æ£‹ç›˜æ‰¾åˆ°ç™½æ£‹ï¼Œç”¨KingmoveWhiteæ£‹ç›˜å­˜å‚¨KingMoveèµ°æ³•
 			{
-				if (CurPosition[i][j - 1] == EMPTY)//Õı×ó·½
+				if (CurPosition[i][j - 1] == EMPTY)//æ­£å·¦æ–¹
 				{
 					KingmoveWhite[i][j - 1] = 1;
 				}
-				if (CurPosition[i - 1][j - 1] == EMPTY)//×óÉÏ·½
+				if (CurPosition[i - 1][j - 1] == EMPTY)//å·¦ä¸Šæ–¹
 				{
 					KingmoveWhite[i - 1][j - 1] = 1;
 				}
-				if (CurPosition[i - 1][j] == EMPTY)//ÕıÉÏ·½
+				if (CurPosition[i - 1][j] == EMPTY)//æ­£ä¸Šæ–¹
 				{
 					KingmoveWhite[i - 1][j] = 1;
 				}
-				if (CurPosition[i - 1][j + 1] == EMPTY)//ÓÒÉÏ·½
+				if (CurPosition[i - 1][j + 1] == EMPTY)//å³ä¸Šæ–¹
 				{
 					KingmoveWhite[i - 1][j + 1] = 1;
 				}
-				if (CurPosition[i][j + 1] == EMPTY)//ÕıÓÒ·½
+				if (CurPosition[i][j + 1] == EMPTY)//æ­£å³æ–¹
 				{
 					KingmoveWhite[i][j + 1] = 1;
 				}
-				if (CurPosition[i + 1][j + 1] == EMPTY)//ÓÒÏÂ·½
+				if (CurPosition[i + 1][j + 1] == EMPTY)//å³ä¸‹æ–¹
 				{
 					KingmoveWhite[i + 1][j + 1] = 1;
 				}
-				if (CurPosition[i + 1][j] == EMPTY)//ÕıÏÂ·½
+				if (CurPosition[i + 1][j] == EMPTY)//æ­£ä¸‹æ–¹
 				{
 					KingmoveWhite[i + 1][j] = 1;
 				}
-				if (CurPosition[i + 1][j - 1] == EMPTY)//×óÏÂ·½
+				if (CurPosition[i + 1][j - 1] == EMPTY)//å·¦ä¸‹æ–¹
 				{
 					KingmoveWhite[i + 1][j - 1] = 1;
 				}
 			}
 		}
 	}
-	for (register int n = 1; n < 11; n++)//Æå×ÓÔÚÆåÅÌÉÏÍ¨¹ıKingMove×ß·¨×î¶àÊÇ10²½
+	for (register int n = 1; n < 11; n++)//æ£‹å­åœ¨æ£‹ç›˜ä¸Šé€šè¿‡KingMoveèµ°æ³•æœ€å¤šæ˜¯10æ­¥
 	{
 		for (i = 0; i < 12; i++)
 		{
 			for (j = 0; j < 12; j++)
 			{
-				if (KingmoveBlack[i][j] == n)//ÕÒµ½ºÚÆåKingMove¶ÔÓ¦µÄ²½·¨Êı
+				if (KingmoveBlack[i][j] == n)//æ‰¾åˆ°é»‘æ£‹KingMoveå¯¹åº”çš„æ­¥æ³•æ•°
 				{
 					if (CurPosition[i][j - 1] == EMPTY && KingmoveBlack[i][j - 1] == 0)
 					{
@@ -148,7 +148,7 @@ void SearchKingMove()
 						KingmoveBlack[i + 1][j - 1] = n + 1;
 					}
 				}
-				if (KingmoveWhite[i][j] == n) //ÕÒµ½°×ÆåKingMove¶ÔÓ¦µÄ²½·¨Êı
+				if (KingmoveWhite[i][j] == n) //æ‰¾åˆ°ç™½æ£‹KingMoveå¯¹åº”çš„æ­¥æ³•æ•°
 				{
 					if (CurPosition[i][j - 1] == EMPTY && KingmoveWhite[i][j - 1] == 0)
 					{
@@ -188,7 +188,7 @@ void SearchKingMove()
 	}
 }
 
-///////¼ÆËãQueenMove/////
+///////è®¡ç®—QueenMove/////
 void SearchQueenMove()
 {
 	register int i, j, k, l;
@@ -196,7 +196,7 @@ void SearchQueenMove()
 	{
 		for (j = 0; j < 12; j++)
 		{
-			QueenmoveBlack[i][j] = 0;//¶ÔqueenmoveÆåÅÌ³õÊ¼»¯
+			QueenmoveBlack[i][j] = 0;//å¯¹queenmoveæ£‹ç›˜åˆå§‹åŒ–
 			QueenmoveWhite[i][j] = 0;
 		}
 	}
@@ -204,7 +204,7 @@ void SearchQueenMove()
 	{
 		for (l = 0; l < 12; l++)
 		{
-			if (CurPosition[k][l] == BLACKCHESS)//ºÚÆåµÄQueenmove
+			if (CurPosition[k][l] == BLACKCHESS)//é»‘æ£‹çš„Queenmove
 			{
 				i = k;
 				j = l;
@@ -267,7 +267,7 @@ void SearchQueenMove()
 					j--;
 				}
 			}
-			if (CurPosition[k][l] == WHITECHESS)//°×ÆåµÄQueenMove
+			if (CurPosition[k][l] == WHITECHESS)//ç™½æ£‹çš„QueenMove
 			{
 				i = k;
 				j = l;
@@ -399,7 +399,7 @@ void SearchQueenMove()
 						j--;
 					}
 				}
-				if (QueenmoveWhite[k][l] == n)//°×Æå
+				if (QueenmoveWhite[k][l] == n)//ç™½æ£‹
 				{
 					i = k;
 					j = l;
@@ -464,38 +464,38 @@ void SearchQueenMove()
 		}
 	}
 }
-/////¼ÆËãÆÀ¹Àt1////////
+/////è®¡ç®—è¯„ä¼°t1////////
 void t1account()
 {
-	t1 = 0;//ÏÈ¹éÁã
+	t1 = 0;//å…ˆå½’é›¶
 	int i, j;
 
 	for (i = 0; i < 12; i++)
 	{
 		for (j = 0; j < 12; j++)
 		{
-			if (CurPosition[i][j] == EMPTY)//É¨ÃèÆåÅÌ£¬Í¨¹ıqueenmove¶ÔÆåÅÌÉÏµÄ¿Õ¸ñµÄ¿ØÖÆÈ¨½øĞĞ±È½Ï
+			if (CurPosition[i][j] == EMPTY)//æ‰«ææ£‹ç›˜ï¼Œé€šè¿‡queenmoveå¯¹æ£‹ç›˜ä¸Šçš„ç©ºæ ¼çš„æ§åˆ¶æƒè¿›è¡Œæ¯”è¾ƒ
 			{
-				if (QueenmoveBlack[i][j] == QueenmoveWhite[i][j] != 0)//¶Ô¸Ã¿Õ¸ñµÄ¿ØÖÆÈ¨ÏàµÈÇÒË«·½¶¼ÄÜµ½´ï
+				if (QueenmoveBlack[i][j] == QueenmoveWhite[i][j] != 0)//å¯¹è¯¥ç©ºæ ¼çš„æ§åˆ¶æƒç›¸ç­‰ä¸”åŒæ–¹éƒ½èƒ½åˆ°è¾¾
 				{
-					t1 = t1 + 0.1;   //ÕâÊ±¶Ô¸Ã¿Õ¸ñµÄ¿ØÖÆÈ¨ÔÚÓÚĞĞÆå·½£¬¸ÃÖµÔÚ-1µ½1Ö®¼ä£¬´ú±íĞĞÆå·½µÄÓÅÊÆ£¬¿ÉÒÔ½øĞĞµ÷Õû¡£ºÚ·½ÏÈĞĞ
+					t1 = t1 + 0.1;   //è¿™æ—¶å¯¹è¯¥ç©ºæ ¼çš„æ§åˆ¶æƒåœ¨äºè¡Œæ£‹æ–¹ï¼Œè¯¥å€¼åœ¨-1åˆ°1ä¹‹é—´ï¼Œä»£è¡¨è¡Œæ£‹æ–¹çš„ä¼˜åŠ¿ï¼Œå¯ä»¥è¿›è¡Œè°ƒæ•´ã€‚é»‘æ–¹å…ˆè¡Œ
 				}
-				if (QueenmoveWhite[i][j] < QueenmoveBlack[i][j])//°×·½µ½´ï¸Ã¿Õ¸ñµÄ²½Êı¸üÉÙ
+				if (QueenmoveWhite[i][j] < QueenmoveBlack[i][j])//ç™½æ–¹åˆ°è¾¾è¯¥ç©ºæ ¼çš„æ­¥æ•°æ›´å°‘
 				{
-					if (QueenmoveWhite[i][j] == 0)   //°×·½½ø²»È¥
+					if (QueenmoveWhite[i][j] == 0)   //ç™½æ–¹è¿›ä¸å»
 					{
-						t1 = t1 + 1;     //¸øºÚ·½¼ÓÒ»·Ö
+						t1 = t1 + 1;     //ç»™é»‘æ–¹åŠ ä¸€åˆ†
 					}
 					if (QueenmoveWhite[i][j] != 0)
 					{
 						t1 = t1 - 1;
 					}
 				}
-				if (QueenmoveWhite[i][j] > QueenmoveBlack[i][j])    //ºÚ·½µ½´ï¸Ã¿Õ¸ñµÄ²½Êı¸üÉÙ
+				if (QueenmoveWhite[i][j] > QueenmoveBlack[i][j])    //é»‘æ–¹åˆ°è¾¾è¯¥ç©ºæ ¼çš„æ­¥æ•°æ›´å°‘
 				{
-					if (QueenmoveBlack[i][j] == 0)//ºÚ·½½ø²»È¥
+					if (QueenmoveBlack[i][j] == 0)//é»‘æ–¹è¿›ä¸å»
 					{
-						t1 = t1 - 1;  //¸øºÚ·½¼õÒ»·Ö
+						t1 = t1 - 1;  //ç»™é»‘æ–¹å‡ä¸€åˆ†
 					}
 					if (QueenmoveBlack[i][j] != 0)
 					{
@@ -506,8 +506,8 @@ void t1account()
 		}
 	}
 }
-/////¼ÆËãÆÀ¹Àt2////////
-void t2account()//¼ÆËãkingmove,Óët1¼ÆËãÔ­ÀíÏàËÆ
+/////è®¡ç®—è¯„ä¼°t2////////
+void t2account()//è®¡ç®—kingmove,ä¸t1è®¡ç®—åŸç†ç›¸ä¼¼
 {
 	t2 = 0;
 	for (int i = 0; i < 12; i++)
@@ -520,22 +520,22 @@ void t2account()//¼ÆËãkingmove,Óët1¼ÆËãÔ­ÀíÏàËÆ
 				{
 					t2 = t2 + 0.1;
 				}
-				if (KingmoveWhite[i][j] < KingmoveBlack[i][j])//°×·½µ½´ï¸Ã¿Õ¸ñ²½Êı¸üÉÙ
+				if (KingmoveWhite[i][j] < KingmoveBlack[i][j])//ç™½æ–¹åˆ°è¾¾è¯¥ç©ºæ ¼æ­¥æ•°æ›´å°‘
 				{
 					if (KingmoveWhite[i][j] == 0)
 					{
-						t2 = t2 + 1;  //¸øºÚ·½¼ÓÒ»·Ö
+						t2 = t2 + 1;  //ç»™é»‘æ–¹åŠ ä¸€åˆ†
 					}
 					if (KingmoveWhite[i][j] != 0)
 					{
 						t2 = t2 - 1;
 					}
 				}
-				if (KingmoveBlack[i][j] < KingmoveWhite[i][j])//ºÚ·½µ½´ï¸Ã¿Õ¸ñµÄ²½Êı¸üÉÙ
+				if (KingmoveBlack[i][j] < KingmoveWhite[i][j])//é»‘æ–¹åˆ°è¾¾è¯¥ç©ºæ ¼çš„æ­¥æ•°æ›´å°‘
 				{
-					if (KingmoveBlack[i][j] == 0)//ºÚ·½½ø²»È¥
+					if (KingmoveBlack[i][j] == 0)//é»‘æ–¹è¿›ä¸å»
 					{
-						t2 = t2 - 1;  //ºÚ·½¼õÒ»·Ö
+						t2 = t2 - 1;  //é»‘æ–¹å‡ä¸€åˆ†
 					}
 					if (KingmoveBlack[i][j] != 0)
 					{
@@ -546,8 +546,8 @@ void t2account()//¼ÆËãkingmove,Óët1¼ÆËãÔ­ÀíÏàËÆ
 		}
 	}
 }
-/////¼ÆËãÆÀ¹ÀC1////////
-void c1account()//¸ù¾İ¹«Ê½½øĞĞ¼ÆËã
+/////è®¡ç®—è¯„ä¼°C1////////
+void c1account()//æ ¹æ®å…¬å¼è¿›è¡Œè®¡ç®—
 {
 	c1 = 0;
 	for (int i = 0; i < 12; i++)
@@ -573,7 +573,7 @@ void c1account()//¸ù¾İ¹«Ê½½øĞĞ¼ÆËã
 	}
 	c1 = c1 * 2;
 }
-/////¼ÆËãÆÀ¹ÀC2////////
+/////è®¡ç®—è¯„ä¼°C2////////
 void c2account()
 {
 	c2 = 0;
@@ -601,7 +601,7 @@ void c2account()
 		}
 	}
 }
-///////¼ÆËã¿Õ¸ñµÄÁé»î¶È/////
+///////è®¡ç®—ç©ºæ ¼çš„çµæ´»åº¦/////
 void MobilitySearch()
 {
 	int i, j;
@@ -638,19 +638,19 @@ void MobilitySearch()
 		}
 	}
 }
-//////¼ÆËãÃ¿¸öÆå×ÓµÄÁé»î¶È//////
+//////è®¡ç®—æ¯ä¸ªæ£‹å­çš„çµæ´»åº¦//////
 void aaccount()
 {
 	register int k, l, m, i, j;
 	register int n = 0;
 	register int h = 0;
-	aWhite[4] = { 0 };//´æ´¢Ã¿¸öÆå×ÓÍ¨¹ıqueenMove»ñµÃµÄÁé»î¶È
+	aWhite[4] = { 0 };//å­˜å‚¨æ¯ä¸ªæ£‹å­é€šè¿‡queenMoveè·å¾—çš„çµæ´»åº¦
 	aBlack[4] = { 0 };
 	for (i = 0; i < 12; i++)
 	{
 		for (j = 0; j < 12; j++)
 		{
-			if (CurPosition[i][j] == BLACKCHESS)//ÕÒµ½Ò»¸öºÚ×Ó
+			if (CurPosition[i][j] == BLACKCHESS)//æ‰¾åˆ°ä¸€ä¸ªé»‘å­
 			{
 				k = i;
 				l = j;
@@ -730,7 +730,7 @@ void aaccount()
 				}
 				n++;
 			}
-			if (CurPosition[i][j] == WHITECHESS)//ÕÒµ½°×Æå
+			if (CurPosition[i][j] == WHITECHESS)//æ‰¾åˆ°ç™½æ£‹
 			{
 				k = i;
 				l = j;
@@ -813,8 +813,8 @@ void aaccount()
 		}
 	}
 }
-//////¼ÆËãW²ÎÊı//////
-void waccount()/////¼ÆËã¹«Ê½///////
+//////è®¡ç®—Wå‚æ•°//////
+void waccount()/////è®¡ç®—å…¬å¼///////
 {
 	w = 0;
 	int i, j;
@@ -832,7 +832,7 @@ void waccount()/////¼ÆËã¹«Ê½///////
 		}
 	}
 }
-/////¼ÆËãS²ÎÊı///////
+/////è®¡ç®—Så‚æ•°///////
 void saccount()
 {
 	s = 0;
@@ -877,21 +877,21 @@ void saccount()
 	double s2 = N1 - N2;
 	s = s1 / 1000 + s2 / 10000;
 }
-//////¼ÆËã×îÖÕ¾ÖÃæµÄÆÀ¹À/////
-double Evaluate()////////////////////////////ÓĞ´ı¸Ä½ø////////////////////////////////////
+//////è®¡ç®—æœ€ç»ˆå±€é¢çš„è¯„ä¼°/////
+double Evaluate()////////////////////////////æœ‰å¾…æ”¹è¿›////////////////////////////////////
 {
 	double Value;
-	//Éú³ÉKingMove£¬QueenMoveÆåÅÌ
+	//ç”ŸæˆKingMoveï¼ŒQueenMoveæ£‹ç›˜
 	SearchKingMove();
 	SearchQueenMove();
 	//MobilitySearch();
-	/////¼ÆËã¸÷¸öÆÀ¹ÀÖµ//////
+	/////è®¡ç®—å„ä¸ªè¯„ä¼°å€¼//////
 	t1account();
 	t2account();
 	c1account();
 	c2account();
 	//saccount();
-	//////¼ÆËãÈ¨ÖØ////////
+	//////è®¡ç®—æƒé‡////////
 	waccount();
 	double a = (17 / (w + 17));
 	double b = (w / (w + 49.03));

@@ -2,15 +2,15 @@
 #include<windows.h>
 
 int Step = 0;
-int SearchDepth = 2;   //ËÑË÷Á½²ã
-int CurPosition[12][12] = { 0 };   //½«Êµ¼Ê²Ù×÷µÄÆåÅÌ¸´ÖÆµ½ÕâÀï£¬ÔÚÕâ¸öÆåÅÌÉÏ½øĞĞÄ£ÄâĞĞÆåºÍÆÀ¹À
+int SearchDepth = 2;   //æœç´¢ä¸¤å±‚
+int CurPosition[12][12] = { 0 };   //å°†å®é™…æ“ä½œçš„æ£‹ç›˜å¤åˆ¶åˆ°è¿™é‡Œï¼Œåœ¨è¿™ä¸ªæ£‹ç›˜ä¸Šè¿›è¡Œæ¨¡æ‹Ÿè¡Œæ£‹å’Œè¯„ä¼°
 CHESSMOVE BestMove = { 0 };
 
 
-void SearchAGoodMove(int Board[12][12])   //´«ÈëÒ»¸ö12*12µÄ¶şÎ¬Êı×é
+void SearchAGoodMove(int Board[12][12])   //ä¼ å…¥ä¸€ä¸ª12*12çš„äºŒç»´æ•°ç»„
 {
-	memcpy(CurPosition, Board, 144 * sizeof(int));   //¸´ÖÆ´«ÈëµÄBoardÆåÅÌµ½CurPosition
-	AlphaBeta(SearchDepth);    //µÚÒ»´ÎËÑË÷´«ÈëÉèÖÃµÄËÑË÷Éî¶È
+	memcpy(CurPosition, Board, 144 * sizeof(int));   //å¤åˆ¶ä¼ å…¥çš„Boardæ£‹ç›˜åˆ°CurPosition
+	AlphaBeta(SearchDepth);    //ç¬¬ä¸€æ¬¡æœç´¢ä¼ å…¥è®¾ç½®çš„æœç´¢æ·±åº¦
 	MakeMove(&BestMove);
 	memcpy(Board, CurPosition, 144 * sizeof(int));
 	Step = 0;
@@ -18,15 +18,15 @@ void SearchAGoodMove(int Board[12][12])   //´«ÈëÒ»¸ö12*12µÄ¶şÎ¬Êı×é
 
 double AlphaBeta(int depth, double alpha, double beta)
 {
-	double score = 0;   //¶¨ÒåÆÀ¹À·ÖÊı
+	double score = 0;   //å®šä¹‰è¯„ä¼°åˆ†æ•°
 	int type = 0;
-	if (JudgeWin(CurPosition) != 0)//·Ö³öÊ¤¸º
+	if (JudgeWin(CurPosition) != 0)//åˆ†å‡ºèƒœè´Ÿ
 	{
-		return Evaluate();//·µ»ØÆÀ¹ÀÖµ
+		return Evaluate();//è¿”å›è¯„ä¼°å€¼
 	}
-	if (depth == 0)//µ½´ïÒ¶×Ó½Úµã
+	if (depth == 0)//åˆ°è¾¾å¶å­èŠ‚ç‚¹
 	{
-		if ((SearchDepth - depth) % 2 == 0)//¼«´óÖµ½áµã
+		if ((SearchDepth - depth) % 2 == 0)//æå¤§å€¼ç»“ç‚¹
 		{
 			if (mode == 1)
 			{
@@ -50,38 +50,38 @@ double AlphaBeta(int depth, double alpha, double beta)
 			
 		}
 	}
-	///////////ÏÈºóÊÖ×ª»»/////////
-	Step = Step + 1;      //Ã¿ËÑË÷Ò»²ã¾ÍÊÇÆå¾Ö½øĞĞÁËÒ»²½
-	if (mode == 1)        //µçÄÔÏÈÊÖ£¬µçÄÔÖ´ºÚ
+	///////////å…ˆåæ‰‹è½¬æ¢/////////
+	Step = Step + 1;      //æ¯æœç´¢ä¸€å±‚å°±æ˜¯æ£‹å±€è¿›è¡Œäº†ä¸€æ­¥
+	if (mode == 1)        //ç”µè„‘å…ˆæ‰‹ï¼Œç”µè„‘æ‰§é»‘
 	{
-		if (Step % 2 == 1)//ÆæÊı²ã
+		if (Step % 2 == 1)//å¥‡æ•°å±‚
 		{
 			type = mode + 1;
 		}
 		else if (Step % 2 == 0)
 		{
 			type = mode;
-			//MessageBox(NULL, "²âÊÔ£¡", "ÌáÊ¾", MB_OK);
+			//MessageBox(NULL, "æµ‹è¯•ï¼", "æç¤º", MB_OK);
 		}
 	}
-	if (mode == 0)  //µçÄÔºóÊÖ
+	if (mode == 0)  //ç”µè„‘åæ‰‹
 	{
-		if (Step % 2 == 0)  //ÆæÊı²ã
+		if (Step % 2 == 0)  //å¥‡æ•°å±‚
 		{
 			type = mode+1;
 		}
-		else if (Step % 2 == 1)  //Å¼Êı²ã
+		else if (Step % 2 == 1)  //å¶æ•°å±‚
 		{
 			type = mode+2;
 		}
 	}
 	/////////////////////////////
-	int count = CreatePossibleMove(CurPosition, depth, type);  //¼ÇÂ¼²½·¨×ÜÊı£¬Éú³ÉËùÓĞ·ûºÏ¹æÔòµÄ²½·¨
+	int count = CreatePossibleMove(CurPosition, depth, type);  //è®°å½•æ­¥æ³•æ€»æ•°ï¼Œç”Ÿæˆæ‰€æœ‰ç¬¦åˆè§„åˆ™çš„æ­¥æ³•
 	for (int i = 0; i < count; i++)
 	{
-		MakeMove(&MoveList[depth][i]);            //Ä£ÄâĞĞÆå£¬ÔÚCurPositionÉÏÄ£Äâ
-		score = -AlphaBeta(depth -1, -beta, -alpha);   //µİ¹éÏòÏÂËÑË÷
-		UnMakeMove(&MoveList[depth][i]);              //³·ÏúÄ£ÄâĞĞÆå
+		MakeMove(&MoveList[depth][i]);            //æ¨¡æ‹Ÿè¡Œæ£‹ï¼Œåœ¨CurPositionä¸Šæ¨¡æ‹Ÿ
+		score = -AlphaBeta(depth -1, -beta, -alpha);   //é€’å½’å‘ä¸‹æœç´¢
+		UnMakeMove(&MoveList[depth][i]);              //æ’¤é”€æ¨¡æ‹Ÿè¡Œæ£‹
 		if (score > alpha)
 		{
 			alpha = score;

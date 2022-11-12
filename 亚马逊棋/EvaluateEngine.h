@@ -1,21 +1,21 @@
 #pragma once
 #include"SearchEngine.h"
 
-//¹À·Ö±äÁ¿---¶¼ÊÇÈ«¾Ö±äÁ¿
-extern double t1, t2;    //ÁìÍÁÌØÕ÷Öµ,t1----queenmove  t2----kingmove
-extern double c1, c2;   //Î»ÖÃÌØÕ÷Öµ,c1---queenmove   c2---kingmove
+//ä¼°åˆ†å˜é‡---éƒ½æ˜¯å…¨å±€å˜é‡
+extern double t1, t2;    //é¢†åœŸç‰¹å¾å€¼,t1----queenmove  t2----kingmove
+extern double c1, c2;   //ä½ç½®ç‰¹å¾å€¼,c1---queenmove   c2---kingmove
 extern double w, s;
 
-//KingMoveºÍQueenMoveµÄÄ£ÄâÆåÅÌ----¶¼ÊÇÈ«¾Ö±äÁ¿
+//KingMoveå’ŒQueenMoveçš„æ¨¡æ‹Ÿæ£‹ç›˜----éƒ½æ˜¯å…¨å±€å˜é‡
 extern int KingmoveBlack[12][12];
 extern int KingmoveWhite[12][12];
 extern int QueenmoveBlack[12][12];
 extern int QueenmoveWhite[12][12];
-extern int Mobility[12][12];//Áé»î¶ÈµÄÆåÅÌ
+extern int Mobility[12][12];//çµæ´»åº¦çš„æ£‹ç›˜
 extern int aWhite[4];
 extern int aBlack[4];
 
-/////////º¯ÊıÉùÃ÷//////////
+/////////å‡½æ•°å£°æ˜//////////
 void SearchKingMove();
 void SearchQueenMove();
 void t1account();

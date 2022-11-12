@@ -8,7 +8,7 @@ CHESSMOVE MoveList[8][2500] = { 0 };
 
 void InitOffset()
 {
-	Offset[0][0] = 0; Offset[0][1] = -1;//Õı×ó·½Æ«ÒÆ£¬ÒÀ´ÎÀàÍÆ
+	Offset[0][0] = 0; Offset[0][1] = -1;//æ­£å·¦æ–¹åç§»ï¼Œä¾æ¬¡ç±»æ¨
 	Offset[1][0] = -1; Offset[1][1] = -1;
 	Offset[2][0] = -1; Offset[2][1] = 0;
 	Offset[3][0] = -1; Offset[3][1] = 1;
@@ -21,43 +21,43 @@ void InitOffset()
 int CreatePossibleMove(int Board[12][12], int depth, int Side)
 {
 	int i, j, k, l, t;
-	int Position[12][12] = { 0 };   //ÁÙÊ±´æ´¢µÄÆåÅÌ£¬·ÀÖ¹¶ÔÔ­ÆåÅÌÎó²Ù×÷
-	InitOffset();       //µ÷ÓÃÆ«ÒÆÁ¿
-	memcpy(Position, Board, 144 * sizeof(int));   //¸´ÖÆÆåÅÌĞÅÏ¢
-	MoveCount = 0;  //¼Æ²½Æ÷ÇåÁã
+	int Position[12][12] = { 0 };   //ä¸´æ—¶å­˜å‚¨çš„æ£‹ç›˜ï¼Œé˜²æ­¢å¯¹åŸæ£‹ç›˜è¯¯æ“ä½œ
+	InitOffset();       //è°ƒç”¨åç§»é‡
+	memcpy(Position, Board, 144 * sizeof(int));   //å¤åˆ¶æ£‹ç›˜ä¿¡æ¯
+	MoveCount = 0;  //è®¡æ­¥å™¨æ¸…é›¶
 	for ( i = 1; i <= 10; i++)
 	{
 		for ( j = 1; j <= 10; j++)
 		{
-			if (Position[i][j] == Side)//ÕÒµ½Æå×Ó
+			if (Position[i][j] == Side)//æ‰¾åˆ°æ£‹å­
 			{
 				k = i;
 				l = j;
-				for ( t = 0; t < 8; t++)//¸ÃÆå×ÓµÄÖÜÎ§°Ë¸ö·½Ïò½øĞĞÆ«ÒÆ
+				for ( t = 0; t < 8; t++)//è¯¥æ£‹å­çš„å‘¨å›´å…«ä¸ªæ–¹å‘è¿›è¡Œåç§»
 				{
-					//³¢ÊÔÃ¿¸öÆ«ÒÆÂ·¾¶
-					k += Offset[t][0];//½øĞĞÆ«ÒÆ
+					//å°è¯•æ¯ä¸ªåç§»è·¯å¾„
+					k += Offset[t][0];//è¿›è¡Œåç§»
 					l += Offset[t][1];
 					while (Position[k][l] == EMPTY)
 					{
 						CreatePossibleBar(Position, depth, Side, i, j, k, l);
-						////¼ÌĞøÑØ¸ÃÂ·¾¶Æ«ÒÆ
+						////ç»§ç»­æ²¿è¯¥è·¯å¾„åç§»
 						k += Offset[t][0];
 						l += Offset[t][1];
 					}
-					k = i;//»Ö¸´Æå×Ó×ø±ê£¬ÎªÏÂÒ»¸ö·½ÏòµÄÆ«ÒÆ×ö×¼±¸
+					k = i;//æ¢å¤æ£‹å­åæ ‡ï¼Œä¸ºä¸‹ä¸€ä¸ªæ–¹å‘çš„åç§»åšå‡†å¤‡
 					l = j;
 				}
 			}
 		}
 	}
-	return MoveCount;//·µ»ØÉú³ÉµÄ²½·¨×ÜÊı
+	return MoveCount;//è¿”å›ç”Ÿæˆçš„æ­¥æ³•æ€»æ•°
 }
 
 void CreatePossibleBar(int Board[12][12], int depth, int Side, int FromX, int FromY, int ToX, int ToY)
 {
 	int k, l;
-	//Ä£ÄâĞĞÆåÂä×ÓµÄ¹ı³Ì£¬±ãÓÚ¶Ô·ÅÖÃÕÏ°­ÅĞ¶Ï
+	//æ¨¡æ‹Ÿè¡Œæ£‹è½å­çš„è¿‡ç¨‹ï¼Œä¾¿äºå¯¹æ”¾ç½®éšœç¢åˆ¤æ–­
 	Board[FromX][FromY] = EMPTY;
 	Board[ToX][ToY] = Side;
 	k = ToX;
@@ -68,26 +68,26 @@ void CreatePossibleBar(int Board[12][12], int depth, int Side, int FromX, int Fr
 		l += Offset[t][1];
 		while (Board[k][l] == EMPTY)
 		{
-			//´æ·Å²½·¨
-			MoveList[depth][MoveCount].From.x = FromX;//´æ·ÅÆğÊ¼Î»ÖÃ×ø±ê
+			//å­˜æ”¾æ­¥æ³•
+			MoveList[depth][MoveCount].From.x = FromX;//å­˜æ”¾èµ·å§‹ä½ç½®åæ ‡
 			MoveList[depth][MoveCount].From.y = FromY;
-			MoveList[depth][MoveCount].To.x = ToX;//´æ·ÅÂä×ÓÎ»ÖÃ×ø±ê
+			MoveList[depth][MoveCount].To.x = ToX;//å­˜æ”¾è½å­ä½ç½®åæ ‡
 			MoveList[depth][MoveCount].To.y = ToY;
-			MoveList[depth][MoveCount].Bar.x = k;//´æ·ÅÕÏ°­µÄ×ø±ê
+			MoveList[depth][MoveCount].Bar.x = k;//å­˜æ”¾éšœç¢çš„åæ ‡
 			MoveList[depth][MoveCount].Bar.y = l;
 			MoveList[depth][MoveCount].ChessID = Side;
 			MoveList[depth][MoveCount].score = 0;
-			//¼Æ²½Æ÷¼ÆÊı¸üĞÂ
+			//è®¡æ­¥å™¨è®¡æ•°æ›´æ–°
 			MoveCount++;
 			
-			//¼ÌĞøÑØ¸ÃÂ·¾¶Æ«ÒÆ
+			//ç»§ç»­æ²¿è¯¥è·¯å¾„åç§»
 			k += Offset[t][0];
 			l += Offset[t][1];
 		}
-		k = ToX;//»Ö¸´×ø±ê£¬ÎªÏÂÒ»¸ö·½ÏòµÄÆ«ÒÆ×ö×¼±¸
+		k = ToX;//æ¢å¤åæ ‡ï¼Œä¸ºä¸‹ä¸€ä¸ªæ–¹å‘çš„åç§»åšå‡†å¤‡
 		l = ToY;
 	}
-	//»Ö¸´ÆåÅÌ£¬³·ÏúÄ£ÄâµÄĞĞÆå
+	//æ¢å¤æ£‹ç›˜ï¼Œæ’¤é”€æ¨¡æ‹Ÿçš„è¡Œæ£‹
 	Board[ToX][ToY] = EMPTY;
 	Board[FromX][FromY] = Side;
 }

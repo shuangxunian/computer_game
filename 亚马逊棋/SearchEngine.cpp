@@ -1,11 +1,11 @@
 #include"SearchEngine.h"
 
 
-//对CurPosition进行操作
-void MakeMove(CHESSMOVE* move)//模拟行棋
+//瀵笴urPosition杩涜鎿嶄綔
+void MakeMove(CHESSMOVE* move)//妯℃嫙琛屾
 {
 	CurPosition[move->From.x][move->From.y] = EMPTY;
-	CurPosition[move->To.x][move->To.y] = move->ChessID;//该行棋方是已经找到的配对的行棋方,或者可以借鉴老程序的写法
+	CurPosition[move->To.x][move->To.y] = move->ChessID;//璇ヨ妫嬫柟鏄凡缁忔壘鍒扮殑閰嶅鐨勮妫嬫柟,鎴栬�呭彲浠ュ�熼壌鑰佺▼搴忕殑鍐欐硶
 	CurPosition[move->Bar.x][move->Bar.y] = BARRIER;
 }
 

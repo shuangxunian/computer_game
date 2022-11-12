@@ -3,10 +3,10 @@
 #include"SearchEngine.h"
 #include<string.h>
 
-extern int SearchDepth;//ÉèÖÃËÑË÷Éî¶È
-extern int Step;//¼ÇÂ¼½»Ìæ×ß¹ıµÄ²½Êı
+extern int SearchDepth;//è®¾ç½®æœç´¢æ·±åº¦
+extern int Step;//è®°å½•äº¤æ›¿èµ°è¿‡çš„æ­¥æ•°
 extern int mode;
 
-///////º¯ÊıÉùÃ÷///////
+///////å‡½æ•°å£°æ˜///////
 void SearchAGoodMove(int Board[12][12]);
-double AlphaBeta(int depth, double alpha=-INFI, double beta=INFI);//´«ÈëÁ½¸öÄ¬ÈÏ²ÎÊıalphaºÍbeta
+double AlphaBeta(int depth, double alpha=-INFI, double beta=INFI);//ä¼ å…¥ä¸¤ä¸ªé»˜è®¤å‚æ•°alphaå’Œbeta

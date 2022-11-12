@@ -7,6 +7,6 @@
 extern int CurPosition[12][12];
 extern CHESSMOVE BestMove;
 
-///////º¯ÊýÉùÃ÷//////
-void MakeMove(CHESSMOVE* move);//´«ÈëÒ»¸ö²½·¨µÄ½á¹¹ÌåÖ¸Õë
+///////å‡½æ•°å£°æ˜Ž//////
+void MakeMove(CHESSMOVE* move);//ä¼ å…¥ä¸€ä¸ªæ­¥æ³•çš„ç»“æž„ä½“æŒ‡é’ˆ
 void UnMakeMove(CHESSMOVE* move);

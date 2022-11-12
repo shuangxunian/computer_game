@@ -2,11 +2,11 @@
 
 #include"Data.h"
 
-extern CHESSMOVE MoveList[8][2500];     //ÓÃÒÔ´æ´¢²½·¨,½á¹¹ÌåÊı×é
-extern int MoveCount;       //¼ÇÂ¼²½·¨×ÜÊı
-extern int Offset[8][2];      //¶¨ÒåÆ«ÒÆÁ¿£¬¼ò»¯´úÂë
+extern CHESSMOVE MoveList[8][2500];     //ç”¨ä»¥å­˜å‚¨æ­¥æ³•,ç»“æ„ä½“æ•°ç»„
+extern int MoveCount;       //è®°å½•æ­¥æ³•æ€»æ•°
+extern int Offset[8][2];      //å®šä¹‰åç§»é‡ï¼Œç®€åŒ–ä»£ç 
 
-/////////////////////º¯ÊıÉùÃ÷////////////////////////////
+/////////////////////å‡½æ•°å£°æ˜////////////////////////////
 void InitOffset();
-int CreatePossibleMove(int Board[12][12],int depth,int Side);//´«ÈëÆåÅÌ£¬Éî¶ÈºÍĞĞÆå·½
+int CreatePossibleMove(int Board[12][12],int depth,int Side);//ä¼ å…¥æ£‹ç›˜ï¼Œæ·±åº¦å’Œè¡Œæ£‹æ–¹
 void CreatePossibleBar(int Board[12][12], int depth, int Side, int FromX, int FromY, int ToX, int ToY);
